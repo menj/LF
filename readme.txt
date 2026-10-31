@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 2.2.0
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -136,6 +136,11 @@ Go to Appearance > Customize > Homepage Settings. You can set the number of feat
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.3.0 (October 2026) =
+* Homepage publications showcase: readable book cards in two or more rows over a parallax cover backdrop that follows the active book
+* Hero photos from Pexels (Theme Settings > Homepage)
+* Quirky 404 page
 
 = 2.2.0 (October 2026) =
 * New Labels tab: every remaining front-end string is editable (status badges, buttons, single book labels, article, search, comments and 404 text)

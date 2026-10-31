@@ -1,3 +1,10 @@
+# Upgrading to 2.3.0
+
+- The homepage Featured Publications section is now a **Showcase** (cover backdrop, two or more rows). To keep the previous simple grid, choose **Plain grid** in Theme Settings > Homepage > Publications layout.
+- The default number of homepage books is 6 (three per row, two rows). Change it in the same tab.
+
+---
+
 # Upgrading to 2.2.0
 
 - Corners are **Soft** by default (rounder than before). To keep the previous look choose **Sharp** in Theme Settings > Layout.

@@ -81,6 +81,22 @@ get_header();
 </section>
 
 <!-- Featured Books Section -->
+<?php
+$books_count    = langgam_fikir_get_option( 'featured_books_count' );
+$featured_books = new WP_Query( array(
+    'post_type'      => 'book',
+    'posts_per_page' => $books_count,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+) );
+?>
+<?php if ( 'plain' !== langgam_fikir_get_option( 'books_style' ) ) : ?>
+<section class="books-section books-section--showcase">
+    <div class="container">
+        <?php langgam_fikir_render_book_showcase( $featured_books ); ?>
+    </div>
+</section>
+<?php else : ?>
 <section class="books-section">
     <div class="container">
         <div class="section-header-centered">
@@ -89,14 +105,6 @@ get_header();
         </div>
         <div class="books-grid">
             <?php
-            $books_count = langgam_fikir_get_option( 'featured_books_count' );
-            $featured_books = new WP_Query( array(
-                'post_type'      => 'book',
-                'posts_per_page' => $books_count,
-                'orderby'        => 'date',
-                'order'          => 'DESC',
-            ) );
-
             if ( $featured_books->have_posts() ) :
                 while ( $featured_books->have_posts() ) : $featured_books->the_post();
                     ?>
@@ -160,6 +168,7 @@ get_header();
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <!-- Resources Section -->
 <section class="resources-section">

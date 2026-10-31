@@ -5,6 +5,15 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2026-10-31
+
+### Added
+- **Publications showcase** on the homepage (`inc/showcase.php`, `assets/js/showcase.js`): the books sit on a parallax backdrop made from the active book's cover (blurred, tinted and darker behind the heading and button), while every book stays a solid card with its cover, status, title, subtitle, author, year and a "Learn more" link. Hover or keyboard focus makes a card active; otherwise the highlight rotates every few seconds, pausing on hover and focus, stopping when off screen, and never running for visitors who prefer reduced motion. Three cards per row (two on tablets, one on phones), so six books give two rows
+- Theme Settings > Homepage: **Publications layout** (Showcase or the original Plain grid) and **Showcase rotation** (automatic or hover only)
+
+### Changed
+- The homepage now features 6 books by default (previously 4) so the section has two rows. A number you saved earlier is kept
+
 ## [2.2.0] - 2026-10-31
 
 ### Added

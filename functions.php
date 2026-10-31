@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Theme options: colour schemes, typography, homepage and contact settings.
 require_once get_stylesheet_directory() . '/inc/theme-options.php';
 require_once get_stylesheet_directory() . '/inc/pages.php';
+require_once get_stylesheet_directory() . '/inc/showcase.php';
 
 /**
  * Enqueue Parent and Child Theme Styles
@@ -153,6 +154,17 @@ function langgam_fikir_enqueue_assets() {
         true
     );
     
+    // Publications showcase (homepage only)
+    if ( is_front_page() && 'plain' !== langgam_fikir_get_option( 'books_style' ) ) {
+        wp_enqueue_script(
+            'langgam-fikir-showcase',
+            $uri . '/assets/js/showcase.js',
+            array(),
+            filemtime( $dir . '/assets/js/showcase.js' ),
+            true
+        );
+    }
+
     // Parallax (switched off in Theme Settings > Layout)
     if ( 'off' !== langgam_fikir_get_option( 'parallax' ) ) {
         wp_enqueue_script(
