@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Parallax (`assets/js/parallax.js`): hero layers, homepage About image and badge, About page logo, single book cover. It only updates on-screen sections, runs in `requestAnimationFrame` and is disabled for visitors who prefer reduced motion
 - `search.php` and `404.php`, with editable 404 text and a search form on empty results
 
+### Added (404)
+- A quirky 404 page: a bookshelf with a gap and a toppled book, a drifting page, a random quip (one per line, editable) in the Ferments script, a friendly message, a search box and the three latest books as suggestions. Every part is editable in Theme Settings > Labels > 404 page and can be hidden by saving it blank; animation stops for reduced motion
+- Styled search form (404 page and empty search results)
+
 ### Changed
 - Corners are rounder by default: all radii come from `--radius-*` variables; hero has a rounded bottom edge; images and cards are larger-radius
 - Contact email defaults to langgam.fikir@gmail.com; the phone number is blank by default and hidden when empty (also on the About page)

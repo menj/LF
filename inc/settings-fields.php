@@ -138,9 +138,11 @@ function langgam_fikir_get_defaults() {
         'msg_nothing_found'   => __( 'Nothing found.', 'langgam-fikir' ),
 
         // Labels: 404 page.
-        'error_404_heading' => __( 'Page not found', 'langgam-fikir' ),
-        'error_404_text'    => __( 'The page you are looking for may have moved or no longer exists. Try a search, or return to the homepage.', 'langgam-fikir' ),
-        'error_404_button'  => __( 'Back to homepage', 'langgam-fikir' ),
+        'error_404_heading' => __( 'This page has wandered off the shelf.', 'langgam-fikir' ),
+        'error_404_text'    => __( "We looked under every cover, behind the footnotes and between the lines. Nothing.\n\nThe page you wanted may have moved, been renamed, or never existed outside someone's imagination (which, to be fair, is where most good books begin).", 'langgam-fikir' ),
+        'error_404_quips'   => __( "Misshelved, not lost. Probably.\nEven the best index misses an entry.\nThis chapter has been left intentionally blank.\nPlot twist: the link was broken all along.\nThe author is as surprised as you are.\nOur editors have been notified. They are pretending to be shocked.\nIt was here a minute ago. We checked the margins.", 'langgam-fikir' ),
+        'error_404_button'  => __( 'Take me home', 'langgam-fikir' ),
+        'error_404_suggestions_heading' => __( 'While you are here, these are definitely on the shelf', 'langgam-fikir' ),
 
         // Labels: comments.
         'label_comments_one'    => __( 'One comment on “{title}”', 'langgam-fikir' ),
@@ -350,8 +352,10 @@ function langgam_fikir_get_settings_fields() {
                 'privacy_contents_label' => $f( 'text', __( 'Contents sidebar heading', 'langgam-fikir' ) ),
                 '_h_404' => $f( 'heading', __( '404 page', 'langgam-fikir' ) ),
                 'error_404_heading' => $f( 'text', __( 'Heading', 'langgam-fikir' ) ),
-                'error_404_text'    => $f( 'textarea', __( 'Text', 'langgam-fikir' ) ),
+                'error_404_text'    => $f( 'textarea', __( 'Text', 'langgam-fikir' ), __( 'Separate paragraphs with a blank line.', 'langgam-fikir' ), array( 'rows' => 5 ) ),
+                'error_404_quips'   => $f( 'textarea', __( 'Quips', 'langgam-fikir' ), __( 'One per line. A different one is shown at random each time. Leave empty to hide it.', 'langgam-fikir' ), array( 'rows' => 8, 'allow_empty' => true ) ),
                 'error_404_button'  => $f( 'text', __( 'Button', 'langgam-fikir' ), '', array( 'allow_empty' => true ) ),
+                'error_404_suggestions_heading' => $f( 'text', __( 'Suggested books heading', 'langgam-fikir' ), __( 'Shows the three latest books under the message. Leave empty to hide them.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
                 '_h_com' => $f( 'heading', __( 'Comments', 'langgam-fikir' ) ),
                 'label_comments_one' => $f( 'text', __( 'Comments title: one comment', 'langgam-fikir' ), 'Use {title} for the article title.' ),
                 'label_comments_many' => $f( 'text', __( 'Comments title: several', 'langgam-fikir' ), 'Use {count} for the number and {title} for the article title.' ),
