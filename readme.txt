@@ -2,9 +2,9 @@
 Contributors: MENJ
 Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured-images, threaded-comments, translation-ready
 Requires at least: 6.7
-Tested up to: 6.7
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.3.0
+Stable tag: 2.10.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,13 +17,15 @@ Langgam Fikir is a professionally designed child theme of WordPress Twenty Twent
 = Key Features =
 
 * **Custom Book Post Type** - Manage books with comprehensive metadata including author, translator, editor, publisher, ISBN, price, and availability status
-* **Five Book Statuses** - Published, Pre-Order, Coming Soon, Reprinting, Out of Print with smart conditional display
+* **Ten Book Statuses** - Announced, Coming Soon, Pre-Order, New Release, Published, Limited Edition, Digital Only, Sold Out, Reprinting, Out of Print
 * **Custom Templates** - Homepage, About, Contact, Privacy Policy, Blog Archive, Book Archive, and Single Book pages
 * **Contact Form** - Built-in functional contact form with email notifications
 * **Schema.org Markup** - Complete JSON-LD structured data for books and organization for enhanced SEO
 * **WooCommerce Ready** - Optional e-commerce integration support
 * **Responsive Design** - Mobile-first approach with optimized layouts for all devices
-* **Customizer Integration** - Configure homepage content counts and settings through WordPress Customizer
+* **Theme Options Page** - Tabbed settings interface under Appearance > Theme Options for full control over homepage, contact, footer, and legal entity settings
+* **Showcase** - Interactive homepage section: hover a book title and the full-width background crossfades to its cover. Showcased books never repeat in the Latest Publications grid
+* **Agent Tools (WebMCP)** - In-browser AI agents can search the catalogue and look up books through read-only tools, and fill in (never send) the contact form; a public read-only REST endpoint backs it
 * **Professional Typography** - Crimson Text for headings, Inter for body text
 * **Configurable Colors** - CSS custom properties system for easy theming
 
@@ -88,7 +90,7 @@ The parent theme **Twenty Twenty-Five** must be installed first. Twenty Twenty-F
 2. Set homepage as static page (Settings > Reading)
 3. Create required pages: Home, About, Contact, Privacy Policy
 4. Add your first book (Books > Add New)
-5. Customize settings (Appearance > Customize > Homepage Settings)
+5. Configure settings (Appearance > Theme Options)
 
 == Frequently Asked Questions ==
 
@@ -108,6 +110,10 @@ Absolutely! WooCommerce support is optional. The theme has built-in book managem
 
 Edit /css/main.css and modify the CSS custom properties in the :root section. All colors are defined as variables for easy customization.
 
+= PageSpeed says my CSS is render-blocking and nothing is cached. Is that the theme? =
+
+Mostly not. The theme loads its JavaScript in the footer, uses no jQuery on the front end, loads page-specific styles only where needed, and versions every asset so it can be cached for a year. Compression and cache headers are set by your web server, not the theme. See the Server & Performance section of README.md for a ready .htaccess block, or use the LiteSpeed Cache plugin on LiteSpeed hosting. Very large PNG uploads (logos, covers) also show up in these audits; keep a logo under 20 KiB and upload covers as JPEG or AVIF.
+
 = Can I add more book metadata fields? =
 
 Yes! The theme is developer-friendly. Add custom fields in functions.php following the existing patterns for author, translator, editor, etc.
@@ -122,7 +128,7 @@ Yes! The theme uses proper internationalization functions and the 'langgam-fikir
 
 = How do I customize the homepage featured books count? =
 
-Go to Appearance > Customize > Homepage Settings. You can set the number of featured publications (1-12) and resources (1-12).
+Go to Appearance > Theme Options > Homepage. You can set the number of featured publications (1-12) and resources (1-12), as well as the hero text.
 
 == Screenshots ==
 
@@ -137,36 +143,230 @@ Go to Appearance > Customize > Homepage Settings. You can set the number of feat
 
 == Changelog ==
 
-= 2.3.0 (October 2026) =
-* Homepage publications showcase: readable book cards in two or more rows over a parallax cover backdrop that follows the active book
-* Hero photos from Pexels (Theme Settings > Homepage)
-* Quirky 404 page
+= 2.10.0 (September 2026) =
+* NEW: WebMCP agent tools — search-publications and get-publication registered in supporting browsers (read-only), backed by a public REST endpoint at /wp-json/langgam-fikir/v1/publications
+* NEW: Contact form annotated as a declarative WebMCP tool; agents can fill it, visitors send it; spam honeypot cleared on agent-invoked submissions
+* NEW: Theme Options > Social & SEO > Agent Tools card: enable toggle, contact-form toggle, Origin Trial token
+* Progressive enhancement: browsers without WebMCP see no change
 
-= 2.2.0 (October 2026) =
-* New Labels tab: every remaining front-end string is editable (status badges, buttons, single book labels, article, search, comments and 404 text)
-* Rounder corners with a Soft, Round or Sharp choice, and optional parallax scrolling (Theme Settings > Layout)
-* Optional hero background image
-* Fixed search and 404 pages showing the parent theme's header and footer
+= 2.9.9 (September 2026) =
+* CHANGED: Book cards show the status once (cover badge only); the footer label is removed
+* NEW: 20-word excerpt on book cards, between subtitle and author/year
+* FIXED: Duplicate footer CSS introduced in 2.9.7 removed; the long-standing rules remain the single definition
 
-= 2.1.0 (October 2026) =
-* Every page text is now editable in Theme Settings: Homepage, About page, Contact page, Publications, Footer and pages
-* Choose which pages are About and Contact; no more fixed slugs
-* Text typed in the About and Contact page editors now appears on the page
-* Default navigation when no menu is set
+= 2.9.8 (September 2026) =
+* FIXED: Mobile menu button now has an accessible name (aria-label="Menu")
+* FIXED: Homepage About image, the LCP element on mobile, is no longer lazy-loaded and carries fetchpriority="high"; preconnect added for the fallback image origin
+* CHANGED: Custom logo no longer receives fetchpriority="high"
 
-= 2.0.0 (October 2026) =
-* New tabbed Theme Settings page: Colours, Typography, Homepage, Contact and About
-* New colour schemes: Earth, Slate, Midnight and Auto (dark mode), with custom colour overrides
-* Added theme.json; removed all !important rules; self-hosted fonts
-* Existing Customizer homepage values are still honoured
+= 2.9.7 (September 2026) =
+* FIXED: Book card footer had no styles — prices and status labels rendered as plain text and Learn More buttons sat at uneven heights across a row. Footer is now pinned to the card bottom with a styled price slot
 
-= 1.9.6 (August 2026) =
-* SECURITY: Added hidden honeypot field to the contact form to block automated submissions
-* SECURITY: Added per-IP rate limit of one contact submission per minute
-* SECURITY: Escaped name, email, subject, and message in the contact notification email
-* SECURITY: Escaped the site description output in header.php and footer.php
-* SECURITY: Hardened the Schema.org JSON-LD block against script-tag breakout
-* Added a "sending messages too quickly" notice on the contact page
+= 2.9.6 (September 2026) =
+* FIXED: Showcase backgrounds for covers lacking the book-showcase size fell back to the full original upload; the fallback is now capped at the large size
+* CHANGED: Showcase background images load lazily when the section approaches the viewport
+* DOCS: Second PageSpeed baseline recorded; roadmap item added for splitting main.css by context
+
+= 2.9.5 (September 2026) =
+* FIXED: additional.css did not load on the Contact, About, and Privacy Policy pages when their slugs differed from the literal defaults; the stylesheet is now enqueued by assigned page template
+* FIXED: Contact form honeypot ("Website" field) was visible on affected pages; its hiding rule now lives in main.css and applies everywhere
+
+= 2.9.4 (September 2026) =
+* FIXED: "Learn More", "Read More", and "VIEW MORE" links now carry visually hidden suffixes so each has a unique accessible name (e.g. "Learn More about {book title}"); visible text unchanged
+* NOTE: The "no main landmark" audit finding was fixed by the homepage <main> wrapper in 2.9.3
+
+= 2.9.3 (September 2026) =
+* FIXED: Badge label and section subtitle contrast — both moved from the muted text colour to the secondary text colour to pass WCAG AA
+* FIXED: Homepage skip link now has a target — front-page.php wrapped in <main id="primary"> like every other template
+* FIXED: All <main id="primary"> wrappers carry tabindex="-1" so the skip-link target is programmatically focusable
+* DOCS: Phase 8 baseline gains the main-thread and accessibility audit findings; ssot palette table reconciled with main.css
+
+= 2.9.2 (September 2026) =
+* DOCS: Server & Performance section in README.md (compression + caching .htaccess block, image guidance, optional jquery-migrate mu-plugin)
+* DOCS: Performance contract recorded in ssot.md; Phase 8 roadmap gains the September 2026 PageSpeed baseline and two items (stylesheet consolidation, LCP preload)
+* DOCS: New FAQ entry on PageSpeed render-blocking and caching findings
+* No code changes
+
+= 2.9.1 (June 2026) =
+* CHANGED: "Featured Showcase" renamed to "Showcase"; "Featured Publications" renamed to "Latest Publications" (option keys unchanged, saved settings carry over)
+* CHANGED: Showcase default count is now 3 (single row); range stays 2–6
+* CHANGED: Latest Publications grid excludes showcased books — no title appears in both homepage sections
+* CHANGED: Showcase grid adapts columns to count (2 books render as 2 clean columns)
+* NEW: langgam_fikir_get_showcase_items() and langgam_fikir_showcase_book_ids() helpers; the Showcase query now lives in inc/template-functions.php
+* CHANGED: template-parts/content/featured-showcase.php renamed to template-parts/content/showcase.php
+
+= 2.9.0 (June 2026) =
+* NEW: Featured Showcase — full-width interactive homepage section; hover (or tab to) a book title and the background crossfades to that book's cover
+* NEW: Featured Showcase card on Theme Options > Homepage — enable toggle, optional heading, book count (2–6), lifecycle scope (latest / available only / pipeline only)
+* NEW: book-showcase image size (1600×900 crop) for the full-bleed backgrounds
+* NEW: assets/css/showcase.css and assets/js/showcase.js, loaded on the front page only while the section is enabled
+* NEW: template-parts/content/featured-showcase.php — self-guarding; renders nothing when disabled or when fewer than 2 matching books have featured images
+* Keyboard focus drives the effect like hover; prefers-reduced-motion collapses the crossfade; touch devices just navigate
+
+= 2.8.1 (April 2026) =
+* NEW: ssot.md — Single Source of Truth document at theme root, canonical reference for brand identity, design tokens, architecture, conventions, plugin contracts, hard rules
+* Documentation set now exactly 5 files: ssot.md, CHANGELOG.md, UPGRADING.md, readme.txt, README.md
+* No code changes in this release
+
+= 2.8.0 (April 2026) =
+* NEW: Book Language meta box field — language picker dropdown with 24 BCP 47 choices, stored as _book_language post meta
+* NEW: Visible Language row on single book page (book-meta-grid) — shows human-readable language name with proper lang attribute
+* NEW: langgam_fikir_book_language_choices() helper (filterable), langgam_fikir_format_language_name() formatter, langgam_fikir_book_has_explicit_language() presence check
+* CHANGED: Resolution chain extended with theme's _book_language as third-tier fallback before site locale
+* IMPROVED: Theme is now fully functional without HrefMaster — book language can be declared via native meta box
+* IMPROVED: HrefMaster still takes precedence when both are set; new theme meta is a fallback, not a replacement
+
+= 2.7.0 (April 2026) =
+* NEW: HrefMaster plugin integration — auto-detects via HREFMASTER_VERSION constant
+* NEW: inc/hrefmaster-integration.php — dedicated integration module with detection, lang resolver, locale switcher, admin notice
+* NEW: Schema.org inLanguage on WebSite, Article, WebPage, AboutPage, ContactPage, and Book schemas — pulls from HrefMaster per-page setting when active
+* NEW: Open Graph og:locale aligned with HrefMaster per-page lang
+* NEW: Theme Options Social & SEO tab — status card showing HrefMaster integration state with "Open HrefMaster" link
+* NEW: Per-page locale switching for theme strings on singular pages with HrefMaster lang override (when matching .mo file ships)
+* CHANGED: Orphaned hreflang scaffolding moved from template-functions.php into the dedicated integration module
+
+= 2.6.1 (April 2026) =
+* FIX: about_badge_label default wrapped in __() for proper translation
+* FIX: .pot regenerated from current source (260 → 319 strings, picking up v2.4.0–v2.6.0 additions)
+* FIX: .pot extraction now uses correct WordPress keyword spec (textdomain no longer treated as msgctxt)
+* FIX: ms_MY .po and .mo merged with new strings via msgmerge, preserving existing translations
+* VERIFIED: All source strings in en_US; brand identifiers (Langgam Fikir Enterprise, tagline) intentionally untranslated
+
+= 2.6.0 (April 2026) =
+* NEW: Book Reviews meta box — repeatable entries with reviewer, rating (1-5), optional headline, body, date
+* NEW: Review + aggregateRating properties on Book JSON-LD — star-rating rich results in Google
+* NEW: Visible reviews section on single book page with aggregate score and individual review cards
+* NEW: Inline aggregate rating displayed under book subtitle (links to reviews section)
+* NEW: Auto-TOC for blog posts longer than 1200 words — anchor-links from H2 headings
+* NEW: Per-post Search Engine Visibility toggle (sends noindex/nofollow when checked)
+* NEW: Star rating widget helper langgam_fikir_render_stars() with fractional/half-star support
+* IMPROVED: New template part template-parts/content/reviews-section.php
+* SEO/AEO score lift: 88/100 → 92/100
+
+= 2.5.0 (April 2026) =
+* NEW: FAQ meta box on book and page post types — repeatable Q/A pairs with drag-to-reorder
+* NEW: FAQPage JSON-LD output — Google rich-result eligibility for FAQ snippets
+* NEW: Visible FAQ accordion section paired with the schema (aria-expanded, keyboard support)
+* NEW: ItemList JSON-LD on /publications/ archive and book taxonomy archives
+* IMPROVED: H2 sectioning on single book pages — "About the Book" + visually-hidden Details / Order / Share headings
+* IMPROVED: Admin JS now loads on both page and book screens (FAQ meta box needs both)
+* SEO/AEO score lift: 80/100 → 88/100
+
+= 2.4.0 (April 2026) =
+* FIX (CRITICAL): Double-H1 conflict on front page resolved — site-title demoted from h1 to p, hero h1 is now sole primary heading
+* NEW: Visible breadcrumb component above H1 on every inner page (mirrors existing BreadcrumbList JSON-LD)
+* NEW: Author bio template part after the_content() on single.php with avatar, archive link, last-updated date
+* NEW: Last-updated date shown when dateModified > datePublished + 1 day
+* IMPROVED: Resource card category is now a link to category archive (was a span) — adds internal-link equity
+* IMPROVED: home.php has its own H1 (visually hidden) for accessibility
+* SEO/AEO score lift: 69/100 → 80/100
+
+= 2.3.0 (April 2026) =
+* NEW: Price on book cards — book-card.php shows RM price for orderable books, muted status label otherwise; flex column footer alignment
+* NEW: Related books section on single book page — up to 4 books from same book-category taxonomy, random order
+* NEW: Social sharing bar on single book page — WhatsApp, Facebook, X (Twitter) + copy-link button with Clipboard API
+* NEW: Full social links on Contact page — reads all four social URLs from Theme Options; per-page Instagram override retained
+* NEW: Configurable homepage badge — Theme Options fields about_badge_number and about_badge_label replace hardcoded "Years of Excellence" string
+* IMPROVED: Theme Options Homepage tab — new About Badge card with Number and Label fields
+* IMPROVED: assets/js/main.js — initShareCopyLink() helper added with Clipboard API + execCommand fallback
+* IMPROVED: assets/css/main.css — new sections for Book Card Footer, Book Share Bar, Related Books, Contact Social Icons Row
+
+= 2.2.1 (April 2026) =
+* FIX: About page logo upload chain fully unified on attachment ID pattern (was broken across save/render/JS/template)
+* FIX: fonts.css @font-face paths now correctly resolve to /assets/fonts/ directory
+* FIX: Removed hardcoded /wp-content/uploads/ logo path from page-about.php
+* FIX: Removed duplicate WooCommerce add_theme_support from setup.php
+
+= 2.2 (April 2026) =
+* Removed empty customizer.php stub — all settings managed via Theme Options
+* Synced with upstream v2.1.0.1 and v2.1.1-patched releases
+* Tested up to bumped from 6.7 to 6.9
+
+= 2.1.0 (April 2026) =
+* NEW: Complete Schema.org system — BreadcrumbList, Article, WebSite+SearchAction, Organization, WebPage/AboutPage/ContactPage
+* NEW: Speakability schema on book synopses and blog articles — enables Google Assistant voice reading
+* NEW: Open Graph meta tags — book covers show in WhatsApp/Facebook/Twitter previews (og:type=book with ISBN)
+* NEW: Twitter Card meta (summary_large_image) across all content types
+* NEW: Auto-generated meta descriptions — book pages use "Author — Subtitle" format
+* NEW: Font preload hints for critical WOFF2 files (eliminates FOUT)
+* NEW: Skip-to-content accessibility link
+* NEW: Social & SEO tab in Theme Options (Facebook, Instagram, Twitter/X, WhatsApp URLs, default meta description)
+* FIX: Site title H1 now only on front page — inner pages use <p> (heading hierarchy fix)
+* FIX: Footer site title changed from <h2> to <p>
+* Added inc/schema.php (~450 lines) with full structured data and social meta system
+
+= 2.0.1 (April 2026) =
+* ARCHITECTURE: Extracted book-card.php template part — single source for all book card rendering
+* ARCHITECTURE: Extracted resource-card.php template part — unified across homepage, blog, related articles
+* Replaced duplicated markup in front-page.php, archive-book.php, 404.php, home.php, single.php with get_template_part()
+* NEW: taxonomy-book-category.php — dedicated archive for book categories with staggered grid
+* NEW: taxonomy-book-tag.php — dedicated archive for book tags
+* Resource cards now include category badge, date, and read-more link consistently
+* Added .resource-card-footer CSS with date/link layout
+
+= 2.0.0 (April 2026) =
+* NEW: 404 page template — branded design with search, book suggestions, scroll animations
+* NEW: Search results template — type badges (Book/Article/Page), thumbnails, no-results state
+* CRITICAL FIX: Contact form action mismatch — forms were silently failing, all emails lost (SEC-01)
+* SECURITY: Email From header now uses site domain, visitor email in Reply-To only (SEC-02)
+* SECURITY: Contact form spam protection — honeypot, timestamp check, IP rate limiting (SEC-03)
+* SECURITY: Escape audit across header.php, page-privacy.php, single-book.php, page-contact.php (SEC-04)
+* SECURITY: Self-hosted Google Fonts via /assets/fonts/ — GDPR compliant (SEC-05)
+* SECURITY: Theme Options tab parameter escaped (SEC-07)
+* COMPLIANCE: All inline styles removed from PHP templates
+* COMPLIANCE: Recommended server security headers documented in README (SEC-10)
+* COMPLIANCE: Generated .pot translation file with 233 strings in /languages/
+* Added /assets/css/fonts.css, /assets/fonts/ with download instructions
+
+= 1.9.9 (April 2026) =
+* NEW: 10-status book system — added "Announced" status for pipeline titles
+* NEW: Animated scroll-reveal system across all homepage sections
+* NEW: Parallax hero with configurable background image via Theme Options
+* NEW: Hero text entrance animation (fade-up with staggered timing)
+* NEW: Book card hover enhancements — deeper lift, shadow bloom, cover image zoom
+* NEW: Badge shimmer animation on New Release and Pre-Order badges
+* NEW: Section header golden underline animation on scroll reveal
+* NEW: Button ripple hover effect
+* NEW: Staggered card entrance — books and resources cascade into view
+* NEW: About snippet image hover zoom and badge scale effect
+* NEW: Footer fade-in animation on scroll
+* NEW: Hero Background Image setting in Theme Options (Homepage tab)
+* Full prefers-reduced-motion support — all animations disabled for accessibility
+* Announced status colour: warm plum (#8E7193)
+* Ten fully distinct badge colours across the complete publishing lifecycle
+
+= 1.9.8 (April 2026) =
+* EXPANDED: Book status system from 5 to 9 statuses
+* NEW: New Release — for titles in their launch window
+* NEW: Limited Edition — signals scarcity for special print runs
+* NEW: Digital Only — e-book/PDF available, no physical copies
+* NEW: Sold Out — stock exhausted, no confirmed reprint yet
+* Status radio buttons grouped by category in admin (Available, Upcoming, Unavailable)
+* Added helper functions: langgam_fikir_status_badge(), langgam_fikir_get_status_label(), langgam_fikir_status_is_orderable(), langgam_fikir_status_has_price()
+* Schema.org offers updated for all 9 statuses (InStock, LimitedAvailability, OnlineOnly, PreOrder, OutOfStock, Discontinued)
+* Status badge rendering refactored to single helper function across all templates
+* Admin CSS loads on book edit screens (previously only page screens)
+* Nine distinct badge colours with full gradient system
+
+= 1.9.7 (April 2026) =
+* NEW: Tabbed Theme Options page (Appearance > Theme Options) replacing Customizer for all custom settings
+* Three tabs: Homepage, Contact & Footer, Legal Entity
+* All settings use WordPress Options API (single langgam_fikir_options array)
+* Customizer stripped to native WordPress controls only (Site Identity, Menus)
+* Restored footer Contact column with address, phone, email, SVG icons, Schema.org markup
+* Footer bar reads legal entity name and registration number from Theme Options
+* Added hero text, contact form recipient email to Theme Options
+* Automatic one-time migration of existing theme_mod values
+* Live preview for legal entity footer bar text
+* New helper: langgam_fikir_get_option() for unified option access
+* New assets: assets/css/theme-options.css, assets/js/theme-options.js
+
+= 1.9.6 (February 2026) =
+* STRUCTURE: Decomposed monolithic functions.php into /inc/ modules
+* Modular architecture: setup, enqueue, post-types, meta-boxes, customizer, template-functions, template-hooks
+* Conditional loading for admin and WooCommerce contexts
+* Added CHANGELOG.md, UPGRADING.md documentation
+* WordPress.org compliance improvements
 
 = 1.9.5 (February 2026) =
 * STRUCTURE: Reorganized assets into proper /assets/ directory
@@ -235,6 +435,66 @@ Go to Appearance > Customize > Homepage Settings. You can set the number of feat
 * Typography and color system implementation
 
 == Upgrade Notice ==
+
+= 2.10.0 =
+Adds WebMCP agent tools and a public read-only catalogue endpoint. On by default, inert without a WebMCP browser. Re-save Permalinks if the endpoint 404s.
+
+= 2.9.9 =
+Book cards: status shown once, excerpt added. Markup and CSS only; hard-refresh after updating.
+
+= 2.9.8 =
+Mobile fixes: named menu button, faster About-image LCP. Set a featured image on your About page to replace the fallback photo.
+
+= 2.9.7 =
+Fixes unstyled prices/status labels and uneven buttons on book cards. CSS only; clear browser cache.
+
+= 2.9.6 =
+Showcase performance fix: safe image fallback and lazy-loaded backgrounds. Run Regenerate Thumbnails after updating.
+
+= 2.9.5 =
+Fixes missing styles and a visible anti-spam field on the Contact page. Clear browser cache after updating.
+
+= 2.9.4 =
+Accessibility: unique screen-reader names for repeated Learn More / Read More / View More links. Markup only.
+
+= 2.9.3 =
+Accessibility fixes: AA contrast on the About badge and section subtitles, and a working skip link on the homepage. CSS and markup only. Clear browser cache after updating.
+
+= 2.9.2 =
+Documentation only. Adds server-side performance guidance (compression, caching, image weight) to README.md. No theme code changed.
+
+= 2.9.1 =
+Renames the homepage sections (Showcase / Latest Publications) and stops them showing the same titles. Settings carry over. If you customised featured-showcase.php, move changes to showcase.php.
+
+= 2.9.0 =
+Adds the interactive Featured Showcase to the homepage, on by default. Disable under Appearance > Theme Options > Homepage if unwanted. Regenerate thumbnails for sharp 1600×900 backgrounds.
+
+= 2.8.1 =
+Adds ssot.md (Single Source of Truth) at theme root. Documentation only; no code changes.
+
+= 2.8.0 =
+Book Language picker in admin + visible Language row on book pages. Works with or without the HrefMaster plugin. Recommended.
+
+= 2.7.0 =
+HrefMaster plugin integration: Schema inLanguage and OG locale now align with per-page hreflang settings. Recommended for multilingual sites.
+
+= 2.6.1 =
+i18n housekeeping: regenerated .pot, fixed badge label default, merged ms_MY translations. Safe upgrade.
+
+= 2.6.0 =
+Catalog Enrichment: book reviews + aggregateRating schema (star-rating rich results), auto-TOC for long posts, per-post robots toggle. Recommended.
+
+= 2.5.0 =
+AEO Layer: FAQ schema + accordion, ItemList on book archive, H2 sectioning on book pages. Recommended.
+
+= 2.4.0 =
+Critical SEO fix (front-page double-H1) plus authorship & navigation layer (visible breadcrumbs, author bio, last-updated date). Strongly recommended.
+
+= 2.3.0 =
+Adds book pricing on cards, related books, social sharing on book pages, configurable homepage badge. Recommended upgrade.
+
+= 2.2.1 =
+Fixes broken About page logo upload, incorrect font file paths, and removes hardcoded external URLs. Recommended upgrade.
 
 = 1.9.3 =
 Code quality improvements with proper asset separation. No breaking changes. Safe to upgrade.

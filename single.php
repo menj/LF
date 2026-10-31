@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main single-post-page">
+<main id="primary" class="site-main single-post-page" tabindex="-1">
     
     <?php
     while ( have_posts() ) :
@@ -35,6 +35,7 @@ get_header();
                         <?php endif; ?>
                         
                         <div class="page-title-header">
+                            <?php if ( function_exists( 'langgam_fikir_breadcrumbs' ) ) { langgam_fikir_breadcrumbs(); } ?>
                             <?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
                         </div>
                         
@@ -60,7 +61,27 @@ get_header();
                                 <span class="meta-item">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                                     <span class="reading-time">
-                                        <?php echo esc_html( str_replace( '{n}', (int) $reading_time, langgam_fikir_get_option( 'label_read_time' ) ) ); ?>
+                                        <?php printf( _n( '%d min read', '%d min read', $reading_time, 'langgam-fikir' ), $reading_time ); ?>
+                                    </span>
+                                </span>
+                            <?php endif; ?>
+                            <?php
+                            // Show "Last updated" only when modified date differs from published date by more than a day
+                            $published_ts = get_the_time( 'U' );
+                            $modified_ts  = get_the_modified_time( 'U' );
+                            if ( $modified_ts - $published_ts > DAY_IN_SECONDS ) :
+                                ?>
+                                <span class="meta-divider"></span>
+                                <span class="meta-item meta-item-updated">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.74 9.74 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                                    <span class="post-updated">
+                                        <?php
+                                        printf(
+                                            /* translators: %s: last-updated date */
+                                            esc_html__( 'Updated %s', 'langgam-fikir' ),
+                                            '<time datetime="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . esc_html( get_the_modified_date() ) . '</time>'
+                                        );
+                                        ?>
                                     </span>
                                 </span>
                             <?php endif; ?>
@@ -74,16 +95,24 @@ get_header();
                     <?php endif; ?>
                     
                     <div class="single-post-content">
+                        <?php
+                        // Auto-TOC for long-form posts (Phase D — v2.6.0): renders nothing if post is short
+                        if ( function_exists( 'langgam_fikir_render_toc' ) ) {
+                            langgam_fikir_render_toc();
+                        }
+                        ?>
                         <div class="entry-content">
                             <?php
                             the_content();
 
                             wp_link_pages( array(
-                                'before' => '<div class="page-links">' . esc_html( langgam_fikir_get_option( 'label_pages' ) ),
+                                'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'langgam-fikir' ),
                                 'after'  => '</div>',
                             ) );
                             ?>
                         </div>
+                        
+                        <?php get_template_part( 'template-parts/content/author-bio' ); ?>
                     </div>
                     
                     <?php
@@ -94,7 +123,7 @@ get_header();
                             <div class="single-post-tags">
                                 <span class="tags-label">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg>
-                                    <?php echo esc_html( langgam_fikir_get_option( 'label_tags' ) ); ?>
+                                    <?php _e( 'Tags', 'langgam-fikir' ); ?>
                                 </span>
                                 <span class="tags-divider"></span>
                                 <?php foreach ( $tags as $tag ) : ?>
@@ -114,7 +143,7 @@ get_header();
                         
                         <?php if ( $prev_post ) : ?>
                             <a href="<?php echo esc_url( get_permalink( $prev_post ) ); ?>" class="post-nav-link post-nav-prev">
-                                <span class="post-nav-label"><?php echo esc_html( langgam_fikir_get_option( 'label_post_prev' ) ); ?></span>
+                                <span class="post-nav-label"><?php _e( 'Previous Article', 'langgam-fikir' ); ?></span>
                                 <span class="post-nav-title"><?php echo esc_html( get_the_title( $prev_post ) ); ?></span>
                             </a>
                         <?php else : ?>
@@ -123,7 +152,7 @@ get_header();
                         
                         <?php if ( $next_post ) : ?>
                             <a href="<?php echo esc_url( get_permalink( $next_post ) ); ?>" class="post-nav-link post-nav-next">
-                                <span class="post-nav-label"><?php echo esc_html( langgam_fikir_get_option( 'label_post_next' ) ); ?></span>
+                                <span class="post-nav-label"><?php _e( 'Next Article', 'langgam-fikir' ); ?></span>
                                 <span class="post-nav-title"><?php echo esc_html( get_the_title( $next_post ) ); ?></span>
                             </a>
                         <?php endif; ?>
@@ -151,39 +180,15 @@ get_header();
                 <section class="related-posts-section">
                     <div class="container">
                         <div class="page-title-header page-title-header-sm centered">
-                            <h2 class="page-title"><?php echo esc_html( langgam_fikir_get_option( 'label_related' ) ); ?></h2>
+                            <h2 class="page-title"><?php _e( 'Related Articles', 'langgam-fikir' ); ?></h2>
                         </div>
                         
                         <div class="resources-grid">
                             <?php
                             while ( $related_query->have_posts() ) :
                                 $related_query->the_post();
-                                ?>
-                                <article class="resource-card">
-                                    <?php
-                                    $rel_categories = get_the_category();
-                                    if ( ! empty( $rel_categories ) ) :
-                                        ?>
-                                        <span class="resource-category">
-                                            <?php echo esc_html( $rel_categories[0]->name ); ?>
-                                        </span>
-                                    <?php endif; ?>
-                                    
-                                    <h3>
-                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                    </h3>
-                                    
-                                    <div class="resource-excerpt">
-                                        <?php the_excerpt(); ?>
-                                    </div>
-                                    
-                                    <div class="resource-meta">
-                                        <time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>">
-                                            <?php echo esc_html( get_the_date() ); ?>
-                                        </time>
-                                    </div>
-                                </article>
-                            <?php endwhile; ?>
+                                get_template_part( 'template-parts/content/resource-card' );
+                            endwhile; ?>
                         </div>
                     </div>
                 </section>

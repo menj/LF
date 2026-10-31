@@ -1,12 +1,280 @@
 /*
- * Admin styles for the Book Details meta box
+ * Admin Styles for Meta Boxes and Admin Interface
  * Langgam Fikir WordPress Theme
  */
 
 /*--------------------------------------------------------------
-# Book Details Meta Box
+# About Page Meta Box Styles
 --------------------------------------------------------------*/
-.lf-book-status .lf-radio {
+.about-meta-field {
+    margin-bottom: 20px;
+}
+
+.about-meta-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.about-meta-field input[type="text"] {
+    width: 100%;
+    padding: 8px;
+}
+
+.about-meta-help {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.about-meta-note {
+    background: #f0f6fc;
+    border-left: 4px solid #0073aa;
+    padding: 12px;
+    margin: 15px 0;
+}
+
+.about-logo-preview {
+    margin-top: 10px;
+    max-width: 300px;
+}
+
+.about-logo-preview img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background: #f5f0eb;
+}
+
+.button.upload-logo-button {
+    margin-top: 5px;
+}
+
+.button.remove-logo-button {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+/*--------------------------------------------------------------
+# Book Status Group
+--------------------------------------------------------------*/
+.lf-status-group {
+    border: 1px solid #D9D0C7;
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+}
+
+.lf-status-group:last-child {
+    margin-bottom: 0;
+}
+
+.lf-status-legend {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #8C7F72;
+    padding: 0 6px;
+}
+
+.lf-status-label {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 16px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.lf-logo-preview-img {
+    max-width: 200px;
+    height: auto;
+}
+
+/*--------------------------------------------------------------
+# FAQ Meta Box (Phase C — v2.5.0)
+--------------------------------------------------------------*/
+.langgam-fikir-faq-list {
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    background: #f6f7f7;
+    padding: 0;
+    margin: 1em 0;
+}
+
+.langgam-fikir-faq-row {
+    background: #ffffff;
+    border-bottom: 1px solid #dcdcde;
+    padding: 0;
+}
+
+.langgam-fikir-faq-row:last-child {
+    border-bottom: none;
+}
+
+.langgam-fikir-faq-row-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.75em 1em;
+    background: #f6f7f7;
+    border-bottom: 1px solid #dcdcde;
+    cursor: move;
+}
+
+.langgam-fikir-faq-row-handle {
+    color: #8c8f94;
+    font-size: 1.25em;
+}
+
+.langgam-fikir-faq-row-title {
+    flex: 1;
+    color: #1d2327;
+}
+
+.langgam-fikir-faq-remove {
+    color: #b32d2e;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 0.875em;
+}
+
+.langgam-fikir-faq-remove:hover,
+.langgam-fikir-faq-remove:focus {
+    color: #d63638;
+}
+
+.langgam-fikir-faq-remove .dashicons {
+    font-size: 1em;
+    width: 1em;
+    height: 1em;
+}
+
+.langgam-fikir-faq-row-body {
+    padding: 1em;
+}
+
+.langgam-fikir-faq-row-body p {
+    margin: 0 0 1em;
+}
+
+.langgam-fikir-faq-row-body p:last-child {
+    margin-bottom: 0;
+}
+
+.langgam-fikir-faq-row-body label {
+    display: block;
+    margin-bottom: 0.25em;
+}
+
+#langgam-fikir-faq-add .dashicons {
+    margin-top: 3px;
+    margin-right: 3px;
+}
+
+/*--------------------------------------------------------------
+# Reviews Meta Box (Phase D — v2.6.0)
+--------------------------------------------------------------*/
+.langgam-fikir-reviews-list {
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    background: #f6f7f7;
+    padding: 0;
+    margin: 1em 0;
+}
+
+.langgam-fikir-review-row {
+    background: #ffffff;
+    border-bottom: 1px solid #dcdcde;
+}
+
+.langgam-fikir-review-row:last-child {
+    border-bottom: none;
+}
+
+.langgam-fikir-review-row-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.75em 1em;
+    background: #f6f7f7;
+    border-bottom: 1px solid #dcdcde;
+    cursor: move;
+}
+
+.langgam-fikir-review-row-handle {
+    color: #8c8f94;
+    font-size: 1.25em;
+}
+
+.langgam-fikir-review-row-title {
+    flex: 1;
+    color: #1d2327;
+}
+
+.langgam-fikir-review-remove {
+    color: #b32d2e;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 0.875em;
+}
+
+.langgam-fikir-review-remove:hover,
+.langgam-fikir-review-remove:focus {
+    color: #d63638;
+}
+
+.langgam-fikir-review-remove .dashicons {
+    font-size: 1em;
+    width: 1em;
+    height: 1em;
+}
+
+.langgam-fikir-review-row-body {
+    padding: 1em;
+}
+
+.langgam-fikir-review-row-body p {
+    margin: 0 0 1em;
+}
+
+.langgam-fikir-review-row-body p:last-child {
+    margin-bottom: 0;
+}
+
+.langgam-fikir-review-row-body label {
+    display: block;
+    margin-bottom: 0.25em;
+}
+
+.langgam-fikir-review-row-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.langgam-fikir-review-row-grid p {
+    margin: 0;
+}
+
+@media (max-width: 782px) {
+    .langgam-fikir-review-row-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+#langgam-fikir-reviews-add .dashicons {
+    margin-top: 3px;
+    margin-right: 3px;
 }

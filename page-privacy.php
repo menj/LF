@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main" tabindex="-1">
     
     <?php
     while ( have_posts() ) :
@@ -23,7 +23,7 @@ get_header();
                     
                     <aside class="privacy-sidebar">
                         <nav class="privacy-navigation">
-                            <h3 class="privacy-nav-heading"><?php echo esc_html( langgam_fikir_get_option( 'privacy_contents_label' ) ); ?></h3>
+                            <h3 class="privacy-nav-heading"><?php _e( 'Contents', 'langgam-fikir' ); ?></h3>
                             <ul class="privacy-nav" id="privacy-nav">
                                 <?php
                                 $content = get_the_content();
@@ -49,6 +49,7 @@ get_header();
                     
                     <div class="privacy-main">
                         <div class="page-title-header">
+                            <?php if ( function_exists( "langgam_fikir_breadcrumbs" ) ) { langgam_fikir_breadcrumbs(); } ?>
                             <h1 class="page-title"><?php the_title(); ?></h1>
                         </div>
                         
@@ -73,7 +74,7 @@ get_header();
                                 }
                             }
                             
-                            echo $content;
+                            echo wp_kses_post( $content );
                             ?>
                         </div>
                     </div>

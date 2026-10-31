@@ -8,13 +8,14 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main" tabindex="-1">
     
     <section class="resources-archive">
         <div class="container">
             
             <header class="archive-header">
                 <div class="page-title-header">
+                    <?php if ( function_exists( 'langgam_fikir_breadcrumbs' ) ) { langgam_fikir_breadcrumbs(); } ?>
                     <h1 class="page-title"><?php the_archive_title(); ?></h1>
                 </div>
                 <?php
@@ -64,14 +65,14 @@ get_header();
                 <?php
                 the_posts_pagination( array(
                     'mid_size'  => 2,
-                    'prev_text' => esc_html( langgam_fikir_get_option( 'label_prev' ) ),
-                    'next_text' => esc_html( langgam_fikir_get_option( 'label_next' ) ),
+                    'prev_text' => __( '&larr; Previous', 'langgam-fikir' ),
+                    'next_text' => __( 'Next &rarr;', 'langgam-fikir' ),
                 ) );
                 ?>
                 
             <?php else : ?>
                 
-                <p><?php echo esc_html( langgam_fikir_get_option( 'msg_no_posts' ) ); ?></p>
+                <p><?php _e( 'No posts found.', 'langgam-fikir' ); ?></p>
                 
             <?php endif; ?>
             

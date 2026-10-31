@@ -14,29 +14,48 @@
 
         if (!menuToggle || !navigation) return;
 
-        // The icon animation lives in CSS (.menu-toggle.is-active).
-        function setOpen(open) {
-            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-            menuToggle.classList.toggle('is-active', open);
-            navigation.classList.toggle('active', open);
-        }
-
         menuToggle.addEventListener('click', function() {
-            setOpen(this.getAttribute('aria-expanded') !== 'true');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            this.setAttribute('aria-expanded', !isExpanded);
+            navigation.classList.toggle('active');
+            
+            // Toggle animation for hamburger icon
+            const spans = this.querySelectorAll('span');
+            if (spans.length === 3) {
+                spans[0].style.transform = !isExpanded ? 'rotate(45deg) translate(5px, 5px)' : '';
+                spans[1].style.opacity = !isExpanded ? '0' : '1';
+                spans[2].style.transform = !isExpanded ? 'rotate(-45deg) translate(7px, -6px)' : '';
+            }
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!menuToggle.contains(event.target) && !navigation.contains(event.target)) {
-                setOpen(false);
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navigation.classList.remove('active');
+                
+                const spans = menuToggle.querySelectorAll('span');
+                if (spans.length === 3) {
+                    spans[0].style.transform = '';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = '';
+                }
             }
         });
 
         // Close menu on escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && navigation.classList.contains('active')) {
-                setOpen(false);
-                menuToggle.focus();
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navigation.classList.remove('active');
+                
+                const spans = menuToggle.querySelectorAll('span');
+                if (spans.length === 3) {
+                    spans[0].style.transform = '';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = '';
+                }
             }
         });
     }
@@ -173,6 +192,103 @@
     }
 
     /**
+     * Scroll Reveal (Intersection Observer)
+     */
+    function initScrollReveal() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .site-footer');
+        if (!elements.length) return;
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        elements.forEach(function(el) {
+            observer.observe(el);
+        });
+    }
+
+    /**
+     * Parallax Hero Background
+     */
+    function initParallax() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var heroBg = document.querySelector('.hero-bg');
+        if (!heroBg) return;
+
+        var ticking = false;
+
+        function updateParallax() {
+            var scrolled = window.pageYOffset;
+            var heroHeight = heroBg.parentElement.offsetHeight;
+
+            if (scrolled <= heroHeight * 1.5) {
+                heroBg.style.transform = 'translate3d(0, ' + (scrolled * 0.35) + 'px, 0)';
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
+    /**
+     * Copy Link button for book share bar
+     */
+    function initShareCopyLink() {
+        var copyBtns = document.querySelectorAll('.share-copy');
+        if (!copyBtns.length) return;
+
+        copyBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var url = btn.getAttribute('data-url') || window.location.href;
+                var textEl = btn.querySelector('.share-copy-text');
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(url).then(function() {
+                        if (textEl) textEl.textContent = 'Copied!';
+                        btn.classList.add('copied');
+                        setTimeout(function() {
+                            if (textEl) textEl.textContent = 'Copy Link';
+                            btn.classList.remove('copied');
+                        }, 2000);
+                    });
+                } else {
+                    // Fallback for older browsers
+                    var textarea = document.createElement('textarea');
+                    textarea.value = url;
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = '0';
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    if (textEl) textEl.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(function() {
+                        if (textEl) textEl.textContent = 'Copy Link';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                }
+            });
+        });
+    }
+
+    /**
      * Initialize all functions when DOM is ready
      */
     function init() {
@@ -181,6 +297,37 @@
         initSmoothScroll();
         initAddToCart();
         initLazyLoad();
+        initScrollReveal();
+        initParallax();
+        initShareCopyLink();
+        initFaqAccordion();
+    }
+
+    /**
+     * FAQ Accordion (Phase C — v2.5.0)
+     *
+     * Toggles aria-expanded on .faq-question-button and shows/hides the
+     * paired .faq-answer panel. Multiple items can be open at once.
+     */
+    function initFaqAccordion() {
+        var buttons = document.querySelectorAll('.faq-question-button');
+        if (!buttons.length) return;
+
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var expanded = button.getAttribute('aria-expanded') === 'true';
+                var panelId = button.getAttribute('aria-controls');
+                var panel = panelId ? document.getElementById(panelId) : null;
+                if (!panel) return;
+
+                button.setAttribute('aria-expanded', !expanded);
+                if (expanded) {
+                    panel.setAttribute('hidden', '');
+                } else {
+                    panel.removeAttribute('hidden');
+                }
+            });
+        });
     }
 
     // Wait for DOM to be ready

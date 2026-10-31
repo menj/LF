@@ -10,6 +10,8 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'langgam-fikir' ); ?></a>
+
 <div id="page" class="site">
     
     <header id="masthead" class="site-header">
@@ -48,7 +50,7 @@
                 <?php endif; ?>
             </div>
             
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="<?php esc_attr_e( 'Menu', 'langgam-fikir' ); ?>">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -62,7 +64,7 @@
                             'theme_location' => 'primary',
                             'menu_id'        => 'primary-menu',
                             'container'      => false,
-                            'fallback_cb'    => 'lf_primary_menu_fallback',
+                            'fallback_cb'    => false,
                         )
                     );
                     ?>

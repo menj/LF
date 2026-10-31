@@ -1,0 +1,298 @@
+/**
+ * Theme Options Admin Styles
+ * Langgam Fikir
+ */
+
+.lf-options-wrap {
+    max-width: 720px;
+    margin-top: 20px;
+}
+
+.lf-options-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #6B5B4A;
+    margin-bottom: 20px;
+}
+
+.lf-options-icon {
+    font-size: 22px;
+    color: #C9A961;
+}
+
+.lf-version {
+    font-size: 12px;
+    font-weight: 400;
+    color: #8C7F72;
+    margin-left: auto;
+}
+
+/* ── Tabs ── */
+.lf-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #D9D0C7;
+    margin-bottom: 0;
+}
+
+.lf-tab {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6B6057;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.lf-tab .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.lf-tab:hover {
+    color: #6B5B4A;
+}
+
+.lf-tab--active {
+    color: #6B5B4A;
+    border-bottom-color: #C9A961;
+    font-weight: 600;
+}
+
+/* ── Panels ── */
+.lf-panel {
+    display: none;
+}
+
+.lf-panel--active {
+    display: block;
+}
+
+/* ── Cards ── */
+.lf-card {
+    background: #fff;
+    border: 1px solid #D9D0C7;
+    border-top: none;
+    padding: 24px 28px 28px;
+}
+
+.lf-card:first-child {
+    border-radius: 0;
+}
+
+.lf-card:last-child {
+    border-radius: 0 0 6px 6px;
+}
+
+.lf-card + .lf-card {
+    border-top: 1px solid #EDEAE4;
+}
+
+.lf-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6B5B4A;
+    margin: 0 0 2px;
+}
+
+.lf-card-desc {
+    font-size: 12.5px;
+    color: #8C7F72;
+    margin: 0 0 18px;
+    line-height: 1.5;
+}
+
+/* ── Fields ── */
+.lf-field {
+    margin-bottom: 16px;
+}
+
+.lf-field:last-child {
+    margin-bottom: 0;
+}
+
+.lf-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.lf-field input[type="text"],
+.lf-field input[type="email"],
+.lf-field input[type="number"],
+.lf-field textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 7px 10px;
+    border: 1px solid #D9D0C7;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #333;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.lf-field input:focus,
+.lf-field textarea:focus {
+    border-color: #C9A961;
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.3);
+}
+
+.lf-field input[type="number"] {
+    max-width: 100px;
+}
+
+.lf-help {
+    font-size: 11.5px;
+    color: #8C7F72;
+    margin: 3px 0 0;
+    line-height: 1.4;
+}
+
+/* Side-by-side */
+.lf-field-row {
+    display: flex;
+    gap: 16px;
+}
+
+.lf-field-row .lf-field {
+    flex: 1;
+}
+
+/* ── Preview ── */
+.lf-preview {
+    margin-top: 18px;
+    padding: 12px 16px;
+    background: #F5F5F0;
+    border-radius: 4px;
+    border-left: 3px solid #C9A961;
+}
+
+.lf-preview-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #8C7F72;
+    margin-bottom: 4px;
+}
+
+.lf-preview-text {
+    font-size: 12.5px;
+    color: #6B5B4A;
+    line-height: 1.5;
+}
+
+/* ── Submit ── */
+.lf-submit {
+    margin-top: 20px;
+}
+
+/* ── Image Field ── */
+.lf-image-field {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.lf-image-preview {
+    margin-top: 4px;
+    max-width: 320px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #D9D0C7;
+}
+
+.lf-image-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.lf-submit .button-primary {
+    background: #6B5B4A;
+    border-color: #5A4C3D;
+    color: #fff;
+}
+
+.lf-submit .button-primary:hover {
+    background: #5A4C3D;
+    border-color: #4A3E32;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+    .lf-field-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .lf-tabs {
+        flex-wrap: wrap;
+    }
+
+    .lf-tab {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .lf-card {
+        padding: 16px 18px 20px;
+    }
+}
+
+/*--------------------------------------------------------------
+# HrefMaster Integration Notice Card (v2.7.0)
+--------------------------------------------------------------*/
+.lf-card-notice {
+    border-left: 4px solid #2271b1;
+    background: #f0f6fc;
+}
+
+.lf-card-notice-info {
+    border-left-color: #2271b1;
+    background: #f0f6fc;
+}
+
+.lf-card-notice-muted {
+    border-left-color: #c3c4c7;
+    background: #fafafa;
+}
+
+.lf-card-notice .lf-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.lf-version-tag {
+    display: inline-block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.75em;
+    font-weight: 500;
+    color: #50575e;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.15em 0.5em;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+}
+
+.lf-card-notice .button {
+    margin-top: 0.25rem;
+}

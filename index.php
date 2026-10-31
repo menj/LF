@@ -8,10 +8,10 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main" tabindex="-1">
     
     <div class="container">
-        <div class="section section-compact">
+        <div class="section section-padded">
             
             <?php
             if ( have_posts() ) :
@@ -45,7 +45,7 @@ get_header();
                     <header>
                         <div class="page-title-header">
                             <h1 class="page-title">
-                                <?php echo esc_html( str_replace( '{query}', get_search_query(), langgam_fikir_get_option( 'label_search_results' ) ) ); ?>
+                                <?php printf( esc_html__( 'Search Results for: %s', 'langgam-fikir' ), get_search_query() ); ?>
                             </h1>
                         </div>
                     </header>
@@ -97,7 +97,11 @@ get_header();
                         
                         <?php if ( ! is_singular() ) : ?>
                             <a href="<?php the_permalink(); ?>" class="read-more">
-                                <?php echo esc_html( langgam_fikir_get_option( 'label_read_more' ) ); ?>
+                                <?php _e( 'Read More', 'langgam-fikir' ); ?>
+                                <span class="screen-reader-text"><?php
+                                    /* translators: %s: post title */
+                                    printf( esc_html__( 'about %s', 'langgam-fikir' ), esc_html( get_the_title() ) );
+                                ?></span>
                             </a>
                         <?php endif; ?>
                         
@@ -108,26 +112,14 @@ get_header();
 
                 the_posts_pagination( array(
                     'mid_size'  => 2,
-                    'prev_text' => esc_html( langgam_fikir_get_option( 'label_prev' ) ),
-                    'next_text' => esc_html( langgam_fikir_get_option( 'label_next' ) ),
+                    'prev_text' => __( '&larr; Previous', 'langgam-fikir' ),
+                    'next_text' => __( 'Next &rarr;', 'langgam-fikir' ),
                 ) );
 
             else :
-                if ( is_search() ) :
-                    ?>
-                    <header>
-                        <div class="page-title-header">
-                            <h1 class="page-title">
-                                <?php echo esc_html( str_replace( '{query}', get_search_query(), langgam_fikir_get_option( 'label_search_results' ) ) ); ?>
-                            </h1>
-                        </div>
-                    </header>
-                    <?php
-                endif;
                 ?>
                 
-                <p><?php echo esc_html( langgam_fikir_get_option( 'msg_nothing_found' ) ); ?></p>
-                <?php get_search_form(); ?>
+                <p><?php _e( 'Nothing found.', 'langgam-fikir' ); ?></p>
                 
                 <?php
             endif;

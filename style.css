@@ -4,10 +4,10 @@ Theme URI: https://langgamfikir.com
 Template: twentytwentyfive
 Author: MENJ
 Author URI: https://langgamfikir.com
-Description: A child theme of Twenty Twenty-Five for book publishers. Minimalist design with selectable colour schemes (Earth, Slate, Midnight, Auto), self-hosted typography, WooCommerce support and a tabbed Theme Settings page. Uses /publications/ slug for books to avoid category conflicts. ORDER button pre-fills contact form with book details. Supports custom logo and complete book metadata.
-Version: 2.3.0
+Description: A child theme of Twenty Twenty-Five with custom book publisher design. Features elegant typography, WooCommerce integration, and a sophisticated minimalist design. Uses /publications/ slug for books to avoid category conflicts. ORDER button pre-fills contact form with book details. Supports custom logo and complete book metadata.
+Version: 2.10.0
 Requires at least: 6.7
-Tested up to: 6.7
+Tested up to: 6.9
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,11 +24,11 @@ Child theme of Twenty Twenty-Five, inheriting core functionality.
 # Child Theme Styles
 # Custom Overrides
 # Book Publisher Design
-# See /assets/css/ for full styles (main, schemes, additional, fonts, admin, settings)
+# See /css/ directory for full styles
 --------------------------------------------------------------*/
 
 /* 
  * Child theme stylesheet.
  * Parent theme styles loaded via functions.php.
- * Custom styles loaded from /assets/css/.
+ * Custom styles loaded from /css/ directory.
  */

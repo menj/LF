@@ -1,65 +1,85 @@
 /**
- * Publications showcase: the backdrop follows the active book.
- * Langgam Fikir WordPress Theme
+ * Showcase for Langgam Fikir Theme
  *
- * Hover or keyboard focus on a card makes it active; otherwise the showcase rotates slowly
- * through the books. Rotation pauses while the visitor interacts, stops when the section
- * is off screen, and never runs with reduced motion. Without JS the first book is active.
+ * Pairs each title link with its background layer via data attributes.
+ * Hover or keyboard focus activates the matching layer; leaving the
+ * section restores the default layer. Cover images load lazily when the
+ * section is within 600px of the viewport. No dependencies.
+ *
+ * Loaded on the front page only, when the showcase is enabled
+ * (see inc/enqueue.php).
  */
 
 (function() {
     'use strict';
 
-    var INTERVAL = 4500;
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function initShowcase() {
+        var section = document.querySelector('.lf-showcase');
+        if (!section) return;
 
-    document.querySelectorAll('[data-showcase]').forEach(function(root) {
-        var cards = Array.prototype.slice.call(root.querySelectorAll('.showcase-card'));
-        var backdrops = Array.prototype.slice.call(root.querySelectorAll('.showcase__bg'));
-        var current = 0;
-        var timer = null;
-        var paused = false;
+        var backgrounds = section.querySelectorAll('.lf-showcase-bg');
+        var items = section.querySelectorAll('.lf-showcase-item');
+        if (!backgrounds.length || !items.length) return;
 
-        if (cards.length < 2) return;
-
-        function setActive(index) {
-            current = index;
-            cards.forEach(function(card, i) {
-                card.classList.toggle('is-active', i === index);
-            });
-            backdrops.forEach(function(bg) {
-                bg.classList.toggle('is-active', parseInt(bg.getAttribute('data-index'), 10) === index);
+        // Cover images are deferred until the section nears the viewport.
+        function loadBackgrounds() {
+            backgrounds.forEach(function(bg) {
+                var src = bg.getAttribute('data-showcase-src');
+                if (src) {
+                    bg.style.backgroundImage = 'url("' + src + '")';
+                    bg.removeAttribute('data-showcase-src');
+                }
             });
         }
-
-        function stop() {
-            window.clearInterval(timer);
-            timer = null;
-        }
-
-        function start() {
-            if (reduce || !root.hasAttribute('data-autoplay') || timer || paused) return;
-            timer = window.setInterval(function() {
-                setActive((current + 1) % cards.length);
-            }, INTERVAL);
-        }
-
-        cards.forEach(function(card, i) {
-            card.addEventListener('mouseenter', function() { setActive(i); });
-            card.addEventListener('focusin', function() { setActive(i); });
-        });
-
-        root.addEventListener('mouseenter', function() { paused = true; stop(); });
-        root.addEventListener('mouseleave', function() { paused = false; start(); });
-        root.addEventListener('focusin', function() { paused = true; stop(); });
-        root.addEventListener('focusout', function() { paused = false; start(); });
 
         if ('IntersectionObserver' in window) {
-            new IntersectionObserver(function(entries) {
-                entries[0].isIntersecting ? start() : stop();
-            }, { threshold: 0.2 }).observe(root);
+            var observer = new IntersectionObserver(function(entries, obs) {
+                var near = entries.some(function(entry) { return entry.isIntersecting; });
+                if (near) {
+                    loadBackgrounds();
+                    obs.disconnect();
+                }
+            }, { rootMargin: '600px 0px' });
+            observer.observe(section);
         } else {
-            start();
+            loadBackgrounds();
         }
-    });
+
+        function activate(id) {
+            backgrounds.forEach(function(bg) {
+                bg.classList.toggle('is-active', bg.getAttribute('data-showcase-bg') === id);
+            });
+        }
+
+        items.forEach(function(item) {
+            var target = item.getAttribute('data-showcase-target');
+            if (!target) return;
+
+            item.addEventListener('pointerenter', function() {
+                activate(target);
+            });
+
+            item.addEventListener('focus', function() {
+                activate(target);
+            });
+        });
+
+        section.addEventListener('pointerleave', function() {
+            activate('default');
+        });
+
+        section.addEventListener('focusout', function(event) {
+            if (!section.contains(event.relatedTarget)) {
+                activate('default');
+            }
+        });
+    }
+
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initShowcase);
+    } else {
+        initShowcase();
+    }
+
 })();

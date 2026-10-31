@@ -8,10 +8,14 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main" tabindex="-1">
     
     <section class="resources-archive">
         <div class="container">
+            
+            <header class="archive-header screen-reader-text">
+                <h1><?php _e( 'Resources', 'langgam-fikir' ); ?></h1>
+            </header>
             
             <?php
             // Featured Resource Section
@@ -32,7 +36,7 @@ get_header();
                 ?>
                 <div class="featured-resource">
                     <div class="page-title-header">
-                        <h2 class="page-title"><?php echo esc_html( langgam_fikir_get_option( 'resources_featured_heading' ) ); ?></h2>
+                        <h2 class="page-title"><?php _e( 'Featured Resources', 'langgam-fikir' ); ?></h2>
                     </div>
                     
                     <div class="featured-resource-carousel">
@@ -62,10 +66,10 @@ get_header();
                         
                         <!-- Carousel arrows (optional - can be made functional with JavaScript) -->
                         <div class="carousel-arrows">
-                            <button class="carousel-arrow carousel-prev" aria-label="<?php echo esc_attr( langgam_fikir_get_option( 'label_carousel_prev' ) ); ?>">
+                            <button class="carousel-arrow carousel-prev" aria-label="<?php esc_attr_e( 'Previous', 'langgam-fikir' ); ?>">
                                 ‹
                             </button>
-                            <button class="carousel-arrow carousel-next" aria-label="<?php echo esc_attr( langgam_fikir_get_option( 'label_carousel_next' ) ); ?>">
+                            <button class="carousel-arrow carousel-next" aria-label="<?php esc_attr_e( 'Next', 'langgam-fikir' ); ?>">
                                 ›
                             </button>
                         </div>
@@ -79,7 +83,7 @@ get_header();
             <!-- Other Resources Section -->
             <div class="other-resources-section">
                 <div class="page-title-header">
-                    <h2 class="page-title"><?php echo esc_html( langgam_fikir_get_option( 'resources_other_heading' ) ); ?></h2>
+                    <h2 class="page-title"><?php _e( 'Other Resources', 'langgam-fikir' ); ?></h2>
                 </div>
                 
                 <?php if ( have_posts() ) : ?>
@@ -107,24 +111,7 @@ get_header();
                                 continue;
                             }
                             ?>
-                            <article class="resource-card">
-                                <?php
-                                $categories = get_the_category();
-                                if ( ! empty( $categories ) ) :
-                                    ?>
-                                    <span class="resource-category">
-                                        <?php echo esc_html( $categories[0]->name ); ?>
-                                    </span>
-                                <?php endif; ?>
-                                
-                                <h3>
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                </h3>
-                                
-                                <div class="resource-excerpt">
-                                    <?php the_excerpt(); ?>
-                                </div>
-                            </article>
+                            <?php get_template_part( 'template-parts/content/resource-card' ); ?>
                         <?php endwhile; ?>
                     </div>
                     
@@ -132,14 +119,14 @@ get_header();
                     // Pagination
                     the_posts_pagination( array(
                         'mid_size'  => 2,
-                        'prev_text' => esc_html( langgam_fikir_get_option( 'label_prev' ) ),
-                        'next_text' => esc_html( langgam_fikir_get_option( 'label_next' ) ),
+                        'prev_text' => __( '&larr; Previous', 'langgam-fikir' ),
+                        'next_text' => __( 'Next &rarr;', 'langgam-fikir' ),
                     ) );
                     ?>
                     
                 <?php else : ?>
                     
-                    <p><?php echo esc_html( langgam_fikir_get_option( 'msg_no_resources' ) ); ?></p>
+                    <p><?php _e( 'No resources found.', 'langgam-fikir' ); ?></p>
                     
                 <?php endif; ?>
             </div>
