@@ -11,6 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
+// Theme options: colour schemes, typography, homepage and contact settings.
+require_once get_stylesheet_directory() . '/inc/theme-options.php';
+
 /**
  * Enqueue Parent and Child Theme Styles
  */
@@ -109,30 +112,37 @@ add_action( 'pre_get_posts', 'langgam_fikir_modify_posts_per_page' );
  * Enqueue Child Theme Assets (CSS and JavaScript)
  */
 function langgam_fikir_enqueue_assets() {
-    // Google Fonts
-    wp_enqueue_style( 
-        'langgam-fikir-fonts', 
-        'https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap',
-        array(),
-        null
-    );
-    
+    $dir = get_stylesheet_directory();
+    $uri = get_stylesheet_directory_uri();
+
+    // Self-hosted fonts (skipped when "System fonts only" is chosen in Theme Settings)
+    $main_deps = array( 'langgam-fikir-style' );
+    if ( 'system' !== langgam_fikir_get_option( 'fonts_mode' ) ) {
+        wp_enqueue_style( 'langgam-fikir-fonts', $uri . '/assets/css/fonts.css', array(), filemtime( $dir . '/assets/css/fonts.css' ) );
+        $main_deps[] = 'langgam-fikir-fonts';
+
+        // Commercial fonts are not in the public repository; use them only when uploaded.
+        if ( file_exists( $dir . '/assets/fonts/sabon-next-lt-regular.woff2' ) ) {
+            wp_enqueue_style( 'langgam-fikir-fonts-premium', $uri . '/assets/css/fonts-premium.css', array(), filemtime( $dir . '/assets/css/fonts-premium.css' ) );
+            $main_deps[] = 'langgam-fikir-fonts-premium';
+        }
+    }
+
     // Main CSS file
-    wp_enqueue_style( 
-        'langgam-fikir-main', 
-        get_stylesheet_directory_uri() . '/assets/css/main.css',
-        array( 'langgam-fikir-style' ),
-        filemtime( get_stylesheet_directory() . '/assets/css/main.css' )
-    );
-    
+    wp_enqueue_style( 'langgam-fikir-main', $uri . '/assets/css/main.css', $main_deps, filemtime( $dir . '/assets/css/main.css' ) );
+
+    // Colour schemes and font stacks (variable overrides only)
+    wp_enqueue_style( 'langgam-fikir-schemes', $uri . '/assets/css/schemes.css', array( 'langgam-fikir-main' ), filemtime( $dir . '/assets/css/schemes.css' ) );
+
+    // Colours picked individually in Theme Settings > Colours
+    $custom_css = langgam_fikir_custom_colour_css();
+    if ( $custom_css ) {
+        wp_add_inline_style( 'langgam-fikir-schemes', $custom_css );
+    }
+
     // Additional CSS for forms and extra pages
-    wp_enqueue_style( 
-        'langgam-fikir-additional', 
-        get_stylesheet_directory_uri() . '/assets/css/additional.css',
-        array( 'langgam-fikir-main' ),
-        filemtime( get_stylesheet_directory() . '/assets/css/additional.css' )
-    );
-    
+    wp_enqueue_style( 'langgam-fikir-additional', $uri . '/assets/css/additional.css', array( 'langgam-fikir-schemes' ), filemtime( $dir . '/assets/css/additional.css' ) );
+
     // Main JavaScript
     wp_enqueue_script(
         'langgam-fikir-main',
@@ -159,23 +169,23 @@ function langgam_fikir_enqueue_admin_assets( $hook ) {
         return;
     }
     
-    // Get current screen to check post type
-    $screen = get_current_screen();
-    
-    // Only load for pages (where About meta box appears)
-    if ( $screen && 'page' === $screen->post_type ) {
-        // Enqueue admin CSS
+    $screen    = get_current_screen();
+    $post_type = $screen ? $screen->post_type : '';
+
+    // Meta box styles: About/Contact (pages) and Book Details (books)
+    if ( in_array( $post_type, array( 'page', 'book' ), true ) ) {
         wp_enqueue_style(
             'langgam-fikir-admin',
             get_stylesheet_directory_uri() . '/assets/css/admin.css',
             array(),
             filemtime( get_stylesheet_directory() . '/assets/css/admin.css' )
         );
-        
-        // Enqueue WordPress media uploader
+    }
+
+    // Logo picker (About meta box) is only needed on pages
+    if ( 'page' === $post_type ) {
         wp_enqueue_media();
-        
-        // Enqueue admin JavaScript
+
         wp_enqueue_script(
             'langgam-fikir-admin',
             get_stylesheet_directory_uri() . '/assets/js/admin.js',
@@ -400,20 +410,20 @@ function langgam_fikir_book_details_callback( $post ) {
         </tr>
         <tr>
             <th><label><?php _e( 'Status', 'langgam-fikir' ); ?></label></th>
-            <td>
-                <label style="margin-right: 20px;">
+            <td class="lf-book-status">
+                <label class="lf-radio">
                     <input type="radio" name="book_status" value="published" <?php checked( $status, 'published' ); ?>>
                     <?php _e( 'Published', 'langgam-fikir' ); ?>
                 </label>
-                <label style="margin-right: 20px;">
+                <label class="lf-radio">
                     <input type="radio" name="book_status" value="pre-order" <?php checked( $status, 'pre-order' ); ?>>
                     <?php _e( 'Pre-Order', 'langgam-fikir' ); ?>
                 </label>
-                <label style="margin-right: 20px;">
+                <label class="lf-radio">
                     <input type="radio" name="book_status" value="coming-soon" <?php checked( $status, 'coming-soon' ); ?>>
                     <?php _e( 'Coming Soon', 'langgam-fikir' ); ?>
                 </label>
-                <label style="margin-right: 20px;">
+                <label class="lf-radio">
                     <input type="radio" name="book_status" value="reprinting" <?php checked( $status, 'reprinting' ); ?>>
                     <?php _e( 'Reprinting', 'langgam-fikir' ); ?>
                 </label>
@@ -514,10 +524,10 @@ function langgam_fikir_handle_contact_form() {
     }
 
     // Sanitize form data
-    $name    = sanitize_text_field( wp_unslash( $_POST['contact_name'] ) );
-    $email   = sanitize_email( wp_unslash( $_POST['contact_email'] ) );
-    $subject = sanitize_text_field( wp_unslash( $_POST['contact_subject'] ) );
-    $message = sanitize_textarea_field( wp_unslash( $_POST['contact_message'] ) );
+    $name    = sanitize_text_field( wp_unslash( isset( $_POST['contact_name'] ) ? $_POST['contact_name'] : '' ) );
+    $email   = sanitize_email( wp_unslash( isset( $_POST['contact_email'] ) ? $_POST['contact_email'] : '' ) );
+    $subject = sanitize_text_field( wp_unslash( isset( $_POST['contact_subject'] ) ? $_POST['contact_subject'] : '' ) );
+    $message = sanitize_textarea_field( wp_unslash( isset( $_POST['contact_message'] ) ? $_POST['contact_message'] : '' ) );
 
     // Validate
     if ( empty( $name ) || empty( $email ) || empty( $subject ) || empty( $message ) ) {
@@ -531,7 +541,7 @@ function langgam_fikir_handle_contact_form() {
     }
 
     // Prepare email
-    $to      = get_option( 'admin_email' );
+    $to      = is_email( langgam_fikir_get_option( 'contact_recipient' ) ) ? langgam_fikir_get_option( 'contact_recipient' ) : get_option( 'admin_email' );
     $headers = array( 'Content-Type: text/html; charset=UTF-8', 'Reply-To: ' . $email );
     
     $email_subject = sprintf( __( '[%s] Contact Form: %s', 'langgam-fikir' ), get_bloginfo( 'name' ), $subject );
@@ -629,16 +639,6 @@ function langgam_fikir_contact_meta_box_callback( $post ) {
     $instagram = get_post_meta( $post->ID, '_contact_instagram', true );
     
     ?>
-    <style>
-        .contact-meta-field { margin-bottom: 20px; }
-        .contact-meta-field label { display: block; font-weight: 600; margin-bottom: 5px; }
-        .contact-meta-field input[type="text"],
-        .contact-meta-field input[type="email"],
-        .contact-meta-field input[type="url"] { width: 100%; padding: 8px; }
-        .contact-meta-field textarea { width: 100%; padding: 8px; rows: 4; }
-        .contact-meta-help { font-size: 12px; color: #666; margin-top: 5px; }
-    </style>
-    
     <div class="contact-meta-field">
         <label for="contact_description"><?php _e( 'Contact Description', 'langgam-fikir' ); ?></label>
         <textarea id="contact_description" name="contact_description" rows="4"><?php echo esc_textarea( $description ); ?></textarea>
@@ -828,69 +828,6 @@ function langgam_fikir_privacy_template( $template ) {
     return $template;
 }
 add_filter( 'template_include', 'langgam_fikir_privacy_template' );
-
-/**
- * Customizer Settings for Homepage
- */
-function langgam_fikir_customize_register( $wp_customize ) {
-    $wp_customize->add_section( 'langgam_fikir_homepage', array(
-        'title'    => __( 'Homepage Settings', 'langgam-fikir' ),
-        'priority' => 30,
-    ) );
-
-    $wp_customize->add_setting( 'featured_books_count', array(
-        'default'           => 4,
-        'sanitize_callback' => 'absint',
-    ) );
-
-    $wp_customize->add_control( 'featured_books_count', array(
-        'label'       => __( 'Number of Featured Publications', 'langgam-fikir' ),
-        'description' => __( 'How many books to show in the Featured Publications section on the homepage.', 'langgam-fikir' ),
-        'section'     => 'langgam_fikir_homepage',
-        'type'        => 'number',
-        'input_attrs' => array(
-            'min'  => 1,
-            'max'  => 12,
-            'step' => 1,
-        ),
-    ) );
-
-    $wp_customize->add_setting( 'featured_resources_count', array(
-        'default'           => 3,
-        'sanitize_callback' => 'absint',
-    ) );
-
-    $wp_customize->add_control( 'featured_resources_count', array(
-        'label'       => __( 'Number of Resources on Homepage', 'langgam-fikir' ),
-        'description' => __( 'How many resource posts to show on the homepage.', 'langgam-fikir' ),
-        'section'     => 'langgam_fikir_homepage',
-        'type'        => 'number',
-        'input_attrs' => array(
-            'min'  => 1,
-            'max'  => 12,
-            'step' => 1,
-        ),
-    ) );
-}
-add_action( 'customize_register', 'langgam_fikir_customize_register' );
-
-/**
- * Strip inline styles from block editor headings so child theme CSS applies
- * Twenty Twenty-Five injects inline styles on .wp-block-heading elements
- * that override child theme stylesheets regardless of specificity.
- */
-function langgam_fikir_clean_block_heading_styles( $content ) {
-    if ( empty( $content ) ) {
-        return $content;
-    }
-    $content = preg_replace(
-        '/<(h[1-6])([^>]*)\s+style="[^"]*"([^>]*)>/i',
-        '<$1$2$3>',
-        $content
-    );
-    return $content;
-}
-add_filter( 'the_content', 'langgam_fikir_clean_block_heading_styles', 999 );
 
 /**
  * Fallback for the Footer Legal menu when no menu is assigned.

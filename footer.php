@@ -4,11 +4,11 @@
         <div class="footer-content">
             
             <div class="footer-branding">
-                <h2 class="site-title">
+                <p class="site-title">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                         <?php bloginfo( 'name' ); ?>
                     </a>
-                </h2>
+                </p>
                 <?php
                 $description = get_bloginfo( 'description', 'display' );
                 if ( $description || is_customize_preview() ) :

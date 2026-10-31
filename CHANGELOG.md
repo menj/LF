@@ -5,6 +5,29 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-10-31
+
+### Added
+- **Theme Settings** page (Appearance > Theme Settings) with accessible tabs: Colours, Typography, Homepage, Contact and About
+- Colour schemes: Earth (default, the original palette), Slate, Midnight (dark) and Auto (follows the visitor's `prefers-color-scheme`), plus optional per-colour overrides with a live preview
+- `theme.json` exposing the palette, fonts and heading/button styles to the block editor and Global Styles
+- `assets/css/schemes.css`, `assets/css/fonts.css`, `assets/css/settings.css`, `assets/js/settings.js` and `inc/theme-options.php`
+- Self-hosted fonts: Sabon Next LT (headings), Kagnue (titles), Ferments (tagline), with Crimson Text and Inter bundled as open-source fallbacks. The three commercial fonts are git-ignored and loaded only if uploaded to `assets/fonts/` (see `assets/fonts/README.txt`)
+- Site-wide contact and About defaults; the contact form recipient is now configurable
+
+### Changed
+- Flat, gradient-free buttons and badges; every colour in the stylesheets is now a CSS variable (no hard-coded hex values)
+- Button text uses `--color-on-accent`, giving the gold buttons readable dark text
+- The site title is no longer an `<h1>` on every page; each template owns its single `<h1>`
+- Hamburger icon animation moved from inline JS styles to a CSS class
+
+### Removed
+- All `!important` rules and the global heading override block
+- The `the_content` filter that stripped inline styles from headings (block editor heading styles now apply)
+- Google Fonts request (fonts are served from the theme)
+- The Customizer "Homepage Settings" section; values move to Theme Settings and existing Customizer values are still read as a fallback
+- Inline `<style>` blocks and `style=""` attributes in templates and meta boxes
+
 ## [1.9.6] - 2026-08-14
 
 ### Security

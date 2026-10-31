@@ -83,7 +83,7 @@ get_header();
                             <input type="hidden" name="action" value="langgam_fikir_contact_form">
                             <?php wp_nonce_field( 'langgam_fikir_contact', 'contact_nonce' ); ?>
                             
-                            <p class="contact-website-field" aria-hidden="true" style="position:absolute;left:-9999px;">
+                            <p class="contact-website-field" aria-hidden="true">
                                 <label for="contact_website"><?php _e( 'Leave this field empty', 'langgam-fikir' ); ?></label>
                                 <input type="text" id="contact_website" name="contact_website" value="" tabindex="-1" autocomplete="off">
                             </p>
@@ -135,10 +135,10 @@ get_header();
                     <div class="contact-info-inner">
                         <?php
                         // Get contact info from page meta fields
-                        $contact_description = get_post_meta( get_the_ID(), '_contact_description', true );
-                        $contact_email = get_post_meta( get_the_ID(), '_contact_email', true );
-                        $contact_phone = get_post_meta( get_the_ID(), '_contact_phone', true );
-                        $instagram_url = get_post_meta( get_the_ID(), '_contact_instagram', true );
+                        $contact_description = langgam_fikir_meta_or_option( get_the_ID(), '_contact_description', 'contact_description' );
+                        $contact_email = langgam_fikir_meta_or_option( get_the_ID(), '_contact_email', 'contact_email' );
+                        $contact_phone = langgam_fikir_meta_or_option( get_the_ID(), '_contact_phone', 'contact_phone' );
+                        $instagram_url = langgam_fikir_meta_or_option( get_the_ID(), '_contact_instagram', 'contact_instagram' );
                         
                         // Defaults if not set
                         if ( empty( $contact_description ) ) {

@@ -13,7 +13,7 @@ get_header();
     <div class="hero-content">
         <h1>
             <?php 
-            $hero_text = get_theme_mod( 'hero_text', __( 'Book publisher of ideas that transcend borders—bringing critical, thought-provoking works to readers who seek truth.', 'langgam-fikir' ) );
+            $hero_text = langgam_fikir_get_option( 'hero_text' );
             echo esc_html( $hero_text );
             ?>
         </h1>
@@ -70,7 +70,7 @@ get_header();
         </div>
         <div class="books-grid">
             <?php
-            $books_count = get_theme_mod( 'featured_books_count', 4 );
+            $books_count = langgam_fikir_get_option( 'featured_books_count' );
             $featured_books = new WP_Query( array(
                 'post_type'      => 'book',
                 'posts_per_page' => $books_count,
@@ -160,7 +160,7 @@ get_header();
         
         <div class="resources-grid">
             <?php
-            $resources_count = get_theme_mod( 'featured_resources_count', 3 );
+            $resources_count = langgam_fikir_get_option( 'featured_resources_count' );
             $resources = new WP_Query( array(
                 'post_type'      => 'post',
                 'posts_per_page' => $resources_count,

@@ -20,11 +20,11 @@
                     <div class="logo-text-wrapper">
                         <?php the_custom_logo(); ?>
                         <div class="site-identity">
-                            <h1 class="site-title">
+                            <p class="site-title">
                                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                                     <?php bloginfo( 'name' ); ?>
                                 </a>
-                            </h1>
+                            </p>
                             <?php
                             $description = get_bloginfo( 'description', 'display' );
                             if ( $description || is_customize_preview() ) :
@@ -34,11 +34,11 @@
                         </div>
                     </div>
                 <?php else : ?>
-                    <h1 class="site-title">
+                    <p class="site-title">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                             <?php bloginfo( 'name' ); ?>
                         </a>
-                    </h1>
+                    </p>
                     <?php
                     $description = get_bloginfo( 'description', 'display' );
                     if ( $description || is_customize_preview() ) :

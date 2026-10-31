@@ -1,0 +1,122 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"layout": {
+			"contentSize": "720px",
+			"wideSize": "1200px"
+		},
+		"color": {
+			"palette": [
+				{
+					"slug": "primary",
+					"name": "Primary",
+					"color": "#6B5B4A"
+				},
+				{
+					"slug": "accent",
+					"name": "Accent",
+					"color": "#C9A961"
+				},
+				{
+					"slug": "text",
+					"name": "Text",
+					"color": "#333333"
+				},
+				{
+					"slug": "background",
+					"name": "Background",
+					"color": "#FFFFFF"
+				},
+				{
+					"slug": "surface",
+					"name": "Surface",
+					"color": "#F5F5F0"
+				},
+				{
+					"slug": "muted",
+					"name": "Muted",
+					"color": "#EDEAE4"
+				}
+			]
+		},
+		"typography": {
+			"fluid": true,
+			"fontFamilies": [
+				{
+					"slug": "heading",
+					"name": "Sabon Next LT",
+					"fontFamily": "'Sabon Next LT', 'Crimson Text', Georgia, serif"
+				},
+				{
+					"slug": "display",
+					"name": "Kagnue",
+					"fontFamily": "'Kagnue', 'Sabon Next LT', Georgia, serif"
+				},
+				{
+					"slug": "script",
+					"name": "Ferments",
+					"fontFamily": "'Ferments', 'Sabon Next LT', Georgia, serif"
+				},
+				{
+					"slug": "body",
+					"name": "Inter",
+					"fontFamily": "'Inter', 'Helvetica Neue', Arial, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Inter",
+							"fontStyle": "normal",
+							"fontWeight": "400 600",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/inter-variable-latin.woff2"
+							]
+						}
+					]
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--color-bg-primary, #FFFFFF)",
+			"text": "var(--color-text, #333333)"
+		},
+		"typography": {
+			"fontFamily": "var(--font-secondary, 'Inter', sans-serif)",
+			"lineHeight": "1.6"
+		},
+		"elements": {
+			"heading": {
+				"color": {
+					"text": "var(--color-primary, #6B5B4A)"
+				},
+				"typography": {
+					"fontFamily": "var(--font-primary, 'Sabon Next LT', Georgia, serif)",
+					"fontWeight": "600",
+					"lineHeight": "1.2"
+				}
+			},
+			"link": {
+				"color": {
+					"text": "inherit"
+				},
+				":hover": {
+					"color": {
+						"text": "var(--color-secondary, #B8985F)"
+					}
+				}
+			},
+			"button": {
+				"color": {
+					"background": "var(--color-accent, #C9A961)",
+					"text": "var(--color-on-accent, #2A2118)"
+				},
+				"border": {
+					"radius": "8px"
+				}
+			}
+		}
+	}
+}

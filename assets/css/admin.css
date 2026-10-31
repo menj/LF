@@ -55,3 +55,38 @@
     margin-top: 5px;
     margin-left: 5px;
 }
+
+/*--------------------------------------------------------------
+# Contact Page Meta Box Styles
+--------------------------------------------------------------*/
+.contact-meta-field {
+    margin-bottom: 20px;
+}
+
+.contact-meta-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.contact-meta-field input[type="text"],
+.contact-meta-field input[type="email"],
+.contact-meta-field input[type="url"],
+.contact-meta-field textarea {
+    width: 100%;
+    padding: 8px;
+}
+
+.contact-meta-help {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/*--------------------------------------------------------------
+# Book Details Meta Box
+--------------------------------------------------------------*/
+.lf-book-status .lf-radio {
+    display: inline-block;
+    margin-right: 20px;
+}

@@ -1,0 +1,235 @@
+/*
+ * Theme Settings screen (Appearance > Theme Settings)
+ * Langgam Fikir WordPress Theme
+ */
+
+.lf-settings {
+    --lf-ink: #1d2327;
+    --lf-muted: #646970;
+    --lf-line: #dcdcde;
+    --lf-surface: #fff;
+    --lf-focus: #2271b1;
+    max-width: 880px;
+}
+
+.lf-settings__form {
+    margin-top: 1.25rem;
+}
+
+/*--------------------------------------------------------------
+# Tabs
+--------------------------------------------------------------*/
+.lf-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    border-bottom: 1px solid var(--lf-line);
+}
+
+.lf-tabs__tab {
+    appearance: none;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    margin: 0 0 -1px;
+    padding: 0.75rem 1rem;
+    color: var(--lf-muted);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.lf-tabs__tab:hover {
+    color: var(--lf-ink);
+}
+
+.lf-tabs__tab:focus-visible {
+    outline: 2px solid var(--lf-focus);
+    outline-offset: -2px;
+}
+
+.lf-tabs__tab[aria-selected="true"] {
+    color: var(--lf-ink);
+    border-bottom-color: var(--lf-ink);
+}
+
+/* Without JS every panel is shown; with JS only the active one. */
+.lf-settings.lf-js .lf-panel[hidden] {
+    display: none;
+}
+
+.lf-settings:not(.lf-js) .lf-tabs {
+    display: none;
+}
+
+/*--------------------------------------------------------------
+# Panels
+--------------------------------------------------------------*/
+.lf-panel {
+    background: var(--lf-surface);
+    border: 1px solid var(--lf-line);
+    border-top: 0;
+    padding: 1.5rem 1.75rem 0.5rem;
+}
+
+.lf-settings:not(.lf-js) .lf-panel {
+    border-top: 1px solid var(--lf-line);
+    margin-bottom: 1rem;
+}
+
+.lf-settings.lf-js .lf-panel__title {
+    display: none;
+}
+
+.lf-panel .form-table th {
+    width: 200px;
+    padding-left: 0;
+}
+
+/*--------------------------------------------------------------
+# Scheme picker
+--------------------------------------------------------------*/
+.lf-schemes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 0.75rem;
+}
+
+.lf-scheme {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+.lf-scheme input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.lf-scheme__card {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.75rem;
+    border: 1px solid var(--lf-line);
+    border-radius: 6px;
+    background: var(--lf-surface);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lf-scheme:hover .lf-scheme__card {
+    border-color: var(--lf-muted);
+}
+
+.lf-scheme input:checked + .lf-scheme__card {
+    border-color: var(--lf-ink);
+    box-shadow: 0 0 0 1px var(--lf-ink);
+}
+
+.lf-scheme input:focus-visible + .lf-scheme__card {
+    outline: 2px solid var(--lf-focus);
+    outline-offset: 2px;
+}
+
+.lf-scheme__name {
+    font-weight: 600;
+    color: var(--lf-ink);
+}
+
+.lf-scheme__note {
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--lf-muted);
+}
+
+/* Swatches: three chips (primary, accent, background) per scheme */
+.lf-swatch {
+    display: flex;
+    height: 28px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--lf-line);
+}
+
+.lf-swatch i {
+    flex: 1;
+}
+
+.lf-swatch--earth i:nth-child(1) { background: #6B5B4A; }
+.lf-swatch--earth i:nth-child(2) { background: #C9A961; }
+.lf-swatch--earth i:nth-child(3) { background: #F5F5F0; }
+
+.lf-swatch--slate i:nth-child(1) { background: #2E3A46; }
+.lf-swatch--slate i:nth-child(2) { background: #4F7288; }
+.lf-swatch--slate i:nth-child(3) { background: #F3F5F7; }
+
+.lf-swatch--midnight i:nth-child(1) { background: #14120F; }
+.lf-swatch--midnight i:nth-child(2) { background: #C9A961; }
+.lf-swatch--midnight i:nth-child(3) { background: #E6E1D8; }
+
+.lf-swatch--auto i:nth-child(1) { background: linear-gradient(90deg, #6B5B4A 50%, #14120F 50%); }
+.lf-swatch--auto i:nth-child(2) { background: #C9A961; }
+.lf-swatch--auto i:nth-child(3) { background: linear-gradient(90deg, #F5F5F0 50%, #E6E1D8 50%); }
+
+/*--------------------------------------------------------------
+# Live preview
+--------------------------------------------------------------*/
+.lf-preview {
+    --lf-p-primary: #6B5B4A;
+    --lf-p-accent: #C9A961;
+    --lf-p-bg: #FFFFFF;
+    --lf-p-surface: #F5F5F0;
+    --lf-p-text: #333333;
+    --lf-p-on-accent: #1A1610;
+    margin-bottom: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--lf-line);
+    border-radius: 6px;
+    background: var(--lf-p-bg);
+    color: var(--lf-p-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lf-preview__eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lf-p-text);
+    opacity: 0.6;
+}
+
+.lf-preview__title {
+    margin: 0 0 0.25rem;
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    color: var(--lf-p-primary);
+}
+
+.lf-preview__text {
+    margin: 0 0 1rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--lf-p-surface);
+    border-radius: 4px;
+}
+
+.lf-preview__button {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    background: var(--lf-p-accent);
+    color: var(--lf-p-on-accent);
+    font-weight: 500;
+}
+
+@media (max-width: 782px) {
+    .lf-panel {
+        padding: 1rem;
+    }
+
+    .lf-panel .form-table th {
+        width: auto;
+    }
+}

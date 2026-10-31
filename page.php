@@ -18,7 +18,7 @@ get_header();
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             
             <div class="container">
-                <div class="section" style="padding: 4rem 0;">
+                <div class="section section-compact">
                     
                     <header class="entry-header mb-3">
                         <div class="page-title-header">

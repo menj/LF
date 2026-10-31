@@ -7,7 +7,8 @@
 # CSS Variables & Root
 --------------------------------------------------------------*/
 :root {
-    /* Colors — warm earthy palette matching reimagined version */
+    /* Colours - "Earth" scheme (default). Other schemes live in schemes.css and the
+       Appearance > Theme Settings > Colours tab; all components read these variables only. */
     --color-primary: #6B5B4A;
     --color-secondary: #B8985F;
     --color-accent: #C9A961;
@@ -18,12 +19,35 @@
     --color-bg-primary: #FFFFFF;
     --color-bg-secondary: #F5F5F0;
     --color-bg-muted: #EDEAE4;
+    --color-bg-tint: #F5F0EB;
+    --color-bg-notice: #FFF9E6;
     --color-bg-hero: #6B5B4A;
     --color-border: #D9D0C7;
-    
+    --color-on-accent: #2A2118;
+    --color-on-hero: #FFFFFF;
+    --color-on-dark: #FFFFFF;
+    --color-focus-ring: rgba(184, 152, 95, 0.25);
+
+    /* Book status colours */
+    --status-pre-order: #237070;
+    --status-coming-soon: #E8BE5D;
+    --status-out-of-print: #7A6856;
+
+    /* Feedback */
+    --color-success-bg: #E6F2E8;
+    --color-success-text: #1E5A2B;
+    --color-success-border: #BFDCC4;
+    --color-error-bg: #F9E5E5;
+    --color-error-text: #7A1F1F;
+    --color-error-border: #E8BFBF;
+
+    /* Elevation */
+    --shadow-soft: rgba(0, 0, 0, 0.06);
+    --shadow-strong: rgba(0, 0, 0, 0.12);
+
     /* Typography */
-    --font-primary: 'Crimson Text', 'Georgia', serif;
-    --font-secondary: 'Inter', 'Helvetica Neue', sans-serif;
+    --font-primary: 'Sabon Next LT', 'Crimson Text', Georgia, serif;
+    --font-secondary: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -56,6 +80,9 @@ html {
 }
 
 body {
+    /* Declared on body (not :root) so they follow the --font-primary chosen by a body class. */
+    --font-display: 'Kagnue', var(--font-primary);
+    --font-accent: 'Ferments', var(--font-primary);
     font-family: var(--font-secondary);
     font-size: 1rem;
     line-height: 1.6;
@@ -105,32 +132,12 @@ button:focus-visible {
 # Typography
 --------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6,
-.wp-block-heading,
-h2.wp-block-heading,
-h3.wp-block-heading,
-h4.wp-block-heading,
-.entry-content h1,
-.entry-content h2,
-.entry-content h3,
-.entry-content h4,
-.entry-content h5,
-.entry-content h6,
-.about-text h2,
-.about-text h3,
-.about-text h4,
-.about-text .wp-block-heading,
-.site-main h2,
-.site-main h3,
-.site-main h4,
-.site-main .wp-block-heading,
-article h2,
-article h3,
-article h4 {
-    font-family: var(--font-primary) !important;
-    font-weight: 600 !important;
+.wp-block-heading {
+    font-family: var(--font-primary);
+    font-weight: 600;
     line-height: 1.2;
     margin-bottom: var(--spacing-sm);
-    color: var(--color-primary) !important;
+    color: var(--color-primary);
 }
 
 h1 {
@@ -154,8 +161,7 @@ p {
 }
 
 .tagline {
-    font-family: var(--font-primary);
-    font-style: italic;
+    font-family: var(--font-accent);
     font-size: 1rem;
     color: var(--color-text-light);
 }
@@ -232,7 +238,7 @@ p {
 }
 
 .site-title {
-    font-family: var(--font-primary);
+    font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 400;
     margin: 0;
@@ -250,9 +256,8 @@ p {
 }
 
 .tagline {
-    font-family: var(--font-secondary);
-    font-size: 0.75rem;
-    font-style: italic;
+    font-family: var(--font-accent);
+    font-size: 1.4rem;
     color: var(--color-text-light);
     margin: 0;
     line-height: 1.2;
@@ -339,12 +344,25 @@ p {
     transition: all var(--transition-base);
 }
 
+/* Hamburger -> close icon (toggled by .is-active from main.js) */
+.menu-toggle.is-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
     background-color: var(--color-bg-hero);
-    color: #FFFFFF;
+    color: var(--color-on-hero);
     padding: var(--spacing-xxl) 0;
     text-align: center;
     overflow: hidden;
@@ -359,12 +377,12 @@ p {
 }
 
 .hero h1 {
-    font-family: var(--font-primary) !important;
+    font-family: var(--font-primary);
     font-style: italic;
-    font-weight: 400 !important;
+    font-weight: 400;
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     line-height: 1.5;
-    color: #FFFFFF !important;
+    color: var(--color-on-hero);
     margin-bottom: var(--spacing-lg);
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -392,15 +410,15 @@ p {
 }
 
 .btn-outline-light {
-    color: #FFFFFF;
-    border-color: #FFFFFF;
+    color: var(--color-on-hero);
+    border-color: var(--color-on-hero);
     background-color: transparent;
 }
 
 .btn-outline-light:hover {
-    background: linear-gradient(135deg, #FFFFFF 0%, #F5F0EB 100%);
+    background-color: var(--color-on-hero);
     color: var(--color-bg-hero);
-    border-color: #FFFFFF;
+    border-color: var(--color-on-hero);
 }
 
 .btn-outline-dark {
@@ -410,21 +428,21 @@ p {
 }
 
 .btn-outline-dark:hover {
-    background: linear-gradient(135deg, #D4AF37 0%, #C9A961 100%);
-    border-color: var(--color-secondary);
-    color: #FFFFFF;
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-accent);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #D4AF37 0%, #C9A961 100%);
+    background-color: var(--color-accent);
     border-color: var(--color-accent);
-    color: #FFFFFF;
+    color: var(--color-on-accent);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #C9A961 0%, #B8985F 100%);
-    border-color: var(--color-secondary);
-    color: #FFFFFF;
+    background-color: var(--color-accent-dark);
+    border-color: var(--color-accent-dark);
+    color: var(--color-on-accent);
 }
 
 /*--------------------------------------------------------------
@@ -468,7 +486,7 @@ p {
     background-color: var(--color-bg-muted);
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--shadow-strong);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -575,7 +593,7 @@ p {
 
 .book-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 20px var(--shadow-strong);
 }
 
 .book-cover {
@@ -679,7 +697,7 @@ p {
 .book-card .btn:hover {
     background-color: var(--color-secondary);
     border-color: var(--color-secondary);
-    color: #FFFFFF;
+    color: var(--color-on-accent);
 }
 
 .book-status {
@@ -693,32 +711,32 @@ p {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px var(--shadow-strong);
 }
 
 .book-status.published {
-    background: linear-gradient(135deg, #D4AF37 0%, #C9A961 100%);
-    color: #FFFFFF;
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
 }
 
 .book-status.pre-order {
-    background: linear-gradient(135deg, #2C8C8C 0%, #237070 100%);
-    color: #FFFFFF;
+    background-color: var(--status-pre-order);
+    color: var(--color-on-dark);
 }
 
 .book-status.coming-soon {
-    background: linear-gradient(135deg, #E8BE5D 0%, #D4AF37 100%);
-    color: #FFFFFF;
+    background-color: var(--status-coming-soon);
+    color: var(--color-on-accent);
 }
 
 .book-status.reprinting {
-    background: linear-gradient(135deg, #7A6856 0%, #6B5B4A 100%);
-    color: #FFFFFF;
+    background-color: var(--color-primary);
+    color: var(--color-on-dark);
 }
 
 .book-status.out-of-print {
-    background: linear-gradient(135deg, #9B8266 0%, #8B7355 100%);
-    color: #FFFFFF;
+    background-color: var(--status-out-of-print);
+    color: var(--color-on-dark);
 }
 
 .book-status-message {
@@ -729,20 +747,20 @@ p {
 }
 
 .book-status-message.coming-soon {
-    background-color: #FFF9E6;
+    background-color: var(--color-bg-notice);
     border-left: 4px solid var(--color-accent);
     color: var(--color-text);
 }
 
 .book-status-message.reprinting {
-    background-color: #F5F0EB;
-    border-left: 4px solid #6B5B4A;
+    background-color: var(--color-bg-tint);
+    border-left: 4px solid var(--color-primary);
     color: var(--color-text);
 }
 
 .book-status-message.out-of-print {
-    background-color: #F5F0EB;
-    border-left: 4px solid #8B7355;
+    background-color: var(--color-bg-tint);
+    border-left: 4px solid var(--status-out-of-print);
     color: var(--color-text);
 }
 
@@ -787,9 +805,9 @@ p {
 }
 
 .page-title-header .page-title {
-    font-family: var(--font-primary);
+    font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 600;
+    font-weight: 400;
     color: var(--color-primary);
     margin: 0;
     padding-bottom: var(--spacing-sm);
@@ -837,9 +855,9 @@ p {
 }
 
 .section-header-title {
-    font-family: var(--font-primary);
+    font-family: var(--font-display);
     font-size: 2.5rem;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--color-primary);
     margin: 0;
     display: inline-block;
@@ -883,7 +901,7 @@ p {
 
 .resource-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px var(--shadow-soft);
 }
 
 .resource-card h3 {
@@ -956,7 +974,7 @@ p {
 
 .page-numbers.current {
     background-color: var(--color-secondary);
-    color: #FFFFFF;
+    color: var(--color-on-accent);
     border-color: var(--color-secondary);
 }
 
@@ -1028,7 +1046,7 @@ p {
     background-color: var(--color-bg-primary);
     padding: var(--spacing-md);
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 8px var(--shadow-soft);
     border: 1px solid var(--color-border);
 }
 
@@ -1085,7 +1103,7 @@ p {
 .book-image-frame {
     background-color: var(--color-bg-primary);
     padding: var(--spacing-sm);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px var(--shadow-strong);
     border-radius: 2px;
     border: 1px solid var(--color-border);
 }
@@ -1111,34 +1129,34 @@ p {
 }
 
 .book-status-badge.published {
-    background: linear-gradient(135deg, #D4AF37 0%, #C9A961 100%);
-    color: #FFFFFF;
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
 }
 
 .book-status-badge.pre-order {
-    background: linear-gradient(135deg, #2C8C8C 0%, #237070 100%);
-    color: #FFFFFF;
+    background-color: var(--status-pre-order);
+    color: var(--color-on-dark);
 }
 
 .book-status-badge.coming-soon {
-    background: linear-gradient(135deg, #E8BE5D 0%, #D4AF37 100%);
-    color: #FFFFFF;
+    background-color: var(--status-coming-soon);
+    color: var(--color-on-accent);
 }
 
 .book-status-badge.reprinting {
-    background: linear-gradient(135deg, #7A6856 0%, #6B5B4A 100%);
-    color: #FFFFFF;
+    background-color: var(--color-primary);
+    color: var(--color-on-dark);
 }
 
 .book-status-badge.out-of-print {
-    background: linear-gradient(135deg, #9B8266 0%, #8B7355 100%);
-    color: #FFFFFF;
+    background-color: var(--status-out-of-print);
+    color: var(--color-on-dark);
 }
 
 .book-details h1 {
-    font-family: var(--font-primary);
+    font-family: var(--font-display);
     font-size: 2.5rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: var(--spacing-xs);
     line-height: 1.2;
 }
@@ -1156,7 +1174,7 @@ p {
     background-color: var(--color-bg-primary);
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 8px var(--shadow-soft);
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
 }
@@ -1538,7 +1556,7 @@ p {
 }
 
 .about-logo-section {
-    background-color: #F5F0EB;
+    background-color: var(--color-bg-tint);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1560,7 +1578,7 @@ p {
 }
 
 .about-content-area {
-    background-color: #FFFFFF;
+    background-color: var(--color-bg-primary);
     padding: var(--spacing-xxl);
     display: flex;
     align-items: center;
@@ -1684,7 +1702,7 @@ p {
 }
 
 .contact-form-area {
-    background-color: #FFFFFF;
+    background-color: var(--color-bg-primary);
     padding: var(--spacing-xxl);
     display: flex;
     align-items: center;
@@ -1724,7 +1742,7 @@ p {
 }
 
 .contact-info-area {
-    background-color: #F5F0EB;
+    background-color: var(--color-bg-tint);
     padding: var(--spacing-xxl);
     display: flex;
     align-items: center;
@@ -1801,7 +1819,7 @@ p {
 .social-icon:hover {
     background-color: var(--color-secondary);
     border-color: var(--color-secondary);
-    color: #FFFFFF;
+    color: var(--color-on-accent);
 }
 
 /* Responsive */
@@ -2152,7 +2170,7 @@ p {
 
 .post-tag:hover {
     background-color: var(--color-secondary);
-    color: #FFFFFF;
+    color: var(--color-on-accent);
     border-color: var(--color-secondary);
 }
 
@@ -2258,36 +2276,25 @@ p {
 }
 
 /*--------------------------------------------------------------
-# Global Heading Override (last-resort specificity for parent theme)
-  Twenty Twenty-Five uses deep selectors like
-  .wp-site-blocks .wp-block-heading that override child theme styles.
-  This block, placed last, ensures our styles always win.
+# Utilities & small components (replace former inline styles)
 --------------------------------------------------------------*/
-body h1,
-body h2,
-body h3,
-body h4,
-body h5,
-body h6,
-body .wp-block-heading,
-body .wp-site-blocks h1,
-body .wp-site-blocks h2,
-body .wp-site-blocks h3,
-body .wp-site-blocks h4,
-body .wp-site-blocks .wp-block-heading,
-.wp-site-blocks .wp-block-group h1,
-.wp-site-blocks .wp-block-group h2,
-.wp-site-blocks .wp-block-group h3,
-.wp-site-blocks .wp-block-group h4,
-.wp-site-blocks .wp-block-group .wp-block-heading {
-    font-family: var(--font-primary) !important;
-    font-weight: 600 !important;
-    color: var(--color-primary) !important;
+.section-compact {
+    padding: var(--spacing-xl) 0;
 }
 
-/* Re-apply hero exception after the override */
-.hero h1 {
-    font-weight: 400 !important;
-    color: #FFFFFF !important;
-    font-style: italic;
+.comments-area {
+    padding: var(--spacing-md) 0;
+    margin-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+}
+
+.comments-area .comment-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0;
+}
+
+.site-main .entry-meta {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
 }

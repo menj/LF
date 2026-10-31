@@ -11,7 +11,7 @@ get_header();
 <main id="primary" class="site-main">
     
     <div class="container">
-        <div class="section" style="padding: 4rem 0;">
+        <div class="section section-compact">
             
             <?php
             if ( have_posts() ) :
@@ -75,7 +75,7 @@ get_header();
                             endif;
                             ?>
                             
-                            <div class="entry-meta" style="color: var(--color-text-light); font-size: 0.9rem;">
+                            <div class="entry-meta">
                                 <?php
                                 printf(
                                     '<span class="posted-on">%s</span>',

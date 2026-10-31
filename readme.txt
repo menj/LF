@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.9.6
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -136,6 +136,12 @@ Go to Appearance > Customize > Homepage Settings. You can set the number of feat
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.0.0 (October 2026) =
+* New tabbed Theme Settings page: Colours, Typography, Homepage, Contact and About
+* New colour schemes: Earth, Slate, Midnight and Auto (dark mode), with custom colour overrides
+* Added theme.json; removed all !important rules; self-hosted fonts
+* Existing Customizer homepage values are still honoured
 
 = 1.9.6 (August 2026) =
 * SECURITY: Added hidden honeypot field to the contact form to block automated submissions

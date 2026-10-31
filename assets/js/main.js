@@ -14,48 +14,29 @@
 
         if (!menuToggle || !navigation) return;
 
+        // The icon animation lives in CSS (.menu-toggle.is-active).
+        function setOpen(open) {
+            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            menuToggle.classList.toggle('is-active', open);
+            navigation.classList.toggle('active', open);
+        }
+
         menuToggle.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            
-            this.setAttribute('aria-expanded', !isExpanded);
-            navigation.classList.toggle('active');
-            
-            // Toggle animation for hamburger icon
-            const spans = this.querySelectorAll('span');
-            if (spans.length === 3) {
-                spans[0].style.transform = !isExpanded ? 'rotate(45deg) translate(5px, 5px)' : '';
-                spans[1].style.opacity = !isExpanded ? '0' : '1';
-                spans[2].style.transform = !isExpanded ? 'rotate(-45deg) translate(7px, -6px)' : '';
-            }
+            setOpen(this.getAttribute('aria-expanded') !== 'true');
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!menuToggle.contains(event.target) && !navigation.contains(event.target)) {
-                menuToggle.setAttribute('aria-expanded', 'false');
-                navigation.classList.remove('active');
-                
-                const spans = menuToggle.querySelectorAll('span');
-                if (spans.length === 3) {
-                    spans[0].style.transform = '';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = '';
-                }
+                setOpen(false);
             }
         });
 
         // Close menu on escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && navigation.classList.contains('active')) {
-                menuToggle.setAttribute('aria-expanded', 'false');
-                navigation.classList.remove('active');
-                
-                const spans = menuToggle.querySelectorAll('span');
-                if (spans.length === 3) {
-                    spans[0].style.transform = '';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = '';
-                }
+                setOpen(false);
+                menuToggle.focus();
             }
         });
     }

@@ -85,8 +85,8 @@ get_header();
                         
                         <?php
                         // Contact CTA Section
-                        $contact_heading = get_post_meta( get_the_ID(), '_about_contact_heading', true );
-                        $contact_phone   = get_post_meta( get_the_ID(), '_about_contact_phone', true );
+                        $contact_heading = langgam_fikir_meta_or_option( get_the_ID(), '_about_contact_heading', 'about_contact_heading' );
+                        $contact_phone   = langgam_fikir_meta_or_option( get_the_ID(), '_about_contact_phone', 'about_contact_phone' );
                         
                         if ( empty( $contact_heading ) ) {
                             $contact_heading = __( 'Have any questions?', 'langgam-fikir' );

@@ -55,7 +55,7 @@
 .form-textarea:focus {
     outline: none;
     border-color: var(--color-secondary);
-    box-shadow: 0 0 0 3px rgba(184, 152, 95, 0.15);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
 }
 
 .form-input::placeholder,
@@ -73,8 +73,8 @@
 }
 
 .submit-btn {
-    background: linear-gradient(135deg, #D4AF37 0%, #C9A961 100%);
-    color: #FFFFFF;
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
     font-size: 1rem;
     font-weight: 500;
     padding: 1rem 3rem;
@@ -85,8 +85,8 @@
 }
 
 .submit-btn:hover {
-    background: linear-gradient(135deg, #C9A961 0%, #B8985F 100%);
-    border-color: var(--color-secondary);
+    background-color: var(--color-accent-dark);
+    border-color: var(--color-accent-dark);
 }
 
 .submit-btn:focus-visible {
@@ -190,7 +190,7 @@
 .privacy-nav a:hover,
 .privacy-nav a.active {
     background-color: var(--color-accent);
-    color: #FFFFFF;
+    color: var(--color-on-accent);
 }
 
 .privacy-main h1 {
@@ -233,7 +233,7 @@
 .resource-category {
     display: inline-block;
     background-color: var(--color-accent);
-    color: #FFFFFF;
+    color: var(--color-on-accent);
     font-size: 0.8rem;
     font-weight: 500;
     padding: 0.25rem 0.75rem;
@@ -273,7 +273,7 @@
 .carousel-arrow {
     width: 40px;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--color-bg-primary);
     border: 1px solid var(--color-border);
     cursor: pointer;
     display: flex;
@@ -286,7 +286,7 @@
 .carousel-arrow:hover {
     background-color: var(--color-accent);
     border-color: var(--color-accent);
-    color: #FFFFFF;
+    color: var(--color-on-accent);
 }
 
 .other-resources-header {
@@ -349,13 +349,19 @@
 }
 
 .form-message.success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background-color: var(--color-success-bg);
+    color: var(--color-success-text);
+    border: 1px solid var(--color-success-border);
 }
 
 .form-message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+    background-color: var(--color-error-bg);
+    color: var(--color-error-text);
+    border: 1px solid var(--color-error-border);
+}
+
+/* Honeypot field: off-screen for humans, visible to bots. */
+.contact-website-field {
+    position: absolute;
+    left: -9999px;
 }
