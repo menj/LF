@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Colour schemes: Earth (default, the original palette), Slate, Midnight (dark) and Auto (follows the visitor's `prefers-color-scheme`), plus optional per-colour overrides with a live preview
 - `theme.json` exposing the palette, fonts and heading/button styles to the block editor and Global Styles
 - `assets/css/schemes.css`, `assets/css/fonts.css`, `assets/css/settings.css`, `assets/js/settings.js` and `inc/theme-options.php`
-- Self-hosted fonts: Sabon Next LT (headings), Kagnue (titles), Ferments (tagline), with Crimson Text and Inter bundled as open-source fallbacks. The three commercial fonts are git-ignored and loaded only if uploaded to `assets/fonts/` (see `assets/fonts/README.txt`)
+- Self-hosted fonts: Sabon Next LT (headings), Kagnue (titles), Ferments (tagline), with Crimson Text and Inter bundled as open-source fallbacks. The three licensed fonts are bundled in `assets/fonts/` (see `assets/fonts/README.txt`)
 - Site-wide contact and About defaults; the contact form recipient is now configurable
 
 ### Changed

@@ -2,7 +2,7 @@
 
 - **Homepage counts and hero text** moved from the Customizer to Appearance > Theme Settings > Homepage. Values you saved in the Customizer keep working until you save the new settings.
 - **Headings** previously ignored inline styles set in the block editor; they now respect them. Review pages with custom heading styles.
-- **Fonts**: the theme no longer calls Google Fonts. Sabon Next LT, Kagnue and Ferments are not in the repository (commercial licences): upload their .woff2 files to `assets/fonts/` (see the README there). Until then the theme uses Crimson Text and Inter.
+- **Fonts**: the theme no longer calls Google Fonts. Sabon Next LT, Kagnue and Ferments are bundled in `assets/fonts/` (licensed to the site owner). If the files are removed, the theme falls back to Crimson Text and Inter.
 - No action is needed to keep the original look: the default scheme is Earth.
 
 ---
