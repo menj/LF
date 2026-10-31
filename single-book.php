@@ -246,38 +246,32 @@ get_header();
                                 <?php else : ?>
                                     <?php
                                     // Build contact page URL with book information
-                                    $contact_page = get_page_by_path( 'contact-langgam-fikir' );
-                                    if ( $contact_page ) {
+                                    $contact_url = langgam_fikir_get_page_url( 'contact' );
+                                    if ( $contact_url ) {
                                         $contact_url = add_query_arg( array(
                                             'book_id'    => get_the_ID(),
                                             'book_title' => urlencode( get_the_title() ),
-                                        ), get_permalink( $contact_page ) );
-                                    } else {
-                                        $contact_url = home_url( '/contact-langgam-fikir/' );
+                                        ), $contact_url );
                                     }
                                     ?>
-                                    <a href="<?php echo esc_url( $contact_url ); ?>" class="btn btn-primary add-to-cart-btn order-book-btn">
-                                        <?php 
-                                        if ( $book_status === 'pre-order' ) {
-                                            _e( 'PRE-ORDER', 'langgam-fikir' );
-                                        } else {
-                                            _e( 'ORDER', 'langgam-fikir' );
-                                        }
-                                        ?>
-                                    </a>
+                                    <?php if ( $contact_url ) : ?>
+                                        <a href="<?php echo esc_url( $contact_url ); ?>" class="btn btn-primary add-to-cart-btn order-book-btn">
+                                            <?php echo esc_html( langgam_fikir_get_option( 'pre-order' === $book_status ? 'preorder_label' : 'order_label' ) ); ?>
+                                        </a>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                             </div>
                         <?php elseif ( $book_status === 'coming-soon' ) : ?>
                             <div class="book-status-message coming-soon">
-                                <p><?php _e( 'This book is coming soon. Check back later for availability.', 'langgam-fikir' ); ?></p>
+                                <p><?php echo esc_html( langgam_fikir_get_option( 'msg_coming_soon' ) ); ?></p>
                             </div>
                         <?php elseif ( $book_status === 'reprinting' ) : ?>
                             <div class="book-status-message reprinting">
-                                <p><?php _e( 'This book is currently being reprinted. It will be available again soon.', 'langgam-fikir' ); ?></p>
+                                <p><?php echo esc_html( langgam_fikir_get_option( 'msg_reprinting' ) ); ?></p>
                             </div>
                         <?php elseif ( $book_status === 'out-of-print' ) : ?>
                             <div class="book-status-message out-of-print">
-                                <p><?php _e( 'This book is currently out of print.', 'langgam-fikir' ); ?></p>
+                                <p><?php echo esc_html( langgam_fikir_get_option( 'msg_out_of_print' ) ); ?></p>
                             </div>
                         <?php endif; ?>
                     </div>

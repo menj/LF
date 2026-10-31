@@ -133,9 +133,53 @@
         updatePreview();
     }
 
+    /*----------------------------------------------------------
+     * Image fields (media library picker)
+     *--------------------------------------------------------*/
+    function initImageFields() {
+        var i18n = (window.langgamFikirSettings && window.langgamFikirSettings.i18n) || {};
+
+        root.querySelectorAll('[data-lf-image]').forEach(function(field) {
+            var input = field.querySelector('input[type="hidden"]');
+            var preview = field.querySelector('.lf-image__preview');
+            var img = preview.querySelector('img');
+            var remove = field.querySelector('.lf-image__remove');
+            var frame;
+
+            function set(id, url) {
+                input.value = id || '';
+                img.src = url || '';
+                preview.hidden = !url;
+                remove.hidden = !url;
+            }
+
+            field.querySelector('.lf-image__choose').addEventListener('click', function() {
+                if (!frame) {
+                    frame = wp.media({
+                        title: i18n.chooseTitle || 'Choose image',
+                        button: { text: i18n.chooseButton || 'Use this image' },
+                        library: { type: 'image' },
+                        multiple: false
+                    });
+                    frame.on('select', function() {
+                        var attachment = frame.state().get('selection').first().toJSON();
+                        var url = (attachment.sizes && attachment.sizes.medium) ? attachment.sizes.medium.url : attachment.url;
+                        set(attachment.id, url);
+                    });
+                }
+                frame.open();
+            });
+
+            remove.addEventListener('click', function() {
+                set('', '');
+            });
+        });
+    }
+
     $(function() {
         initTabs();
         initColourPickers();
+        initImageFields();
     });
 
 })(jQuery);

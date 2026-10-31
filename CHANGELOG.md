@@ -5,6 +5,26 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-10-31
+
+### Added
+- Theme Settings tabs **Homepage**, **About page**, **Contact page**, **Publications** and **Footer and pages**: every heading, paragraph, button label, card, placeholder, form message and status message that was hard-coded in the templates is now editable (`inc/settings-fields.php` is the single schema)
+- Image fields (media library picker) for the About logo and the homepage About image
+- **Footer and pages** tab to choose the About, Contact and Terms pages; the About and Contact layouts now apply to the chosen pages instead of fixed slugs (old slugs keep working)
+- A "Theme content" panel in the block editor sidebar (and a notice in the classic editor) on those pages, pointing to the right settings tab
+- Default primary navigation when no menu is assigned
+- Fields can be saved blank on purpose to hide an element (badge, cards, Instagram link, footer company line)
+
+### Changed
+- **Contact page:** text typed in the page editor now appears above the form (previously ignored); placeholders have accessible labels
+- **About page:** text typed in the page editor still replaces the default mission text; lead, heading, cards and contact prompt are now editable
+- Removed the hard-coded homepage stock photo and logo upload path; a neutral placeholder is shown until an image is chosen
+- Per-page About and Contact meta boxes are replaced by Theme Settings; values saved in them remain a fallback
+
+### Removed
+- `assets/js/admin.js` (About logo meta box picker) and the About/Contact meta boxes
+- Hard-coded page links (`/contact-langgam-fikir/`, `/terms-of-service/`, `about-langgam-fikir`)
+
 ## [2.0.0] - 2026-10-31
 
 ### Added

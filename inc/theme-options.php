@@ -48,118 +48,43 @@ function langgam_fikir_get_schemes() {
     );
 }
 
-/**
- * Settings tabs and their fields. Drives rendering, sanitising and defaults.
- *
- * @return array<string, array{label:string, fields:array}>
- */
-function langgam_fikir_get_settings_fields() {
-    $colour_help = __( 'Optional. Leave empty to use the selected scheme.', 'langgam-fikir' );
-
-    return array(
-        'colours'    => array(
-            'label'  => __( 'Colours', 'langgam-fikir' ),
-            'fields' => array(
-                'color_scheme'     => array( 'type' => 'scheme', 'label' => __( 'Colour scheme', 'langgam-fikir' ), 'default' => 'earth' ),
-                'color_primary'    => array( 'type' => 'color', 'label' => __( 'Headings and hero', 'langgam-fikir' ), 'desc' => $colour_help, 'default' => '' ),
-                'color_accent'     => array( 'type' => 'color', 'label' => __( 'Accent', 'langgam-fikir' ), 'desc' => __( 'Buttons, links on hover and badges. Leave empty to use the selected scheme.', 'langgam-fikir' ), 'default' => '' ),
-                'color_background' => array( 'type' => 'color', 'label' => __( 'Page background', 'langgam-fikir' ), 'desc' => $colour_help, 'default' => '' ),
-                'color_surface'    => array( 'type' => 'color', 'label' => __( 'Alternate sections', 'langgam-fikir' ), 'desc' => __( 'Cards and tinted bands. Leave empty to use the selected scheme.', 'langgam-fikir' ), 'default' => '' ),
-                'color_text'       => array( 'type' => 'color', 'label' => __( 'Body text', 'langgam-fikir' ), 'desc' => $colour_help, 'default' => '' ),
-            ),
-        ),
-        'typography' => array(
-            'label'  => __( 'Typography', 'langgam-fikir' ),
-            'fields' => array(
-                'font_heading' => array(
-                    'type'    => 'select',
-                    'label'   => __( 'Heading font', 'langgam-fikir' ),
-                    'default' => 'sabon',
-                    'choices' => array(
-                        'sabon'        => __( 'Sabon Next LT (default)', 'langgam-fikir' ),
-                        'crimson'      => __( 'Crimson Text', 'langgam-fikir' ),
-                        'georgia'      => __( 'Georgia', 'langgam-fikir' ),
-                        'system-serif' => __( 'System serif', 'langgam-fikir' ),
-                        'system-sans'  => __( 'System sans-serif', 'langgam-fikir' ),
-                    ),
-                ),
-                'font_body'    => array(
-                    'type'    => 'select',
-                    'label'   => __( 'Body font', 'langgam-fikir' ),
-                    'default' => 'inter',
-                    'choices' => array(
-                        'inter'       => __( 'Inter (default)', 'langgam-fikir' ),
-                        'sabon'       => __( 'Sabon Next LT (serif)', 'langgam-fikir' ),
-                        'system-sans' => __( 'System sans-serif', 'langgam-fikir' ),
-                    ),
-                ),
-                'font_display' => array(
-                    'type'    => 'select',
-                    'label'   => __( 'Titles and tagline', 'langgam-fikir' ),
-                    'desc'    => __( 'Decorative uses Kagnue for the site title and page titles, and Ferments for the tagline.', 'langgam-fikir' ),
-                    'default' => 'decorative',
-                    'choices' => array(
-                        'decorative' => __( 'Decorative (Kagnue and Ferments)', 'langgam-fikir' ),
-                        'plain'      => __( 'Plain (heading font only)', 'langgam-fikir' ),
-                    ),
-                ),
-                'fonts_mode'   => array(
-                    'type'    => 'select',
-                    'label'   => __( 'Font files', 'langgam-fikir' ),
-                    'desc'    => __( 'All fonts are served from this theme, so no request is made to Google. Choose "System fonts only" for the fastest page load.', 'langgam-fikir' ),
-                    'default' => 'local',
-                    'choices' => array(
-                        'local'  => __( 'Load bundled fonts (recommended)', 'langgam-fikir' ),
-                        'system' => __( 'System fonts only', 'langgam-fikir' ),
-                    ),
-                ),
-            ),
-        ),
-        'homepage'   => array(
-            'label'  => __( 'Homepage', 'langgam-fikir' ),
-            'fields' => array(
-                'hero_text'                => array( 'type' => 'textarea', 'label' => __( 'Hero statement', 'langgam-fikir' ), 'desc' => __( 'The large italic line at the top of the homepage.', 'langgam-fikir' ), 'default' => '' ),
-                'featured_books_count'     => array( 'type' => 'number', 'label' => __( 'Featured publications', 'langgam-fikir' ), 'desc' => __( 'How many books to show on the homepage (1 to 12).', 'langgam-fikir' ), 'default' => 4, 'min' => 1, 'max' => 12 ),
-                'featured_resources_count' => array( 'type' => 'number', 'label' => __( 'Homepage resources', 'langgam-fikir' ), 'desc' => __( 'How many resource posts to show on the homepage (1 to 12).', 'langgam-fikir' ), 'default' => 3, 'min' => 1, 'max' => 12 ),
-            ),
-        ),
-        'contact'    => array(
-            'label'  => __( 'Contact and About', 'langgam-fikir' ),
-            'fields' => array(
-                'contact_recipient'     => array( 'type' => 'email', 'label' => __( 'Send form messages to', 'langgam-fikir' ), 'desc' => __( 'Defaults to the site administrator email.', 'langgam-fikir' ), 'default' => '' ),
-                'contact_email'         => array( 'type' => 'email', 'label' => __( 'Public email', 'langgam-fikir' ), 'desc' => __( 'Shown on the Contact page. A value set on the page itself takes priority.', 'langgam-fikir' ), 'default' => '' ),
-                'contact_phone'         => array( 'type' => 'text', 'label' => __( 'Public phone', 'langgam-fikir' ), 'desc' => __( 'Shown on the Contact page. A value set on the page itself takes priority.', 'langgam-fikir' ), 'default' => '' ),
-                'contact_instagram'     => array( 'type' => 'url', 'label' => __( 'Instagram URL', 'langgam-fikir' ), 'default' => '' ),
-                'contact_description'   => array( 'type' => 'textarea', 'label' => __( 'Contact introduction', 'langgam-fikir' ), 'default' => '' ),
-                'about_contact_heading' => array( 'type' => 'text', 'label' => __( 'About page: contact heading', 'langgam-fikir' ), 'desc' => __( 'For example "Have any questions?".', 'langgam-fikir' ), 'default' => '' ),
-                'about_contact_phone'   => array( 'type' => 'text', 'label' => __( 'About page: phone', 'langgam-fikir' ), 'default' => '' ),
-            ),
-        ),
-    );
-}
+require_once __DIR__ . '/settings-fields.php';
 
 /**
- * Default value for an option key.
+ * Field definition for a key (cached), or null.
  */
-function langgam_fikir_default_option( $key ) {
-    if ( 'hero_text' === $key ) {
-        return __( 'Book publisher of ideas that transcend borders—bringing critical, thought-provoking works to readers who seek truth.', 'langgam-fikir' );
-    }
-    foreach ( langgam_fikir_get_settings_fields() as $tab ) {
-        if ( isset( $tab['fields'][ $key ] ) ) {
-            return $tab['fields'][ $key ]['default'];
+function langgam_fikir_get_field( $key ) {
+    static $map = null;
+    if ( null === $map ) {
+        $map = array();
+        foreach ( langgam_fikir_get_settings_fields() as $tab ) {
+            $map += $tab['fields'];
         }
     }
-    return '';
+    return isset( $map[ $key ] ) ? $map[ $key ] : null;
 }
 
 /**
- * Read a theme option. Falls back to the pre-2.0 Customizer value, then to the default.
+ * Value saved in Theme Settings, or null when the key has never been saved.
+ */
+function langgam_fikir_stored_option( $key ) {
+    $options = get_option( LANGGAM_FIKIR_OPTION, array() );
+    return ( is_array( $options ) && array_key_exists( $key, $options ) ) ? $options[ $key ] : null;
+}
+
+/**
+ * Read a theme option: saved value, then pre-2.0 Customizer value, then the default.
+ * A field flagged allow_empty can be saved blank on purpose (for example to hide an element).
  */
 function langgam_fikir_get_option( $key ) {
-    $options = get_option( LANGGAM_FIKIR_OPTION, array() );
-    if ( is_array( $options ) && isset( $options[ $key ] ) && '' !== $options[ $key ] ) {
-        return $options[ $key ];
+    $stored = langgam_fikir_stored_option( $key );
+    $field  = langgam_fikir_get_field( $key );
+
+    if ( null !== $stored && '' !== $stored && 0 !== $stored ) {
+        return $stored;
+    }
+    if ( '' === $stored && $field && ! empty( $field['allow_empty'] ) ) {
+        return '';
     }
 
     $legacy = get_theme_mod( $key, null );
@@ -167,15 +92,32 @@ function langgam_fikir_get_option( $key ) {
         return $legacy;
     }
 
-    return langgam_fikir_default_option( $key );
+    return $field ? $field['default'] : '';
 }
 
 /**
- * Per-page post meta wins; otherwise use the site-wide option.
+ * Theme Settings value first; otherwise a value saved by the pre-2.1 per-page meta boxes;
+ * otherwise the default.
  */
 function langgam_fikir_meta_or_option( $post_id, $meta_key, $option_key ) {
-    $value = get_post_meta( $post_id, $meta_key, true );
-    return ( '' !== $value && false !== $value ) ? $value : langgam_fikir_get_option( $option_key );
+    $stored = langgam_fikir_stored_option( $option_key );
+    if ( null !== $stored && '' !== $stored ) {
+        return $stored;
+    }
+
+    $meta = get_post_meta( $post_id, $meta_key, true );
+    if ( '' !== $meta && false !== $meta ) {
+        return $meta;
+    }
+
+    return langgam_fikir_get_option( $option_key );
+}
+
+/**
+ * Plain text with blank-line paragraphs, safe to print.
+ */
+function langgam_fikir_paragraphs( $text ) {
+    return wp_kses_post( wpautop( esc_html( $text ) ) );
 }
 
 /**
@@ -223,6 +165,14 @@ function langgam_fikir_sanitize_options( $input ) {
                     break;
                 case 'number':
                     $value = '' === $raw ? $field['default'] : min( $field['max'], max( $field['min'], absint( $raw ) ) );
+                    break;
+                case 'image':
+                    $id    = absint( $raw );
+                    $value = ( $id && wp_attachment_is_image( $id ) ) ? $id : 0;
+                    break;
+                case 'page':
+                    $id    = absint( $raw );
+                    $value = ( $id && 'page' === get_post_type( $id ) ) ? $id : 0;
                     break;
                 case 'email':
                     $value = sanitize_email( $raw );
@@ -402,6 +352,7 @@ function langgam_fikir_enqueue_settings_assets( $hook ) {
     $dir = get_stylesheet_directory();
     $uri = get_stylesheet_directory_uri();
 
+    wp_enqueue_media();
     wp_enqueue_style( 'wp-color-picker' );
     wp_enqueue_style( 'langgam-fikir-settings', $uri . '/assets/css/settings.css', array( 'wp-color-picker' ), filemtime( $dir . '/assets/css/settings.css' ) );
     wp_enqueue_script( 'langgam-fikir-settings', $uri . '/assets/js/settings.js', array( 'wp-color-picker' ), filemtime( $dir . '/assets/js/settings.js' ), true );
@@ -410,7 +361,17 @@ function langgam_fikir_enqueue_settings_assets( $hook ) {
     foreach ( langgam_fikir_get_schemes() as $slug => $scheme ) {
         $palettes[ $slug ] = $scheme['palette'];
     }
-    wp_localize_script( 'langgam-fikir-settings', 'langgamFikirSettings', array( 'palettes' => $palettes ) );
+    wp_localize_script(
+        'langgam-fikir-settings',
+        'langgamFikirSettings',
+        array(
+            'palettes' => $palettes,
+            'i18n'     => array(
+                'chooseTitle'  => __( 'Choose image', 'langgam-fikir' ),
+                'chooseButton' => __( 'Use this image', 'langgam-fikir' ),
+            ),
+        )
+    );
 }
 add_action( 'admin_enqueue_scripts', 'langgam_fikir_enqueue_settings_assets' );
 
@@ -456,7 +417,40 @@ function langgam_fikir_render_field( $key, $field, $value ) {
             break;
 
         case 'textarea':
-            printf( '<textarea id="%s" name="%s" rows="3" class="large-text">%s</textarea>', esc_attr( $id ), esc_attr( $name ), esc_textarea( $value ) );
+            printf(
+                '<textarea id="%s" name="%s" rows="%d" class="large-text">%s</textarea>',
+                esc_attr( $id ),
+                esc_attr( $name ),
+                isset( $field['rows'] ) ? (int) $field['rows'] : 3,
+                esc_textarea( $value )
+            );
+            break;
+
+        case 'image':
+            $src = $value ? wp_get_attachment_image_url( (int) $value, 'medium' ) : '';
+            printf(
+                '<div class="lf-image" data-lf-image><input type="hidden" id="%1$s" name="%2$s" value="%3$s"><div class="lf-image__preview" %4$s><img src="%5$s" alt=""></div><button type="button" class="button lf-image__choose">%6$s</button> <button type="button" class="button-link lf-image__remove" %7$s>%8$s</button></div>',
+                esc_attr( $id ),
+                esc_attr( $name ),
+                esc_attr( $value ? $value : '' ),
+                $src ? '' : 'hidden',
+                esc_url( $src ),
+                esc_html__( 'Choose image', 'langgam-fikir' ),
+                $src ? '' : 'hidden',
+                esc_html__( 'Remove', 'langgam-fikir' )
+            );
+            break;
+
+        case 'page':
+            wp_dropdown_pages(
+                array(
+                    'name'              => $name,
+                    'id'                => $id,
+                    'selected'          => (int) $value,
+                    'show_option_none'  => __( '— Not set —', 'langgam-fikir' ),
+                    'option_none_value' => 0,
+                )
+            );
             break;
 
         case 'number':
@@ -490,9 +484,7 @@ function langgam_fikir_render_settings_page() {
         return;
     }
 
-    $tabs    = langgam_fikir_get_settings_fields();
-    $options = get_option( LANGGAM_FIKIR_OPTION, array() );
-    $options = is_array( $options ) ? $options : array();
+    $tabs = langgam_fikir_get_settings_fields();
     ?>
     <div class="wrap lf-settings">
         <h1><?php esc_html_e( 'Theme Settings', 'langgam-fikir' ); ?></h1>
@@ -525,10 +517,7 @@ function langgam_fikir_render_settings_page() {
                     <table class="form-table" role="presentation">
                         <?php foreach ( $tab['fields'] as $key => $field ) : ?>
                             <?php
-                            $value = isset( $options[ $key ] ) && '' !== $options[ $key ] ? $options[ $key ] : '';
-                            if ( '' === $value && 'color' !== $field['type'] ) {
-                                $value = langgam_fikir_get_option( $key );
-                            }
+                            $value = 'color' === $field['type'] ? (string) langgam_fikir_raw_option( $key ) : langgam_fikir_get_option( $key );
                             ?>
                             <tr>
                                 <th scope="row">

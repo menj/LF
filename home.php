@@ -32,7 +32,7 @@ get_header();
                 ?>
                 <div class="featured-resource">
                     <div class="page-title-header">
-                        <h2 class="page-title"><?php _e( 'Featured Resources', 'langgam-fikir' ); ?></h2>
+                        <h2 class="page-title"><?php echo esc_html( langgam_fikir_get_option( 'resources_featured_heading' ) ); ?></h2>
                     </div>
                     
                     <div class="featured-resource-carousel">
@@ -79,7 +79,7 @@ get_header();
             <!-- Other Resources Section -->
             <div class="other-resources-section">
                 <div class="page-title-header">
-                    <h2 class="page-title"><?php _e( 'Other Resources', 'langgam-fikir' ); ?></h2>
+                    <h2 class="page-title"><?php echo esc_html( langgam_fikir_get_option( 'resources_other_heading' ) ); ?></h2>
                 </div>
                 
                 <?php if ( have_posts() ) : ?>

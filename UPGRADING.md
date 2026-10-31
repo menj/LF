@@ -1,3 +1,11 @@
+# Upgrading to 2.1.0
+
+- About and Contact text moved from per-page meta boxes to **Appearance > Theme Settings**. Values you saved in the old meta boxes keep working until you save the new settings.
+- Open **Footer and pages** and choose your About, Contact and Terms pages. Until then the theme still finds them by their old slugs.
+- Text in the Contact page editor now shows above the form. Clear it if you do not want it there.
+
+---
+
 # Upgrading to 2.0.0
 
 - **Homepage counts and hero text** moved from the Customizer to Appearance > Theme Settings > Homepage. Values you saved in the Customizer keep working until you save the new settings.

@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -136,6 +136,12 @@ Go to Appearance > Customize > Homepage Settings. You can set the number of feat
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.1.0 (October 2026) =
+* Every page text is now editable in Theme Settings: Homepage, About page, Contact page, Publications, Footer and pages
+* Choose which pages are About and Contact; no more fixed slugs
+* Text typed in the About and Contact page editors now appears on the page
+* Default navigation when no menu is set
 
 = 2.0.0 (October 2026) =
 * New tabbed Theme Settings page: Colours, Typography, Homepage, Contact and About

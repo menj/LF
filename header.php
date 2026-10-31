@@ -62,7 +62,7 @@
                             'theme_location' => 'primary',
                             'menu_id'        => 'primary-menu',
                             'container'      => false,
-                            'fallback_cb'    => false,
+                            'fallback_cb'    => 'lf_primary_menu_fallback',
                         )
                     );
                     ?>

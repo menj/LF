@@ -23,22 +23,20 @@ get_header();
                 <div class="about-logo-section">
                     <div class="about-logo-container">
                         <?php
-                        // Check if custom logo is set in About page meta
-                        $custom_logo_id = get_post_meta( get_the_ID(), '_about_logo_id', true );
-                        
-                        if ( $custom_logo_id ) {
-                            // Use custom About page logo
-                            echo wp_get_attachment_image( $custom_logo_id, 'full', false, array( 'class' => 'about-logo-image' ) );
-                        } elseif ( has_custom_logo() ) {
-                            // Use site logo
-                            $custom_logo_id = get_theme_mod( 'custom_logo' );
-                            echo wp_get_attachment_image( $custom_logo_id, 'full', false, array( 'class' => 'about-logo-image' ) );
+                        // Theme Settings logo, then a logo saved by older per-page meta, then the site logo.
+                        $logo_id = (int) langgam_fikir_stored_option( 'about_logo' );
+                        if ( ! $logo_id ) {
+                            $logo_id = (int) get_post_meta( get_the_ID(), '_about_logo_id', true );
+                        }
+                        if ( ! $logo_id && has_custom_logo() ) {
+                            $logo_id = (int) get_theme_mod( 'custom_logo' );
+                        }
+
+                        if ( $logo_id ) {
+                            echo wp_get_attachment_image( $logo_id, 'full', false, array( 'class' => 'about-logo-image' ) );
                         } else {
-                            // Fallback to default logo URL
                             ?>
-                            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/LF-Logo-No-BG.png' ) ); ?>" 
-                                 alt="<?php bloginfo( 'name' ); ?>" 
-                                 class="about-logo-image">
+                            <p class="about-logo-text"><?php bloginfo( 'name' ); ?></p>
                             <?php
                         }
                         ?>
@@ -52,62 +50,73 @@ get_header();
                             <h1 class="page-title"><?php the_title(); ?></h1>
                         </div>
                         
-                        <div class="about-lead">
-                            <p><?php _e( 'Langgam Fikir is an independent publishing house dedicated to bringing profound narratives and critical thought to the forefront of the Malaysian literary scene.', 'langgam-fikir' ); ?></p>
-                        </div>
+                        <?php $about_lead = langgam_fikir_get_option( 'about_lead' ); ?>
+                        <?php if ( $about_lead ) : ?>
+                            <div class="about-lead">
+                                <?php echo langgam_fikir_paragraphs( $about_lead ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+                            </div>
+                        <?php endif; ?>
                         
                         <div class="about-text">
-                            <h2><?php _e( 'Our Mission', 'langgam-fikir' ); ?></h2>
-                            <?php 
-                            $content = get_the_content();
-                            if ( empty( trim( strip_tags( $content ) ) ) ) {
-                                ?>
-                                <p><?php _e( 'Founded in 2015, we operate with a singular vision: to publish books that matter. In an age of fleeting digital content, we believe in the enduring power of the physical book as a technology for preserving deep thought.', 'langgam-fikir' ); ?></p>
-                                
-                                <p><?php _e( 'We focus on translating key works of global philosophy and literature into Malay, while also nurturing local voices that speak with clarity and courage on contemporary issues.', 'langgam-fikir' ); ?></p>
-                                <?php
+                            <?php $mission_heading = langgam_fikir_get_option( 'about_mission_heading' ); ?>
+                            <?php if ( $mission_heading ) : ?>
+                                <h2><?php echo esc_html( $mission_heading ); ?></h2>
+                            <?php endif; ?>
+                            <?php
+                            // Text typed in the page editor wins; otherwise the Theme Settings text.
+                            if ( '' === trim( wp_strip_all_tags( get_the_content() ) ) ) {
+                                echo langgam_fikir_paragraphs( langgam_fikir_get_option( 'about_mission_text' ) ); // phpcs:ignore WordPress.Security.EscapeOutput
                             } else {
                                 the_content();
                             }
+
+                            $cards = array();
+                            foreach ( array( 1, 2 ) as $n ) {
+                                $card_title = langgam_fikir_get_option( "about_card{$n}_title" );
+                                $card_text  = langgam_fikir_get_option( "about_card{$n}_text" );
+                                if ( $card_title || $card_text ) {
+                                    $cards[] = array( $card_title, $card_text );
+                                }
+                            }
                             ?>
                             
-                            <div class="mission-cards">
-                                <div class="mission-card">
-                                    <h3><?php _e( 'Translation', 'langgam-fikir' ); ?></h3>
-                                    <p><?php _e( 'Bridging cultures by bringing world classics to local readers with high-fidelity translations.', 'langgam-fikir' ); ?></p>
+                            <?php if ( $cards ) : ?>
+                                <div class="mission-cards">
+                                    <?php foreach ( $cards as $card ) : ?>
+                                        <div class="mission-card">
+                                            <?php if ( $card[0] ) : ?><h3><?php echo esc_html( $card[0] ); ?></h3><?php endif; ?>
+                                            <?php if ( $card[1] ) : ?><p><?php echo esc_html( $card[1] ); ?></p><?php endif; ?>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
-                                <div class="mission-card">
-                                    <h3><?php _e( 'Original Works', 'langgam-fikir' ); ?></h3>
-                                    <p><?php _e( 'Providing a platform for Malaysian thinkers, poets, and storytellers to document our times.', 'langgam-fikir' ); ?></p>
-                                </div>
-                            </div>
+                            <?php endif; ?>
                         </div>
                         
                         <?php
-                        // Contact CTA Section
+                        // Contact call-to-action
                         $contact_heading = langgam_fikir_meta_or_option( get_the_ID(), '_about_contact_heading', 'about_contact_heading' );
                         $contact_phone   = langgam_fikir_meta_or_option( get_the_ID(), '_about_contact_phone', 'about_contact_phone' );
-                        
-                        if ( empty( $contact_heading ) ) {
-                            $contact_heading = __( 'Have any questions?', 'langgam-fikir' );
-                        }
-                        if ( empty( $contact_phone ) ) {
-                            $contact_phone = '+60 1234 1234';
-                        }
+                        $contact_url     = langgam_fikir_get_page_url( 'contact' );
+                        $contact_label   = langgam_fikir_get_option( 'about_contact_label' );
                         ?>
                         
-                        <div class="about-contact-cta">
-                            <p class="contact-prompt"><?php echo esc_html( $contact_heading ); ?></p>
-                            <p class="contact-action">
-                                <a href="<?php echo esc_url( home_url( '/contact-langgam-fikir/' ) ); ?>" class="contact-link">
-                                    <?php _e( 'Contact us!', 'langgam-fikir' ); ?>
-                                </a>
-                            </p>
-                            
-                            <a href="tel:<?php echo esc_attr( str_replace( ' ', '', $contact_phone ) ); ?>" class="contact-phone-large">
-                                <?php echo esc_html( $contact_phone ); ?>
-                            </a>
-                        </div>
+                        <?php if ( $contact_heading || $contact_url || $contact_phone ) : ?>
+                            <div class="about-contact-cta">
+                                <?php if ( $contact_heading ) : ?>
+                                    <p class="contact-prompt"><?php echo esc_html( $contact_heading ); ?></p>
+                                <?php endif; ?>
+                                <?php if ( $contact_url && $contact_label ) : ?>
+                                    <p class="contact-action">
+                                        <a href="<?php echo esc_url( $contact_url ); ?>" class="contact-link"><?php echo esc_html( $contact_label ); ?></a>
+                                    </p>
+                                <?php endif; ?>
+                                <?php if ( $contact_phone ) : ?>
+                                    <a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $contact_phone ) ); ?>" class="contact-phone-large">
+                                        <?php echo esc_html( $contact_phone ); ?>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

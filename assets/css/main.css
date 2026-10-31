@@ -2298,3 +2298,26 @@ p {
     color: var(--color-text-light);
     font-size: 0.9rem;
 }
+
+/* Homepage about image placeholder (shown until an image is chosen in Theme Settings) */
+.about-snippet-placeholder {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    background-color: var(--color-bg-muted);
+    border: 1px solid var(--color-border);
+}
+
+/* About page: text fallback when no logo image is set */
+.about-logo-text {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-primary);
+    text-align: center;
+    margin: 0;
+}
+
+/* Contact page: text typed in the page editor, shown above the form */
+.contact-intro {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+}

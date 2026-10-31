@@ -18,7 +18,7 @@
             </div>
             
             <div class="footer-legal-column">
-                <h3 class="footer-heading"><?php _e( 'Legal', 'langgam-fikir' ); ?></h3>
+                <h3 class="footer-heading"><?php echo esc_html( langgam_fikir_get_option( 'footer_legal_heading' ) ); ?></h3>
                 <nav class="footer-legal-navigation">
                     <?php
                     wp_nav_menu(
@@ -38,14 +38,12 @@
         <div class="footer-bottom">
             <div class="footer-bottom-inner">
                 <p class="copyright">
-                    &copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>. <?php _e( 'All rights reserved.', 'langgam-fikir' ); ?>
+                    &copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php echo esc_html( langgam_fikir_get_option( 'footer_rights' ) ); ?>
                 </p>
-                <p class="company-info">
-                    <?php printf( 
-                        __( '%s is a registered enterprise in Malaysia.', 'langgam-fikir' ),
-                        get_bloginfo( 'name' )
-                    ); ?>
-                </p>
+                <?php $company_info = langgam_fikir_get_option( 'footer_company_info' ); ?>
+                <?php if ( $company_info ) : ?>
+                    <p class="company-info"><?php echo esc_html( str_replace( '{site}', get_bloginfo( 'name' ), $company_info ) ); ?></p>
+                <?php endif; ?>
             </div>
         </div>
     </footer>

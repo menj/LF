@@ -14,8 +14,8 @@ get_header();
         <div class="container">
             
             <div class="section-header-centered">
-                <h1 class="section-header-title"><?php _e( 'Our Publications', 'langgam-fikir' ); ?></h1>
-                <p class="section-header-subtitle"><?php _e( 'Explore our complete catalog of works, from contemporary fiction to critical essays and historical accounts.', 'langgam-fikir' ); ?></p>
+                <h1 class="section-header-title"><?php echo esc_html( langgam_fikir_get_option( 'books_archive_heading' ) ); ?></h1>
+                <p class="section-header-subtitle"><?php echo esc_html( langgam_fikir_get_option( 'books_archive_subtitle' ) ); ?></p>
             </div>
             
             <?php if ( have_posts() ) : ?>
@@ -67,11 +67,11 @@ get_header();
                                 $year   = langgam_fikir_get_book_meta( get_the_ID(), 'year' );
                                 
                                 if ( $author ) {
-                                    printf( __( 'Penulis: %s', 'langgam-fikir' ), esc_html( $author ) );
+                                    printf( '%s: %s', esc_html( langgam_fikir_get_option( 'author_label' ) ), esc_html( $author ) );
                                     echo '<br>';
                                 }
                                 if ( $year ) {
-                                    printf( __( 'Tahun: %s', 'langgam-fikir' ), esc_html( $year ) );
+                                    printf( '%s: %s', esc_html( langgam_fikir_get_option( 'year_label' ) ), esc_html( $year ) );
                                 }
                                 ?>
                             </div>
