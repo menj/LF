@@ -35,6 +35,8 @@ get_header();
                 <?php endif; ?>
             </header>
 
+            <?php get_template_part( 'template-parts/content/book-filters' ); ?>
+
             <?php if ( have_posts() ) : ?>
 
                 <div class="books-grid stagger-children">

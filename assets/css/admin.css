@@ -278,3 +278,152 @@
     margin-top: 3px;
     margin-right: 3px;
 }
+
+/*--------------------------------------------------------------
+# Book Details editor box (v2.11.0)
+  Sections in cards, a two-column grid, and a summary of what is still empty.
+--------------------------------------------------------------*/
+.lf-bd {
+    --lf-bd-line: #E5DFD3;
+    --lf-bd-ink: #4A4036;
+    --lf-bd-muted: #6B6057;
+    --lf-bd-accent: #C9A961;
+    --lf-bd-tint: #F7F4EE;
+    display: grid;
+    gap: 14px;
+    margin: 4px 0;
+}
+
+.lf-bd-summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 16px;
+    padding: 10px 14px;
+    background: var(--lf-bd-tint);
+    border-left: 4px solid var(--lf-bd-accent);
+    border-radius: 0 8px 8px 0;
+    color: var(--lf-bd-ink);
+}
+
+.lf-bd-count {
+    font-weight: 600;
+}
+
+.lf-bd-missing {
+    font-size: 12px;
+    color: var(--lf-bd-muted);
+}
+
+.lf-bd-section {
+    margin: 0;
+    padding: 14px 16px 16px;
+    background: #fff;
+    border: 1px solid var(--lf-bd-line);
+    border-radius: 10px;
+}
+
+.lf-bd-title {
+    padding: 0 8px;
+    margin-left: -8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lf-bd-muted);
+}
+
+.lf-bd-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px 16px;
+    margin-top: 6px;
+}
+
+.lf-bd-field--full  { grid-column: span 6; }
+.lf-bd-field--half  { grid-column: span 3; }
+.lf-bd-field--third { grid-column: span 2; }
+
+.lf-bd-field label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: var(--lf-bd-ink);
+}
+
+.lf-bd-field input[type="text"],
+.lf-bd-field input[type="number"],
+.lf-bd-field select {
+    width: 100%;
+    max-width: none;
+    min-height: 36px;
+    border-color: var(--lf-bd-line);
+    border-radius: 6px;
+}
+
+.lf-bd-field input:focus,
+.lf-bd-field select:focus {
+    border-color: var(--lf-bd-accent);
+    box-shadow: 0 0 0 1px var(--lf-bd-accent);
+}
+
+.lf-bd-field .description {
+    margin: 4px 0 0;
+    font-size: 12px;
+}
+
+.lf-bd-status {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px;
+    margin: 6px 0 14px;
+}
+
+.lf-bd-status .lf-status-group {
+    margin: 0;
+    padding: 10px 12px;
+    background: var(--lf-bd-tint);
+    border: 1px solid var(--lf-bd-line);
+    border-radius: 8px;
+}
+
+@media (max-width: 782px) {
+    .lf-bd-field--half,
+    .lf-bd-field--third {
+        grid-column: span 6;
+    }
+}
+
+/*--------------------------------------------------------------
+# Books list columns
+--------------------------------------------------------------*/
+.column-lf_status {
+    width: 120px;
+}
+
+.column-lf_year {
+    width: 70px;
+}
+
+.lf-col-status {
+    display: inline-block;
+    padding: 2px 9px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #8A8D96;
+    border-radius: 4px;
+}
+
+.lf-col-status--published,
+.lf-col-status--new-release,
+.lf-col-status--limited-edition,
+.lf-col-status--digital-only { background: #8A6D2B; }
+.lf-col-status--pre-order    { background: #237070; }
+.lf-col-status--announced    { background: #7D6282; }
+.lf-col-status--coming-soon  { background: #B07D3A; }
+.lf-col-status--sold-out     { background: #6A6E95; }
+.lf-col-status--reprinting   { background: #757881; }
+.lf-col-status--out-of-print { background: #8F7A7A; }

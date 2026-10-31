@@ -14,91 +14,83 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Book Details Meta Box Callback
+ *
+ * Sections built from inc/book-fields.php (title & credits, publication, physical details),
+ * then availability (status picker, price, language). A short hint lists what is still empty.
  */
 function langgam_fikir_book_details_callback( $post ) {
     wp_nonce_field( 'langgam_fikir_book_meta', 'langgam_fikir_book_meta_nonce' );
-    
-    $subtitle   = get_post_meta( $post->ID, '_book_subtitle', true );
-    $author     = get_post_meta( $post->ID, '_book_author', true );
-    $editor     = get_post_meta( $post->ID, '_book_editor', true );
-    $translator = get_post_meta( $post->ID, '_book_translator', true );
-    $publisher  = get_post_meta( $post->ID, '_book_publisher', true );
-    $year       = get_post_meta( $post->ID, '_book_year', true );
-    $isbn       = get_post_meta( $post->ID, '_book_isbn', true );
-    $status     = get_post_meta( $post->ID, '_book_status', true );
+
+    $status = get_post_meta( $post->ID, '_book_status', true );
     if ( empty( $status ) ) {
         $status = 'published';
     }
-    $price      = get_post_meta( $post->ID, '_book_price', true );
-    $language   = get_post_meta( $post->ID, '_book_language', true );
+    $price    = get_post_meta( $post->ID, '_book_price', true );
+    $language = get_post_meta( $post->ID, '_book_language', true );
+
+    // What is still missing? Shown as a hint so a thin catalogue entry is easy to spot.
+    $checks = array(
+        __( 'Cover image', 'langgam-fikir' ) => has_post_thumbnail( $post ),
+        __( 'Excerpt', 'langgam-fikir' )     => '' !== trim( (string) $post->post_excerpt ),
+        __( 'Author', 'langgam-fikir' )      => '' !== (string) get_post_meta( $post->ID, '_book_author', true ),
+        __( 'Year', 'langgam-fikir' )        => '' !== (string) get_post_meta( $post->ID, '_book_year', true ),
+        __( 'ISBN', 'langgam-fikir' )        => '' !== (string) get_post_meta( $post->ID, '_book_isbn', true ),
+        __( 'Pages', 'langgam-fikir' )       => '' !== (string) get_post_meta( $post->ID, '_book_pages', true ),
+        __( 'Format', 'langgam-fikir' )      => '' !== (string) get_post_meta( $post->ID, '_book_format', true ),
+        __( 'Category', 'langgam-fikir' )    => has_term( '', 'book-category', $post ),
+        __( 'Topics', 'langgam-fikir' )      => has_term( '', 'book-tag', $post ),
+    );
+    $missing = array_keys( array_filter( $checks, static function ( $done ) {
+        return ! $done;
+    } ) );
+    $filled  = count( $checks ) - count( $missing );
     ?>
-    <table class="form-table">
-        <tr>
-            <th><label for="book_subtitle"><?php _e( 'Subtitle', 'langgam-fikir' ); ?></label></th>
-            <td>
-                <input type="text" id="book_subtitle" name="book_subtitle" value="<?php echo esc_attr( $subtitle ); ?>" class="large-text">
-            </td>
-        </tr>
-        <tr>
-            <th><label for="book_author"><?php _e( 'Author', 'langgam-fikir' ); ?></label></th>
-            <td>
-                <input type="text" id="book_author" name="book_author" value="<?php echo esc_attr( $author ); ?>" class="large-text">
-            </td>
-        </tr>
-        <tr>
-            <th><label for="book_editor"><?php _e( 'Editor', 'langgam-fikir' ); ?></label></th>
-            <td>
-                <input type="text" id="book_editor" name="book_editor" value="<?php echo esc_attr( $editor ); ?>" class="large-text" placeholder="<?php esc_attr_e( 'Leave blank if not applicable', 'langgam-fikir' ); ?>">
-            </td>
-        </tr>
-        <tr>
-            <th><label for="book_translator"><?php _e( 'Translator', 'langgam-fikir' ); ?></label></th>
-            <td>
-                <input type="text" id="book_translator" name="book_translator" value="<?php echo esc_attr( $translator ); ?>" class="large-text" placeholder="<?php esc_attr_e( 'Leave blank if not applicable', 'langgam-fikir' ); ?>">
-            </td>
-        </tr>
-        <tr>
-            <th><label for="book_publisher"><?php _e( 'Publisher', 'langgam-fikir' ); ?></label></th>
-            <td>
-                <input type="text" id="book_publisher" name="book_publisher" value="<?php echo esc_attr( $publisher ); ?>" class="large-text" placeholder="<?php esc_attr_e( 'Leave blank if not applicable', 'langgam-fikir' ); ?>">
-            </td>
-        </tr>
-        <tr>
-            <th><label for="book_year"><?php _e( 'Publication Year', 'langgam-fikir' ); ?></label></th>
-            <td>
-                <input type="number" id="book_year" name="book_year" value="<?php echo esc_attr( $year ); ?>" min="1900" max="2100">
-            </td>
-        </tr>
-        <tr>
-            <th><label for="book_isbn"><?php _e( 'ISBN', 'langgam-fikir' ); ?></label></th>
-            <td>
-                <input type="text" id="book_isbn" name="book_isbn" value="<?php echo esc_attr( $isbn ); ?>" class="large-text" placeholder="978-629-96135-0-3">
-            </td>
-        </tr>
-        <tr>
-            <th><label for="book_language"><?php _e( 'Language', 'langgam-fikir' ); ?></label></th>
-            <td>
-                <?php
-                $lang_choices = function_exists( 'langgam_fikir_book_language_choices' )
-                    ? langgam_fikir_book_language_choices()
-                    : array();
-                ?>
-                <select id="book_language" name="book_language" class="regular-text">
-                    <option value=""><?php esc_html_e( '— Use site default —', 'langgam-fikir' ); ?></option>
-                    <?php foreach ( $lang_choices as $code => $label ) : ?>
-                        <option value="<?php echo esc_attr( $code ); ?>" <?php selected( $language, $code ); ?>>
-                            <?php echo esc_html( $label ); ?>
-                        </option>
+    <div class="lf-bd">
+        <div class="lf-bd-summary">
+            <span class="lf-bd-count"><?php
+                /* translators: 1: filled items, 2: total items */
+                printf( esc_html__( '%1$d of %2$d details filled', 'langgam-fikir' ), (int) $filled, count( $checks ) );
+            ?></span>
+            <?php if ( $missing ) : ?>
+                <span class="lf-bd-missing">
+                    <?php esc_html_e( 'Still empty:', 'langgam-fikir' ); ?>
+                    <?php echo esc_html( implode( ', ', $missing ) ); ?>
+                </span>
+            <?php endif; ?>
+        </div>
+
+        <?php foreach ( langgam_fikir_book_field_groups() as $group_id => $group ) : ?>
+            <fieldset class="lf-bd-section lf-bd-section--<?php echo esc_attr( $group_id ); ?>">
+                <legend class="lf-bd-title"><?php echo esc_html( $group['title'] ); ?></legend>
+                <div class="lf-bd-grid">
+                    <?php foreach ( $group['fields'] as $key => $field ) : ?>
+                        <?php $value = get_post_meta( $post->ID, '_book_' . $key, true ); ?>
+                        <div class="lf-bd-field lf-bd-field--<?php echo esc_attr( $field['width'] ); ?>">
+                            <label for="book_<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
+                            <?php if ( 'select' === $field['type'] ) : ?>
+                                <select id="book_<?php echo esc_attr( $key ); ?>" name="book_<?php echo esc_attr( $key ); ?>">
+                                    <option value=""><?php esc_html_e( '— Not set —', 'langgam-fikir' ); ?></option>
+                                    <?php foreach ( $field['choices'] as $choice => $choice_label ) : ?>
+                                        <option value="<?php echo esc_attr( $choice ); ?>" <?php selected( $value, $choice ); ?>><?php echo esc_html( $choice_label ); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            <?php else : ?>
+                                <input type="<?php echo 'number' === $field['type'] ? 'number' : 'text'; ?>"
+                                       id="book_<?php echo esc_attr( $key ); ?>" name="book_<?php echo esc_attr( $key ); ?>"
+                                       value="<?php echo esc_attr( $value ); ?>"
+                                       <?php echo isset( $field['min'] ) ? 'min="' . (int) $field['min'] . '" max="' . (int) $field['max'] . '"' : ''; ?>
+                                       <?php echo ! empty( $field['placeholder'] ) ? 'placeholder="' . esc_attr( $field['placeholder'] ) . '"' : ''; ?>>
+                            <?php endif; ?>
+                        </div>
                     <?php endforeach; ?>
-                </select>
-                <p class="description">
-                    <?php esc_html_e( 'The language this book is written in. Used for the Language row on the book page and the Schema.org inLanguage property. If the HrefMaster plugin is active and sets a per-page lang for this book, that overrides this setting.', 'langgam-fikir' ); ?>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <th><label><?php _e( 'Status', 'langgam-fikir' ); ?></label></th>
-            <td>
+                </div>
+            </fieldset>
+        <?php endforeach; ?>
+
+        <fieldset class="lf-bd-section lf-bd-section--availability">
+            <legend class="lf-bd-title"><?php esc_html_e( 'Availability', 'langgam-fikir' ); ?></legend>
+
+            <div class="lf-bd-status">
                 <fieldset class="lf-status-group">
                     <legend class="lf-status-legend"><?php _e( 'Available', 'langgam-fikir' ); ?></legend>
                     <label class="lf-status-label">
@@ -151,15 +143,32 @@ function langgam_fikir_book_details_callback( $post ) {
                         <?php _e( 'Out of Print', 'langgam-fikir' ); ?>
                     </label>
                 </fieldset>
-            </td>
-        </tr>
-        <tr>
-            <th><label for="book_price"><?php _e( 'Price (RM)', 'langgam-fikir' ); ?></label></th>
-            <td>
-                <input type="number" id="book_price" name="book_price" value="<?php echo esc_attr( $price ); ?>" step="0.01" min="0">
-            </td>
-        </tr>
-    </table>
+            </div>
+
+            <div class="lf-bd-grid">
+                <div class="lf-bd-field lf-bd-field--half">
+                    <label for="book_price"><?php esc_html_e( 'Price (RM)', 'langgam-fikir' ); ?></label>
+                    <input type="number" id="book_price" name="book_price" value="<?php echo esc_attr( $price ); ?>" step="0.01" min="0">
+                </div>
+
+                <div class="lf-bd-field lf-bd-field--half">
+                    <label for="book_language"><?php esc_html_e( 'Language', 'langgam-fikir' ); ?></label>
+                    <?php
+                    $lang_choices = function_exists( 'langgam_fikir_book_language_choices' )
+                        ? langgam_fikir_book_language_choices()
+                        : array();
+                    ?>
+                    <select id="book_language" name="book_language">
+                        <option value=""><?php esc_html_e( '— Use site default —', 'langgam-fikir' ); ?></option>
+                        <?php foreach ( $lang_choices as $code => $label ) : ?>
+                            <option value="<?php echo esc_attr( $code ); ?>" <?php selected( $language, $code ); ?>><?php echo esc_html( $label ); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <p class="description"><?php esc_html_e( 'The language the book is written in. Shown on the book page and used for Schema.org inLanguage.', 'langgam-fikir' ); ?></p>
+                </div>
+            </div>
+        </fieldset>
+    </div>
     <?php
 }
 

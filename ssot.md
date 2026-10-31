@@ -130,6 +130,7 @@ LF/
 │   ├── post-types.php                 book CPT, book-category, book-tag
 │   ├── meta-boxes.php                 Book details, contact, about (registration + save)
 │   ├── options-schema.php             Schema for the Design, About & Contact Pages and Labels tabs and extra cards; defaults, sanitising, langgam_fikir_text()
+│   ├── book-fields.php                Book field schema (editor box, saving, page rows, Schema.org extras), archive sort, admin columns
 │   ├── design.php                     Body classes for palette/corners/fonts/parallax, custom-colour CSS, hero photo
 │   ├── template-functions.php         Shared helpers, language helpers
 │   ├── template-hooks.php             Action/filter hooks
@@ -152,6 +153,7 @@ LF/
 │       ├── resource-card.php          Blog post card
 │       ├── author-bio.php             Single post author bio
 │       ├── faq-section.php            FAQ accordion
+│       ├── book-filters.php           Category/topic chips, result count and sort menu for the book archives
 │       ├── showcase.php               Interactive homepage Showcase (books here are excluded from Latest Publications)
 │       └── reviews-section.php        Reviews list with star widget
 ├── assets/
@@ -220,6 +222,10 @@ Stored as `_book_status` post meta on the `book` CPT.
 | Unavailable | `sold-out`, `reprinting`, `out-of-print` |
 
 The admin UI groups status radio buttons by category fieldset.
+
+### 6.1a Book fields (2.11.0)
+
+Stored as `_book_{key}` post meta. Original fields: `subtitle`, `author`, `editor`, `translator`, `publisher`, `year`, `isbn`, `language`, `status`, `price`. Added in 2.11.0: `original_title`, `translated_from`, `edition`, `series`, `format` (`paperback`, `hardcover`, `ebook`, `audiobook`), `pages`, `dimensions`. The editor box, the saving, the information card on the book page and the Schema.org extras are all driven by `inc/book-fields.php`; add a field there and it appears in all four. Categories (`book-category`) and tags (`book-tag`, shown as "Topics") appear as linked chips on the book page and as filters on the archives.
 
 ### 6.2 Helper functions
 

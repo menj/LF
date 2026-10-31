@@ -147,6 +147,8 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 * NEW: Theme Options > Design: four light palettes with custom colours, five-typeface font roles (Kagnue, Crimson Text, Sabon Next LT, Inter, Ferments), corner style, parallax setting
 * NEW: Hero photo choice (four bundled Pexels photographs, random or none)
 * NEW: Editable text for the homepage, About, Contact, footer and 404 pages, plus a quirky animated 404
+* NEW: Fuller book information (original title, translated from, edition, series, format, pages, size) with category and topic chips on the book page and richer Schema.org
+* NEW: Category, topic and sort filters on the Publications archive; a sectioned Book Details editor box and Author/Status/Year columns in the Books list
 * CHANGED: Showcase is a readable grid of the theme's own book cards with a parallax cover backdrop (two rows by default)
 * CHANGED: Rounder corners by default (Sharp restores the previous look); stylesheet colours are variables
 * FIXED: Horizontal scroll on phones before the About section was revealed

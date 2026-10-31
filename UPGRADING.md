@@ -132,6 +132,7 @@ For manual server access:
 - The Showcase is now a card grid with a default of 6 books (two rows). Adjust the count (2-9) or turn the rotation off in Theme Options → Homepage → Showcase.
 - Corners are Soft by default (rounder than 2.10). **Sharp** restores the previous radii.
 - Re-check the Contact page: the placeholder phone number is gone, the email shown is the Footer Contact email, and the intro text is editable under About & Contact Pages.
+- Book pages show the new fields once you fill them in (edit a book, open the **Meta Boxes** panel at the bottom of the block editor: Book Details). Assign categories and tags to your books so the new chips and the archive filters have something to show.
 - Existing per-page About/Contact meta box values still work as a fallback where Theme Options leaves the matching field to them (About contact heading and phone, Contact description, email and phone).
 
 **Rollback:** safe; the new options are additive and ignored by 2.10.0.

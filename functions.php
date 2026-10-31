@@ -27,6 +27,7 @@ require_once LANGGAM_FIKIR_DIR . '/inc/enqueue.php';         // Scripts & styles
 require_once LANGGAM_FIKIR_DIR . '/inc/post-types.php';      // Custom post types & taxonomies
 require_once LANGGAM_FIKIR_DIR . '/inc/meta-boxes.php';      // Meta boxes for custom fields
 require_once LANGGAM_FIKIR_DIR . '/inc/options-schema.php';  // Extra Theme Options schema: design, page text, labels (v2.11.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/book-fields.php';     // Book field schema, info rows, archive sort, admin columns (v2.11.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/design.php';          // Palettes, fonts, corners, hero photo (v2.11.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/template-functions.php'; // Template helper functions
 require_once LANGGAM_FIKIR_DIR . '/inc/template-hooks.php';  // Template hooks & filters

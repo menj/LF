@@ -75,11 +75,18 @@ function langgam_fikir_save_book_meta( $post_id ) {
         return;
     }
 
-    $fields = array( 'book_subtitle', 'book_author', 'book_editor', 'book_translator', 'book_publisher', 'book_year', 'book_isbn', 'book_status', 'book_price', 'book_language' );
+    // Status, price and language have their own controls; every other book field comes from the
+    // schema in inc/book-fields.php.
+    $fields = array( 'book_status', 'book_price', 'book_language' );
+    foreach ( langgam_fikir_book_group_field_keys() as $key ) {
+        $fields[] = 'book_' . $key;
+    }
 
     foreach ( $fields as $field ) {
         if ( isset( $_POST[ $field ] ) ) {
-            update_post_meta( $post_id, '_' . $field, sanitize_text_field( $_POST[ $field ] ) );
+            $value = wp_unslash( $_POST[ $field ] );
+            $key   = substr( $field, 5 );
+            update_post_meta( $post_id, '_' . $field, langgam_fikir_sanitize_book_field( $key, $value ) );
         }
     }
 }

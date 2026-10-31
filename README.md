@@ -295,6 +295,7 @@ Edit `/assets/css/main.css`:
 - **NEW:** Theme Options → Design (light palettes + custom colours, font roles, corner style, parallax); hero photo choice; editable About, Contact, homepage, footer and 404 text
 - **NEW:** Five-typeface stack: Kagnue, Crimson Text, Sabon Next LT, Inter, Ferments
 - **NEW:** Animated, quirky 404 with an editable random quip
+- **NEW:** Fuller book info (original title, translated from, edition, series, format, pages, size), category/topic chips, archive filters and sorting, and a sectioned Book Details editor box
 - **CHANGED:** Showcase is a grid of the theme's own book cards over a parallax cover backdrop; rounder corners; palette colours are CSS variables
 - **FIXED:** Horizontal scroll on phones before the About section revealed
 

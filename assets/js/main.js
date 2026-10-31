@@ -255,6 +255,18 @@
     }
 
     /**
+     * Sort menu on the Publications archive: submit as soon as the choice changes.
+     * Without JavaScript the Apply button does the same.
+     */
+    function initBookSort() {
+        document.querySelectorAll('select[data-autosubmit]').forEach(function(select) {
+            select.addEventListener('change', function() {
+                if (select.form) select.form.submit();
+            });
+        });
+    }
+
+    /**
      * Parallax for elements marked data-parallax="speed" (About image, About logo, book cover).
      * speed 0.1 drifts the element at 10% of the scroll, relative to its data-parallax-root
      * section. Only on-screen sections update, batched in requestAnimationFrame. Elements that
@@ -372,6 +384,7 @@
         initScrollReveal();
         initParallax();
         initParallaxElements();
+        initBookSort();
         initShareCopyLink();
         initFaqAccordion();
     }

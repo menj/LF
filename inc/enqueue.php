@@ -129,6 +129,17 @@ add_action( 'wp_enqueue_scripts', 'langgam_fikir_enqueue_assets', 20 );
  * Enqueue Admin Styles and Scripts
  */
 function langgam_fikir_enqueue_admin_assets( $hook ) {
+    // The Books list only needs the admin stylesheet (status chips in the new columns).
+    if ( 'edit.php' === $hook && isset( $_GET['post_type'] ) && 'book' === sanitize_key( wp_unslash( $_GET['post_type'] ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+        wp_enqueue_style(
+            'langgam-fikir-admin',
+            get_stylesheet_directory_uri() . '/assets/css/admin.css',
+            array(),
+            filemtime( get_stylesheet_directory() . '/assets/css/admin.css' )
+        );
+        return;
+    }
+
     // Only load on post edit pages
     if ( 'post.php' !== $hook && 'post-new.php' !== $hook ) {
         return;

@@ -73,6 +73,9 @@ get_header();
             if ( $isbn ) {
                 $schema['isbn'] = $isbn;
             }
+
+            // Original title, pages, format, edition, series, genre and keywords (v2.11.0)
+            $schema = langgam_fikir_book_schema_extras( get_the_ID(), $schema );
             
             if ( has_post_thumbnail() ) {
                 $schema['image'] = get_the_post_thumbnail_url( get_the_ID(), 'full' );
@@ -257,47 +260,12 @@ get_header();
                         <div class="book-meta-card">
                             <h2 class="screen-reader-text"><?php esc_html_e( 'Book Details', 'langgam-fikir' ); ?></h2>
                             <div class="book-meta-grid">
-                                <?php if ( $author ) : ?>
-                                    <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'Author', 'langgam-fikir' ); ?></span>
-                                        <span class="meta-value"><?php echo esc_html( $author ); ?></span>
+                                <?php foreach ( langgam_fikir_book_info_rows( get_the_ID() ) as $info_row ) : ?>
+                                    <div class="book-meta-item book-meta-item--<?php echo esc_attr( $info_row['key'] ); ?>">
+                                        <span class="meta-label"><?php echo esc_html( $info_row['label'] ); ?></span>
+                                        <span class="meta-value"><?php echo esc_html( $info_row['value'] ); ?></span>
                                     </div>
-                                <?php endif; ?>
-                                
-                                <?php if ( $publisher ) : ?>
-                                    <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'Publisher', 'langgam-fikir' ); ?></span>
-                                        <span class="meta-value"><?php echo esc_html( $publisher ); ?></span>
-                                    </div>
-                                <?php endif; ?>
-                                
-                                <?php if ( $editor ) : ?>
-                                    <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'Editor', 'langgam-fikir' ); ?></span>
-                                        <span class="meta-value"><?php echo esc_html( $editor ); ?></span>
-                                    </div>
-                                <?php endif; ?>
-                                
-                                <?php if ( $translator ) : ?>
-                                    <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'Translator', 'langgam-fikir' ); ?></span>
-                                        <span class="meta-value"><?php echo esc_html( $translator ); ?></span>
-                                    </div>
-                                <?php endif; ?>
-                                
-                                <?php if ( $year ) : ?>
-                                    <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'Year', 'langgam-fikir' ); ?></span>
-                                        <span class="meta-value"><?php echo esc_html( $year ); ?></span>
-                                    </div>
-                                <?php endif; ?>
-                                
-                                <?php if ( $isbn ) : ?>
-                                    <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'ISBN', 'langgam-fikir' ); ?></span>
-                                        <span class="meta-value"><?php echo esc_html( $isbn ); ?></span>
-                                    </div>
-                                <?php endif; ?>
+                                <?php endforeach; ?>
                                 
                                 <?php
                                 // Language row (v2.8.0) — show only when explicitly set
@@ -312,6 +280,23 @@ get_header();
                                         <span class="meta-value" lang="<?php echo esc_attr( $book_lang_code ); ?>">
                                             <?php echo esc_html( $book_lang_name ); ?>
                                         </span>
+                                    </div>
+                                <?php endif; ?>
+                                
+                                <?php
+                                $book_category_chips = langgam_fikir_book_term_chips( get_the_ID(), 'book-category' );
+                                $book_topic_chips    = langgam_fikir_book_term_chips( get_the_ID(), 'book-tag' );
+                                ?>
+                                <?php if ( $book_category_chips ) : ?>
+                                    <div class="book-meta-item book-meta-item--terms">
+                                        <span class="meta-label"><?php echo esc_html( langgam_fikir_text( 'lbl_category' ) ); ?></span>
+                                        <span class="meta-value book-chips"><?php echo $book_category_chips; // phpcs:ignore WordPress.Security.EscapeOutput -- built and escaped in langgam_fikir_book_term_chips() ?></span>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ( $book_topic_chips ) : ?>
+                                    <div class="book-meta-item book-meta-item--terms">
+                                        <span class="meta-label"><?php echo esc_html( langgam_fikir_text( 'lbl_topics' ) ); ?></span>
+                                        <span class="meta-value book-chips"><?php echo $book_topic_chips; // phpcs:ignore WordPress.Security.EscapeOutput -- built and escaped in langgam_fikir_book_term_chips() ?></span>
                                     </div>
                                 <?php endif; ?>
                             </div>

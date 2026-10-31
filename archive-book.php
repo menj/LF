@@ -19,6 +19,8 @@ get_header();
                 <p class="section-header-subtitle"><?php _e( 'Explore our complete catalog of works, from contemporary fiction to critical essays and historical accounts.', 'langgam-fikir' ); ?></p>
             </div>
             
+            <?php get_template_part( 'template-parts/content/book-filters' ); ?>
+            
             <?php if ( have_posts() ) : ?>
                 
                 <div class="books-grid">
