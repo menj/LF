@@ -5,6 +5,18 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- **Showcase** now renders the theme's own book card (`template-parts/content/book-card.php`, the same component as Latest Publications) on the dark band, instead of bare title links. Cover, colour-coded status badge, title, subtitle, author/year, price and Learn More all show; nothing is dimmed when another card is hovered. Three cards per row, so six books give two rows
+- Showcase gains a blurred cover backdrop with a gentle parallax drift (clamped to its overhang), and an optional slow auto-rotation of the highlighted book (`showcase_autoplay`, default on; pauses on hover/focus, stops off screen, never runs with reduced motion)
+- Showcase count range is now 2-9 (was 2-6) and defaults to 6 (was 3), so the default is two rows
+- Rounder corners: new `--radius-sm/md/lg/xl/btn/pill` tokens in `main.css` (Soft default); the Showcase band and cards use them
+- `book-card.php` accepts an optional `showcase_target` argument that adds the hook `showcase.js` uses
+
+### Fixed
+- Phones scrolled horizontally until the About section was revealed, because the scroll-reveal start offset (`.reveal-right`) pushed it past the viewport edge. `.about-snippet` now clips it
+
 ## [2.10.0] - 2026-09-06
 
 WebMCP release. The theme now exposes its existing public functionality to in-browser AI agents through the WebMCP proposal (W3C Web Machine Learning CG draft): two read-only catalogue tools and an agent-fillable, human-sent contact form. Everything is progressive enhancement; browsers without `document.modelContext` see no change.

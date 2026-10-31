@@ -37,6 +37,15 @@
     --container-max: 1200px;
     --container-padding: 2rem;
     
+    /* Corner radii. "Soft" is the default; Sharp (the pre-2.11 look) and Round are chosen in
+       Theme Options > Design and set in design.css via a body class. */
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-xl: 40px;
+    --radius-btn: 12px;
+    --radius-pill: 999px;
+
     /* Transitions */
     --transition-base: 0.3s ease;
 }

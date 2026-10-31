@@ -5,9 +5,7 @@
  * Loaded on the front page only, when the showcase is enabled
  * (see inc/enqueue.php). Companion script: assets/js/showcase.js.
  *
- * Readable book cards sit over a blurred cover backdrop. The backdrop is
- * decoration: every title, status and link stays on a solid card surface,
- * so legibility never depends on the artwork behind it.
+ * The theme's own book cards on a dark band over a blurred cover backdrop.
  */
 
 /*--------------------------------------------------------------
@@ -18,6 +16,7 @@
     --lf-showcase-ink: #FAF7F1;
     position: relative;
     overflow: hidden;
+    border-radius: var(--radius-xl, 40px);
     background-color: var(--lf-showcase-deep);
     padding: clamp(3.5rem, 9vh, 6rem) 0;
 }
@@ -73,8 +72,8 @@
     background: linear-gradient(
         to bottom,
         rgba(33, 26, 19, 0.86) 0%,
-        rgba(33, 26, 19, 0.34) 32%,
-        rgba(33, 26, 19, 0.34) 70%,
+        rgba(33, 26, 19, 0.38) 32%,
+        rgba(33, 26, 19, 0.38) 70%,
         rgba(33, 26, 19, 0.9) 100%
     );
 }
@@ -98,116 +97,35 @@
 }
 
 /*--------------------------------------------------------------
-# Card Grid (three to a row; six books make two rows)
+# Card Grid
+  The cards are the theme's own .book-card (see main.css); this section only
+  lays them out and adds the highlight. Three to a row, so six make two rows.
 --------------------------------------------------------------*/
 .lf-showcase-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--spacing-md, 2rem);
+    gap: var(--spacing-lg, 3rem) var(--spacing-md, 2rem);
+    align-items: stretch;
 }
 
 .lf-showcase-grid--cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.lf-showcase-item {
-    display: flex;
-    gap: var(--spacing-sm, 1rem);
-    padding: var(--spacing-sm, 1rem);
-    color: var(--color-text);
-    text-decoration: none;
-    background-color: var(--color-bg-primary);
-    border: 1px solid transparent;
-    border-radius: 14px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+.lf-showcase-grid .book-card {
+    height: 100%;
+    border-radius: var(--radius-lg, 22px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
 }
 
-.lf-showcase-item.is-active,
-.lf-showcase-item:hover,
-.lf-showcase-item:focus-visible {
-    transform: translateY(-4px);
-    border-color: var(--color-accent);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+.lf-showcase-grid .book-cover {
+    border-radius: var(--radius-md, 14px);
 }
 
-.lf-showcase-item:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
-}
-
-/*--------------------------------------------------------------
-# Card Parts
---------------------------------------------------------------*/
-.lf-showcase-cover {
-    flex: 0 0 38%;
-    max-width: 130px;
-}
-
-.lf-showcase-cover img,
-.lf-showcase-cover-empty {
-    display: block;
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border-radius: 8px;
-    background-color: var(--color-bg-muted);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.lf-showcase-body {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.3rem;
-    min-width: 0;
-    padding-block: 0.25rem;
-}
-
-.lf-showcase-status {
-    display: inline-block;
-    padding: 0.25rem 0.6rem;
-    font-family: var(--font-secondary);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-text);
-    background-color: var(--color-accent);
-    border-radius: 4px;
-}
-
-.lf-showcase-title {
-    font-family: var(--font-primary);
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.25;
-    color: var(--color-primary);
-}
-
-.lf-showcase-subtitle,
-.lf-showcase-meta,
-.lf-showcase-excerpt {
-    font-family: var(--font-secondary);
-    font-size: 0.85rem;
-    line-height: 1.45;
-    color: var(--color-text-light);
-}
-
-.lf-showcase-excerpt {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-}
-
-.lf-showcase-more {
-    margin-top: auto;
-    padding-top: 0.4rem;
-    font-family: var(--font-secondary);
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--color-accent-dark);
+/* The highlighted book: lifted, with a gold ring. No other card is dimmed. */
+.lf-showcase-grid .book-card.is-active {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42), 0 0 0 2px var(--color-accent);
 }
 
 /*--------------------------------------------------------------
@@ -240,9 +158,7 @@
         transition: opacity 0.15s linear;
     }
 
-    .lf-showcase-item,
-    .lf-showcase-item.is-active {
-        transition: none;
+    .lf-showcase-grid .book-card.is-active {
         transform: none;
     }
 }

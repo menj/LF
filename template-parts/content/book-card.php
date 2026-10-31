@@ -7,6 +7,7 @@
  *
  * Usage:
  *   get_template_part( 'template-parts/content/book-card' );
+ *   get_template_part( 'template-parts/content/book-card', null, array( 'showcase_target' => $post_id ) );  // Showcase: adds the hook showcase.js uses
  *
  * Expects to be called within a loop where the global $post is a 'book' CPT.
  *
@@ -24,7 +25,7 @@ $author   = langgam_fikir_get_book_meta( get_the_ID(), 'author' );
 $year     = langgam_fikir_get_book_meta( get_the_ID(), 'year' );
 $price    = langgam_fikir_get_book_meta( get_the_ID(), 'price' );
 ?>
-<article class="book-card reveal">
+<article class="book-card reveal"<?php echo ! empty( $args['showcase_target'] ) ? ' data-showcase-target="' . esc_attr( $args['showcase_target'] ) . '"' : ''; ?>>
     <div class="book-cover">
         <?php if ( has_post_thumbnail() ) : ?>
             <a href="<?php the_permalink(); ?>">

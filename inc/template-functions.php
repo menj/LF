@@ -208,12 +208,6 @@ function langgam_fikir_get_showcase_items() {
                 'url'    => get_permalink(),
                 'bg'     => $bg_url,
                 'status' => langgam_fikir_get_book_meta( get_the_ID(), 'status' ),
-                // Card details (2.11.0): the Showcase shows real, readable cards, not bare titles.
-                'subtitle' => langgam_fikir_get_book_meta( get_the_ID(), 'subtitle' ),
-                'author'   => langgam_fikir_get_book_meta( get_the_ID(), 'author' ),
-                'year'     => langgam_fikir_get_book_meta( get_the_ID(), 'year' ),
-                'excerpt'  => wp_trim_words( get_the_excerpt(), 18 ),
-                'cover'    => get_the_post_thumbnail( get_the_ID(), 'book-thumbnail', array( 'loading' => 'lazy', 'decoding' => 'async', 'alt' => '' ) ),
             );
         }
         wp_reset_postdata();

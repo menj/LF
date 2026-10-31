@@ -2,9 +2,9 @@
 /**
  * Template Part: Showcase
  *
- * Full-width interactive homepage section. A grid of readable book cards
- * (cover, status, title, author, excerpt, link) over a blurred, parallax
- * backdrop; the backdrop crossfades to the highlighted book's cover. A card
+ * Full-width interactive homepage section. The books are the theme's own
+ * book card (template-parts/content/book-card.php), the same component as
+ * Latest Publications, set on a dark band with a blurred, parallax backdrop; the backdrop crossfades to the highlighted book's cover. A card
  * becomes highlighted on hover or keyboard focus, or by the optional slow
  * auto-rotation (Theme Options > Homepage > Showcase).
  *
@@ -58,34 +58,16 @@ $showcase_autoplay = langgam_fikir_get_option( 'showcase_autoplay' );
         <?php if ( $showcase_heading ) : ?>
             <h2 class="lf-showcase-heading"><?php echo esc_html( $showcase_heading ); ?></h2>
         <?php endif; ?>
-        <nav class="lf-showcase-grid lf-showcase-grid--cols-<?php echo esc_attr( $showcase_cols ); ?>" aria-label="<?php esc_attr_e( 'Showcase', 'langgam-fikir' ); ?>">
-            <?php foreach ( $showcase_items as $item ) : ?>
-                <a class="lf-showcase-item" href="<?php echo esc_url( $item['url'] ); ?>" data-showcase-target="<?php echo esc_attr( $item['id'] ); ?>">
-                    <span class="lf-showcase-cover">
-                        <?php if ( $item['cover'] ) : ?>
-                            <?php echo $item['cover']; // phpcs:ignore WordPress.Security.EscapeOutput -- core-generated image markup ?>
-                        <?php else : ?>
-                            <span class="lf-showcase-cover-empty" aria-hidden="true"></span>
-                        <?php endif; ?>
-                    </span>
-                    <span class="lf-showcase-body">
-                        <?php if ( $item['status'] ) : ?>
-                            <span class="lf-showcase-status"><?php echo esc_html( langgam_fikir_get_status_label( $item['status'] ) ); ?></span>
-                        <?php endif; ?>
-                        <span class="lf-showcase-title"><?php echo esc_html( $item['title'] ); ?></span>
-                        <?php if ( $item['subtitle'] ) : ?>
-                            <span class="lf-showcase-subtitle"><?php echo esc_html( $item['subtitle'] ); ?></span>
-                        <?php endif; ?>
-                        <?php if ( $item['author'] || $item['year'] ) : ?>
-                            <span class="lf-showcase-meta"><?php echo esc_html( trim( $item['author'] . ( $item['author'] && $item['year'] ? ' · ' : '' ) . $item['year'] ) ); ?></span>
-                        <?php endif; ?>
-                        <?php if ( $item['excerpt'] ) : ?>
-                            <span class="lf-showcase-excerpt"><?php echo esc_html( $item['excerpt'] ); ?></span>
-                        <?php endif; ?>
-                        <span class="lf-showcase-more"><?php esc_html_e( 'Learn More', 'langgam-fikir' ); ?> <span aria-hidden="true">&rarr;</span></span>
-                    </span>
-                </a>
-            <?php endforeach; ?>
-        </nav>
+        <div class="lf-showcase-grid lf-showcase-grid--cols-<?php echo esc_attr( $showcase_cols ); ?>">
+            <?php
+            global $post;
+            foreach ( $showcase_items as $item ) {
+                $post = get_post( $item['id'] ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- standard loop setup, restored below
+                setup_postdata( $post );
+                get_template_part( 'template-parts/content/book-card', null, array( 'showcase_target' => $item['id'] ) );
+            }
+            wp_reset_postdata();
+            ?>
+        </div>
     </div>
 </section>

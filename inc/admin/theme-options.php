@@ -223,7 +223,7 @@ function langgam_fikir_render_options_page() {
 
                 <div class="lf-card">
                     <h2 class="lf-card-title"><?php _e( 'Showcase', 'langgam-fikir' ); ?></h2>
-                    <p class="lf-card-desc"><?php _e( 'Full-width interactive section on the homepage. Each book is a readable card with its cover, status and a link; the blurred backdrop crossfades to the highlighted book\'s cover. Only books with a featured image appear, and books shown here are excluded from the Latest Publications grid below it.', 'langgam-fikir' ); ?></p>
+                    <p class="lf-card-desc"><?php _e( 'Full-width interactive section on the homepage. Each book is the same card used in Latest Publications; the blurred backdrop crossfades to the highlighted book\'s cover. Only books with a featured image appear, and books shown here are excluded from the Latest Publications grid below it.', 'langgam-fikir' ); ?></p>
 
                     <div class="lf-field">
                         <label for="lf_showcase_enabled">

@@ -24,7 +24,7 @@
         if (!section) return;
 
         var backgrounds = section.querySelectorAll('.lf-showcase-bg');
-        var items = Array.prototype.slice.call(section.querySelectorAll('.lf-showcase-item'));
+        var items = Array.prototype.slice.call(section.querySelectorAll('[data-showcase-target]'));
         var layer = section.querySelector('.lf-showcase-backgrounds');
         if (!backgrounds.length || !items.length) return;
 
@@ -80,7 +80,7 @@
             if (!target) return;
 
             item.addEventListener('pointerenter', function() { activate(target); });
-            item.addEventListener('focus', function() { activate(target); });
+            item.addEventListener('focusin', function() { activate(target); });
         });
 
         section.addEventListener('pointerenter', function() { paused = true; stop(); });
