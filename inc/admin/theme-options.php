@@ -67,7 +67,8 @@ function langgam_fikir_sanitize_options( $input ) {
     $sanitized['showcase_enabled'] = ! empty( $input['showcase_enabled'] ) ? 1 : 0;
 
     $showcase_count = isset( $input['showcase_count'] ) ? absint( $input['showcase_count'] ) : $defaults['showcase_count'];
-    $sanitized['showcase_count'] = max( 2, min( 6, $showcase_count ) );
+    $sanitized['showcase_count'] = max( 2, min( 9, $showcase_count ) );
+    $sanitized['showcase_autoplay'] = ! empty( $input['showcase_autoplay'] ) ? 1 : 0;
 
     $showcase_scope = isset( $input['showcase_scope'] ) ? sanitize_key( $input['showcase_scope'] ) : $defaults['showcase_scope'];
     $sanitized['showcase_scope'] = in_array( $showcase_scope, array( 'all', 'available', 'pipeline' ), true )
@@ -222,7 +223,7 @@ function langgam_fikir_render_options_page() {
 
                 <div class="lf-card">
                     <h2 class="lf-card-title"><?php _e( 'Showcase', 'langgam-fikir' ); ?></h2>
-                    <p class="lf-card-desc"><?php _e( 'Full-width interactive section on the homepage. Hovering a book title crossfades the background to that book\'s cover. Only books with a featured image appear, and books shown here are excluded from the Latest Publications grid below it.', 'langgam-fikir' ); ?></p>
+                    <p class="lf-card-desc"><?php _e( 'Full-width interactive section on the homepage. Each book is a readable card with its cover, status and a link; the blurred backdrop crossfades to the highlighted book\'s cover. Only books with a featured image appear, and books shown here are excluded from the Latest Publications grid below it.', 'langgam-fikir' ); ?></p>
 
                     <div class="lf-field">
                         <label for="lf_showcase_enabled">
@@ -239,12 +240,20 @@ function langgam_fikir_render_options_page() {
                         <p class="lf-help"><?php _e( 'Optional. Leave empty for a heading-free section.', 'langgam-fikir' ); ?></p>
                     </div>
 
+                    <div class="lf-field">
+                        <label for="lf_showcase_autoplay">
+                            <input type="checkbox" id="lf_showcase_autoplay" name="langgam_fikir_options[showcase_autoplay]" value="1" <?php checked( ! empty( $opts['showcase_autoplay'] ) ); ?>>
+                            <?php _e( 'Rotate the highlighted book automatically', 'langgam-fikir' ); ?>
+                        </label>
+                        <p class="lf-help"><?php _e( 'Moves the highlight (and the cover backdrop) from book to book. Pauses while a visitor hovers or tabs through the cards, and never runs for visitors who prefer reduced motion.', 'langgam-fikir' ); ?></p>
+                    </div>
+
                     <div class="lf-field-row">
                         <div class="lf-field">
                             <label for="lf_showcase_count"><?php _e( 'Number of Books', 'langgam-fikir' ); ?></label>
                             <input type="number" id="lf_showcase_count" name="langgam_fikir_options[showcase_count]"
-                                   min="2" max="6" step="1" value="<?php echo esc_attr( $opts['showcase_count'] ?? 6 ); ?>">
-                            <p class="lf-help"><?php _e( 'Between 2 and 6. Three makes a single row; six fills a 3×2 grid.', 'langgam-fikir' ); ?></p>
+                                   min="2" max="9" step="1" value="<?php echo esc_attr( $opts['showcase_count'] ?? 6 ); ?>">
+                            <p class="lf-help"><?php _e( 'Between 2 and 9. Cards sit three to a row: six gives two rows, nine gives three.', 'langgam-fikir' ); ?></p>
                         </div>
 
                         <div class="lf-field">

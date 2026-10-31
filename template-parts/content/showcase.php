@@ -2,10 +2,11 @@
 /**
  * Template Part: Showcase
  *
- * Full-width interactive homepage section. A grid of book titles over a
- * dark full-bleed background; hovering (or keyboard-focusing) a title
- * crossfades the background to that book's featured image. Inspired by
- * the "interactive link showcase" pattern.
+ * Full-width interactive homepage section. A grid of readable book cards
+ * (cover, status, title, author, excerpt, link) over a blurred, parallax
+ * backdrop; the backdrop crossfades to the highlighted book's cover. A card
+ * becomes highlighted on hover or keyboard focus, or by the optional slow
+ * auto-rotation (Theme Options > Homepage > Showcase).
  *
  * Usage:
  *   get_template_part( 'template-parts/content/showcase' );
@@ -41,10 +42,11 @@ if ( empty( $showcase_items ) ) {
     return;
 }
 
-$showcase_heading = langgam_fikir_get_option( 'showcase_heading' );
-$showcase_cols    = min( count( $showcase_items ), 3 );
+$showcase_heading  = langgam_fikir_get_option( 'showcase_heading' );
+$showcase_cols     = min( count( $showcase_items ), 3 );
+$showcase_autoplay = langgam_fikir_get_option( 'showcase_autoplay' );
 ?>
-<section class="lf-showcase">
+<section class="lf-showcase" data-showcase<?php echo $showcase_autoplay ? ' data-showcase-autoplay' : ''; ?>>
     <div class="lf-showcase-backgrounds" aria-hidden="true">
         <div class="lf-showcase-bg lf-showcase-bg-default is-active" data-showcase-bg="default"></div>
         <?php foreach ( $showcase_items as $item ) : ?>
@@ -59,10 +61,29 @@ $showcase_cols    = min( count( $showcase_items ), 3 );
         <nav class="lf-showcase-grid lf-showcase-grid--cols-<?php echo esc_attr( $showcase_cols ); ?>" aria-label="<?php esc_attr_e( 'Showcase', 'langgam-fikir' ); ?>">
             <?php foreach ( $showcase_items as $item ) : ?>
                 <a class="lf-showcase-item" href="<?php echo esc_url( $item['url'] ); ?>" data-showcase-target="<?php echo esc_attr( $item['id'] ); ?>">
-                    <?php if ( $item['status'] ) : ?>
-                        <span class="lf-showcase-status"><?php echo esc_html( langgam_fikir_get_status_label( $item['status'] ) ); ?></span>
-                    <?php endif; ?>
-                    <span class="lf-showcase-title"><?php echo esc_html( $item['title'] ); ?></span>
+                    <span class="lf-showcase-cover">
+                        <?php if ( $item['cover'] ) : ?>
+                            <?php echo $item['cover']; // phpcs:ignore WordPress.Security.EscapeOutput -- core-generated image markup ?>
+                        <?php else : ?>
+                            <span class="lf-showcase-cover-empty" aria-hidden="true"></span>
+                        <?php endif; ?>
+                    </span>
+                    <span class="lf-showcase-body">
+                        <?php if ( $item['status'] ) : ?>
+                            <span class="lf-showcase-status"><?php echo esc_html( langgam_fikir_get_status_label( $item['status'] ) ); ?></span>
+                        <?php endif; ?>
+                        <span class="lf-showcase-title"><?php echo esc_html( $item['title'] ); ?></span>
+                        <?php if ( $item['subtitle'] ) : ?>
+                            <span class="lf-showcase-subtitle"><?php echo esc_html( $item['subtitle'] ); ?></span>
+                        <?php endif; ?>
+                        <?php if ( $item['author'] || $item['year'] ) : ?>
+                            <span class="lf-showcase-meta"><?php echo esc_html( trim( $item['author'] . ( $item['author'] && $item['year'] ? ' · ' : '' ) . $item['year'] ) ); ?></span>
+                        <?php endif; ?>
+                        <?php if ( $item['excerpt'] ) : ?>
+                            <span class="lf-showcase-excerpt"><?php echo esc_html( $item['excerpt'] ); ?></span>
+                        <?php endif; ?>
+                        <span class="lf-showcase-more"><?php esc_html_e( 'Learn More', 'langgam-fikir' ); ?> <span aria-hidden="true">&rarr;</span></span>
+                    </span>
                 </a>
             <?php endforeach; ?>
         </nav>

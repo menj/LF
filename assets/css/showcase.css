@@ -4,25 +4,35 @@
  *
  * Loaded on the front page only, when the showcase is enabled
  * (see inc/enqueue.php). Companion script: assets/js/showcase.js.
+ *
+ * Readable book cards sit over a blurred cover backdrop. The backdrop is
+ * decoration: every title, status and link stays on a solid card surface,
+ * so legibility never depends on the artwork behind it.
  */
 
 /*--------------------------------------------------------------
 # Section Shell
 --------------------------------------------------------------*/
 .lf-showcase {
+    --lf-showcase-deep: #211A13; /* deep variant of --color-primary */
+    --lf-showcase-ink: #FAF7F1;
     position: relative;
     overflow: hidden;
-    background-color: #211A13; /* deep variant of --color-primary */
+    background-color: var(--lf-showcase-deep);
     padding: clamp(3.5rem, 9vh, 6rem) 0;
 }
 
 /*--------------------------------------------------------------
 # Background Layers
+  The container overhangs the section (inset -10% 0) so showcase.js can
+  drift it for parallax without ever exposing the section edge.
 --------------------------------------------------------------*/
 .lf-showcase-backgrounds {
     position: absolute;
-    inset: 0;
+    inset: -10% 0;
     z-index: 0;
+    transform: translate3d(0, var(--lf-showcase-shift, 0px), 0);
+    will-change: transform;
 }
 
 .lf-showcase-bg {
@@ -31,15 +41,16 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: blur(14px) saturate(1.15);
     opacity: 0;
-    transform: scale(1.045);
-    transition: opacity 0.7s ease, transform 1.4s ease;
+    transform: scale(1.12);
+    transition: opacity 0.9s ease, transform 1.6s ease;
     will-change: opacity, transform;
 }
 
 .lf-showcase-bg.is-active {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.06);
 }
 
 .lf-showcase-bg-default {
@@ -48,14 +59,24 @@
         rgba(201, 169, 97, 0.14) 0%,
         rgba(201, 169, 97, 0) 55%
     );
-    background-color: #211A13;
+    background-color: var(--lf-showcase-deep);
+    filter: none;
+    transform: none;
+    opacity: 1; /* always the base layer under the cover layers */
 }
 
+/* Darker behind the heading and the bottom edge, lighter where the cards sit. */
 .lf-showcase-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(33, 26, 19, 0.62); /* keeps titles readable over any cover */
     z-index: 1;
+    background: linear-gradient(
+        to bottom,
+        rgba(33, 26, 19, 0.86) 0%,
+        rgba(33, 26, 19, 0.34) 32%,
+        rgba(33, 26, 19, 0.34) 70%,
+        rgba(33, 26, 19, 0.9) 100%
+    );
 }
 
 /*--------------------------------------------------------------
@@ -70,108 +91,137 @@
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
-    color: #FAF7F1;
+    color: var(--lf-showcase-ink);
     text-align: center;
     margin: 0 0 var(--spacing-lg, 2.5rem);
+    text-shadow: 0 1px 14px rgba(33, 26, 19, 0.8);
 }
 
 /*--------------------------------------------------------------
-# Title Grid
+# Card Grid (three to a row; six books make two rows)
 --------------------------------------------------------------*/
 .lf-showcase-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid rgba(201, 169, 97, 0.18);
-    border-left: 1px solid rgba(201, 169, 97, 0.18);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-md, 2rem);
 }
 
 .lf-showcase-grid--cols-2 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .lf-showcase-item {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.85rem;
-    min-height: 230px;
-    padding: 2rem 1.5rem;
-    text-align: center;
+    gap: var(--spacing-sm, 1rem);
+    padding: var(--spacing-sm, 1rem);
+    color: var(--color-text);
     text-decoration: none;
-    border-right: 1px solid rgba(201, 169, 97, 0.18);
-    border-bottom: 1px solid rgba(201, 169, 97, 0.18);
+    background-color: var(--color-bg-primary);
+    border: 1px solid transparent;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.lf-showcase-item.is-active,
+.lf-showcase-item:hover,
+.lf-showcase-item:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--color-accent);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+}
+
+.lf-showcase-item:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/*--------------------------------------------------------------
+# Card Parts
+--------------------------------------------------------------*/
+.lf-showcase-cover {
+    flex: 0 0 38%;
+    max-width: 130px;
+}
+
+.lf-showcase-cover img,
+.lf-showcase-cover-empty {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: var(--color-bg-muted);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.lf-showcase-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    min-width: 0;
+    padding-block: 0.25rem;
 }
 
 .lf-showcase-status {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
     font-family: var(--font-secondary);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(201, 169, 97, 0.6);
-    transition: color 0.35s ease;
+    color: var(--color-text);
+    background-color: var(--color-accent);
+    border-radius: 4px;
 }
 
 .lf-showcase-title {
     font-family: var(--font-primary);
-    font-size: clamp(1.3rem, 2.2vw, 1.85rem);
-    font-weight: 400;
-    line-height: 1.35;
-    max-width: 22ch;
-    color: rgba(250, 247, 241, 0.65);
-    transition: color 0.35s ease;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-primary);
 }
 
-/*--------------------------------------------------------------
-# Hover / Focus States
---------------------------------------------------------------*/
-.lf-showcase-grid:hover .lf-showcase-item:not(:hover) .lf-showcase-title,
-.lf-showcase-grid:focus-within .lf-showcase-item:not(:focus) .lf-showcase-title {
-    color: rgba(250, 247, 241, 0.3);
+.lf-showcase-subtitle,
+.lf-showcase-meta,
+.lf-showcase-excerpt {
+    font-family: var(--font-secondary);
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--color-text-light);
 }
 
-.lf-showcase-grid:hover .lf-showcase-item:not(:hover) .lf-showcase-status,
-.lf-showcase-grid:focus-within .lf-showcase-item:not(:focus) .lf-showcase-status {
-    color: rgba(201, 169, 97, 0.3);
+.lf-showcase-excerpt {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
-.lf-showcase-item:hover .lf-showcase-title,
-.lf-showcase-item:focus .lf-showcase-title {
-    color: #FFFFFF;
-}
-
-.lf-showcase-item:hover .lf-showcase-status,
-.lf-showcase-item:focus .lf-showcase-status {
-    color: var(--color-accent);
-}
-
-.lf-showcase-item:focus-visible {
-    outline: 1px solid rgba(201, 169, 97, 0.65);
-    outline-offset: -10px;
+.lf-showcase-more {
+    margin-top: auto;
+    padding-top: 0.4rem;
+    font-family: var(--font-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-accent-dark);
 }
 
 /*--------------------------------------------------------------
 # Responsive
 --------------------------------------------------------------*/
-@media (max-width: 968px) {
+@media (max-width: 1100px) {
     .lf-showcase-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .lf-showcase-item {
-        min-height: 190px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     .lf-showcase-grid {
         grid-template-columns: 1fr;
-    }
-
-    .lf-showcase-item {
-        min-height: 130px;
-        padding: 1.5rem 1rem;
     }
 }
 
@@ -179,12 +229,20 @@
 # Reduced Motion
 --------------------------------------------------------------*/
 @media (prefers-reduced-motion: reduce) {
-    .lf-showcase-bg {
+    .lf-showcase-backgrounds {
+        transform: none;
+        will-change: auto;
+    }
+
+    .lf-showcase-bg,
+    .lf-showcase-bg.is-active {
         transform: none;
         transition: opacity 0.15s linear;
     }
 
-    .lf-showcase-bg.is-active {
+    .lf-showcase-item,
+    .lf-showcase-item.is-active {
+        transition: none;
         transform: none;
     }
 }

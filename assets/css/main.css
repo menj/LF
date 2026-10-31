@@ -500,6 +500,8 @@ p {
 .about-snippet {
     padding: var(--spacing-xxl) 0;
     background-color: var(--color-bg-primary);
+    /* The scroll-reveal start state shifts .reveal-right sideways; clip it so phones never scroll horizontally. */
+    overflow-x: clip;
 }
 
 .about-snippet-grid {

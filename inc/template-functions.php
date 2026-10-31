@@ -57,7 +57,8 @@ function langgam_fikir_option_defaults() {
         // Featured showcase
         'showcase_enabled'         => 1,
         'showcase_heading'         => '',
-        'showcase_count'           => 3,
+        'showcase_count'           => 6,
+        'showcase_autoplay'        => 1,
         'showcase_scope'           => 'all',
         // WebMCP agent tools
         'webmcp_enabled'            => 1,
@@ -160,8 +161,8 @@ function langgam_fikir_get_showcase_items() {
         return $items;
     }
 
-    $showcase_count = (int) langgam_fikir_get_option( 'showcase_count', 3 );
-    $showcase_count = max( 2, min( 6, $showcase_count ) );
+    $showcase_count = (int) langgam_fikir_get_option( 'showcase_count', 6 );
+    $showcase_count = max( 2, min( 9, $showcase_count ) );
     $showcase_scope = langgam_fikir_get_option( 'showcase_scope', 'all' );
 
     // Every showcased book needs a featured image to act as its background.
@@ -207,6 +208,12 @@ function langgam_fikir_get_showcase_items() {
                 'url'    => get_permalink(),
                 'bg'     => $bg_url,
                 'status' => langgam_fikir_get_book_meta( get_the_ID(), 'status' ),
+                // Card details (2.11.0): the Showcase shows real, readable cards, not bare titles.
+                'subtitle' => langgam_fikir_get_book_meta( get_the_ID(), 'subtitle' ),
+                'author'   => langgam_fikir_get_book_meta( get_the_ID(), 'author' ),
+                'year'     => langgam_fikir_get_book_meta( get_the_ID(), 'year' ),
+                'excerpt'  => wp_trim_words( get_the_excerpt(), 18 ),
+                'cover'    => get_the_post_thumbnail( get_the_ID(), 'book-thumbnail', array( 'loading' => 'lazy', 'decoding' => 'async', 'alt' => '' ) ),
             );
         }
         wp_reset_postdata();
