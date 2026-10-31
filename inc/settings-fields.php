@@ -31,6 +31,7 @@ function langgam_fikir_get_defaults() {
         'font_body'     => 'inter',
         'font_display'  => 'decorative',
         'fonts_mode'    => 'local',
+        'hero_photo'    => 'library-corridor',
         'corner_style'  => 'soft',
         'parallax'      => 'desktop',
 
@@ -234,7 +235,14 @@ function langgam_fikir_get_settings_fields() {
             'label'  => __( 'Homepage', 'langgam-fikir' ),
             'fields' => array(
                 'hero_text'                => $f( 'textarea', __( 'Hero statement', 'langgam-fikir' ), __( 'The large italic line at the top of the homepage.', 'langgam-fikir' ) ),
-                'hero_image'               => $f( 'image', __( 'Hero background image', 'langgam-fikir' ), __( 'Optional. Shown behind the hero statement with a tint and a parallax effect. Leave empty for the soft decorative circles.', 'langgam-fikir' ) ),
+                'hero_photo'               => $f( 'select', __( 'Hero photo', 'langgam-fikir' ), __( 'A photograph behind the hero statement, tinted with your colours and with a parallax effect. Photos are from Pexels.', 'langgam-fikir' ), array( 'choices' => array_merge(
+                    array_map( static function ( $photo ) { return $photo['label']; }, langgam_fikir_get_hero_photos() ),
+                    array(
+                        'random' => __( 'Random (a different photo each visit)', 'langgam-fikir' ),
+                        'none'   => __( 'No photo (soft decorative circles)', 'langgam-fikir' ),
+                    )
+                ) ) ),
+                'hero_image'               => $f( 'image', __( 'Or use your own hero image', 'langgam-fikir' ), __( 'Optional. Overrides the photo above.', 'langgam-fikir' ) ),
                 'hero_primary_label'       => $f( 'text', __( 'Hero button 1 (books)', 'langgam-fikir' ), __( 'Links to the publications archive.', 'langgam-fikir' ) ),
                 'hero_secondary_label'     => $f( 'text', __( 'Hero button 2 (about)', 'langgam-fikir' ), __( 'Links to the About page chosen in Footer and pages. Hidden if none is set.', 'langgam-fikir' ) ),
                 'about_snippet_image'      => $f( 'image', __( 'About section image', 'langgam-fikir' ), __( 'Falls back to the About page featured image.', 'langgam-fikir' ) ),

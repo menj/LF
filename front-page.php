@@ -10,10 +10,10 @@ get_header();
 
 <!-- Hero Section -->
 <section class="hero" data-parallax-root>
-    <?php $hero_image_id = (int) langgam_fikir_stored_option( 'hero_image' ); ?>
-    <?php if ( $hero_image_id ) : ?>
+    <?php $hero_image_html = langgam_fikir_get_hero_image_html(); ?>
+    <?php if ( $hero_image_html ) : ?>
         <div class="hero-bg" aria-hidden="true">
-            <?php echo wp_get_attachment_image( $hero_image_id, 'full', false, array( 'alt' => '', 'data-parallax' => '0.25', 'fetchpriority' => 'high' ) ); ?>
+            <?php echo $hero_image_html; // phpcs:ignore WordPress.Security.EscapeOutput -- built and escaped in langgam_fikir_get_hero_image_html() ?>
         </div>
     <?php endif; ?>
     <div class="hero-layers" aria-hidden="true">

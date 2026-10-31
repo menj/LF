@@ -1,6 +1,7 @@
 # Upgrading to 2.2.0
 
 - Corners are **Soft** by default (rounder than before). To keep the previous look choose **Sharp** in Theme Settings > Layout.
+- The homepage hero now shows a library photograph by default. Choose **No photo** in Theme Settings > Homepage to keep the plain coloured hero.
 - Parallax is on for wide screens. Turn it off in Theme Settings > Layout if you prefer a static page.
 - The contact phone number is now empty by default. Add yours in Theme Settings > Contact page if you want it shown.
 - If you used the default public email, it is now langgam.fikir@gmail.com. Form messages go to the address in "Send form messages to" (or the site administrator email when that is blank).

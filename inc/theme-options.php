@@ -51,6 +51,55 @@ function langgam_fikir_get_schemes() {
 require_once __DIR__ . '/settings-fields.php';
 
 /**
+ * Bundled hero photographs (assets/images/hero/{slug}-960.jpg and -1920.jpg).
+ * Photos from Pexels; credits in assets/images/hero/README.txt.
+ *
+ * @return array<string, array{label:string, alt:string}>
+ */
+function langgam_fikir_get_hero_photos() {
+    return array(
+        'library-corridor' => array( 'label' => __( 'Library corridor', 'langgam-fikir' ), 'alt' => __( 'A long corridor of warmly lit library shelves', 'langgam-fikir' ) ),
+        'reading-room'     => array( 'label' => __( 'Reading room', 'langgam-fikir' ), 'alt' => __( 'A reading room with armchairs and a lamp', 'langgam-fikir' ) ),
+        'open-book'        => array( 'label' => __( 'Open book', 'langgam-fikir' ), 'alt' => __( 'An open book with pages fanning in soft light', 'langgam-fikir' ) ),
+        'leather-books'    => array( 'label' => __( 'Leather-bound books', 'langgam-fikir' ), 'alt' => __( 'Stacked leather-bound books', 'langgam-fikir' ) ),
+    );
+}
+
+/**
+ * Resolve the hero image to show: markup for a custom upload, a bundled photo, or ''.
+ */
+function langgam_fikir_get_hero_image_html() {
+    $attrs = array( 'alt' => '', 'data-parallax' => '0.25', 'fetchpriority' => 'high' );
+
+    // A picture chosen in the media library wins.
+    $custom = (int) langgam_fikir_stored_option( 'hero_image' );
+    if ( $custom ) {
+        return wp_get_attachment_image( $custom, 'full', false, $attrs );
+    }
+
+    $photos = langgam_fikir_get_hero_photos();
+    $choice = langgam_fikir_get_option( 'hero_photo' );
+    if ( 'random' === $choice ) {
+        $choice = array_rand( $photos );
+    }
+    if ( ! isset( $photos[ $choice ] ) ) {
+        return '';
+    }
+
+    $dir = get_stylesheet_directory();
+    $uri = get_stylesheet_directory_uri() . '/assets/images/hero/';
+    if ( ! file_exists( $dir . '/assets/images/hero/' . $choice . '-1920.jpg' ) ) {
+        return '';
+    }
+
+    return sprintf(
+        '<img src="%1$s" srcset="%2$s 960w, %1$s 1920w" sizes="100vw" width="1920" height="1280" alt="" data-parallax="0.25" fetchpriority="high" decoding="async">',
+        esc_url( $uri . $choice . '-1920.jpg' ),
+        esc_url( $uri . $choice . '-960.jpg' )
+    );
+}
+
+/**
  * Field definition for a key (cached), or null.
  */
 function langgam_fikir_get_field( $key ) {

@@ -2424,7 +2424,7 @@ p {
     content: '';
     position: absolute;
     inset: 0;
-    background-color: color-mix(in srgb, var(--color-bg-hero) 78%, transparent);
+    background-color: color-mix(in srgb, var(--color-bg-hero) 80%, transparent);
 }
 
 .about-snippet-image img,
@@ -2669,4 +2669,19 @@ p {
 .search-form .search-submit:hover {
     background-color: var(--color-accent-dark);
     border-color: var(--color-accent-dark);
+}
+
+/* A hero with a photo gets more height so the picture has room to breathe */
+.hero:has(.hero-bg) {
+    display: flex;
+    align-items: center;
+    min-height: clamp(420px, 62vh, 680px);
+}
+
+.hero:has(.hero-bg) .hero-content {
+    margin-block: auto;
+}
+
+.hero:has(.hero-bg) h1 {
+    text-shadow: 0 1px 16px color-mix(in srgb, var(--color-bg-hero) 75%, transparent);
 }

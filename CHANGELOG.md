@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Parallax (`assets/js/parallax.js`): hero layers, homepage About image and badge, About page logo, single book cover. It only updates on-screen sections, runs in `requestAnimationFrame` and is disabled for visitors who prefer reduced motion
 - `search.php` and `404.php`, with editable 404 text and a search form on empty results
 
+### Added (hero photos)
+- **Hero photo** setting (Theme Settings > Homepage): four bundled Pexels photographs (library corridor, reading room, open book, leather-bound books), Random, or None. The default is the library corridor. Photos are exported at 960 and 1920 pixels with `srcset` (about 1.1 MB in total, 35 to 340 KB each), tinted with your colour scheme, and move with the parallax effect. A picture from the media library still overrides them. Credits in `assets/images/hero/README.txt`
+- The hero is taller when it has a photo, with a soft text shadow for legibility
+
 ### Added (404)
 - A quirky 404 page: a bookshelf with a gap and a toppled book, a drifting page, a random quip (one per line, editable) in the Ferments script, a friendly message, a search box and the three latest books as suggestions. Every part is editable in Theme Settings > Labels > 404 page and can be hidden by saving it blank; animation stops for reduced motion
 - Styled search form (404 page and empty search results)
