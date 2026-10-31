@@ -6,7 +6,7 @@ A child theme of WordPress Twenty Twenty-Five (2025 default theme) with custom b
 
 - **Theme Name:** Langgam Fikir
 - **Parent Theme:** Twenty Twenty-Five
-- **Version:** 2.1.0
+- **Version:** 2.2.0
 - **Author:** MENJ
 - **License:** GPL v2 or later
 - **Requires WordPress:** 6.7+
@@ -200,6 +200,9 @@ Edit `/css/main.css`:
 ```
 
 ## Version History / Changelog
+
+### Version 2.2.0 (October 2026)
+Labels tab (all remaining strings editable), rounded corners (Soft/Round/Sharp), parallax scrolling, search and 404 templates. See `CHANGELOG.md`.
 
 ### Version 2.1.0 (October 2026)
 All page text editable from Appearance > Theme Settings (Homepage, About page, Contact page, Publications, Footer and pages); page roles chosen in settings. See `CHANGELOG.md`.

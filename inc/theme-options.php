@@ -114,6 +114,23 @@ function langgam_fikir_meta_or_option( $post_id, $meta_key, $option_key ) {
 }
 
 /**
+ * Label for a book status slug such as "pre-order".
+ */
+function langgam_fikir_status_label( $status ) {
+    return langgam_fikir_get_option( 'status_' . str_replace( '-', '_', sanitize_key( $status ) ) );
+}
+
+/**
+ * Previous/next link text for paginate_links() and the like.
+ */
+function langgam_fikir_pagination_args() {
+    return array(
+        'prev_text' => esc_html( langgam_fikir_get_option( 'label_prev' ) ),
+        'next_text' => esc_html( langgam_fikir_get_option( 'label_next' ) ),
+    );
+}
+
+/**
  * Plain text with blank-line paragraphs, safe to print.
  */
 function langgam_fikir_paragraphs( $text ) {
@@ -149,6 +166,9 @@ function langgam_fikir_sanitize_options( $input ) {
 
     foreach ( langgam_fikir_get_settings_fields() as $tab ) {
         foreach ( $tab['fields'] as $key => $field ) {
+            if ( 'heading' === $field['type'] ) {
+                continue;
+            }
             // options.php has already unslashed the submitted data.
             $raw = isset( $input[ $key ] ) ? $input[ $key ] : '';
             $raw = is_scalar( $raw ) ? (string) $raw : '';
@@ -303,6 +323,16 @@ function langgam_fikir_body_classes( $classes ) {
     $body = langgam_fikir_get_option( 'font_body' );
     if ( 'inter' !== $body ) {
         $classes[] = 'lf-body-' . sanitize_html_class( $body );
+    }
+
+    $corners = langgam_fikir_get_option( 'corner_style' );
+    if ( in_array( $corners, array( 'sharp', 'round' ), true ) ) {
+        $classes[] = 'lf-corners-' . $corners;
+    }
+
+    $parallax = langgam_fikir_get_option( 'parallax' );
+    if ( 'off' !== $parallax ) {
+        $classes[] = 'lf-parallax-' . ( 'all' === $parallax ? 'all' : 'desktop' );
     }
 
     if ( 'plain' === langgam_fikir_get_option( 'font_display' ) ) {
@@ -517,8 +547,12 @@ function langgam_fikir_render_settings_page() {
                     <table class="form-table" role="presentation">
                         <?php foreach ( $tab['fields'] as $key => $field ) : ?>
                             <?php
-                            $value = 'color' === $field['type'] ? (string) langgam_fikir_raw_option( $key ) : langgam_fikir_get_option( $key );
+                            $value = 'heading' === $field['type'] ? '' : ( 'color' === $field['type'] ? (string) langgam_fikir_raw_option( $key ) : langgam_fikir_get_option( $key ) );
                             ?>
+                            <?php if ( 'heading' === $field['type'] ) : ?>
+                                <tr class="lf-section"><th colspan="2"><h3><?php echo esc_html( $field['label'] ); ?></h3></th></tr>
+                                <?php continue; ?>
+                            <?php endif; ?>
                             <tr>
                                 <th scope="row">
                                     <?php if ( 'scheme' === $field['type'] ) : ?>

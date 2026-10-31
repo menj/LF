@@ -5,6 +5,22 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-10-31
+
+### Added
+- **Labels** tab in Theme Settings with sections: book status badges, buttons, single book page, articles, navigation and empty states, privacy page, 404 page, comments. Every string that was still hard-coded in the templates is now editable (use `{n}`, `{query}`, `{title}`, `{count}` tokens where noted)
+- Contact tab: editable subject and message templates for the pre-filled book order email
+- **Layout** tab: corner style (Soft default, Round, Sharp = the previous look) and parallax scrolling (wide screens by default, all screens, or off)
+- Optional hero background image with parallax
+- Parallax (`assets/js/parallax.js`): hero layers, homepage About image and badge, About page logo, single book cover. It only updates on-screen sections, runs in `requestAnimationFrame` and is disabled for visitors who prefer reduced motion
+- `search.php` and `404.php`, with editable 404 text and a search form on empty results
+
+### Changed
+- Corners are rounder by default: all radii come from `--radius-*` variables; hero has a rounded bottom edge; images and cards are larger-radius
+- Contact email defaults to langgam.fikir@gmail.com; the phone number is blank by default and hidden when empty (also on the About page)
+- Search results and 404 pages previously used the parent theme's header and footer; they now use the theme's own
+- Search heading now also shows when nothing is found
+
 ## [2.1.0] - 2026-10-31
 
 ### Added

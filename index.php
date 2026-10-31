@@ -45,7 +45,7 @@ get_header();
                     <header>
                         <div class="page-title-header">
                             <h1 class="page-title">
-                                <?php printf( esc_html__( 'Search Results for: %s', 'langgam-fikir' ), get_search_query() ); ?>
+                                <?php echo esc_html( str_replace( '{query}', get_search_query(), langgam_fikir_get_option( 'label_search_results' ) ) ); ?>
                             </h1>
                         </div>
                     </header>
@@ -97,7 +97,7 @@ get_header();
                         
                         <?php if ( ! is_singular() ) : ?>
                             <a href="<?php the_permalink(); ?>" class="read-more">
-                                <?php _e( 'Read More', 'langgam-fikir' ); ?>
+                                <?php echo esc_html( langgam_fikir_get_option( 'label_read_more' ) ); ?>
                             </a>
                         <?php endif; ?>
                         
@@ -108,14 +108,26 @@ get_header();
 
                 the_posts_pagination( array(
                     'mid_size'  => 2,
-                    'prev_text' => __( '&larr; Previous', 'langgam-fikir' ),
-                    'next_text' => __( 'Next &rarr;', 'langgam-fikir' ),
+                    'prev_text' => esc_html( langgam_fikir_get_option( 'label_prev' ) ),
+                    'next_text' => esc_html( langgam_fikir_get_option( 'label_next' ) ),
                 ) );
 
             else :
+                if ( is_search() ) :
+                    ?>
+                    <header>
+                        <div class="page-title-header">
+                            <h1 class="page-title">
+                                <?php echo esc_html( str_replace( '{query}', get_search_query(), langgam_fikir_get_option( 'label_search_results' ) ) ); ?>
+                            </h1>
+                        </div>
+                    </header>
+                    <?php
+                endif;
                 ?>
                 
-                <p><?php _e( 'Nothing found.', 'langgam-fikir' ); ?></p>
+                <p><?php echo esc_html( langgam_fikir_get_option( 'msg_nothing_found' ) ); ?></p>
+                <?php get_search_form(); ?>
                 
                 <?php
             endif;

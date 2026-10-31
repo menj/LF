@@ -20,8 +20,8 @@ get_header();
             
             <div class="about-layout">
                 <!-- Logo Section -->
-                <div class="about-logo-section">
-                    <div class="about-logo-container">
+                <div class="about-logo-section" data-parallax-root>
+                    <div class="about-logo-container" data-parallax="0.12">
                         <?php
                         // Theme Settings logo, then a logo saved by older per-page meta, then the site logo.
                         $logo_id = (int) langgam_fikir_stored_option( 'about_logo' );

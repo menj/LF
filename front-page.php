@@ -9,7 +9,17 @@ get_header();
 ?>
 
 <!-- Hero Section -->
-<section class="hero">
+<section class="hero" data-parallax-root>
+    <?php $hero_image_id = (int) langgam_fikir_stored_option( 'hero_image' ); ?>
+    <?php if ( $hero_image_id ) : ?>
+        <div class="hero-bg" aria-hidden="true">
+            <?php echo wp_get_attachment_image( $hero_image_id, 'full', false, array( 'alt' => '', 'data-parallax' => '0.25', 'fetchpriority' => 'high' ) ); ?>
+        </div>
+    <?php endif; ?>
+    <div class="hero-layers" aria-hidden="true">
+        <span class="hero-layer hero-layer--a" data-parallax="0.3"></span>
+        <span class="hero-layer hero-layer--b" data-parallax="-0.15"></span>
+    </div>
     <div class="hero-content">
         <h1><?php echo esc_html( langgam_fikir_get_option( 'hero_text' ) ); ?></h1>
         <div class="hero-buttons">
@@ -32,7 +42,7 @@ get_header();
 <section class="about-snippet">
     <div class="container">
         <div class="about-snippet-grid">
-            <div class="about-snippet-image-wrapper">
+            <div class="about-snippet-image-wrapper" data-parallax-root>
                 <div class="about-snippet-image">
                     <?php
                     // Image chosen in Theme Settings, then the About page featured image.
@@ -43,14 +53,14 @@ get_header();
                     }
 
                     if ( $snippet_image_id ) :
-                        echo wp_get_attachment_image( $snippet_image_id, 'large', false, array( 'loading' => 'lazy' ) );
+                        echo wp_get_attachment_image( $snippet_image_id, 'large', false, array( 'loading' => 'lazy', 'data-parallax' => '0.08' ) );
                     else :
                         ?>
-                        <div class="about-snippet-placeholder" aria-hidden="true"></div>
+                        <div class="about-snippet-placeholder" aria-hidden="true" data-parallax="0.08"></div>
                     <?php endif; ?>
                 </div>
                 <?php if ( langgam_fikir_get_option( 'about_badge_number' ) || langgam_fikir_get_option( 'about_badge_label' ) ) : ?>
-                    <div class="about-snippet-badge">
+                    <div class="about-snippet-badge" data-parallax="-0.1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V7"/><path d="m16 12-4-5-4 5"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                         <span class="badge-number"><?php echo esc_html( langgam_fikir_get_option( 'about_badge_number' ) ); ?></span>
                         <span class="badge-label"><?php echo esc_html( langgam_fikir_get_option( 'about_badge_label' ) ); ?></span>
@@ -104,17 +114,9 @@ get_header();
                             <?php endif; ?>
                             <?php
                             $status = langgam_fikir_get_book_meta( get_the_ID(), 'status' );
-                            if ( $status === 'pre-order' ) :
+                            if ( in_array( $status, array( 'published', 'pre-order', 'coming-soon', 'reprinting', 'out-of-print' ), true ) ) :
                                 ?>
-                                <span class="book-status pre-order"><?php _e( 'Pre-Order', 'langgam-fikir' ); ?></span>
-                            <?php elseif ( $status === 'coming-soon' ) : ?>
-                                <span class="book-status coming-soon"><?php _e( 'Coming Soon', 'langgam-fikir' ); ?></span>
-                            <?php elseif ( $status === 'reprinting' ) : ?>
-                                <span class="book-status reprinting"><?php _e( 'Reprinting', 'langgam-fikir' ); ?></span>
-                            <?php elseif ( $status === 'published' ) : ?>
-                                <span class="book-status published"><?php _e( 'Published', 'langgam-fikir' ); ?></span>
-                            <?php elseif ( $status === 'out-of-print' ) : ?>
-                                <span class="book-status out-of-print"><?php _e( 'Out of Print', 'langgam-fikir' ); ?></span>
+                                <span class="book-status <?php echo esc_attr( $status ); ?>"><?php echo esc_html( langgam_fikir_status_label( $status ) ); ?></span>
                             <?php endif; ?>
                         </div>
                         <h3 class="book-title">
@@ -141,7 +143,7 @@ get_header();
                             ?>
                         </div>
                         <a href="<?php the_permalink(); ?>" class="btn btn-outline-dark">
-                            <?php _e( 'Learn More', 'langgam-fikir' ); ?>
+                            <?php echo esc_html( langgam_fikir_get_option( 'label_learn_more' ) ); ?>
                         </a>
                     </article>
                     <?php
@@ -188,7 +190,7 @@ get_header();
                             <?php the_excerpt(); ?>
                         </div>
                         <a href="<?php the_permalink(); ?>" class="read-more">
-                            <?php _e( 'Read More', 'langgam-fikir' ); ?>
+                            <?php echo esc_html( langgam_fikir_get_option( 'label_read_more' ) ); ?>
                         </a>
                     </article>
                     <?php

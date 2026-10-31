@@ -46,34 +46,31 @@ get_header();
                         $book_id = isset( $_GET['book_id'] ) ? intval( $_GET['book_id'] ) : 0;
                         $book_title = isset( $_GET['book_title'] ) ? sanitize_text_field( urldecode( $_GET['book_title'] ) ) : '';
                         
-                        // Build pre-filled subject and message
+                        // Build pre-filled subject and message from the templates in Theme Settings
                         $prefilled_subject = '';
                         $prefilled_message = '';
                         
                         if ( $book_id && $book_title ) {
-                            $prefilled_subject = sprintf( __( 'Book Order - %s', 'langgam-fikir' ), $book_title );
-                            
-                            // Get book details from post meta
-                            $author = get_post_meta( $book_id, '_book_author', true );
-                            $year = get_post_meta( $book_id, '_book_year', true );
-                            $price = get_post_meta( $book_id, '_book_price', true );
-                            
-                            $prefilled_message = sprintf(
-                                __( "I am interested in ordering:\n\nBook: %s", 'langgam-fikir' ),
-                                $book_title
+                            $tokens = array(
+                                '{title}'  => $book_title,
+                                '{author}' => (string) get_post_meta( $book_id, '_book_author', true ),
+                                '{year}'   => (string) get_post_meta( $book_id, '_book_year', true ),
+                                '{price}'  => (string) get_post_meta( $book_id, '_book_price', true ),
                             );
                             
-                            if ( $author ) {
-                                $prefilled_message .= sprintf( __( "\nAuthor: %s", 'langgam-fikir' ), $author );
-                            }
-                            if ( $year ) {
-                                $prefilled_message .= sprintf( __( "\nYear: %s", 'langgam-fikir' ), $year );
-                            }
-                            if ( $price ) {
-                                $prefilled_message .= sprintf( __( "\nPrice: RM %s", 'langgam-fikir' ), $price );
-                            }
+                            $prefilled_subject = strtr( langgam_fikir_get_option( 'contact_order_subject' ), $tokens );
                             
-                            $prefilled_message .= __( "\n\nQuantity: \n\nPlease provide me with ordering details.\n\nThank you.", 'langgam-fikir' );
+                            // Drop lines whose author, year or price token has no value.
+                            $lines = array();
+                            foreach ( preg_split( '/\r\n|\r|\n/', langgam_fikir_get_option( 'contact_order_message' ) ) as $line ) {
+                                foreach ( array( '{author}', '{year}', '{price}' ) as $optional ) {
+                                    if ( false !== strpos( $line, $optional ) && '' === $tokens[ $optional ] ) {
+                                        continue 2;
+                                    }
+                                }
+                                $lines[] = strtr( $line, $tokens );
+                            }
+                            $prefilled_message = implode( "\n", $lines );
                         }
                         ?>
                         

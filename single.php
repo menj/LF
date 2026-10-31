@@ -60,7 +60,7 @@ get_header();
                                 <span class="meta-item">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                                     <span class="reading-time">
-                                        <?php printf( _n( '%d min read', '%d min read', $reading_time, 'langgam-fikir' ), $reading_time ); ?>
+                                        <?php echo esc_html( str_replace( '{n}', (int) $reading_time, langgam_fikir_get_option( 'label_read_time' ) ) ); ?>
                                     </span>
                                 </span>
                             <?php endif; ?>
@@ -79,7 +79,7 @@ get_header();
                             the_content();
 
                             wp_link_pages( array(
-                                'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'langgam-fikir' ),
+                                'before' => '<div class="page-links">' . esc_html( langgam_fikir_get_option( 'label_pages' ) ),
                                 'after'  => '</div>',
                             ) );
                             ?>
@@ -94,7 +94,7 @@ get_header();
                             <div class="single-post-tags">
                                 <span class="tags-label">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg>
-                                    <?php _e( 'Tags', 'langgam-fikir' ); ?>
+                                    <?php echo esc_html( langgam_fikir_get_option( 'label_tags' ) ); ?>
                                 </span>
                                 <span class="tags-divider"></span>
                                 <?php foreach ( $tags as $tag ) : ?>
@@ -114,7 +114,7 @@ get_header();
                         
                         <?php if ( $prev_post ) : ?>
                             <a href="<?php echo esc_url( get_permalink( $prev_post ) ); ?>" class="post-nav-link post-nav-prev">
-                                <span class="post-nav-label"><?php _e( 'Previous Article', 'langgam-fikir' ); ?></span>
+                                <span class="post-nav-label"><?php echo esc_html( langgam_fikir_get_option( 'label_post_prev' ) ); ?></span>
                                 <span class="post-nav-title"><?php echo esc_html( get_the_title( $prev_post ) ); ?></span>
                             </a>
                         <?php else : ?>
@@ -123,7 +123,7 @@ get_header();
                         
                         <?php if ( $next_post ) : ?>
                             <a href="<?php echo esc_url( get_permalink( $next_post ) ); ?>" class="post-nav-link post-nav-next">
-                                <span class="post-nav-label"><?php _e( 'Next Article', 'langgam-fikir' ); ?></span>
+                                <span class="post-nav-label"><?php echo esc_html( langgam_fikir_get_option( 'label_post_next' ) ); ?></span>
                                 <span class="post-nav-title"><?php echo esc_html( get_the_title( $next_post ) ); ?></span>
                             </a>
                         <?php endif; ?>
@@ -151,7 +151,7 @@ get_header();
                 <section class="related-posts-section">
                     <div class="container">
                         <div class="page-title-header page-title-header-sm centered">
-                            <h2 class="page-title"><?php _e( 'Related Articles', 'langgam-fikir' ); ?></h2>
+                            <h2 class="page-title"><?php echo esc_html( langgam_fikir_get_option( 'label_related' ) ); ?></h2>
                         </div>
                         
                         <div class="resources-grid">

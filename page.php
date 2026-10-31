@@ -37,7 +37,7 @@ get_header();
                         the_content();
 
                         wp_link_pages( array(
-                            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'langgam-fikir' ),
+                            'before' => '<div class="page-links">' . esc_html( langgam_fikir_get_option( 'label_pages' ) ),
                             'after'  => '</div>',
                         ) );
                         ?>

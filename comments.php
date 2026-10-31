@@ -15,19 +15,14 @@ if ( post_password_required() ) {
     <?php if ( have_comments() ) : ?>
         <h2 class="comments-title">
             <?php
-            $comment_count = get_comments_number();
-            if ( '1' === $comment_count ) {
-                printf(
-                    esc_html__( 'One comment on &ldquo;%s&rdquo;', 'langgam-fikir' ),
-                    '<span>' . wp_kses_post( get_the_title() ) . '</span>'
-                );
-            } else {
-                printf(
-                    esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'langgam-fikir' ) ),
-                    number_format_i18n( $comment_count ),
-                    '<span>' . wp_kses_post( get_the_title() ) . '</span>'
-                );
-            }
+            $comment_count = (int) get_comments_number();
+            $title_html    = '<span>' . wp_kses_post( get_the_title() ) . '</span>';
+            $template      = langgam_fikir_get_option( 1 === $comment_count ? 'label_comments_one' : 'label_comments_many' );
+            echo str_replace(
+                array( '{count}', '{title}' ),
+                array( esc_html( number_format_i18n( $comment_count ) ), $title_html ),
+                esc_html( $template )
+            ); // phpcs:ignore WordPress.Security.EscapeOutput -- every part is escaped above.
             ?>
         </h2>
 
@@ -46,7 +41,7 @@ if ( post_password_required() ) {
 
         if ( ! comments_open() ) :
             ?>
-            <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'langgam-fikir' ); ?></p>
+            <p class="no-comments"><?php echo esc_html( langgam_fikir_get_option( 'label_comments_closed' ) ); ?></p>
             <?php
         endif;
 

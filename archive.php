@@ -64,14 +64,14 @@ get_header();
                 <?php
                 the_posts_pagination( array(
                     'mid_size'  => 2,
-                    'prev_text' => __( '&larr; Previous', 'langgam-fikir' ),
-                    'next_text' => __( 'Next &rarr;', 'langgam-fikir' ),
+                    'prev_text' => esc_html( langgam_fikir_get_option( 'label_prev' ) ),
+                    'next_text' => esc_html( langgam_fikir_get_option( 'label_next' ) ),
                 ) );
                 ?>
                 
             <?php else : ?>
                 
-                <p><?php _e( 'No posts found.', 'langgam-fikir' ); ?></p>
+                <p><?php echo esc_html( langgam_fikir_get_option( 'msg_no_posts' ) ); ?></p>
                 
             <?php endif; ?>
             

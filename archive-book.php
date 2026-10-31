@@ -38,19 +38,11 @@ get_header();
                                     </a>
                                 <?php endif; ?>
                                 <?php
-                                $status = langgam_fikir_get_book_meta( get_the_ID(), 'status' );
-                                if ( $status === 'pre-order' ) :
-                                    ?>
-                                    <span class="book-status pre-order"><?php _e( 'Pre-Order', 'langgam-fikir' ); ?></span>
-                                <?php elseif ( $status === 'coming-soon' ) : ?>
-                                    <span class="book-status coming-soon"><?php _e( 'Coming Soon', 'langgam-fikir' ); ?></span>
-                                <?php elseif ( $status === 'reprinting' ) : ?>
-                                    <span class="book-status reprinting"><?php _e( 'Reprinting', 'langgam-fikir' ); ?></span>
-                                <?php elseif ( $status === 'published' ) : ?>
-                                    <span class="book-status published"><?php _e( 'Published', 'langgam-fikir' ); ?></span>
-                                <?php elseif ( $status === 'out-of-print' ) : ?>
-                                    <span class="book-status out-of-print"><?php _e( 'Out of Print', 'langgam-fikir' ); ?></span>
-                                <?php endif; ?>
+                            $status = langgam_fikir_get_book_meta( get_the_ID(), 'status' );
+                            if ( in_array( $status, array( 'published', 'pre-order', 'coming-soon', 'reprinting', 'out-of-print' ), true ) ) :
+                                ?>
+                                <span class="book-status <?php echo esc_attr( $status ); ?>"><?php echo esc_html( langgam_fikir_status_label( $status ) ); ?></span>
+                            <?php endif; ?>
                             </div>
                             <h3 class="book-title">
                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
@@ -76,7 +68,7 @@ get_header();
                                 ?>
                             </div>
                             <a href="<?php the_permalink(); ?>" class="btn btn-outline-dark">
-                                <?php _e( 'Learn More', 'langgam-fikir' ); ?>
+                                <?php echo esc_html( langgam_fikir_get_option( 'label_learn_more' ) ); ?>
                             </a>
                         </article>
                     <?php endwhile; ?>
@@ -86,14 +78,14 @@ get_header();
                 // Pagination
                 the_posts_pagination( array(
                     'mid_size'  => 2,
-                    'prev_text' => __( '&larr; Previous', 'langgam-fikir' ),
-                    'next_text' => __( 'Next &rarr;', 'langgam-fikir' ),
+                    'prev_text' => esc_html( langgam_fikir_get_option( 'label_prev' ) ),
+                    'next_text' => esc_html( langgam_fikir_get_option( 'label_next' ) ),
                 ) );
                 ?>
                 
             <?php else : ?>
                 
-                <p><?php _e( 'No books found.', 'langgam-fikir' ); ?></p>
+                <p><?php echo esc_html( langgam_fikir_get_option( 'msg_no_books' ) ); ?></p>
                 
             <?php endif; ?>
             

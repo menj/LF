@@ -153,6 +153,17 @@ function langgam_fikir_enqueue_assets() {
         true
     );
     
+    // Parallax (switched off in Theme Settings > Layout)
+    if ( 'off' !== langgam_fikir_get_option( 'parallax' ) ) {
+        wp_enqueue_script(
+            'langgam-fikir-parallax',
+            $uri . '/assets/js/parallax.js',
+            array(),
+            filemtime( $dir . '/assets/js/parallax.js' ),
+            true
+        );
+    }
+
     // Add localized data for JavaScript
     wp_localize_script( 'langgam-fikir-main', 'langgamFikir', array(
         'ajaxUrl' => admin_url( 'admin-ajax.php' ),

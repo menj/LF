@@ -129,8 +129,8 @@ get_header();
             <div class="container">
                 <div class="single-book-content">
                     
-                    <div class="book-image">
-                        <div class="book-image-frame">
+                    <div class="book-image" data-parallax-root>
+                        <div class="book-image-frame" data-parallax="0.06">
                             <?php if ( has_post_thumbnail() ) : ?>
                                 <?php the_post_thumbnail( 'book-cover' ); ?>
                             <?php else : ?>
@@ -144,7 +144,7 @@ get_header();
                     
                     <div class="book-details">
                         <span class="book-status-badge <?php echo esc_attr( $status ); ?>">
-                            <?php echo esc_html( strtoupper( str_replace( '-', ' ', $status ) ) ); ?>
+                            <?php echo esc_html( langgam_fikir_status_label( $status ) ); ?>
                         </span>
                         
                         <h1><?php the_title(); ?></h1>
@@ -160,42 +160,42 @@ get_header();
                             <div class="book-meta-grid">
                                 <?php if ( $author ) : ?>
                                     <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'Author', 'langgam-fikir' ); ?></span>
+                                        <span class="meta-label"><?php echo esc_html( langgam_fikir_get_option( 'label_author' ) ); ?></span>
                                         <span class="meta-value"><?php echo esc_html( $author ); ?></span>
                                     </div>
                                 <?php endif; ?>
                                 
                                 <?php if ( $publisher ) : ?>
                                     <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'Publisher', 'langgam-fikir' ); ?></span>
+                                        <span class="meta-label"><?php echo esc_html( langgam_fikir_get_option( 'label_publisher' ) ); ?></span>
                                         <span class="meta-value"><?php echo esc_html( $publisher ); ?></span>
                                     </div>
                                 <?php endif; ?>
                                 
                                 <?php if ( $editor ) : ?>
                                     <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'Editor', 'langgam-fikir' ); ?></span>
+                                        <span class="meta-label"><?php echo esc_html( langgam_fikir_get_option( 'label_editor' ) ); ?></span>
                                         <span class="meta-value"><?php echo esc_html( $editor ); ?></span>
                                     </div>
                                 <?php endif; ?>
                                 
                                 <?php if ( $translator ) : ?>
                                     <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'Translator', 'langgam-fikir' ); ?></span>
+                                        <span class="meta-label"><?php echo esc_html( langgam_fikir_get_option( 'label_translator' ) ); ?></span>
                                         <span class="meta-value"><?php echo esc_html( $translator ); ?></span>
                                     </div>
                                 <?php endif; ?>
                                 
                                 <?php if ( $year ) : ?>
                                     <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'Year', 'langgam-fikir' ); ?></span>
+                                        <span class="meta-label"><?php echo esc_html( langgam_fikir_get_option( 'label_year' ) ); ?></span>
                                         <span class="meta-value"><?php echo esc_html( $year ); ?></span>
                                     </div>
                                 <?php endif; ?>
                                 
                                 <?php if ( $isbn ) : ?>
                                     <div class="book-meta-item">
-                                        <span class="meta-label"><?php _e( 'ISBN', 'langgam-fikir' ); ?></span>
+                                        <span class="meta-label"><?php echo esc_html( langgam_fikir_get_option( 'label_isbn' ) ); ?></span>
                                         <span class="meta-value"><?php echo esc_html( $isbn ); ?></span>
                                     </div>
                                 <?php endif; ?>
@@ -203,14 +203,14 @@ get_header();
                             
                             <?php if ( $price && in_array( $status, array( 'published', 'pre-order' ) ) ) : ?>
                                 <div class="book-meta-price">
-                                    <span class="meta-label"><?php _e( 'Price', 'langgam-fikir' ); ?></span>
+                                    <span class="meta-label"><?php echo esc_html( langgam_fikir_get_option( 'label_price' ) ); ?></span>
                                     <span class="price-amount">RM <?php echo esc_html( number_format( (float) $price, 2 ) ); ?></span>
                                 </div>
                             <?php endif; ?>
                         </div>
                         
                         <div class="book-synopsis">
-                            <h3><?php _e( 'Synopsis', 'langgam-fikir' ); ?></h3>
+                            <h3><?php echo esc_html( langgam_fikir_get_option( 'label_synopsis' ) ); ?></h3>
                             <div class="book-synopsis-text">
                                 <?php the_content(); ?>
                             </div>
@@ -228,20 +228,14 @@ get_header();
                             ?>
                             <div class="quantity-add-cart">
                                 <div class="quantity-selector">
-                                    <button class="quantity-btn quantity-decrease" aria-label="<?php esc_attr_e( 'Decrease quantity', 'langgam-fikir' ); ?>">−</button>
-                                    <input type="number" class="quantity-input" value="1" min="1" max="99" aria-label="<?php esc_attr_e( 'Quantity', 'langgam-fikir' ); ?>">
-                                    <button class="quantity-btn quantity-increase" aria-label="<?php esc_attr_e( 'Increase quantity', 'langgam-fikir' ); ?>">+</button>
+                                    <button class="quantity-btn quantity-decrease" aria-label="<?php echo esc_attr( langgam_fikir_get_option( 'label_qty_decrease' ) ); ?>">−</button>
+                                    <input type="number" class="quantity-input" value="1" min="1" max="99" aria-label="<?php echo esc_attr( langgam_fikir_get_option( 'label_qty' ) ); ?>">
+                                    <button class="quantity-btn quantity-increase" aria-label="<?php echo esc_attr( langgam_fikir_get_option( 'label_qty_increase' ) ); ?>">+</button>
                                 </div>
                                 
                                 <?php if ( class_exists( 'WooCommerce' ) ) : ?>
                                     <button class="btn btn-primary add-to-cart-btn" data-product-id="<?php echo esc_attr( get_the_ID() ); ?>">
-                                        <?php 
-                                        if ( $book_status === 'pre-order' ) {
-                                            _e( 'PRE-ORDER NOW', 'langgam-fikir' );
-                                        } else {
-                                            _e( 'ADD TO CART', 'langgam-fikir' );
-                                        }
-                                        ?>
+                                        <?php echo esc_html( langgam_fikir_get_option( 'pre-order' === $book_status ? 'label_preorder_now' : 'label_add_to_cart' ) ); ?>
                                     </button>
                                 <?php else : ?>
                                     <?php

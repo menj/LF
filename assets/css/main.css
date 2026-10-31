@@ -41,6 +41,14 @@
     --color-error-text: #7A1F1F;
     --color-error-border: #E8BFBF;
 
+    /* Corner radii - "Soft" default; Sharp and Round are set from Theme Settings > Layout (schemes.css) */
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --radius-xl: 40px;
+    --radius-btn: 12px;
+    --radius-pill: 999px;
+
     /* Elevation */
     --shadow-soft: rgba(0, 0, 0, 0.06);
     --shadow-strong: rgba(0, 0, 0, 0.12);
@@ -400,7 +408,7 @@ p {
     font-size: 1rem;
     padding: 0.875rem 2rem;
     border: 1.5px solid;
-    border-radius: 8px;
+    border-radius: var(--radius-btn);
     transition: all var(--transition-base);
     display: inline-block;
     text-align: center;
@@ -467,7 +475,7 @@ p {
 .about-snippet-image {
     aspect-ratio: 4 / 5;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
 }
 
 .about-snippet-image img {
@@ -485,7 +493,7 @@ p {
     height: 12rem;
     background-color: var(--color-bg-muted);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     box-shadow: 0 10px 30px var(--shadow-strong);
     display: flex;
     flex-direction: column;
@@ -587,7 +595,7 @@ p {
 .book-card {
     background-color: var(--color-bg-primary);
     padding: var(--spacing-md);
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
@@ -603,7 +611,7 @@ p {
     background-color: var(--color-bg-secondary);
     margin-bottom: var(--spacing-sm);
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
 }
 
 .book-cover img {
@@ -625,7 +633,7 @@ p {
     padding: var(--spacing-md);
     background-color: var(--color-bg-muted);
     border: 1px dashed var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
 }
 
 .book-cover-placeholder:hover {
@@ -710,7 +718,7 @@ p {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     box-shadow: 0 2px 4px var(--shadow-strong);
 }
 
@@ -742,7 +750,7 @@ p {
 .book-status-message {
     padding: var(--spacing-md);
     margin-top: var(--spacing-lg);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     font-family: var(--font-secondary);
 }
 
@@ -895,7 +903,7 @@ p {
 .resource-card {
     background-color: var(--color-bg-secondary);
     padding: var(--spacing-md);
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
@@ -1045,7 +1053,7 @@ p {
 .mission-card {
     background-color: var(--color-bg-primary);
     padding: var(--spacing-md);
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     box-shadow: 0 2px 8px var(--shadow-soft);
     border: 1px solid var(--color-border);
 }
@@ -1104,7 +1112,7 @@ p {
     background-color: var(--color-bg-primary);
     padding: var(--spacing-sm);
     box-shadow: 0 10px 30px var(--shadow-strong);
-    border-radius: 2px;
+    border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
 }
 
@@ -1124,7 +1132,7 @@ p {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.35rem 0.75rem;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1173,7 +1181,7 @@ p {
 .book-meta-card {
     background-color: var(--color-bg-primary);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     box-shadow: 0 2px 8px var(--shadow-soft);
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
@@ -1252,7 +1260,7 @@ p {
     display: flex;
     align-items: center;
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     overflow: hidden;
 }
 
@@ -1812,7 +1820,7 @@ p {
     height: 40px;
     color: var(--color-text);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     transition: all var(--transition-base);
 }
 
@@ -1861,7 +1869,7 @@ p {
 
 .privacy-navigation {
     background-color: var(--color-bg-secondary);
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     padding: var(--spacing-md);
     border: 1px solid var(--color-border);
 }
@@ -1893,7 +1901,7 @@ p {
 .privacy-nav a {
     display: block;
     padding: 0.6rem var(--spacing-sm);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     color: var(--color-text-light);
     text-decoration: none;
     font-family: var(--font-secondary);
@@ -2044,7 +2052,7 @@ p {
 /* Featured Image */
 .single-post-thumbnail {
     margin-bottom: var(--spacing-lg);
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
 }
 
@@ -2077,7 +2085,7 @@ p {
     font-style: italic;
     color: var(--color-text-light);
     background-color: var(--color-bg-secondary);
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 
 .single-post-content .entry-content a {
@@ -2105,7 +2113,7 @@ p {
 .single-post-content .entry-content img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     margin: var(--spacing-md) 0;
 }
 
@@ -2162,7 +2170,7 @@ p {
     background-color: transparent;
     padding: 0.3rem 0.7rem;
     border: 1px solid var(--color-border);
-    border-radius: 20px;
+    border-radius: var(--radius-pill);
     text-decoration: none;
     letter-spacing: 0.02em;
     transition: all var(--transition-base);
@@ -2188,7 +2196,7 @@ p {
     gap: 0.25rem;
     padding: var(--spacing-sm) var(--spacing-md);
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     transition: background-color var(--transition-base);
 }
 
@@ -2320,4 +2328,120 @@ p {
 .contact-intro {
     margin-bottom: var(--spacing-md);
     color: var(--color-text-light);
+}
+
+/*--------------------------------------------------------------
+# Rounded sections and hero
+--------------------------------------------------------------*/
+.hero {
+    position: relative;
+    isolation: isolate;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+}
+
+.about-snippet-image,
+.book-image-frame {
+    overflow: hidden;
+}
+
+.about-logo-section {
+    border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+}
+
+.contact-info-area {
+    border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+}
+
+.btn,
+.submit-btn,
+.form-input {
+    border-radius: var(--radius-btn);
+}
+
+.form-input {
+    border-radius: var(--radius-md);
+}
+
+/*--------------------------------------------------------------
+# Parallax
+  js/parallax.js sets --lf-py on every [data-parallax] element while it is on screen.
+  Without JS, or with reduced motion, the variable stays 0 and nothing moves.
+--------------------------------------------------------------*/
+[data-parallax] {
+    transform: translate3d(0, var(--lf-py, 0px), 0) scale(var(--lf-ps, 1));
+    will-change: transform;
+}
+
+.hero-layers {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.hero-layer {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hero-layer--a {
+    width: min(46vw, 640px);
+    aspect-ratio: 1;
+    left: -10%;
+    top: -35%;
+    background: radial-gradient(circle at 35% 35%, color-mix(in srgb, var(--color-accent) 38%, transparent), transparent 68%);
+}
+
+.hero-layer--b {
+    width: min(38vw, 520px);
+    aspect-ratio: 1;
+    right: -8%;
+    bottom: -40%;
+    border: 1px solid color-mix(in srgb, var(--color-on-hero) 22%, transparent);
+    box-shadow: inset 0 0 0 40px color-mix(in srgb, var(--color-on-hero) 4%, transparent);
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+.hero-bg img {
+    position: absolute;
+    left: 0;
+    top: -15%;
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+}
+
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: color-mix(in srgb, var(--color-bg-hero) 78%, transparent);
+}
+
+.about-snippet-image img,
+.about-snippet-image .about-snippet-placeholder {
+    --lf-ps: 1.18;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-snippet-image {
+    aspect-ratio: 4 / 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-parallax] {
+        transform: none;
+        will-change: auto;
+    }
 }

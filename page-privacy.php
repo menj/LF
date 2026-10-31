@@ -23,7 +23,7 @@ get_header();
                     
                     <aside class="privacy-sidebar">
                         <nav class="privacy-navigation">
-                            <h3 class="privacy-nav-heading"><?php _e( 'Contents', 'langgam-fikir' ); ?></h3>
+                            <h3 class="privacy-nav-heading"><?php echo esc_html( langgam_fikir_get_option( 'privacy_contents_label' ) ); ?></h3>
                             <ul class="privacy-nav" id="privacy-nav">
                                 <?php
                                 $content = get_the_content();

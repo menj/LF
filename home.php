@@ -62,10 +62,10 @@ get_header();
                         
                         <!-- Carousel arrows (optional - can be made functional with JavaScript) -->
                         <div class="carousel-arrows">
-                            <button class="carousel-arrow carousel-prev" aria-label="<?php esc_attr_e( 'Previous', 'langgam-fikir' ); ?>">
+                            <button class="carousel-arrow carousel-prev" aria-label="<?php echo esc_attr( langgam_fikir_get_option( 'label_carousel_prev' ) ); ?>">
                                 ‹
                             </button>
-                            <button class="carousel-arrow carousel-next" aria-label="<?php esc_attr_e( 'Next', 'langgam-fikir' ); ?>">
+                            <button class="carousel-arrow carousel-next" aria-label="<?php echo esc_attr( langgam_fikir_get_option( 'label_carousel_next' ) ); ?>">
                                 ›
                             </button>
                         </div>
@@ -132,14 +132,14 @@ get_header();
                     // Pagination
                     the_posts_pagination( array(
                         'mid_size'  => 2,
-                        'prev_text' => __( '&larr; Previous', 'langgam-fikir' ),
-                        'next_text' => __( 'Next &rarr;', 'langgam-fikir' ),
+                        'prev_text' => esc_html( langgam_fikir_get_option( 'label_prev' ) ),
+                        'next_text' => esc_html( langgam_fikir_get_option( 'label_next' ) ),
                     ) );
                     ?>
                     
                 <?php else : ?>
                     
-                    <p><?php _e( 'No resources found.', 'langgam-fikir' ); ?></p>
+                    <p><?php echo esc_html( langgam_fikir_get_option( 'msg_no_resources' ) ); ?></p>
                     
                 <?php endif; ?>
             </div>
