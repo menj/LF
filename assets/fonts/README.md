@@ -28,3 +28,14 @@ Download these WOFF2 files and place them in this directory:
 If font files are missing, the theme gracefully falls back to:
 - **Serif:** Georgia
 - **Sans-serif:** Helvetica Neue, system sans-serif
+
+## Licensed Fonts (2.11.0)
+
+Three further families are part of the default design. They are licensed to the site owner and
+declared in `/assets/css/fonts-premium.css`, which loads only when the files are present:
+
+- `sabon-next-lt-regular.woff2`, `sabon-next-lt-italic.woff2`, `sabon-next-lt-bold.woff2`, `sabon-next-lt-bolditalic.woff2` (reading text)
+- `kagnue-regular.woff2` (site title, page and section titles)
+- `ferments-regular.woff2` (tagline and script accents)
+
+Without them the theme falls back to Crimson Text and Georgia.

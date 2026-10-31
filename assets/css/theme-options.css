@@ -296,3 +296,99 @@
 .lf-card-notice .button {
     margin-top: 0.25rem;
 }
+
+/*--------------------------------------------------------------
+# Schema-driven fields (v2.11.0): palette cards, colour fields
+--------------------------------------------------------------*/
+.lf-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.lf-schemes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+}
+
+.lf-scheme {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+.lf-scheme input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.lf-scheme-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.7rem;
+    background: #fff;
+    border: 1px solid var(--color-border, #D9D0C7);
+    border-radius: 10px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lf-scheme:hover .lf-scheme-card {
+    border-color: var(--color-text-muted, #8C7F72);
+}
+
+.lf-scheme input:checked + .lf-scheme-card {
+    border-color: var(--color-primary, #6B5B4A);
+    box-shadow: 0 0 0 1px var(--color-primary, #6B5B4A);
+}
+
+.lf-scheme input:focus-visible + .lf-scheme-card {
+    outline: 2px solid var(--color-accent, #C9A961);
+    outline-offset: 2px;
+}
+
+.lf-scheme-swatch {
+    display: flex;
+    height: 26px;
+    overflow: hidden;
+    border: 1px solid var(--color-border, #D9D0C7);
+    border-radius: 6px;
+}
+
+.lf-scheme-swatch i {
+    flex: 1;
+}
+
+.lf-scheme-name {
+    font-weight: 600;
+}
+
+.lf-scheme-note {
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--color-text-light, #6B6057);
+}
+
+.lf-color {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lf-color-pick {
+    width: 42px;
+    height: 34px;
+    padding: 2px;
+    border: 1px solid var(--color-border, #D9D0C7);
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.lf-color-text {
+    width: 110px;
+    font-family: monospace;
+}

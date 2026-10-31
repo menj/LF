@@ -5,7 +5,7 @@
  *
  * @package Langgam_Fikir
  * @since 1.0.0
- * @version 2.10.0
+ * @version 2.11.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Theme Constants
  */
-define( 'LANGGAM_FIKIR_VERSION', '2.10.0' );
+define( 'LANGGAM_FIKIR_VERSION', '2.11.0' );
 define( 'LANGGAM_FIKIR_DIR', get_stylesheet_directory() );
 define( 'LANGGAM_FIKIR_URI', get_stylesheet_directory_uri() );
 
@@ -26,6 +26,8 @@ require_once LANGGAM_FIKIR_DIR . '/inc/setup.php';           // Theme setup & co
 require_once LANGGAM_FIKIR_DIR . '/inc/enqueue.php';         // Scripts & styles enqueuing
 require_once LANGGAM_FIKIR_DIR . '/inc/post-types.php';      // Custom post types & taxonomies
 require_once LANGGAM_FIKIR_DIR . '/inc/meta-boxes.php';      // Meta boxes for custom fields
+require_once LANGGAM_FIKIR_DIR . '/inc/options-schema.php';  // Extra Theme Options schema: design, page text, labels (v2.11.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/design.php';          // Palettes, fonts, corners, hero photo (v2.11.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/template-functions.php'; // Template helper functions
 require_once LANGGAM_FIKIR_DIR . '/inc/template-hooks.php';  // Template hooks & filters
 require_once LANGGAM_FIKIR_DIR . '/inc/schema.php';           // Schema.org & social meta
@@ -42,6 +44,7 @@ if ( is_admin() ) {
     require_once LANGGAM_FIKIR_DIR . '/inc/admin/meta-boxes-faq.php'; // FAQ meta box (Phase C)
     require_once LANGGAM_FIKIR_DIR . '/inc/admin/meta-boxes-reviews.php'; // Reviews meta box (Phase D)
     require_once LANGGAM_FIKIR_DIR . '/inc/admin/meta-boxes-robots.php'; // Robots toggle (Phase D)
+    require_once LANGGAM_FIKIR_DIR . '/inc/admin/options-extra.php'; // Schema-driven Theme Options tabs (v2.11.0)
     require_once LANGGAM_FIKIR_DIR . '/inc/admin/theme-options.php'; // Theme Options page
 }
 

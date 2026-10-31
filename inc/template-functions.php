@@ -32,16 +32,16 @@ function langgam_fikir_get_book_meta( $post_id, $key ) {
  * Default theme option values
  */
 function langgam_fikir_option_defaults() {
-    return array(
+    return array_merge( langgam_fikir_extra_option_defaults(), array(
         'hero_text'                => __( 'Book publisher of ideas that transcend borders—bringing critical, thought-provoking works to readers who seek truth.', 'langgam-fikir' ),
         'hero_background_image'    => '',
         'featured_books_count'     => 6,
         'featured_resources_count' => 3,
-        'contact_email'            => '',
+        'contact_email'            => 'langgam.fikir@gmail.com',
         'footer_business_name'     => 'Langgam Fikir Enterprise',
         'footer_address'           => '',
         'footer_phone'             => '',
-        'footer_email'             => '',
+        'footer_email'             => 'langgam.fikir@gmail.com',
         'legal_entity_name'        => 'Langgam Fikir Enterprise',
         'registration_number'      => '',
         // Social
@@ -64,7 +64,7 @@ function langgam_fikir_option_defaults() {
         'webmcp_enabled'            => 1,
         'webmcp_contact_form'       => 1,
         'webmcp_origin_trial_token' => '',
-    );
+    ) );
 }
 
 /**

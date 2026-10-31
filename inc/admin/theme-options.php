@@ -100,7 +100,8 @@ function langgam_fikir_sanitize_options( $input ) {
         ? sanitize_text_field( wp_unslash( $input['default_meta_description'] ) )
         : $defaults['default_meta_description'];
 
-    return $sanitized;
+    // Design, page text and labels (schema-driven; see inc/options-schema.php).
+    return array_merge( $sanitized, langgam_fikir_sanitize_extra_options( $input ) );
 }
 
 /**
@@ -155,6 +156,7 @@ function langgam_fikir_render_options_page() {
         'legal'    => array( 'label' => __( 'Legal Entity', 'langgam-fikir' ),     'icon' => 'dashicons-shield' ),
         'social'   => array( 'label' => __( 'Social & SEO', 'langgam-fikir' ),    'icon' => 'dashicons-share' ),
     );
+    $tabs = langgam_fikir_extend_option_tabs( $tabs );
     ?>
     <div class="wrap lf-options-wrap">
         <h1 class="lf-options-title">
@@ -309,7 +311,12 @@ function langgam_fikir_render_options_page() {
                         </div>
                     </div>
                 </div>
+
+                <?php langgam_fikir_render_extra_cards( 'homepage', $opts ); ?>
             </div>
+
+            <!-- ==================== Design, About & Contact Pages tabs (schema-driven) ==================== -->
+            <?php langgam_fikir_render_extra_panels( $active_tab, $opts ); ?>
 
             <!-- ==================== Contact & Footer Tab ==================== -->
             <div class="lf-panel <?php echo esc_attr( $active_tab ) === 'contact' ? 'lf-panel--active' : ''; ?>" data-panel="contact" role="tabpanel">
@@ -356,6 +363,8 @@ function langgam_fikir_render_options_page() {
                         </div>
                     </div>
                 </div>
+
+                <?php langgam_fikir_render_extra_cards( 'contact', $opts ); ?>
             </div>
 
             <!-- ==================== Legal Entity Tab ==================== -->

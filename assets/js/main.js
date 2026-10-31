@@ -220,8 +220,16 @@
     /**
      * Parallax Hero Background
      */
+    function parallaxAllowed() {
+        var body = document.body;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+        if (body.classList.contains('lf-parallax-off')) return false;
+        if (body.classList.contains('lf-parallax-desktop') && window.innerWidth < 1024) return false;
+        return true;
+    }
+
     function initParallax() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!parallaxAllowed()) return;
 
         var heroBg = document.querySelector('.hero-bg');
         if (!heroBg) return;
@@ -244,6 +252,70 @@
                 ticking = true;
             }
         }, { passive: true });
+    }
+
+    /**
+     * Parallax for elements marked data-parallax="speed" (About image, About logo, book cover).
+     * speed 0.1 drifts the element at 10% of the scroll, relative to its data-parallax-root
+     * section. Only on-screen sections update, batched in requestAnimationFrame. Elements that
+     * are scaled to cover their frame stay inside their overhang.
+     */
+    function initParallaxElements() {
+        if (!parallaxAllowed() || !('IntersectionObserver' in window)) return;
+
+        var items = document.querySelectorAll('[data-parallax]');
+        if (!items.length) return;
+
+        var roots = new Map();
+        var visible = new Set();
+        var ticking = false;
+
+        function update() {
+            ticking = false;
+            var mid = window.innerHeight / 2;
+
+            visible.forEach(function(root) {
+                var rect = root.getBoundingClientRect();
+                var center = rect.top + rect.height / 2 - mid;
+
+                roots.get(root).forEach(function(el) {
+                    var offset = center * -(parseFloat(el.getAttribute('data-parallax')) || 0);
+                    var scale = parseFloat(window.getComputedStyle(el).getPropertyValue('--lf-ps')) || 1;
+
+                    if (scale > 1) {
+                        var overhang = Math.max(0, (el.offsetHeight * scale - root.offsetHeight) / 2);
+                        offset = Math.max(-overhang, Math.min(overhang, offset));
+                    }
+                    el.style.setProperty('--lf-py', offset.toFixed(1) + 'px');
+                });
+            });
+        }
+
+        function request() {
+            if (!ticking && visible.size) {
+                ticking = true;
+                window.requestAnimationFrame(update);
+            }
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) { visible.add(entry.target); } else { visible.delete(entry.target); }
+            });
+            request();
+        }, { rootMargin: '10% 0px' });
+
+        items.forEach(function(el) {
+            var root = el.closest('[data-parallax-root]') || el.parentElement;
+            if (!roots.has(root)) {
+                roots.set(root, []);
+                observer.observe(root);
+            }
+            roots.get(root).push(el);
+        });
+
+        window.addEventListener('scroll', request, { passive: true });
+        window.addEventListener('resize', request);
     }
 
     /**
@@ -299,6 +371,7 @@
         initLazyLoad();
         initScrollReveal();
         initParallax();
+        initParallaxElements();
         initShareCopyLink();
         initFaqAccordion();
     }

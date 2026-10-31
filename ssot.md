@@ -64,12 +64,21 @@ Contrast reference (WCAG AA is 4.5:1 for normal text, 3:1 for large): `--color-t
 
 ### 3.2 Typography
 
-| Family | Variable | Use |
-|---|---|---|
-| Crimson Text (serif) | `--font-primary` | Headings, brand display, book titles |
-| Inter (sans-serif) | `--font-secondary` | Body, UI, meta, controls |
+Five typefaces share the work, each with a role. All five are part of the default design; each role can be changed in Theme Options → Design.
 
-Both families are self-hosted. WOFF2 files live in `/assets/fonts/`, declared via `/assets/css/fonts.css`. The relative `url()` paths resolve to `../fonts/` from the CSS file.
+| Family | Variable | Role |
+|---|---|---|
+| Crimson Text (serif) | `--font-primary` | Headings, book titles, hero statement |
+| Inter (sans-serif) | `--font-secondary` | Body, UI, navigation, meta, controls |
+| Sabon Next LT (serif) | `--font-reading` | Reading text: About text, article content, synopses, lead paragraphs |
+| Kagnue (display) | `--font-display` | Site title, page titles, section titles |
+| Ferments (script) | `--font-script` | Tagline and script accents (the 404 quip) |
+
+All are self-hosted. Crimson Text and Inter are declared in `/assets/css/fonts.css`; Sabon Next LT, Kagnue and Ferments are licensed to the site owner and declared in `/assets/css/fonts-premium.css`, which loads only when the files exist. WOFF2 files live in `/assets/fonts/`. Role-to-selector rules and the alternatives live in `/assets/css/design.css`.
+
+### 3.2a Palettes, corners and design layer
+
+Earth (the table above) is the default palette and the base in `:root`. Slate, Sage and Clay are light alternatives declared as `body.lf-scheme-*` in `assets/css/design.css`; individually picked colours are emitted as one `body.lf-has-custom-colours` block (see `inc/design.php`). Additional tokens: `--color-bg-tint`, `--color-on-accent`, `--color-on-hero` (palette), `--radius-sm/md/lg/xl/btn/pill` (corners: Soft default, Sharp, Round). Book-status colours and brand share colours are semantic and stay literal. Dark mode is not offered (see 9.2).
 
 ### 3.3 Spacing scale
 
@@ -120,6 +129,8 @@ LF/
 │   ├── enqueue.php                    Front-end + admin asset registration
 │   ├── post-types.php                 book CPT, book-category, book-tag
 │   ├── meta-boxes.php                 Book details, contact, about (registration + save)
+│   ├── options-schema.php             Schema for the Design, About & Contact Pages and Labels tabs and extra cards; defaults, sanitising, langgam_fikir_text()
+│   ├── design.php                     Body classes for palette/corners/fonts/parallax, custom-colour CSS, hero photo
 │   ├── template-functions.php         Shared helpers, language helpers
 │   ├── template-hooks.php             Action/filter hooks
 │   ├── schema.php                     Schema.org JSON-LD + OG/Twitter
@@ -133,6 +144,7 @@ LF/
 │       ├── meta-boxes-faq.php         FAQ repeatable meta box
 │       ├── meta-boxes-reviews.php     Reviews repeatable meta box
 │       ├── meta-boxes-robots.php      Per-post robots toggle
+│       ├── options-extra.php          Renderers for the schema-driven Theme Options tabs and cards
 │       └── theme-options.php          Tabbed Theme Options page
 ├── template-parts/
 │   └── content/
@@ -143,8 +155,9 @@ LF/
 │       ├── showcase.php               Interactive homepage Showcase (books here are excluded from Latest Publications)
 │       └── reviews-section.php        Reviews list with star widget
 ├── assets/
-│   ├── css/                           main.css, additional.css, admin.css, theme-options.css, fonts.css, showcase.css
+│   ├── css/                           main.css, design.css, additional.css, admin.css, theme-options.css, fonts.css, fonts-premium.css, showcase.css
 │   ├── js/                            main.js, admin.js, theme-options.js, showcase.js, webmcp.js
+│   ├── images/hero/                   Bundled hero photographs (Pexels), 1920 and 960 px
 │   └── fonts/                         Self-hosted WOFF2
 ├── languages/                         .pot / .po / .mo
 ├── readme.txt
@@ -169,7 +182,7 @@ The theme uses the **WordPress Options API**, not the Customizer, for all custom
 
 The Customizer is reserved for WordPress core features only (custom logo, site identity, menu locations, widgets).
 
-The Theme Options page is registered under **Appearance → Theme Options**, with tabs for Homepage, Contact & Footer, Legal Entity, Social & SEO. Tabs are rendered via `tab=` query string and a single underlying page render.
+The Theme Options page is registered under **Appearance → Theme Options**, with tabs for Homepage, Design, About & Contact Pages, Contact & Footer, Labels & 404, Legal Entity, Social & SEO. The Design, About & Contact Pages and Labels & 404 tabs, and the extra cards on Homepage and Contact & Footer, are defined once in `inc/options-schema.php`; the original four tabs stay hand-written in `inc/admin/theme-options.php`. Text options are read with `langgam_fikir_text( $key )` (blank falls back to the default unless the field is flagged `allow_empty`). Tabs are rendered via `tab=` query string and a single underlying page render.
 
 ### 5.4 Performance contract
 
@@ -318,7 +331,7 @@ All theme source strings are in **en_US**. Translations live in `/languages/` as
 
 ### 9.2 Out of scope
 
-- **Dark Mode** is permanently out of scope. No dark palette, no `prefers-color-scheme` switching, no toggle, no palette selector. The CSS-variable foundation in `:root` exists for general theming flexibility but will not be extended for dark mode.
+- **Dark Mode** is permanently out of scope. No dark palette, no `prefers-color-scheme` switching, no toggle. *Amended at 2.11.0 on MENJ's instruction:* a palette selector is in scope, limited to light palettes (Earth, Slate, Sage, Clay) plus custom colours in Theme Options → Design.
 
 ### 9.3 Deferred
 
@@ -334,7 +347,7 @@ When in doubt, defer to MENJ. Brand decisions, scope decisions, and "is this in 
 
 | Field | Value |
 |---|---|
-| Latest released version | **2.10.0** |
+| Latest released version | **2.11.0** |
 | Active development phase | Phase 4 (Admin Power Features) — next |
 | In-progress phase | Phase 5 (Frontend Polish) — 3 of 8 items delivered |
 | SEO/AEO audit score | **92/100** (last assessed at v2.6.0) |
@@ -369,5 +382,5 @@ When more than one doc covers a topic, this is which one wins:
 
 ---
 
-**Last Updated:** September 6, 2026 (v2.10.0)
+**Last Updated:** October 31, 2026 (v2.11.0)
 **Maintained by:** MENJ

@@ -18,7 +18,7 @@
             </div>
             
             <div class="footer-legal-column">
-                <h3 class="footer-heading"><?php _e( 'Legal', 'langgam-fikir' ); ?></h3>
+                <h3 class="footer-heading"><?php echo esc_html( langgam_fikir_text( 'footer_legal_heading' ) ); ?></h3>
                 <nav class="footer-legal-navigation">
                     <?php
                     wp_nav_menu( array(
@@ -39,7 +39,7 @@
             if ( $address || $phone || $email ) :
             ?>
             <div class="footer-contact-column" itemscope itemtype="https://schema.org/Organization">
-                <h3 class="footer-heading"><?php _e( 'Contact', 'langgam-fikir' ); ?></h3>
+                <h3 class="footer-heading"><?php echo esc_html( langgam_fikir_text( 'footer_contact_heading' ) ); ?></h3>
                 <meta itemprop="name" content="<?php echo esc_attr( langgam_fikir_get_option( 'footer_business_name', get_bloginfo( 'name' ) ) ); ?>">
                 <meta itemprop="url" content="<?php echo esc_url( home_url( '/' ) ); ?>">
                 <div class="footer-contact-info">
@@ -70,7 +70,7 @@
         <div class="footer-bottom">
             <div class="footer-bottom-inner">
                 <p class="copyright">
-                    &copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php _e( 'All rights reserved.', 'langgam-fikir' ); ?>
+                    &copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>. <?php echo esc_html( langgam_fikir_text( 'footer_rights' ) ); ?>
                 </p>
                 <?php
                 $legal_entity = langgam_fikir_get_option( 'legal_entity_name' );

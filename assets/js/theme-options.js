@@ -37,6 +37,25 @@
             });
         });
 
+        // Palette swatches: each chip carries its colour in data-color (no inline styles in the markup).
+        document.querySelectorAll('.lf-scheme-swatch i[data-color]').forEach(function (chip) {
+            chip.style.backgroundColor = chip.getAttribute('data-color');
+        });
+
+        // Colour fields: the native picker and the hex box stay in sync; an empty box means "use the palette".
+        document.querySelectorAll('.lf-color').forEach(function (wrap) {
+            var pick  = wrap.querySelector('.lf-color-pick');
+            var text  = wrap.querySelector('.lf-color-text');
+            var clear = wrap.querySelector('.lf-color-clear');
+            if (!pick || !text) return;
+
+            pick.addEventListener('input', function () { text.value = pick.value.toUpperCase(); });
+            text.addEventListener('input', function () {
+                if (/^#[0-9A-Fa-f]{6}$/.test(text.value)) pick.value = text.value;
+            });
+            if (clear) clear.addEventListener('click', function () { text.value = ''; });
+        });
+
         // Live preview for legal entity fields
         var nameField = document.getElementById('lf_legal_name');
         var regField  = document.getElementById('lf_reg_number');

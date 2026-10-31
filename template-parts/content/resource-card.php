@@ -40,7 +40,7 @@ $categories = get_the_category();
             <?php echo esc_html( get_the_date() ); ?>
         </time>
         <a href="<?php the_permalink(); ?>" class="read-more">
-            <?php esc_html_e( 'Read More', 'langgam-fikir' ); ?>
+            <?php echo esc_html( langgam_fikir_text( 'label_read_more' ) ); ?>
             <span class="screen-reader-text"><?php
                 /* translators: %s: post or book title */
                 printf( esc_html__( 'about %s', 'langgam-fikir' ), esc_html( get_the_title() ) );

@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Langgam Fikir 2.10.0\n"
+"Project-Id-Version: Langgam Fikir 2.11.0\n"
 "Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
 "POT-Creation-Date: 2026-04-29 08:50+0000\n"
 "PO-Revision-Date: 2026-04-09 13:43+0000\n"

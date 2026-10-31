@@ -202,8 +202,8 @@ get_header();
             <div class="container">
                 <div class="single-book-content">
                     
-                    <div class="book-image">
-                        <div class="book-image-frame">
+                    <div class="book-image" data-parallax-root>
+                        <div class="book-image-frame" data-parallax="0.05">
                             <?php if ( has_post_thumbnail() ) : ?>
                                 <?php the_post_thumbnail( 'book-cover' ); ?>
                             <?php else : ?>

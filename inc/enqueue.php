@@ -44,13 +44,38 @@ function langgam_fikir_enqueue_assets() {
         filemtime( get_stylesheet_directory() . '/assets/css/fonts.css' )
     );
     
+    // Licensed fonts: Sabon Next LT, Kagnue, Ferments (only when the files are present, so a
+    // copy of the theme without them falls back to Crimson Text without any 404s).
+    $main_deps = array( 'langgam-fikir-style', 'langgam-fikir-fonts' );
+    if ( file_exists( get_stylesheet_directory() . '/assets/fonts/sabon-next-lt-regular.woff2' ) ) {
+        wp_enqueue_style(
+            'langgam-fikir-fonts-premium',
+            get_stylesheet_directory_uri() . '/assets/css/fonts-premium.css',
+            array( 'langgam-fikir-fonts' ),
+            filemtime( get_stylesheet_directory() . '/assets/css/fonts-premium.css' )
+        );
+        $main_deps[] = 'langgam-fikir-fonts-premium';
+    }
+    
     // Main CSS file
     wp_enqueue_style( 
         'langgam-fikir-main', 
         get_stylesheet_directory_uri() . '/assets/css/main.css',
-        array( 'langgam-fikir-style' ),
+        $main_deps,
         filemtime( get_stylesheet_directory() . '/assets/css/main.css' )
     );
+    
+    // Design layer: palettes, corner styles, font roles (variable overrides, chosen in Theme Options > Design)
+    wp_enqueue_style(
+        'langgam-fikir-design',
+        get_stylesheet_directory_uri() . '/assets/css/design.css',
+        array( 'langgam-fikir-main' ),
+        filemtime( get_stylesheet_directory() . '/assets/css/design.css' )
+    );
+    $custom_colours = langgam_fikir_custom_colour_css();
+    if ( $custom_colours ) {
+        wp_add_inline_style( 'langgam-fikir-design', $custom_colours );
+    }
     
     // Additional CSS for forms and extra pages (only where needed).
     // Match by assigned template first (Template Name templates are slug-independent),
@@ -60,7 +85,7 @@ function langgam_fikir_enqueue_assets() {
         wp_enqueue_style( 
             'langgam-fikir-additional', 
             get_stylesheet_directory_uri() . '/assets/css/additional.css',
-            array( 'langgam-fikir-main' ),
+            array( 'langgam-fikir-design' ),
             filemtime( get_stylesheet_directory() . '/assets/css/additional.css' )
         );
     }
@@ -70,7 +95,7 @@ function langgam_fikir_enqueue_assets() {
         wp_enqueue_style(
             'langgam-fikir-showcase',
             get_stylesheet_directory_uri() . '/assets/css/showcase.css',
-            array( 'langgam-fikir-main' ),
+            array( 'langgam-fikir-design' ),
             filemtime( get_stylesheet_directory() . '/assets/css/showcase.css' )
         );
         

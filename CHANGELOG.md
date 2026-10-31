@@ -5,17 +5,36 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.11.0] - 2026-10-31
+
+Design and content release. The Showcase becomes a readable card grid, the look is configurable from Theme Options, and the text of the homepage, About, Contact, footer and 404 pages is editable.
+
+### Added
+- **Theme Options → Design** tab: four light palettes (Earth, the original; Slate; Sage; Clay) with optional per-colour overrides (primary, accent, background, surface, text; text colours on accent and hero are chosen automatically for contrast); a font-role selector; corner style (Soft default, Round, Sharp = the pre-2.11 look); parallax (wide screens, all screens, off)
+- **Five-typeface stack**, all part of the default: Kagnue (site title, page and section titles), Crimson Text (headings, book titles, hero statement), Sabon Next LT (reading text: About, articles, synopses), Inter (interface and body), Ferments (tagline and script accents). Every role can be changed. Sabon Next LT, Kagnue and Ferments are licensed to the site owner; their WOFF2 files are in `assets/fonts/` and load from `assets/css/fonts-premium.css` only when present, so a copy without them falls back to Crimson Text with no 404s
+- **Hero photo** (Homepage tab): four bundled Pexels photographs (library corridor, reading room, open book, leather-bound books), Random, or None. Default is the library corridor. A picture chosen under Hero Background Image still overrides them. Each photo ships at 1920 and 960 px; phones load the 960 px file through a CSS variable (no extra request). Credits are in `assets/images/hero/README.txt`
+- **About & Contact Pages** tab: lead, mission text, two cards, contact prompt and link on the About page; introduction, form placeholders, button, success/error messages and the pre-filled order email (subject and message templates with `{title}`, `{author}`, `{year}`, `{price}`) on the Contact page
+- Homepage tab: hero button labels, About section heading/text/button, publications and resources headings and subtitles, the "view more" label. Contact & Footer tab: footer headings and copyright suffix
+- **Labels & 404** tab: book-card and article-card button text, and the 404 page text
+- **Quirky 404**: an animated bookshelf with a gap, a toppled book and a drifting page; a random quip (one per line, editable) in Ferments; a message, search box and buttons; three suggested books. Animation stops for reduced motion
+- Parallax on the homepage About image, the About page logo and the book cover (the hero and Showcase already had it); clamped so an image never exposes its frame; off for reduced motion and under the setting above
+- `inc/options-schema.php` (one schema drives the new tabs, their defaults and sanitising), `inc/admin/options-extra.php`, `inc/design.php`, `assets/css/design.css`, `assets/css/fonts-premium.css`, and `langgam_fikir_text()` for editable text
 
 ### Changed
-- **Showcase** now renders the theme's own book card (`template-parts/content/book-card.php`, the same component as Latest Publications) on the dark band, instead of bare title links. Cover, colour-coded status badge, title, subtitle, author/year, price and Learn More all show; nothing is dimmed when another card is hovered. Three cards per row, so six books give two rows
-- Showcase gains a blurred cover backdrop with a gentle parallax drift (clamped to its overhang), and an optional slow auto-rotation of the highlighted book (`showcase_autoplay`, default on; pauses on hover/focus, stops off screen, never runs with reduced motion)
-- Showcase count range is now 2-9 (was 2-6) and defaults to 6 (was 3), so the default is two rows
-- Rounder corners: new `--radius-sm/md/lg/xl/btn/pill` tokens in `main.css` (Soft default); the Showcase band and cards use them
-- `book-card.php` accepts an optional `showcase_target` argument that adds the hook `showcase.js` uses
+- **Showcase** renders the theme's own book card (`template-parts/content/book-card.php`, the same component as Latest Publications) on the dark band, instead of bare title links; nothing is dimmed when another card is hovered. Three cards per row, so six books give two rows. A blurred cover backdrop crossfades to the highlighted book and drifts with a clamped parallax; an optional slow auto-rotation (`showcase_autoplay`, default on) pauses on hover/focus, stops off screen and never runs with reduced motion. Count range is now 2-9 (was 2-6), default 6 (was 3)
+- **Stylesheet tokens**: the hard-coded colours in `main.css` that belong to the palette are now variables (`--color-bg-tint`, `--color-on-accent`, `--color-on-hero`, and the existing ones); gold and status gradients are flat colours; the hero overlay derives from `--color-bg-hero`. Status and brand share colours stay literal on purpose. Gold buttons keep their white text in Earth
+- **Rounder corners**: `--radius-sm/md/lg/xl/btn/pill` tokens (Soft is the default; Sharp restores the previous radii)
+- The Contact and About pages no longer show placeholder values: the public email defaults to langgam.fikir@gmail.com (Footer Contact), the phone number is blank by default and is hidden when empty; the lorem-ipsum intro is replaced by a real sentence
+- `contact_email` (form recipient) and `footer_email` default to langgam.fikir@gmail.com
 
 ### Fixed
 - Phones scrolled horizontally until the About section was revealed, because the scroll-reveal start offset (`.reveal-right`) pushed it past the viewport edge. `.about-snippet` now clips it
+
+### Notes
+- Dark mode remains out of scope; every palette has a light page (`ssot.md` §9.2 amended: a palette selector is now in scope, dark mode is not)
+- The Unsplash fallback image in `front-page.php` is untouched
+- New strings are pending the next `.pot` regeneration; defaults are translatable, so Malay installs fall back to the existing catalogue where a string already exists
+- "Pinned books" mode for the Showcase, previously pencilled in for 2.11.0, moves to 2.12.0
 
 ## [2.10.0] - 2026-09-06
 

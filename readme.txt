@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.10.0
+Stable tag: 2.11.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,14 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.11.0 (October 2026) =
+* NEW: Theme Options > Design: four light palettes with custom colours, five-typeface font roles (Kagnue, Crimson Text, Sabon Next LT, Inter, Ferments), corner style, parallax setting
+* NEW: Hero photo choice (four bundled Pexels photographs, random or none)
+* NEW: Editable text for the homepage, About, Contact, footer and 404 pages, plus a quirky animated 404
+* CHANGED: Showcase is a readable grid of the theme's own book cards with a parallax cover backdrop (two rows by default)
+* CHANGED: Rounder corners by default (Sharp restores the previous look); stylesheet colours are variables
+* FIXED: Horizontal scroll on phones before the About section was revealed
 
 = 2.10.0 (September 2026) =
 * NEW: WebMCP agent tools — search-publications and get-publication registered in supporting browsers (read-only), backed by a public REST endpoint at /wp-json/langgam-fikir/v1/publications
@@ -435,6 +443,9 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 * Typography and color system implementation
 
 == Upgrade Notice ==
+
+= 2.11.0 =
+Design and content options in Theme Options, a card-based Showcase, a hero photo, and a new 404. Hard-refresh after updating; defaults change the look slightly (rounder corners, hero photo, five-font stack) and can be reverted in Theme Options > Design and Homepage.
 
 = 2.10.0 =
 Adds WebMCP agent tools and a public read-only catalogue endpoint. On by default, inert without a WebMCP browser. Re-save Permalinks if the endpoint 404s.

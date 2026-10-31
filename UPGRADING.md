@@ -118,7 +118,27 @@ For manual server access:
 
 ## Version-Specific Upgrade Notes
 
-### Upgrading to 2.10.0 (Latest) ✅
+### Upgrading to 2.11.0 (Latest) ✅
+
+**Status:** RELEASED — design and content release.
+
+**Changes:** see `CHANGELOG.md` [2.11.0].
+
+**Action required:**
+- Hard-refresh after updating (CSS changed: new `design.css`, tokenised `main.css`, rebuilt `showcase.css`).
+- Upload the licensed font files (`sabon-next-lt-*.woff2`, `kagnue-regular.woff2`, `ferments-regular.woff2`) to `/assets/fonts/` if they are not in your copy. Without them the theme falls back to Crimson Text; nothing breaks.
+- Theme Options → Design: choose the palette, fonts, corners and parallax you want. Defaults are Earth, Soft corners, wide-screen parallax and the five-typeface stack.
+- The homepage hero shows a library photograph by default. Choose **No photo** in Theme Options → Homepage to keep the plain colour.
+- The Showcase is now a card grid with a default of 6 books (two rows). Adjust the count (2-9) or turn the rotation off in Theme Options → Homepage → Showcase.
+- Corners are Soft by default (rounder than 2.10). **Sharp** restores the previous radii.
+- Re-check the Contact page: the placeholder phone number is gone, the email shown is the Footer Contact email, and the intro text is editable under About & Contact Pages.
+- Existing per-page About/Contact meta box values still work as a fallback where Theme Options leaves the matching field to them (About contact heading and phone, Contact description, email and phone).
+
+**Rollback:** safe; the new options are additive and ignored by 2.10.0.
+
+---
+
+### Upgrading to 2.10.0 ✅
 
 **Status:** RELEASED — WebMCP agent tools (Phase 5 item 5.9).
 

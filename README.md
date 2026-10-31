@@ -6,7 +6,7 @@ A child theme of WordPress Twenty Twenty-Five (2025 default theme) with custom b
 
 - **Theme Name:** Langgam Fikir
 - **Parent Theme:** Twenty Twenty-Five
-- **Version:** 2.10.0
+- **Version:** 2.11.0
 - **Author:** MENJ
 - **License:** GPL v2 or later
 - **Requires WordPress:** 6.7+
@@ -289,6 +289,18 @@ Edit `/assets/css/main.css`:
 ```
 
 ## Version History / Changelog
+
+### Version 2.11.0 (October 2026) — Design & Content
+
+- **NEW:** Theme Options → Design (light palettes + custom colours, font roles, corner style, parallax); hero photo choice; editable About, Contact, homepage, footer and 404 text
+- **NEW:** Five-typeface stack: Kagnue, Crimson Text, Sabon Next LT, Inter, Ferments
+- **NEW:** Animated, quirky 404 with an editable random quip
+- **CHANGED:** Showcase is a grid of the theme's own book cards over a parallax cover backdrop; rounder corners; palette colours are CSS variables
+- **FIXED:** Horizontal scroll on phones before the About section revealed
+
+### Credits
+
+Hero photographs are from [Pexels](https://www.pexels.com) (free to use; attribution not required): Ayşe İpek (library corridor, reading room), Pramod Tiwari (open book), Muhammed Baltakıran (leather-bound books). Sabon Next LT (Monotype), Kagnue (Youthlabs Studio) and Ferments (Haksen Studio) are licensed to the site owner.
 
 ### Version 2.10.0 (September 2026) — WebMCP Agent Tools
 

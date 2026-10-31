@@ -20,6 +20,12 @@ get_header();
     ?>
         <div class="hero-bg" style="background-image: url('<?php echo esc_url( $hero_bg_url ); ?>');" aria-hidden="true"></div>
     <?php endif; endif; ?>
+    <?php
+    $hero_photo = $hero_bg_id ? null : langgam_fikir_hero_photo_urls();
+    if ( $hero_photo ) :
+        ?>
+        <div class="hero-bg hero-bg--photo" style="--lf-hero-image: url('<?php echo esc_url( $hero_photo['full'] ); ?>'); --lf-hero-image-sm: url('<?php echo esc_url( $hero_photo['small'] ); ?>');" aria-hidden="true"></div>
+    <?php endif; ?>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
         <h1>
@@ -30,10 +36,10 @@ get_header();
         </h1>
         <div class="hero-buttons">
             <a href="<?php echo esc_url( get_post_type_archive_link( 'book' ) ); ?>" class="btn btn-outline-light">
-                <?php _e( 'View Books', 'langgam-fikir' ); ?>
+                <?php echo esc_html( langgam_fikir_text( 'hero_primary_label' ) ); ?>
             </a>
             <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'about-langgam-fikir' ) ) ); ?>" class="btn btn-outline-light">
-                <?php _e( 'Learn More', 'langgam-fikir' ); ?>
+                <?php echo esc_html( langgam_fikir_text( 'hero_secondary_label' ) ); ?>
                 <span class="screen-reader-text"><?php
                     /* translators: %s: site name */
                     printf( esc_html__( 'about %s', 'langgam-fikir' ), esc_html( get_bloginfo( 'name' ) ) );
@@ -48,7 +54,7 @@ get_header();
     <div class="container">
         <div class="about-snippet-grid">
             <div class="about-snippet-image-wrapper reveal-left">
-                <div class="about-snippet-image">
+                <div class="about-snippet-image" data-parallax-root>
                     <?php
                     $about_page = get_page_by_path( 'about-langgam-fikir' );
                     if ( $about_page && has_post_thumbnail( $about_page->ID ) ) :
@@ -57,10 +63,11 @@ get_header();
                             'alt'           => esc_attr__( 'About Langgam Fikir', 'langgam-fikir' ),
                             'loading'       => 'eager',
                             'fetchpriority' => 'high',
+                            'data-parallax' => '0.06',
                         ) );
                     else :
                         ?>
-                        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1000&auto=format&fit=crop" alt="<?php esc_attr_e( 'Library of books', 'langgam-fikir' ); ?>" loading="eager" fetchpriority="high" decoding="async" />
+                        <img data-parallax="0.06" src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1000&auto=format&fit=crop" alt="<?php esc_attr_e( 'Library of books', 'langgam-fikir' ); ?>" loading="eager" fetchpriority="high" decoding="async" />
                     <?php endif; ?>
                 </div>
                 <div class="about-snippet-badge">
@@ -70,11 +77,10 @@ get_header();
                 </div>
             </div>
             <div class="about-snippet-content reveal-right">
-                <h2><?php _e( 'Preserving the Art of Thoughtful Publishing', 'langgam-fikir' ); ?></h2>
-                <p><?php _e( 'At Langgam Fikir, we believe that books are more than just paper and ink—they are vessels of culture, history, and human experience. Founded with a mission to elevate local voices and translate global wisdom.', 'langgam-fikir' ); ?></p>
-                <p><?php _e( 'Our catalog spans history, philosophy, literature, and social sciences, carefully curated to challenge perspectives and enrich the mind.', 'langgam-fikir' ); ?></p>
+                <h2><?php echo esc_html( langgam_fikir_text( 'about_snippet_heading' ) ); ?></h2>
+                <?php echo langgam_fikir_paragraphs( langgam_fikir_text( 'about_snippet_text' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
                 <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'about-langgam-fikir' ) ) ); ?>" class="btn btn-primary">
-                    <?php _e( 'Read Our Full Story', 'langgam-fikir' ); ?>
+                    <?php echo esc_html( langgam_fikir_text( 'about_snippet_button' ) ); ?>
                 </a>
             </div>
         </div>
@@ -88,8 +94,8 @@ get_header();
 <section class="books-section">
     <div class="container">
         <div class="section-header-centered reveal">
-            <h2 class="section-header-title"><?php _e( 'Latest Publications', 'langgam-fikir' ); ?></h2>
-            <p class="section-header-subtitle"><?php _e( "Our newest releases, representing the finest in contemporary thought and literature.", 'langgam-fikir' ); ?></p>
+            <h2 class="section-header-title"><?php echo esc_html( langgam_fikir_text( 'books_heading' ) ); ?></h2>
+            <p class="section-header-subtitle"><?php echo esc_html( langgam_fikir_text( 'books_subtitle' ) ); ?></p>
         </div>
         <div class="books-grid stagger-children">
             <?php
@@ -113,7 +119,7 @@ get_header();
         
         <div class="view-more-container">
             <a href="<?php echo esc_url( get_post_type_archive_link( 'book' ) ); ?>" class="btn btn-outline-dark">
-                <?php _e( 'VIEW MORE', 'langgam-fikir' ); ?>
+                <?php echo esc_html( langgam_fikir_text( 'view_more_label' ) ); ?>
                 <span class="screen-reader-text"><?php esc_html_e( 'publications', 'langgam-fikir' ); ?></span>
             </a>
         </div>
@@ -124,8 +130,8 @@ get_header();
 <section class="resources-section">
     <div class="container">
         <div class="section-header-centered reveal">
-            <h2 class="section-header-title"><?php _e( 'Resources & Insights', 'langgam-fikir' ); ?></h2>
-            <p class="section-header-subtitle"><?php _e( 'Articles, interviews, and updates from the world of Langgam Fikir.', 'langgam-fikir' ); ?></p>
+            <h2 class="section-header-title"><?php echo esc_html( langgam_fikir_text( 'resources_heading' ) ); ?></h2>
+            <p class="section-header-subtitle"><?php echo esc_html( langgam_fikir_text( 'resources_subtitle' ) ); ?></p>
         </div>
         
         <div class="resources-grid stagger-children">
@@ -157,7 +163,7 @@ get_header();
             }
             ?>
             <a href="<?php echo esc_url( $blog_url ); ?>" class="btn btn-outline-dark">
-                <?php _e( 'VIEW MORE', 'langgam-fikir' ); ?>
+                <?php echo esc_html( langgam_fikir_text( 'view_more_label' ) ); ?>
                 <span class="screen-reader-text"><?php esc_html_e( 'resources', 'langgam-fikir' ); ?></span>
             </a>
         </div>

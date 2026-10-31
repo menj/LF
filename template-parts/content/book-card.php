@@ -70,7 +70,7 @@ $price    = langgam_fikir_get_book_meta( get_the_ID(), 'price' );
             <?php endif; ?>
         </div>
         <a href="<?php the_permalink(); ?>" class="btn btn-outline-dark">
-            <?php esc_html_e( 'Learn More', 'langgam-fikir' ); ?>
+            <?php echo esc_html( langgam_fikir_text( 'label_learn_more' ) ); ?>
             <span class="screen-reader-text"><?php
                 /* translators: %s: post or book title */
                 printf( esc_html__( 'about %s', 'langgam-fikir' ), esc_html( get_the_title() ) );
