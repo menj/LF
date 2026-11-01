@@ -192,6 +192,187 @@
     }
 
     /**
+     * Scroll Reveal (Intersection Observer)
+     */
+    function initScrollReveal() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .site-footer');
+        if (!elements.length) return;
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        elements.forEach(function(el) {
+            observer.observe(el);
+        });
+    }
+
+    /**
+     * Parallax Hero Background
+     */
+    function parallaxAllowed() {
+        var body = document.body;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+        if (body.classList.contains('lf-parallax-off')) return false;
+        if (body.classList.contains('lf-parallax-desktop') && window.innerWidth < 1024) return false;
+        return true;
+    }
+
+    function initParallax() {
+        if (!parallaxAllowed()) return;
+
+        var heroBg = document.querySelector('.hero-bg');
+        if (!heroBg) return;
+
+        var ticking = false;
+
+        function updateParallax() {
+            var scrolled = window.pageYOffset;
+            var heroHeight = heroBg.parentElement.offsetHeight;
+
+            if (scrolled <= heroHeight * 1.5) {
+                heroBg.style.transform = 'translate3d(0, ' + (scrolled * 0.35) + 'px, 0)';
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
+    /**
+     * Sort menu on the Publications archive: submit as soon as the choice changes.
+     * Without JavaScript the Apply button does the same.
+     */
+    function initBookSort() {
+        document.querySelectorAll('select[data-autosubmit]').forEach(function(select) {
+            select.addEventListener('change', function() {
+                if (select.form) select.form.submit();
+            });
+        });
+    }
+
+    /**
+     * Parallax for elements marked data-parallax="speed" (About image, About logo, book cover).
+     * speed 0.1 drifts the element at 10% of the scroll, relative to its data-parallax-root
+     * section. Only on-screen sections update, batched in requestAnimationFrame. Elements that
+     * are scaled to cover their frame stay inside their overhang.
+     */
+    function initParallaxElements() {
+        if (!parallaxAllowed() || !('IntersectionObserver' in window)) return;
+
+        var items = document.querySelectorAll('[data-parallax]');
+        if (!items.length) return;
+
+        var roots = new Map();
+        var visible = new Set();
+        var ticking = false;
+
+        function update() {
+            ticking = false;
+            var mid = window.innerHeight / 2;
+
+            visible.forEach(function(root) {
+                var rect = root.getBoundingClientRect();
+                var center = rect.top + rect.height / 2 - mid;
+
+                roots.get(root).forEach(function(el) {
+                    var offset = center * -(parseFloat(el.getAttribute('data-parallax')) || 0);
+                    var scale = parseFloat(window.getComputedStyle(el).getPropertyValue('--lf-ps')) || 1;
+
+                    if (scale > 1) {
+                        var overhang = Math.max(0, (el.offsetHeight * scale - root.offsetHeight) / 2);
+                        offset = Math.max(-overhang, Math.min(overhang, offset));
+                    }
+                    el.style.setProperty('--lf-py', offset.toFixed(1) + 'px');
+                });
+            });
+        }
+
+        function request() {
+            if (!ticking && visible.size) {
+                ticking = true;
+                window.requestAnimationFrame(update);
+            }
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) { visible.add(entry.target); } else { visible.delete(entry.target); }
+            });
+            request();
+        }, { rootMargin: '10% 0px' });
+
+        items.forEach(function(el) {
+            var root = el.closest('[data-parallax-root]') || el.parentElement;
+            if (!roots.has(root)) {
+                roots.set(root, []);
+                observer.observe(root);
+            }
+            roots.get(root).push(el);
+        });
+
+        window.addEventListener('scroll', request, { passive: true });
+        window.addEventListener('resize', request);
+    }
+
+    /**
+     * Copy Link button for book share bar
+     */
+    function initShareCopyLink() {
+        var copyBtns = document.querySelectorAll('.share-copy');
+        if (!copyBtns.length) return;
+
+        copyBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var url = btn.getAttribute('data-url') || window.location.href;
+                var textEl = btn.querySelector('.share-copy-text');
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(url).then(function() {
+                        if (textEl) textEl.textContent = 'Copied!';
+                        btn.classList.add('copied');
+                        setTimeout(function() {
+                            if (textEl) textEl.textContent = 'Copy Link';
+                            btn.classList.remove('copied');
+                        }, 2000);
+                    });
+                } else {
+                    // Fallback for older browsers
+                    var textarea = document.createElement('textarea');
+                    textarea.value = url;
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = '0';
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    if (textEl) textEl.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(function() {
+                        if (textEl) textEl.textContent = 'Copy Link';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                }
+            });
+        });
+    }
+
+    /**
      * Initialize all functions when DOM is ready
      */
     function init() {
@@ -200,6 +381,39 @@
         initSmoothScroll();
         initAddToCart();
         initLazyLoad();
+        initScrollReveal();
+        initParallax();
+        initParallaxElements();
+        initBookSort();
+        initShareCopyLink();
+        initFaqAccordion();
+    }
+
+    /**
+     * FAQ Accordion (Phase C — v2.5.0)
+     *
+     * Toggles aria-expanded on .faq-question-button and shows/hides the
+     * paired .faq-answer panel. Multiple items can be open at once.
+     */
+    function initFaqAccordion() {
+        var buttons = document.querySelectorAll('.faq-question-button');
+        if (!buttons.length) return;
+
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var expanded = button.getAttribute('aria-expanded') === 'true';
+                var panelId = button.getAttribute('aria-controls');
+                var panel = panelId ? document.getElementById(panelId) : null;
+                if (!panel) return;
+
+                button.setAttribute('aria-expanded', !expanded);
+                if (expanded) {
+                    panel.setAttribute('hidden', '');
+                } else {
+                    panel.removeAttribute('hidden');
+                }
+            });
+        });
     }
 
     // Wait for DOM to be ready

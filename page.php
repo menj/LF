@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main" tabindex="-1">
     
     <?php
     while ( have_posts() ) :
@@ -18,10 +18,11 @@ get_header();
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             
             <div class="container">
-                <div class="section" style="padding: 4rem 0;">
+                <div class="section section-padded">
                     
                     <header class="entry-header mb-3">
                         <div class="page-title-header">
+                            <?php if ( function_exists( 'langgam_fikir_breadcrumbs' ) ) { langgam_fikir_breadcrumbs(); } ?>
                             <?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
                         </div>
                     </header>
@@ -42,6 +43,17 @@ get_header();
                         ) );
                         ?>
                     </div>
+                    
+                    <?php
+                    if ( langgam_fikir_share_enabled_for( 'page' ) ) {
+                        langgam_fikir_render_share_bar();
+                    }
+                    ?>
+                    
+                    <?php
+                    // FAQ section (Phase C — v2.5.0): renders nothing if no FAQs are set
+                    get_template_part( 'template-parts/content/faq-section' );
+                    ?>
                     
                 </div>
             </div>

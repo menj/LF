@@ -8,10 +8,14 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main" tabindex="-1">
     
     <section class="resources-archive">
         <div class="container">
+            
+            <header class="archive-header screen-reader-text">
+                <h1><?php _e( 'Resources', 'langgam-fikir' ); ?></h1>
+            </header>
             
             <?php
             // Featured Resource Section
@@ -107,24 +111,7 @@ get_header();
                                 continue;
                             }
                             ?>
-                            <article class="resource-card">
-                                <?php
-                                $categories = get_the_category();
-                                if ( ! empty( $categories ) ) :
-                                    ?>
-                                    <span class="resource-category">
-                                        <?php echo esc_html( $categories[0]->name ); ?>
-                                    </span>
-                                <?php endif; ?>
-                                
-                                <h3>
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                </h3>
-                                
-                                <div class="resource-excerpt">
-                                    <?php the_excerpt(); ?>
-                                </div>
-                            </article>
+                            <?php get_template_part( 'template-parts/content/resource-card' ); ?>
                         <?php endwhile; ?>
                     </div>
                     

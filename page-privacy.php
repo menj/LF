@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main" tabindex="-1">
     
     <?php
     while ( have_posts() ) :
@@ -49,6 +49,7 @@ get_header();
                     
                     <div class="privacy-main">
                         <div class="page-title-header">
+                            <?php if ( function_exists( "langgam_fikir_breadcrumbs" ) ) { langgam_fikir_breadcrumbs(); } ?>
                             <h1 class="page-title"><?php the_title(); ?></h1>
                         </div>
                         
@@ -73,7 +74,7 @@ get_header();
                                 }
                             }
                             
-                            echo $content;
+                            echo wp_kses_post( $content );
                             ?>
                         </div>
                     </div>

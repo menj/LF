@@ -1,0 +1,164 @@
+/*
+ * Showcase Styles
+ * Langgam Fikir WordPress Theme
+ *
+ * Loaded on the front page only, when the showcase is enabled
+ * (see inc/enqueue.php). Companion script: assets/js/showcase.js.
+ *
+ * The theme's own book cards on a dark band over a blurred cover backdrop.
+ */
+
+/*--------------------------------------------------------------
+# Section Shell
+--------------------------------------------------------------*/
+.lf-showcase {
+    --lf-showcase-deep: #211A13; /* deep variant of --color-primary */
+    --lf-showcase-ink: #FAF7F1;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xl, 40px);
+    background-color: var(--lf-showcase-deep);
+    padding: clamp(3.5rem, 9vh, 6rem) 0;
+}
+
+/*--------------------------------------------------------------
+# Background Layers
+  The container overhangs the section (inset -10% 0) so showcase.js can
+  drift it for parallax without ever exposing the section edge.
+--------------------------------------------------------------*/
+.lf-showcase-backgrounds {
+    position: absolute;
+    inset: -10% 0;
+    z-index: 0;
+    transform: translate3d(0, var(--lf-showcase-shift, 0px), 0);
+    will-change: transform;
+}
+
+.lf-showcase-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(14px) saturate(1.15);
+    opacity: 0;
+    transform: scale(1.12);
+    transition: opacity 0.9s ease, transform 1.6s ease;
+    will-change: opacity, transform;
+}
+
+.lf-showcase-bg.is-active {
+    opacity: 1;
+    transform: scale(1.06);
+}
+
+.lf-showcase-bg-default {
+    background-image: radial-gradient(
+        120% 85% at 50% 0%,
+        rgba(201, 169, 97, 0.14) 0%,
+        rgba(201, 169, 97, 0) 55%
+    );
+    background-color: var(--lf-showcase-deep);
+    filter: none;
+    transform: none;
+    opacity: 1; /* always the base layer under the cover layers */
+}
+
+/* Darker behind the heading and the bottom edge, lighter where the cards sit. */
+.lf-showcase-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        to bottom,
+        rgba(33, 26, 19, 0.86) 0%,
+        rgba(33, 26, 19, 0.38) 32%,
+        rgba(33, 26, 19, 0.38) 70%,
+        rgba(33, 26, 19, 0.9) 100%
+    );
+}
+
+/*--------------------------------------------------------------
+# Inner Layout
+--------------------------------------------------------------*/
+.lf-showcase-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.lf-showcase-heading {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--lf-showcase-ink);
+    text-align: center;
+    margin: 0 0 var(--spacing-lg, 2.5rem);
+    text-shadow: 0 1px 14px rgba(33, 26, 19, 0.8);
+}
+
+/*--------------------------------------------------------------
+# Card Grid
+  The cards are the theme's own .book-card (see main.css); this section only
+  lays them out and adds the highlight. Three to a row, so six make two rows.
+--------------------------------------------------------------*/
+.lf-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-lg, 3rem) var(--spacing-md, 2rem);
+    align-items: stretch;
+}
+
+.lf-showcase-grid--cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lf-showcase-grid .book-card {
+    height: 100%;
+    border-radius: var(--radius-lg, 22px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+.lf-showcase-grid .book-cover {
+    border-radius: var(--radius-md, 14px);
+}
+
+/* The highlighted book: lifted, with a gold ring. No other card is dimmed. */
+.lf-showcase-grid .book-card.is-active {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42), 0 0 0 2px var(--color-accent);
+}
+
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+@media (max-width: 1100px) {
+    .lf-showcase-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .lf-showcase-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*--------------------------------------------------------------
+# Reduced Motion
+--------------------------------------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+    .lf-showcase-backgrounds {
+        transform: none;
+        will-change: auto;
+    }
+
+    .lf-showcase-bg,
+    .lf-showcase-bg.is-active {
+        transform: none;
+        transition: opacity 0.15s linear;
+    }
+
+    .lf-showcase-grid .book-card.is-active {
+        transform: none;
+    }
+}

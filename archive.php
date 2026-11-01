@@ -8,13 +8,14 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main" tabindex="-1">
     
     <section class="resources-archive">
         <div class="container">
             
             <header class="archive-header">
                 <div class="page-title-header">
+                    <?php if ( function_exists( 'langgam_fikir_breadcrumbs' ) ) { langgam_fikir_breadcrumbs(); } ?>
                     <h1 class="page-title"><?php the_archive_title(); ?></h1>
                 </div>
                 <?php

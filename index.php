@@ -8,10 +8,10 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main" tabindex="-1">
     
     <div class="container">
-        <div class="section" style="padding: 4rem 0;">
+        <div class="section section-padded">
             
             <?php
             if ( have_posts() ) :
@@ -75,7 +75,7 @@ get_header();
                             endif;
                             ?>
                             
-                            <div class="entry-meta" style="color: var(--color-text-light); font-size: 0.9rem;">
+                            <div class="entry-meta">
                                 <?php
                                 printf(
                                     '<span class="posted-on">%s</span>',
@@ -98,6 +98,10 @@ get_header();
                         <?php if ( ! is_singular() ) : ?>
                             <a href="<?php the_permalink(); ?>" class="read-more">
                                 <?php _e( 'Read More', 'langgam-fikir' ); ?>
+                                <span class="screen-reader-text"><?php
+                                    /* translators: %s: post title */
+                                    printf( esc_html__( 'about %s', 'langgam-fikir' ), esc_html( get_the_title() ) );
+                                ?></span>
                             </a>
                         <?php endif; ?>
                         

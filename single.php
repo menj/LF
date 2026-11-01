@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main single-post-page">
+<main id="primary" class="site-main single-post-page" tabindex="-1">
     
     <?php
     while ( have_posts() ) :
@@ -35,6 +35,7 @@ get_header();
                         <?php endif; ?>
                         
                         <div class="page-title-header">
+                            <?php if ( function_exists( 'langgam_fikir_breadcrumbs' ) ) { langgam_fikir_breadcrumbs(); } ?>
                             <?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
                         </div>
                         
@@ -64,6 +65,26 @@ get_header();
                                     </span>
                                 </span>
                             <?php endif; ?>
+                            <?php
+                            // Show "Last updated" only when modified date differs from published date by more than a day
+                            $published_ts = get_the_time( 'U' );
+                            $modified_ts  = get_the_modified_time( 'U' );
+                            if ( $modified_ts - $published_ts > DAY_IN_SECONDS ) :
+                                ?>
+                                <span class="meta-divider"></span>
+                                <span class="meta-item meta-item-updated">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.74 9.74 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                                    <span class="post-updated">
+                                        <?php
+                                        printf(
+                                            /* translators: %s: last-updated date */
+                                            esc_html__( 'Updated %s', 'langgam-fikir' ),
+                                            '<time datetime="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . esc_html( get_the_modified_date() ) . '</time>'
+                                        );
+                                        ?>
+                                    </span>
+                                </span>
+                            <?php endif; ?>
                         </div>
                     </header>
                     
@@ -74,6 +95,12 @@ get_header();
                     <?php endif; ?>
                     
                     <div class="single-post-content">
+                        <?php
+                        // Auto-TOC for long-form posts (Phase D — v2.6.0): renders nothing if post is short
+                        if ( function_exists( 'langgam_fikir_render_toc' ) ) {
+                            langgam_fikir_render_toc();
+                        }
+                        ?>
                         <div class="entry-content">
                             <?php
                             the_content();
@@ -84,6 +111,14 @@ get_header();
                             ) );
                             ?>
                         </div>
+                        
+                        <?php
+                        if ( langgam_fikir_share_enabled_for( 'post' ) ) {
+                            langgam_fikir_render_share_bar();
+                        }
+                        ?>
+
+                        <?php get_template_part( 'template-parts/content/author-bio' ); ?>
                     </div>
                     
                     <?php
@@ -158,32 +193,8 @@ get_header();
                             <?php
                             while ( $related_query->have_posts() ) :
                                 $related_query->the_post();
-                                ?>
-                                <article class="resource-card">
-                                    <?php
-                                    $rel_categories = get_the_category();
-                                    if ( ! empty( $rel_categories ) ) :
-                                        ?>
-                                        <span class="resource-category">
-                                            <?php echo esc_html( $rel_categories[0]->name ); ?>
-                                        </span>
-                                    <?php endif; ?>
-                                    
-                                    <h3>
-                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                    </h3>
-                                    
-                                    <div class="resource-excerpt">
-                                        <?php the_excerpt(); ?>
-                                    </div>
-                                    
-                                    <div class="resource-meta">
-                                        <time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>">
-                                            <?php echo esc_html( get_the_date() ); ?>
-                                        </time>
-                                    </div>
-                                </article>
-                            <?php endwhile; ?>
+                                get_template_part( 'template-parts/content/resource-card' );
+                            endwhile; ?>
                         </div>
                     </div>
                 </section>

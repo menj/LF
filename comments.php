@@ -10,7 +10,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area" style="padding: 2rem 0; margin-top: 3rem; border-top: 1px solid var(--color-border);">
+<div id="comments" class="comments-area">
 
     <?php if ( have_comments() ) : ?>
         <h2 class="comments-title">
@@ -31,7 +31,7 @@ if ( post_password_required() ) {
             ?>
         </h2>
 
-        <ol class="comment-list" style="list-style: none; padding: 0; margin: 2rem 0;">
+        <ol class="comment-list">
             <?php
             wp_list_comments( array(
                 'style'      => 'ol',

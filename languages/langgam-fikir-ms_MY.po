@@ -1,0 +1,1417 @@
+# Malay translations for Langgam Fikir package.
+# Copyright (C) 2026 MENJ
+# This file is distributed under the same license as the Langgam Fikir package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Langgam Fikir 2.11.0\n"
+"Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
+"POT-Creation-Date: 2026-04-29 08:50+0000\n"
+"PO-Revision-Date: 2026-04-09 13:43+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: 404.php:18
+msgid "404"
+msgstr ""
+
+#: 404.php:19 inc/breadcrumbs.php:111
+msgid "Page Not Found"
+msgstr "Halaman Tidak Ditemui"
+
+#: 404.php:21
+msgid ""
+"The page you are looking for might have been removed, had its name changed, "
+"or is temporarily unavailable."
+msgstr ""
+
+#: 404.php:30
+msgid "Back to Homepage"
+msgstr "Kembali ke Laman Utama"
+
+#: 404.php:33 search.php:134
+msgid "Browse Books"
+msgstr "Lihat Buku"
+
+#: 404.php:56
+msgid "You might enjoy"
+msgstr "Anda mungkin berminat"
+
+#: archive-book.php:18
+msgid "Our Publications"
+msgstr ""
+
+#: archive-book.php:19
+msgid ""
+"Explore our complete catalog of works, from contemporary fiction to critical "
+"essays and historical accounts."
+msgstr ""
+
+#: archive-book.php:36 archive.php:68 home.php:122 index.php:111 search.php:119
+#: taxonomy-book-category.php:44 taxonomy-book-tag.php:52
+msgid "&larr; Previous"
+msgstr "&larr; Sebelumnya"
+
+#: archive-book.php:37 archive.php:69 home.php:123 index.php:112 search.php:120
+#: taxonomy-book-category.php:45 taxonomy-book-tag.php:53
+msgid "Next &rarr;"
+msgstr "Seterusnya &rarr;"
+
+#: archive-book.php:43
+msgid "No books found."
+msgstr ""
+
+#: archive.php:75
+msgid "No posts found."
+msgstr ""
+
+#: comments.php:21
+#, php-format
+msgid "One comment on &ldquo;%s&rdquo;"
+msgstr ""
+
+#: comments.php:26
+#, php-format
+msgctxt "comments title"
+msgid "%1$s comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:49
+msgid "Comments are closed."
+msgstr "Komen ditutup."
+
+#: footer.php:21
+msgid "Legal"
+msgstr ""
+
+#: footer.php:42
+msgid "Contact"
+msgstr ""
+
+#: footer.php:73
+msgid "All rights reserved."
+msgstr ""
+
+#: footer.php:85 inc/admin/theme-options.php:321
+#, php-format
+msgid "%1$s is a registered enterprise in Malaysia (Reg. No.: %2$s)."
+msgstr ""
+
+#: footer.php:91 inc/admin/theme-options.php:327
+#, php-format
+msgid "%s is a registered enterprise in Malaysia."
+msgstr ""
+
+#: front-page.php:31 inc/post-types.php:32
+msgid "View Books"
+msgstr ""
+
+#: front-page.php:34 template-parts/content/book-card.php:67
+msgid "Learn More"
+msgstr "Ketahui Lagi"
+
+#: front-page.php:49
+msgid "About Langgam Fikir"
+msgstr ""
+
+#: front-page.php:52
+msgid "Library of books"
+msgstr ""
+
+#: front-page.php:58 inc/admin/theme-options.php:220
+#: inc/template-functions.php:143
+msgid "Years of Excellence"
+msgstr "Tahun Kecemerlangan"
+
+#: front-page.php:62
+msgid "Preserving the Art of Thoughtful Publishing"
+msgstr "Memelihara Seni Penerbitan Berfikir"
+
+#: front-page.php:63
+msgid ""
+"At Langgam Fikir, we believe that books are more than just paper and ink—"
+"they are vessels of culture, history, and human experience. Founded with a "
+"mission to elevate local voices and translate global wisdom."
+msgstr ""
+
+#: front-page.php:64
+msgid ""
+"Our catalog spans history, philosophy, literature, and social sciences, "
+"carefully curated to challenge perspectives and enrich the mind."
+msgstr ""
+
+#: front-page.php:66
+msgid "Read Our Full Story"
+msgstr "Baca Cerita Penuh Kami"
+
+#: front-page.php:77 inc/admin/theme-options.php:232
+msgid "Featured Publications"
+msgstr "Terbitan Pilihan"
+
+#: front-page.php:78
+msgid ""
+"Our editors' picks of the season, representing the finest in contemporary "
+"thought and literature."
+msgstr ""
+
+#: front-page.php:101 front-page.php:144
+msgid "VIEW MORE"
+msgstr ""
+
+#: front-page.php:111 inc/admin/theme-options.php:239 inc/schema.php:474
+msgid "Resources & Insights"
+msgstr "Sumber & Wawasan"
+
+#: front-page.php:112
+msgid "Articles, interviews, and updates from the world of Langgam Fikir."
+msgstr ""
+
+#: header.php:13
+msgid "Skip to content"
+msgstr "Langkau ke kandungan"
+
+#: home.php:17 inc/breadcrumbs.php:101
+#, fuzzy
+msgid "Resources"
+msgstr "Sumber Lain"
+
+#: home.php:39
+msgid "Featured Resources"
+msgstr "Sumber Pilihan"
+
+#: home.php:69
+msgid "Previous"
+msgstr ""
+
+#: home.php:72
+msgid "Next"
+msgstr ""
+
+#: home.php:86
+msgid "Other Resources"
+msgstr "Sumber Lain"
+
+#: home.php:129
+msgid "No resources found."
+msgstr ""
+
+#: inc/admin/meta-boxes-faq.php:27
+msgid "Frequently Asked Questions (FAQ)"
+msgstr ""
+
+#: inc/admin/meta-boxes-faq.php:51
+msgid ""
+"Add frequently asked questions and their answers. These will appear as a "
+"visible accordion section on the published page and also be emitted as "
+"FAQPage structured data for search engines and answer engines (Google, Bing, "
+"voice assistants, AI tools)."
+msgstr ""
+
+#: inc/admin/meta-boxes-faq.php:72
+msgid "Add Another Question"
+msgstr ""
+
+#. translators: %s: FAQ row number
+#: inc/admin/meta-boxes-faq.php:99
+#, php-format
+msgid "Question %s"
+msgstr ""
+
+#: inc/admin/meta-boxes-faq.php:104
+#, fuzzy
+msgid "Remove this question"
+msgstr "Ada soalan?"
+
+#: inc/admin/meta-boxes-faq.php:106 inc/admin/meta-boxes-reviews.php:106
+#: inc/admin/theme-options.php:190
+msgid "Remove"
+msgstr ""
+
+#: inc/admin/meta-boxes-faq.php:113
+msgid "Question"
+msgstr ""
+
+#: inc/admin/meta-boxes-faq.php:120
+msgid "e.g., What is the print run for this title?"
+msgstr ""
+
+#: inc/admin/meta-boxes-faq.php:124
+msgid "Answer"
+msgstr ""
+
+#: inc/admin/meta-boxes-faq.php:130
+msgid ""
+"Provide a clear, direct answer. Plain text only — HTML will be stripped on "
+"save."
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:24
+msgid "Book Reviews"
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:47
+msgid ""
+"Add reviews from readers, critics, or partner publications. These will "
+"appear as a visible reviews section on the book page and as Review / "
+"aggregateRating structured data — unlocking star-rating rich results in "
+"Google search."
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:65
+msgid "Add Another Review"
+msgstr ""
+
+#. translators: %s: review row number
+#: inc/admin/meta-boxes-reviews.php:99
+#, php-format
+msgid "Review %s"
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:104
+msgid "Remove this review"
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:114
+msgid "Reviewer Name"
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:121
+msgid "e.g., Dr Ahmad Faisal"
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:125
+msgid "Rating (1–5)"
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:129
+msgid "— Select —"
+msgstr ""
+
+#. translators: %d: star rating
+#: inc/admin/meta-boxes-reviews.php:135
+#, php-format
+msgid "%d star"
+msgid_plural "%d stars"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/admin/meta-boxes-reviews.php:145
+msgid "Review Date"
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:156
+msgid "Review Headline (optional)"
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:163
+msgid "e.g., A masterful synthesis of Islamic philosophy"
+msgstr ""
+
+#: inc/admin/meta-boxes-reviews.php:167
+#, fuzzy
+msgid "Review Body"
+msgstr "Lihat Buku"
+
+#: inc/admin/meta-boxes-reviews.php:173
+msgid "Review excerpt or full text. Plain text only."
+msgstr ""
+
+#: inc/admin/meta-boxes-robots.php:29
+msgid "Search Engine Visibility"
+msgstr ""
+
+#: inc/admin/meta-boxes-robots.php:52
+msgid "Discourage search engines from indexing this entry"
+msgstr ""
+
+#: inc/admin/meta-boxes-robots.php:56
+msgid ""
+"When checked, this entry sends noindex/nofollow directives to search "
+"engines. Useful for thank-you pages, landing pages, draft-staged content, or "
+"anything you want excluded from Google/Bing without affecting site-wide "
+"visibility."
+msgstr ""
+
+#: inc/admin/meta-boxes.php:36
+msgid "Subtitle"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:42 single-book.php:256
+msgid "Author"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:48 single-book.php:270
+msgid "Editor"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:50 inc/admin/meta-boxes.php:56
+#: inc/admin/meta-boxes.php:62
+msgid "Leave blank if not applicable"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:54 single-book.php:277
+msgid "Translator"
+msgstr "Penterjemah"
+
+#: inc/admin/meta-boxes.php:60 single-book.php:263
+msgid "Publisher"
+msgstr "Penerbit"
+
+#: inc/admin/meta-boxes.php:66
+msgid "Publication Year"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:72 single-book.php:291
+msgid "ISBN"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:78
+msgid "Status"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:81
+msgid "Available"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:84 inc/template-functions.php:172
+msgid "Published"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:88 inc/template-functions.php:173
+msgid "New Release"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:92 inc/template-functions.php:174
+msgid "Limited Edition"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:96 inc/template-functions.php:175
+msgid "Digital Only"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:100
+msgid "Pipeline"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:103 inc/template-functions.php:171
+msgid "Announced"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:107
+msgid "Upcoming"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:110 inc/template-functions.php:176
+msgid "Pre-Order"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:114 inc/template-functions.php:177
+msgid "Coming Soon"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:118
+msgid "Unavailable"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:121 inc/template-functions.php:178
+msgid "Sold Out"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:125 inc/template-functions.php:179
+msgid "Reprinting"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:129 inc/template-functions.php:180
+msgid "Out of Print"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:135
+msgid "Price (RM)"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:164
+msgid "Email Address"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:167
+msgid "Contact email for the contact page."
+msgstr ""
+
+#: inc/admin/meta-boxes.php:171
+msgid "Phone Number"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:174
+msgid "Contact phone number."
+msgstr ""
+
+#: inc/admin/meta-boxes.php:178
+msgid "WhatsApp Number"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:181
+msgid "WhatsApp number (e.g., 601234567890)."
+msgstr ""
+
+#: inc/admin/meta-boxes.php:185 inc/admin/theme-options.php:275
+msgid "Address"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:188
+msgid "Business address."
+msgstr ""
+
+#: inc/admin/meta-boxes.php:213
+msgid "Upload Logo"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:214
+msgid "Remove Logo"
+msgstr ""
+
+#: inc/admin/meta-boxes.php:216
+msgid "Upload a custom logo for the about page."
+msgstr ""
+
+#: inc/admin/meta-boxes.php:220
+msgid "Logo Preview"
+msgstr ""
+
+#: inc/admin/theme-options.php:92 inc/admin/theme-options.php:93
+msgid "Theme Options"
+msgstr ""
+
+#: inc/admin/theme-options.php:134
+msgid "Homepage"
+msgstr ""
+
+#: inc/admin/theme-options.php:135
+msgid "Contact & Footer"
+msgstr ""
+
+#: inc/admin/theme-options.php:136 inc/admin/theme-options.php:298
+msgid "Legal Entity"
+msgstr ""
+
+#: inc/admin/theme-options.php:137
+msgid "Social & SEO"
+msgstr ""
+
+#: inc/admin/theme-options.php:143
+msgid "Langgam Fikir — Theme Options"
+msgstr ""
+
+#: inc/admin/theme-options.php:177
+msgid "Hero Section"
+msgstr ""
+
+#: inc/admin/theme-options.php:178
+msgid "The headline text and background image for the homepage hero banner."
+msgstr ""
+
+#: inc/admin/theme-options.php:181
+msgid "Hero Text"
+msgstr ""
+
+#: inc/admin/theme-options.php:186
+msgid "Hero Background Image"
+msgstr ""
+
+#: inc/admin/theme-options.php:189
+msgid "Select Image"
+msgstr ""
+
+#: inc/admin/theme-options.php:201
+msgid ""
+"Optional. Adds a parallax background image behind the hero text. Leave empty "
+"for solid colour."
+msgstr ""
+
+#: inc/admin/theme-options.php:206
+msgid "About Badge"
+msgstr ""
+
+#: inc/admin/theme-options.php:207
+msgid "The badge overlaid on the About image on the homepage."
+msgstr ""
+
+#: inc/admin/theme-options.php:211
+msgid "Badge Number"
+msgstr ""
+
+#: inc/admin/theme-options.php:214
+msgid "E.g. \"2+\", \"10\", \"100+\"."
+msgstr ""
+
+#: inc/admin/theme-options.php:218
+msgid "Badge Label"
+msgstr ""
+
+#: inc/admin/theme-options.php:221
+msgid "E.g. \"Years of Excellence\", \"Titles Published\"."
+msgstr ""
+
+#: inc/admin/theme-options.php:227
+msgid "Content Counts"
+msgstr ""
+
+#: inc/admin/theme-options.php:228
+msgid "Control how many items appear in each homepage section."
+msgstr ""
+
+#: inc/admin/theme-options.php:235
+msgid "Number of books shown (1–12)."
+msgstr ""
+
+#: inc/admin/theme-options.php:242
+msgid "Number of resource posts shown (1–12)."
+msgstr ""
+
+#: inc/admin/theme-options.php:251
+msgid "Contact Form"
+msgstr ""
+
+#: inc/admin/theme-options.php:252
+msgid "Where contact form submissions are sent."
+msgstr ""
+
+#: inc/admin/theme-options.php:255
+msgid "Recipient Email"
+msgstr ""
+
+#: inc/admin/theme-options.php:259
+#, php-format
+msgid "Leave blank to use the admin email (%s)."
+msgstr ""
+
+#: inc/admin/theme-options.php:264
+msgid "Footer Contact Column"
+msgstr ""
+
+#: inc/admin/theme-options.php:265
+msgid ""
+"Displayed in the footer alongside Legal links and site branding. Also used "
+"for Schema.org Organisation markup."
+msgstr ""
+
+#: inc/admin/theme-options.php:268
+msgid "Business Name"
+msgstr ""
+
+#: inc/admin/theme-options.php:271
+msgid "Used in Schema.org Organisation markup."
+msgstr ""
+
+#: inc/admin/theme-options.php:281
+msgid "Phone"
+msgstr ""
+
+#: inc/admin/theme-options.php:287
+msgid "Display Email"
+msgstr ""
+
+#: inc/admin/theme-options.php:299
+msgid ""
+"Shown in the footer bar at the bottom of every page. The legal entity name "
+"is distinct from the brand name."
+msgstr ""
+
+#: inc/admin/theme-options.php:302
+msgid "Legal Entity Name"
+msgstr ""
+
+#: inc/admin/theme-options.php:305
+msgid "Your registered business name (e.g. \"Langgam Fikir Enterprise\")."
+msgstr ""
+
+#: inc/admin/theme-options.php:309
+msgid "Registration Number (SSM)"
+msgstr ""
+
+#: inc/admin/theme-options.php:316
+msgid "Footer bar preview:"
+msgstr ""
+
+#: inc/admin/theme-options.php:340
+msgid "Social Links"
+msgstr ""
+
+#: inc/admin/theme-options.php:341
+msgid ""
+"Used in Schema.org sameAs property and available for social sharing buttons."
+msgstr ""
+
+#: inc/admin/theme-options.php:345
+msgid "Facebook URL"
+msgstr ""
+
+#: inc/admin/theme-options.php:351
+msgid "Instagram URL"
+msgstr ""
+
+#: inc/admin/theme-options.php:360
+msgid "Twitter / X URL"
+msgstr ""
+
+#: inc/admin/theme-options.php:366
+msgid "WhatsApp URL"
+msgstr ""
+
+#: inc/admin/theme-options.php:375
+msgid "SEO Defaults"
+msgstr ""
+
+#: inc/admin/theme-options.php:376
+msgid "Fallback values when pages don't have their own excerpt or description."
+msgstr ""
+
+#: inc/admin/theme-options.php:379
+msgid "Default Meta Description"
+msgstr ""
+
+#: inc/admin/theme-options.php:381
+msgid "Used when a page has no excerpt. Max 160 characters recommended."
+msgstr ""
+
+#: inc/admin/theme-options.php:387
+msgid "Save Settings"
+msgstr ""
+
+#: inc/breadcrumbs.php:31 inc/schema.php:164
+msgid "Home"
+msgstr "Utama"
+
+#: inc/breadcrumbs.php:37 inc/breadcrumbs.php:57 inc/breadcrumbs.php:74
+#: inc/schema.php:470
+msgid "Publications"
+msgstr "Terbitan"
+
+#: inc/breadcrumbs.php:106
+#, php-format
+msgid "Search results for \"%s\""
+msgstr ""
+
+#: inc/breadcrumbs.php:129
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/meta-boxes.php:19 single-book.php:252
+msgid "Book Details"
+msgstr ""
+
+#: inc/meta-boxes.php:34
+msgid "Contact Information"
+msgstr ""
+
+#: inc/meta-boxes.php:49
+msgid "About Page Logo"
+msgstr ""
+
+#: inc/post-types.php:18
+msgctxt "Post Type General Name"
+msgid "Books"
+msgstr "Buku"
+
+#: inc/post-types.php:19
+msgctxt "Post Type Singular Name"
+msgid "Book"
+msgstr "Buku"
+
+#: inc/post-types.php:20 inc/schema.php:172 inc/schema.php:214
+#: inc/schema.php:220
+msgid "Books"
+msgstr "Buku"
+
+#: inc/post-types.php:21 inc/post-types.php:48 search.php:70
+msgid "Book"
+msgstr "Buku"
+
+#: inc/post-types.php:22
+msgid "Book Archives"
+msgstr ""
+
+#: inc/post-types.php:23
+msgid "Book Attributes"
+msgstr ""
+
+#: inc/post-types.php:24
+msgid "Parent Book:"
+msgstr ""
+
+#: inc/post-types.php:25
+msgid "All Books"
+msgstr ""
+
+#: inc/post-types.php:26
+msgid "Add New Book"
+msgstr ""
+
+#: inc/post-types.php:27
+msgid "Add New"
+msgstr ""
+
+#: inc/post-types.php:28
+msgid "New Book"
+msgstr ""
+
+#: inc/post-types.php:29
+msgid "Edit Book"
+msgstr ""
+
+#: inc/post-types.php:30
+msgid "Update Book"
+msgstr ""
+
+#: inc/post-types.php:31 search.php:105
+msgid "View Book"
+msgstr "Lihat Buku"
+
+#: inc/post-types.php:33
+msgid "Search Book"
+msgstr ""
+
+#: inc/post-types.php:34
+msgid "Not found"
+msgstr ""
+
+#: inc/post-types.php:35
+msgid "Not found in Trash"
+msgstr ""
+
+#: inc/post-types.php:36
+msgid "Book Cover"
+msgstr ""
+
+#: inc/post-types.php:37
+msgid "Set book cover"
+msgstr ""
+
+#: inc/post-types.php:38
+msgid "Remove book cover"
+msgstr ""
+
+#: inc/post-types.php:39
+msgid "Use as book cover"
+msgstr ""
+
+#: inc/post-types.php:40
+msgid "Insert into book"
+msgstr ""
+
+#: inc/post-types.php:41
+msgid "Uploaded to this book"
+msgstr ""
+
+#: inc/post-types.php:42
+msgid "Books list"
+msgstr ""
+
+#: inc/post-types.php:43
+msgid "Books list navigation"
+msgstr ""
+
+#: inc/post-types.php:44
+msgid "Filter books list"
+msgstr ""
+
+#: inc/post-types.php:49
+msgid "Books published by Langgam Fikir"
+msgstr ""
+
+#: inc/post-types.php:80
+msgctxt "taxonomy general name"
+msgid "Book Categories"
+msgstr ""
+
+#: inc/post-types.php:81
+msgctxt "taxonomy singular name"
+msgid "Book Category"
+msgstr ""
+
+#: inc/post-types.php:82
+msgid "Search Book Categories"
+msgstr ""
+
+#: inc/post-types.php:83
+msgid "All Book Categories"
+msgstr ""
+
+#: inc/post-types.php:84
+msgid "Parent Book Category"
+msgstr ""
+
+#: inc/post-types.php:85
+msgid "Parent Book Category:"
+msgstr ""
+
+#: inc/post-types.php:86
+msgid "Edit Book Category"
+msgstr ""
+
+#: inc/post-types.php:87
+msgid "Update Book Category"
+msgstr ""
+
+#: inc/post-types.php:88
+msgid "Add New Book Category"
+msgstr ""
+
+#: inc/post-types.php:89
+msgid "New Book Category Name"
+msgstr ""
+
+#: inc/post-types.php:90
+msgid "Book Categories"
+msgstr ""
+
+#: inc/post-types.php:107
+msgctxt "taxonomy general name"
+msgid "Book Tags"
+msgstr ""
+
+#: inc/post-types.php:108
+msgctxt "taxonomy singular name"
+msgid "Book Tag"
+msgstr ""
+
+#: inc/post-types.php:109
+msgid "Search Book Tags"
+msgstr ""
+
+#: inc/post-types.php:110
+msgid "Popular Book Tags"
+msgstr ""
+
+#: inc/post-types.php:111
+msgid "All Book Tags"
+msgstr ""
+
+#: inc/post-types.php:112
+msgid "Edit Book Tag"
+msgstr ""
+
+#: inc/post-types.php:113
+msgid "Update Book Tag"
+msgstr ""
+
+#: inc/post-types.php:114
+msgid "Add New Book Tag"
+msgstr ""
+
+#: inc/post-types.php:115
+msgid "New Book Tag Name"
+msgstr ""
+
+#: inc/post-types.php:116
+msgid "Separate book tags with commas"
+msgstr ""
+
+#: inc/post-types.php:117
+msgid "Add or remove book tags"
+msgstr ""
+
+#: inc/post-types.php:118
+msgid "Choose from the most used book tags"
+msgstr ""
+
+#: inc/post-types.php:119
+msgid "Book Tags"
+msgstr ""
+
+#: inc/schema.php:238
+#, php-format
+msgid "Search: %s"
+msgstr ""
+
+#: inc/schema.php:244
+msgid "Page not found"
+msgstr ""
+
+#: inc/schema.php:405
+msgid ""
+"Browse all publications by Langgam Fikir — theology, history, philosophy, "
+"and comparative religion."
+msgstr ""
+
+#: inc/schema.php:407
+msgid "Resources, articles, and insights from Langgam Fikir."
+msgstr ""
+
+#. translators: %s: term name
+#: inc/schema.php:413
+#, php-format
+msgid "Browse all content in %s."
+msgstr ""
+
+#. translators: %s: search query
+#: inc/schema.php:420
+#, php-format
+msgid "Search results for \"%s\" on Langgam Fikir."
+msgstr ""
+
+#: inc/schema.php:471
+msgid "Browse all publications by Langgam Fikir."
+msgstr ""
+
+#: inc/schema.php:475
+msgid "Articles, interviews, and updates from Langgam Fikir."
+msgstr ""
+
+#: inc/schema.php:702
+msgid "Publications — Langgam Fikir"
+msgstr ""
+
+#: inc/setup.php:32
+msgid "Primary Menu"
+msgstr ""
+
+#: inc/setup.php:33
+msgid "Footer Menu"
+msgstr ""
+
+#: inc/setup.php:34
+msgid "Footer Legal Menu"
+msgstr ""
+
+#: inc/template-functions.php:123
+msgid ""
+"Book publisher of ideas that transcend borders—bringing critical, thought-"
+"provoking works to readers who seek truth."
+msgstr ""
+
+#. translators: %s: contact form subject
+#: inc/template-functions.php:284
+#, php-format
+msgid "Contact Form: %s"
+msgstr ""
+
+#: inc/template-functions.php:290
+msgid "Name:"
+msgstr ""
+
+#: inc/template-functions.php:292
+msgid "Email:"
+msgstr ""
+
+#: inc/template-functions.php:294
+msgid "Subject:"
+msgstr ""
+
+#: inc/template-functions.php:296
+msgid "Message:"
+msgstr ""
+
+#: inc/template-hooks.php:55
+msgid "Privacy Policy"
+msgstr ""
+
+#: inc/template-hooks.php:57
+msgid "Terms of Service"
+msgstr ""
+
+#: inc/toc.php:157 page-privacy.php:26
+msgid "Contents"
+msgstr ""
+
+#: index.php:48
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: index.php:100 search.php:107 template-parts/content/resource-card.php:43
+msgid "Read More"
+msgstr "Baca Lagi"
+
+#: index.php:118
+msgid "Nothing found."
+msgstr ""
+
+#: page-about.php:55
+msgid ""
+"Langgam Fikir is an independent publishing house dedicated to bringing "
+"profound narratives and critical thought to the forefront of the Malaysian "
+"literary scene."
+msgstr ""
+
+#: page-about.php:59
+msgid "Our Mission"
+msgstr "Misi Kami"
+
+#: page-about.php:64
+msgid ""
+"Founded in 2015, we operate with a singular vision: to publish books that "
+"matter. In an age of fleeting digital content, we believe in the enduring "
+"power of the physical book as a technology for preserving deep thought."
+msgstr ""
+
+#: page-about.php:66
+msgid ""
+"We focus on translating key works of global philosophy and literature into "
+"Malay, while also nurturing local voices that speak with clarity and courage "
+"on contemporary issues."
+msgstr ""
+
+#: page-about.php:75
+msgid "Translation"
+msgstr "Terjemahan"
+
+#: page-about.php:76
+msgid ""
+"Bridging cultures by bringing world classics to local readers with high-"
+"fidelity translations."
+msgstr ""
+
+#: page-about.php:79
+msgid "Original Works"
+msgstr "Karya Asli"
+
+#: page-about.php:80
+msgid ""
+"Providing a platform for Malaysian thinkers, poets, and storytellers to "
+"document our times."
+msgstr ""
+
+#: page-about.php:91
+msgid "Have any questions?"
+msgstr "Ada soalan?"
+
+#: page-about.php:102
+msgid "Contact us!"
+msgstr ""
+
+#: page-contact.php:36
+msgid "Thank you for your message! We will get back to you soon."
+msgstr ""
+"Terima kasih atas mesej anda! Kami akan menghubungi anda secepat mungkin."
+
+#: page-contact.php:40
+msgid "There was an error sending your message. Please try again."
+msgstr "Terdapat ralat semasa menghantar mesej anda. Sila cuba lagi."
+
+#: page-contact.php:54
+#, php-format
+msgid "Book Order - %s"
+msgstr ""
+
+#: page-contact.php:62
+#, php-format
+msgid ""
+"I am interested in ordering:\n"
+"\n"
+"Book: %s"
+msgstr ""
+
+#: page-contact.php:67
+#, php-format
+msgid ""
+"\n"
+"Author: %s"
+msgstr ""
+
+#: page-contact.php:70
+#, php-format
+msgid ""
+"\n"
+"Year: %s"
+msgstr ""
+
+#: page-contact.php:73
+#, php-format
+msgid ""
+"\n"
+"Price: RM %s"
+msgstr ""
+
+#: page-contact.php:76
+msgid ""
+"\n"
+"\n"
+"Quantity: \n"
+"\n"
+"Please provide me with ordering details.\n"
+"\n"
+"Thank you."
+msgstr ""
+
+#: page-contact.php:85 template-parts/content/author-bio.php:66
+msgid "Website"
+msgstr "Laman web"
+
+#: page-contact.php:94
+msgid "Name"
+msgstr "Nama"
+
+#: page-contact.php:102
+msgid "Email"
+msgstr "Emel"
+
+#: page-contact.php:111
+msgid "Subject"
+msgstr "Subjek"
+
+#: page-contact.php:120
+msgid "Type your message"
+msgstr "Taipkan mesej anda"
+
+#: page-contact.php:125
+msgid "Send message"
+msgstr "Hantar mesej"
+
+#: page-contact.php:149
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie in "
+"tellus ac luctus. Vestibulum porta velit eget est aliquet, id egestas magna "
+"varius."
+msgstr ""
+
+#: page-contact.php:181
+msgid "Find us on:"
+msgstr ""
+
+#: page.php:41 single.php:109
+msgid "Pages:"
+msgstr "Halaman:"
+
+#. translators: %s: search query
+#: search.php:24
+#, php-format
+msgid "Search results for: %s"
+msgstr ""
+
+#. translators: %s: number of results
+#: search.php:41
+#, php-format
+msgid "%s result found"
+msgid_plural "%s results found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: search.php:78
+msgid "Page"
+msgstr "Halaman"
+
+#: search.php:80
+msgid "Article"
+msgstr "Artikel"
+
+#: search.php:127
+msgid "Nothing found"
+msgstr "Tiada hasil ditemui"
+
+#: search.php:128
+msgid ""
+"No results matched your search. Try different keywords or browse our "
+"catalogue."
+msgstr ""
+
+#. translators: 1: average rating, 2: review count
+#: single-book.php:239
+#, php-format
+msgid "%1$s (%2$d reviews)"
+msgstr ""
+
+#: single-book.php:284
+msgid "Year"
+msgstr ""
+
+#: single-book.php:299
+msgid "Price"
+msgstr ""
+
+#: single-book.php:306
+msgid "About the Book"
+msgstr ""
+
+#: single-book.php:322
+msgid "Order This Book"
+msgstr ""
+
+#: single-book.php:325
+msgid "Decrease quantity"
+msgstr ""
+
+#: single-book.php:326
+msgid "Quantity"
+msgstr ""
+
+#: single-book.php:327
+msgid "Increase quantity"
+msgstr ""
+
+#: single-book.php:334
+msgid "PRE-ORDER NOW"
+msgstr ""
+
+#: single-book.php:336
+msgid "ADD TO CART"
+msgstr ""
+
+#: single-book.php:356
+msgid "PRE-ORDER"
+msgstr ""
+
+#: single-book.php:358
+msgid "ORDER"
+msgstr ""
+
+#: single-book.php:366
+msgid "This title has been announced. Stay tuned for further details."
+msgstr ""
+
+#: single-book.php:370
+msgid "This book is coming soon. Check back later for availability."
+msgstr ""
+
+#: single-book.php:374
+msgid ""
+"This book is currently sold out. Check back for updates on availability."
+msgstr ""
+
+#: single-book.php:378
+msgid ""
+"This book is currently being reprinted. It will be available again soon."
+msgstr ""
+
+#: single-book.php:382
+msgid "This book is currently out of print."
+msgstr ""
+
+#: single-book.php:387
+msgid "Share This Book"
+msgstr ""
+
+#: single-book.php:389
+msgid "Share:"
+msgstr ""
+
+#: single-book.php:398
+msgid "Share on WhatsApp"
+msgstr ""
+
+#: single-book.php:405
+msgid "Share on Facebook"
+msgstr ""
+
+#: single-book.php:412
+msgid "Share on X (Twitter)"
+msgstr ""
+
+#: single-book.php:417
+msgid "Copy link"
+msgstr ""
+
+#: single-book.php:419
+msgid "Copy Link"
+msgstr ""
+
+#: single-book.php:478
+msgid "You May Also Like"
+msgstr ""
+
+#: single.php:64
+#, php-format
+msgid "%d min read"
+msgid_plural "%d min read"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: last-updated date
+#: single.php:81
+#, php-format
+msgid "Updated %s"
+msgstr ""
+
+#: single.php:126
+msgid "Tags"
+msgstr ""
+
+#: single.php:146
+msgid "Previous Article"
+msgstr ""
+
+#: single.php:155
+msgid "Next Article"
+msgstr ""
+
+#: single.php:183
+msgid "Related Articles"
+msgstr "Artikel Berkaitan"
+
+#: taxonomy-book-category.php:52
+msgid "No books found in this category."
+msgstr "Tiada buku ditemui dalam kategori ini."
+
+#: taxonomy-book-category.php:54 taxonomy-book-tag.php:62
+msgid "Browse All Books"
+msgstr "Lihat Semua Buku"
+
+#. translators: %s: tag name
+#: taxonomy-book-tag.php:23
+#, php-format
+msgid "Tagged: %s"
+msgstr ""
+
+#: taxonomy-book-tag.php:60
+msgid "No books found with this tag."
+msgstr "Tiada buku ditemui dengan tag ini."
+
+#: template-parts/content/author-bio.php:32
+#: template-parts/content/author-bio.php:43
+msgid "About the author"
+msgstr ""
+
+#. translators: %s: author display name
+#: template-parts/content/author-bio.php:58
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: template-parts/content/book-card.php:50
+#, php-format
+msgid "Author: %s"
+msgstr "Penulis: %s"
+
+#: template-parts/content/book-card.php:54
+#, php-format
+msgid "Year: %s"
+msgstr "Tahun: %s"
+
+#: template-parts/content/faq-section.php:33
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: template-parts/content/reviews-section.php:34
+msgid "Reviews"
+msgstr ""
+
+#: template-parts/content/reviews-section.php:38
+msgid "Average rating"
+msgstr ""
+
+#. translators: %d: total number of reviews
+#: template-parts/content/reviews-section.php:47
+#, php-format
+msgid "Based on %d review"
+msgid_plural "Based on %d reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: rating, 2: count
+#: template-parts/content/reviews-section.php:56
+#, php-format
+msgid "Average rating %1$s out of 5 based on %2$d reviews"
+msgstr ""
+
+#. translators: %d: rating value
+#: template-parts/content/reviews-section.php:74
+#, php-format
+msgid "%d out of 5 stars"
+msgstr ""

@@ -1,0 +1,151 @@
+/*
+ * Design Layer: palettes, corner styles, font roles, parallax
+ * Langgam Fikir WordPress Theme
+ *
+ * Loaded after main.css on every front-end page (see inc/enqueue.php). Components read
+ * variables only, so this file just re-declares them per Theme Options > Design choice,
+ * through body classes set in inc/design.php. Earth, Soft corners and the default font
+ * roles are the base values in main.css and need no class.
+ *
+ * Dark mode is out of scope (ssot.md 9.2): every palette has a light page.
+ */
+
+/*--------------------------------------------------------------
+# Light palettes (keep the colours in sync with langgam_fikir_color_schemes())
+--------------------------------------------------------------*/
+body.lf-scheme-slate {
+    --color-primary: #2E3A46;
+    --color-secondary: #5F7F93;
+    --color-accent: #4F7288;
+    --color-accent-dark: #3C5B6F;
+    --color-text: #22292F;
+    --color-text-light: #55616B;
+    --color-text-muted: #727E88;
+    --color-bg-secondary: #F3F5F7;
+    --color-bg-muted: #E7EBEE;
+    --color-bg-tint: #F3F5F7;
+    --color-bg-hero: #2E3A46;
+    --color-border: #D5DBE0;
+    --color-on-accent: #FFFFFF;
+}
+
+body.lf-scheme-sage {
+    --color-primary: #3F5247;
+    --color-secondary: #7C8C4F;
+    --color-accent: #8A9A5B;
+    --color-accent-dark: #6B7A44;
+    --color-text: #2B332E;
+    --color-text-light: #56615A;
+    --color-text-muted: #77837B;
+    --color-bg-secondary: #F2F4EE;
+    --color-bg-muted: #E6EADF;
+    --color-bg-tint: #F2F4EE;
+    --color-bg-hero: #3F5247;
+    --color-border: #D6DCCD;
+    --color-on-accent: #1E2A20;
+}
+
+body.lf-scheme-clay {
+    --color-primary: #6E3F33;
+    --color-secondary: #B35F4E;
+    --color-accent: #C26B5A;
+    --color-accent-dark: #A4513F;
+    --color-text: #36302C;
+    --color-text-light: #6A5E57;
+    --color-text-muted: #8A7B72;
+    --color-bg-secondary: #F7F1EC;
+    --color-bg-muted: #EFE5DD;
+    --color-bg-tint: #F7F1EC;
+    --color-bg-hero: #6E3F33;
+    --color-border: #E3D6CC;
+    --color-on-accent: #FFFFFF;
+}
+
+/*--------------------------------------------------------------
+# Corner styles ("Soft" is the base in main.css)
+--------------------------------------------------------------*/
+body.lf-corners-sharp {
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 0px;
+    --radius-btn: 8px;
+}
+
+body.lf-corners-round {
+    --radius-sm: 10px;
+    --radius-md: 22px;
+    --radius-lg: 32px;
+    --radius-xl: 64px;
+    --radius-btn: 999px;
+}
+
+/*--------------------------------------------------------------
+# Font roles
+  Kagnue: site title and page titles   Crimson Text: headings, book titles
+  Sabon Next LT: reading text          Inter: interface and body
+  Ferments: tagline and script accents
+--------------------------------------------------------------*/
+body {
+    --font-reading: 'Sabon Next LT', 'Crimson Text', Georgia, serif;
+    --font-display: 'Kagnue', 'Crimson Text', Georgia, serif;
+    --font-script: 'Ferments', 'Crimson Text', Georgia, serif;
+}
+
+body.lf-heading-sabon  { --font-primary: 'Sabon Next LT', 'Crimson Text', Georgia, serif; }
+body.lf-heading-georgia { --font-primary: Georgia, 'Times New Roman', serif; }
+
+body.lf-reading-crimson { --font-reading: 'Crimson Text', Georgia, serif; }
+body.lf-reading-inter   { --font-reading: var(--font-secondary); }
+
+body.lf-body-sabon  { --font-secondary: 'Sabon Next LT', 'Crimson Text', Georgia, serif; font-size: 1.0625rem; }
+body.lf-body-system { --font-secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+
+body.lf-titles-heading  { --font-display: var(--font-primary); }
+body.lf-tagline-heading { --font-script: var(--font-primary); }
+
+/* Titles. main.css forces heading fonts with !important to beat the parent theme, so these
+   rules must too; they win by source order (this file loads later) at equal specificity. */
+body .site-title,
+body .page-title,
+body .section-header-title,
+body .lf-showcase-heading {
+    font-family: var(--font-display) !important;
+    font-weight: 400 !important;
+}
+
+body .tagline {
+    font-family: var(--font-script);
+    font-style: normal;
+}
+
+body.lf-tagline-heading .tagline {
+    font-style: italic;
+}
+
+/* Reading text */
+.entry-content,
+.about-text,
+.about-lead,
+.book-synopsis,
+.contact-description,
+.about-snippet-content p,
+.error-404-message,
+.single-post-content {
+    font-family: var(--font-reading);
+}
+
+/*--------------------------------------------------------------
+# Parallax (assets/js/main.js moves [data-parallax] elements; the hero has its own)
+--------------------------------------------------------------*/
+[data-parallax] {
+    transform: translate3d(0, var(--lf-py, 0px), 0) scale(var(--lf-ps, 1));
+    will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-parallax] {
+        transform: none;
+        will-change: auto;
+    }
+}

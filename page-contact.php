@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main contact-page">
+<main id="primary" class="site-main contact-page" tabindex="-1">
     
     <?php
     while ( have_posts() ) :
@@ -23,23 +23,21 @@ get_header();
                 <div class="contact-form-area">
                     <div class="contact-form-inner">
                         <div class="page-title-header">
+                            <?php if ( function_exists( "langgam_fikir_breadcrumbs" ) ) { langgam_fikir_breadcrumbs(); } ?>
                             <h1 class="page-title"><?php the_title(); ?></h1>
                         </div>
                         
                         <?php
                         // Display form submission message if exists
-                        if ( isset( $_GET['contact'] ) && $_GET['contact'] == 'success' ) :
+                        $contact_status = isset( $_GET['contact'] ) ? sanitize_key( $_GET['contact'] ) : '';
+                        if ( 'success' === $contact_status ) :
                             ?>
                             <div class="form-message success">
-                                <?php _e( 'Thank you for your message! We will get back to you soon.', 'langgam-fikir' ); ?>
+                                <?php echo esc_html( langgam_fikir_text( 'contact_msg_success' ) ); ?>
                             </div>
-                        <?php elseif ( isset( $_GET['contact'] ) && $_GET['contact'] == 'throttled' ) : ?>
+                        <?php elseif ( 'error' === $contact_status ) : ?>
                             <div class="form-message error">
-                                <?php _e( 'You are sending messages too quickly. Please wait a moment and try again.', 'langgam-fikir' ); ?>
-                            </div>
-                        <?php elseif ( isset( $_GET['contact'] ) && $_GET['contact'] == 'error' ) : ?>
-                            <div class="form-message error">
-                                <?php _e( 'There was an error sending your message. Please try again.', 'langgam-fikir' ); ?>
+                                <?php echo esc_html( langgam_fikir_text( 'contact_msg_error' ) ); ?>
                             </div>
                         <?php endif; ?>
                         
@@ -53,56 +51,52 @@ get_header();
                         $prefilled_message = '';
                         
                         if ( $book_id && $book_title ) {
-                            $prefilled_subject = sprintf( __( 'Book Order - %s', 'langgam-fikir' ), $book_title );
-                            
-                            // Get book details from post meta
-                            $author = get_post_meta( $book_id, '_book_author', true );
-                            $year = get_post_meta( $book_id, '_book_year', true );
-                            $price = get_post_meta( $book_id, '_book_price', true );
-                            
-                            $prefilled_message = sprintf(
-                                __( "I am interested in ordering:\n\nBook: %s", 'langgam-fikir' ),
-                                $book_title
+                            $order_tokens = array(
+                                '{title}'  => $book_title,
+                                '{author}' => (string) get_post_meta( $book_id, '_book_author', true ),
+                                '{year}'   => (string) get_post_meta( $book_id, '_book_year', true ),
+                                '{price}'  => (string) get_post_meta( $book_id, '_book_price', true ),
                             );
+                            $prefilled_subject = strtr( langgam_fikir_text( 'contact_order_subject' ), $order_tokens );
                             
-                            if ( $author ) {
-                                $prefilled_message .= sprintf( __( "\nAuthor: %s", 'langgam-fikir' ), $author );
+                            // Drop lines whose author, year or price token has no value.
+                            $order_lines = array();
+                            foreach ( preg_split( '/\r\n|\r|\n/', langgam_fikir_text( 'contact_order_message' ) ) as $order_line ) {
+                                foreach ( array( '{author}', '{year}', '{price}' ) as $optional_token ) {
+                                    if ( false !== strpos( $order_line, $optional_token ) && '' === $order_tokens[ $optional_token ] ) {
+                                        continue 2;
+                                    }
+                                }
+                                $order_lines[] = strtr( $order_line, $order_tokens );
                             }
-                            if ( $year ) {
-                                $prefilled_message .= sprintf( __( "\nYear: %s", 'langgam-fikir' ), $year );
-                            }
-                            if ( $price ) {
-                                $prefilled_message .= sprintf( __( "\nPrice: RM %s", 'langgam-fikir' ), $price );
-                            }
-                            
-                            $prefilled_message .= __( "\n\nQuantity: \n\nPlease provide me with ordering details.\n\nThank you.", 'langgam-fikir' );
+                            $prefilled_message = implode( "\n", $order_lines );
                         }
                         ?>
                         
-                        <form class="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-                            <input type="hidden" name="action" value="langgam_fikir_contact_form">
+                        <form class="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>"<?php langgam_fikir_webmcp_form_attrs( 'contact-publisher', __( 'Compose a message to the publisher. Fill in the fields; the visitor reviews and sends it.', 'langgam-fikir' ) ); ?>>
+                            <input type="hidden" name="action" value="langgam_fikir_contact">
                             <?php wp_nonce_field( 'langgam_fikir_contact', 'contact_nonce' ); ?>
-                            
-                            <p class="contact-website-field" aria-hidden="true" style="position:absolute;left:-9999px;">
-                                <label for="contact_website"><?php _e( 'Leave this field empty', 'langgam-fikir' ); ?></label>
-                                <input type="text" id="contact_website" name="contact_website" value="" tabindex="-1" autocomplete="off">
-                            </p>
+                            <input type="hidden" name="_lf_form_ts" value="<?php echo absint( time() ); ?>">
+                            <div class="lf-hp" aria-hidden="true">
+                                <label for="website_url"><?php esc_html_e( 'Website', 'langgam-fikir' ); ?></label>
+                                <input type="text" name="website_url" id="website_url" tabindex="-1" autocomplete="off"<?php langgam_fikir_webmcp_param_attr( __( 'Leave this field empty.', 'langgam-fikir' ) ); ?>>
+                            </div>
                             
                             <div class="form-row-dual">
                                 <div class="form-field">
                                     <input type="text" 
                                            name="contact_name" 
                                            class="form-input" 
-                                           placeholder="<?php esc_attr_e( 'Name', 'langgam-fikir' ); ?>"
-                                           required>
+                                           placeholder="<?php echo esc_attr( langgam_fikir_text( 'contact_ph_name' ) ); ?>"
+                                           required<?php langgam_fikir_webmcp_param_attr( __( "The sender's full name.", 'langgam-fikir' ) ); ?>>
                                 </div>
                                 
                                 <div class="form-field">
                                     <input type="email" 
                                            name="contact_email" 
                                            class="form-input" 
-                                           placeholder="<?php esc_attr_e( 'Email', 'langgam-fikir' ); ?>"
-                                           required>
+                                           placeholder="<?php echo esc_attr( langgam_fikir_text( 'contact_ph_email' ) ); ?>"
+                                           required<?php langgam_fikir_webmcp_param_attr( __( "The sender's email address for the reply.", 'langgam-fikir' ) ); ?>>
                                 </div>
                             </div>
                             
@@ -110,21 +104,21 @@ get_header();
                                 <input type="text" 
                                        name="contact_subject" 
                                        class="form-input" 
-                                       placeholder="<?php esc_attr_e( 'Subject', 'langgam-fikir' ); ?>"
+                                       placeholder="<?php echo esc_attr( langgam_fikir_text( 'contact_ph_subject' ) ); ?>"
                                        value="<?php echo esc_attr( $prefilled_subject ); ?>"
-                                       required>
+                                       required<?php langgam_fikir_webmcp_param_attr( __( 'Short subject line for the message.', 'langgam-fikir' ) ); ?>>
                             </div>
                             
                             <div class="form-field">
                                 <textarea name="contact_message" 
                                           class="form-textarea" 
                                           rows="8"
-                                          placeholder="<?php esc_attr_e( 'Type your message', 'langgam-fikir' ); ?>"
-                                          required><?php echo esc_textarea( $prefilled_message ); ?></textarea>
+                                          placeholder="<?php echo esc_attr( langgam_fikir_text( 'contact_ph_message' ) ); ?>"
+                                          required<?php langgam_fikir_webmcp_param_attr( __( 'The message body.', 'langgam-fikir' ) ); ?>><?php echo esc_textarea( $prefilled_message ); ?></textarea>
                             </div>
                             
                             <button type="submit" class="btn btn-primary form-submit">
-                                <?php _e( 'Send message', 'langgam-fikir' ); ?>
+                                <?php echo esc_html( langgam_fikir_text( 'contact_submit_label' ) ); ?>
                             </button>
                         </form>
                     </div>
@@ -138,46 +132,60 @@ get_header();
                         $contact_description = get_post_meta( get_the_ID(), '_contact_description', true );
                         $contact_email = get_post_meta( get_the_ID(), '_contact_email', true );
                         $contact_phone = get_post_meta( get_the_ID(), '_contact_phone', true );
-                        $instagram_url = get_post_meta( get_the_ID(), '_contact_instagram', true );
+
+                        // Social links — page meta overrides Theme Options for Instagram
+                        $instagram_meta = get_post_meta( get_the_ID(), '_contact_instagram', true );
+                        $social_instagram = ! empty( $instagram_meta ) ? $instagram_meta : langgam_fikir_get_option( 'social_instagram' );
+                        $social_facebook  = langgam_fikir_get_option( 'social_facebook' );
+                        $social_twitter   = langgam_fikir_get_option( 'social_twitter' );
+                        $social_whatsapp  = langgam_fikir_get_option( 'social_whatsapp' );
                         
                         // Defaults if not set
                         if ( empty( $contact_description ) ) {
-                            $contact_description = __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie in tellus ac luctus. Vestibulum porta velit eget est aliquet, id egestas magna varius.', 'langgam-fikir' );
+                            $contact_description = langgam_fikir_text( 'contact_description' );
                         }
+                        // Public email and phone: the page's own value, then Footer Contact in Theme Options.
+                        // No placeholder values: an empty one is simply not shown.
                         if ( empty( $contact_email ) ) {
-                            $contact_email = 'contact@langgamfikir.com';
+                            $contact_email = langgam_fikir_get_option( 'footer_email' );
                         }
                         if ( empty( $contact_phone ) ) {
-                            $contact_phone = '+60 1234 1234';
+                            $contact_phone = langgam_fikir_get_option( 'footer_phone' );
                         }
                         ?>
                         
+                        <?php if ( $contact_description ) : ?>
                         <div class="contact-description">
-                            <p><?php echo wp_kses_post( nl2br( $contact_description ) ); ?></p>
+                            <?php echo langgam_fikir_paragraphs( $contact_description ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
                         </div>
+                        <?php endif; ?>
                         
+                        <?php if ( $contact_email || $contact_phone ) : ?>
                         <div class="contact-details">
+                            <?php if ( $contact_email ) : ?>
                             <div class="contact-detail-item">
                                 <a href="mailto:<?php echo esc_attr( $contact_email ); ?>" class="contact-email">
                                     <?php echo esc_html( $contact_email ); ?>
                                 </a>
                             </div>
+                            <?php endif; ?>
                             
+                            <?php if ( $contact_phone ) : ?>
                             <div class="contact-detail-item">
-                                <a href="tel:<?php echo esc_attr( str_replace( ' ', '', $contact_phone ) ); ?>" class="contact-phone">
+                                <a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $contact_phone ) ); ?>" class="contact-phone">
                                     <?php echo esc_html( $contact_phone ); ?>
                                 </a>
                             </div>
+                            <?php endif; ?>
                         </div>
+                        <?php endif; ?>
                         
-                        <?php if ( ! empty( $instagram_url ) ) : ?>
+                        <?php
+                        $has_social = (bool) langgam_fikir_social_profiles( array( 'instagram' => $social_instagram ) );
+                        if ( $has_social ) : ?>
                             <div class="contact-social">
-                                <p class="social-label"><?php _e( 'Follow on:', 'langgam-fikir' ); ?></p>
-                                <a href="<?php echo esc_url( $instagram_url ); ?>" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                    </svg>
-                                </a>
+                                <p class="social-label"><?php echo esc_html( langgam_fikir_text( 'contact_follow_label' ) ); ?></p>
+                                <?php langgam_fikir_render_social_links( 'contact', array( 'instagram' => $social_instagram ) ); ?>
                             </div>
                         <?php endif; ?>
                     </div>

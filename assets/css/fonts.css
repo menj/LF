@@ -1,0 +1,67 @@
+/*
+ * Self-Hosted Fonts — Langgam Fikir
+ *
+ * GDPR-compliant: no external requests to Google.
+ * Place WOFF2 files in this directory (/assets/fonts/).
+ *
+ * Download fonts from: https://gwfh.mranftl.com/fonts
+ *   - Crimson Text: 400, 400italic, 600
+ *   - Inter: 400, 500, 600
+ *
+ * If font files are missing, the theme falls back to
+ * Georgia (serif) and Helvetica Neue (sans-serif).
+ */
+
+/* Crimson Text — Regular */
+@font-face {
+    font-family: 'Crimson Text';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/crimson-text-v19-latin-regular.woff2') format('woff2');
+}
+
+/* Crimson Text — Italic */
+@font-face {
+    font-family: 'Crimson Text';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/crimson-text-v19-latin-italic.woff2') format('woff2');
+}
+
+/* Crimson Text — 600 (SemiBold) */
+@font-face {
+    font-family: 'Crimson Text';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/crimson-text-v19-latin-600.woff2') format('woff2');
+}
+
+/* Inter — Regular */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/inter-v18-latin-regular.woff2') format('woff2');
+}
+
+/* Inter — 500 (Medium) */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/inter-v18-latin-500.woff2') format('woff2');
+}
+
+/* Inter — 600 (SemiBold) */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/inter-v18-latin-600.woff2') format('woff2');
+}

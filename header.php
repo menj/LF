@@ -10,6 +10,8 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'langgam-fikir' ); ?></a>
+
 <div id="page" class="site">
     
     <header id="masthead" class="site-header">
@@ -20,11 +22,11 @@
                     <div class="logo-text-wrapper">
                         <?php the_custom_logo(); ?>
                         <div class="site-identity">
-                            <h1 class="site-title">
+                            <p class="site-title">
                                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                                     <?php bloginfo( 'name' ); ?>
                                 </a>
-                            </h1>
+                            </p>
                             <?php
                             $description = get_bloginfo( 'description', 'display' );
                             if ( $description || is_customize_preview() ) :
@@ -34,11 +36,11 @@
                         </div>
                     </div>
                 <?php else : ?>
-                    <h1 class="site-title">
+                    <p class="site-title">
                         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                             <?php bloginfo( 'name' ); ?>
                         </a>
-                    </h1>
+                    </p>
                     <?php
                     $description = get_bloginfo( 'description', 'display' );
                     if ( $description || is_customize_preview() ) :
@@ -48,7 +50,7 @@
                 <?php endif; ?>
             </div>
             
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="<?php esc_attr_e( 'Menu', 'langgam-fikir' ); ?>">
                 <span></span>
                 <span></span>
                 <span></span>
