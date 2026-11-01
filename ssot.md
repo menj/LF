@@ -160,7 +160,7 @@ LF/
 ├── assets/
 │   ├── css/                           main.css, design.css, additional.css, admin.css, theme-options.css, fonts.css, fonts-premium.css, showcase.css
 │   ├── js/                            main.js, admin.js, theme-options.js, showcase.js, webmcp.js
-│   ├── icons/                         Monochrome social SVGs (GPL icon pack; no LinkedIn/Scribd, see its README.txt)
+│   ├── icons/                         Monochrome social SVGs (GPL icon pack; LinkedIn drawn for the theme, no Scribd; see its README.txt)
 │   ├── images/hero/                   Bundled hero photographs (Pexels), 1920 and 960 px
 │   └── fonts/                         Self-hosted WOFF2
 ├── languages/                         .pot / .po / .mo

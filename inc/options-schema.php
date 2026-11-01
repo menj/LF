@@ -263,6 +263,7 @@ function langgam_fikir_extra_options_schema() {
                     'title'  => __( 'More Social Profiles', 'langgam-fikir' ),
                     'desc'   => __( 'Further profiles shown as icons beside the four above (in the footer and on the Contact page) and listed in Schema.org sameAs. Leave a field empty to hide that icon.', 'langgam-fikir' ),
                     'fields' => array(
+                        'social_linkedin' => $f( 'url', __( 'LinkedIn URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
                         'social_threads' => $f( 'url', __( 'Threads URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
                         'social_tiktok' => $f( 'url', __( 'TikTok URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
                         'social_youtube' => $f( 'url', __( 'YouTube URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
@@ -284,6 +285,7 @@ function langgam_fikir_extra_options_schema() {
                         'share_whatsapp' => $f( 'checkbox', __( 'WhatsApp', 'langgam-fikir' ), 1 ),
                         'share_facebook' => $f( 'checkbox', __( 'Facebook', 'langgam-fikir' ), 1 ),
                         'share_x' => $f( 'checkbox', __( 'X', 'langgam-fikir' ), 1 ),
+                        'share_linkedin' => $f( 'checkbox', __( 'LinkedIn', 'langgam-fikir' ), 0 ),
                         'share_telegram' => $f( 'checkbox', __( 'Telegram', 'langgam-fikir' ), 1 ),
                         'share_threads' => $f( 'checkbox', __( 'Threads', 'langgam-fikir' ), 0 ),
                         'share_bluesky' => $f( 'checkbox', __( 'Bluesky', 'langgam-fikir' ), 0 ),
