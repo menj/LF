@@ -84,6 +84,16 @@ function langgam_fikir_render_extra_field( $key, $field, $value ) {
             );
             break;
 
+        case 'checkbox':
+            printf(
+                '<label class="lf-check" for="%1$s"><input type="checkbox" id="%1$s" name="%2$s" value="1" %3$s> <span>%4$s</span></label>',
+                esc_attr( $id ),
+                esc_attr( $name ),
+                checked( ! empty( $value ), true, false ),
+                esc_html( $field['label'] )
+            );
+            break;
+
         case 'select':
             printf( '<select id="%s" name="%s">', esc_attr( $id ), esc_attr( $name ) );
             foreach ( $field['choices'] as $choice => $label ) {
@@ -139,7 +149,9 @@ function langgam_fikir_render_extra_cards( $slug, $opts ) {
         foreach ( $card['fields'] as $key => $field ) {
             $value = isset( $opts[ $key ] ) ? $opts[ $key ] : $field['default'];
             echo '<div class="lf-field">';
-            if ( 'scheme' !== $field['type'] ) {
+            if ( 'checkbox' === $field['type'] ) {
+                // The label is printed with the control.
+            } elseif ( 'scheme' !== $field['type'] ) {
                 printf( '<label for="lf_%s">%s</label>', esc_attr( $key ), esc_html( $field['label'] ) );
             } else {
                 echo '<span class="lf-label">' . esc_html( $field['label'] ) . '</span>';

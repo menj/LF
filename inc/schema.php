@@ -137,14 +137,7 @@ function langgam_fikir_schema_organization() {
     }
 
     // Social links
-    $same_as = array();
-    $social_keys = array( 'social_facebook', 'social_instagram', 'social_twitter', 'social_whatsapp' );
-    foreach ( $social_keys as $key ) {
-        $url = langgam_fikir_get_option( $key );
-        if ( $url ) {
-            $same_as[] = $url;
-        }
-    }
+    $same_as = langgam_fikir_social_profile_urls(); // every profile that is set (inc/social.php)
     if ( ! empty( $same_as ) ) {
         $schema['sameAs'] = $same_as;
     }

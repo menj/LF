@@ -295,13 +295,14 @@ Edit `/assets/css/main.css`:
 - **NEW:** Theme Options → Design (light palettes + custom colours, font roles, corner style, parallax); hero photo choice; editable About, Contact, homepage, footer and 404 text
 - **NEW:** Five-typeface stack: Kagnue, Crimson Text, Sabon Next LT, Inter, Ferments
 - **NEW:** Animated, quirky 404 with an editable random quip
+- **NEW:** Social icons for profiles and share buttons (books, articles, pages) with a theme-matched hover; OCLC number on books
 - **NEW:** Fuller book info (original title, translated from, edition, series, format, pages, size), category/topic chips, archive filters and sorting, and a sectioned Book Details editor box
 - **CHANGED:** Showcase is a grid of the theme's own book cards over a parallax cover backdrop; rounder corners; palette colours are CSS variables
 - **FIXED:** Horizontal scroll on phones before the About section revealed
 
 ### Credits
 
-Hero photographs are from [Pexels](https://www.pexels.com) (free to use; attribution not required): Ayşe İpek (library corridor, reading room), Pramod Tiwari (open book), Muhammed Baltakıran (leather-bound books). Sabon Next LT (Monotype), Kagnue (Youthlabs Studio) and Ferments (Haksen Studio) are licensed to the site owner.
+Hero photographs are from [Pexels](https://www.pexels.com) (free to use; attribution not required): Ayşe İpek (library corridor, reading room), Pramod Tiwari (open book), Muhammed Baltakıran (leather-bound books). Sabon Next LT (Monotype), Kagnue (Youthlabs Studio) and Ferments (Haksen Studio) are licensed to the site owner. Social icons are from the Minimalist Social & Platform Icons Pack 2.8 (GPL). Brand names and logos remain trademarks of their owners and are used only to link to official profiles and for share buttons.
 
 ### Version 2.10.0 (September 2026) — WebMCP Agent Tools
 

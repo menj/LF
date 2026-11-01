@@ -122,6 +122,7 @@ function langgam_fikir_webmcp_book_data( $post_id, $full = false ) {
         $data['translator']  = langgam_fikir_get_book_meta( $post_id, 'translator' );
         $data['publisher']   = langgam_fikir_get_book_meta( $post_id, 'publisher' );
         $data['isbn']        = langgam_fikir_get_book_meta( $post_id, 'isbn' );
+        $data['oclc']        = langgam_fikir_get_book_meta( $post_id, 'oclc' );
         $data['description'] = wp_strip_all_tags( wp_trim_words( get_post_field( 'post_content', $post_id ), 200, '…' ) );
     }
 

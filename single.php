@@ -112,6 +112,12 @@ get_header();
                             ?>
                         </div>
                         
+                        <?php
+                        if ( langgam_fikir_share_enabled_for( 'post' ) ) {
+                            langgam_fikir_render_share_bar();
+                        }
+                        ?>
+
                         <?php get_template_part( 'template-parts/content/author-bio' ); ?>
                     </div>
                     

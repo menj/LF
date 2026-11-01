@@ -45,6 +45,12 @@ get_header();
                     </div>
                     
                     <?php
+                    if ( langgam_fikir_share_enabled_for( 'page' ) ) {
+                        langgam_fikir_render_share_bar();
+                    }
+                    ?>
+                    
+                    <?php
                     // FAQ section (Phase C — v2.5.0): renders nothing if no FAQs are set
                     get_template_part( 'template-parts/content/faq-section' );
                     ?>

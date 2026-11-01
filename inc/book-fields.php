@@ -53,7 +53,8 @@ function langgam_fikir_book_field_groups() {
                 'year'      => array( 'type' => 'number', 'label' => __( 'Publication year', 'langgam-fikir' ), 'width' => 'half', 'min' => 1900, 'max' => 2100 ),
                 'edition'   => array( 'type' => 'text', 'label' => __( 'Edition', 'langgam-fikir' ), 'width' => 'half', 'placeholder' => __( 'For example First edition', 'langgam-fikir' ) ),
                 'series'    => array( 'type' => 'text', 'label' => __( 'Series', 'langgam-fikir' ), 'width' => 'half', 'placeholder' => __( 'Series name and volume', 'langgam-fikir' ) ),
-                'isbn'      => array( 'type' => 'text', 'label' => __( 'ISBN', 'langgam-fikir' ), 'width' => 'full', 'placeholder' => '978-629-96135-0-3' ),
+                'isbn'      => array( 'type' => 'text', 'label' => __( 'ISBN', 'langgam-fikir' ), 'width' => 'half', 'placeholder' => '978-629-96135-0-3' ),
+                'oclc'      => array( 'type' => 'text', 'label' => __( 'OCLC number', 'langgam-fikir' ), 'width' => 'half', 'placeholder' => '1234567890', 'desc' => __( 'The WorldCat number. Digits only; a prefix such as ocm or ocn is removed.', 'langgam-fikir' ) ),
             ),
         ),
         'physical'    => array(
@@ -94,7 +95,19 @@ function langgam_fikir_sanitize_book_field( $key, $value ) {
             return '' === $value ? '' : (string) max( $field['min'], min( $field['max'], absint( $value ) ) );
         }
     }
+    if ( 'oclc' === $key ) {
+        // OCLC numbers are digits (up to 10); catalogue exports sometimes prefix ocm, ocn or on.
+        return preg_replace( '/\D+/', '', sanitize_text_field( $value ) );
+    }
     return sanitize_text_field( $value );
+}
+
+/**
+ * WorldCat page for an OCLC number, or '' when there is none.
+ */
+function langgam_fikir_worldcat_url( $oclc ) {
+    $oclc = preg_replace( '/\D+/', '', (string) $oclc );
+    return '' === $oclc ? '' : 'https://search.worldcat.org/title/' . $oclc;
 }
 
 /**
@@ -102,7 +115,7 @@ function langgam_fikir_sanitize_book_field( $key, $value ) {
  * Only rows with a value are returned, so a sparsely filled book simply shows fewer rows.
  *
  * @param int $post_id Book ID.
- * @return array<int, array{label:string, value:string}>
+ * @return array<int, array{key:string, label:string, value:string, url:string}>
  */
 function langgam_fikir_book_info_rows( $post_id ) {
     $get = static function ( $key ) use ( $post_id ) {
@@ -127,12 +140,18 @@ function langgam_fikir_book_info_rows( $post_id ) {
         array( 'pages', $pages ),
         array( 'dimensions', $get( 'dimensions' ) ),
         array( 'isbn', $get( 'isbn' ) ),
+        array( 'oclc', $get( 'oclc' ) ),
     );
 
     $out = array();
     foreach ( $rows as $row ) {
         if ( '' !== $row[1] ) {
-            $out[] = array( 'key' => $row[0], 'label' => langgam_fikir_text( 'lbl_' . $row[0] ), 'value' => $row[1] );
+            $out[] = array(
+                'key'   => $row[0],
+                'label' => langgam_fikir_text( 'lbl_' . $row[0] ),
+                'value' => $row[1],
+                'url'   => 'oclc' === $row[0] ? langgam_fikir_worldcat_url( $row[1] ) : '',
+            );
         }
     }
     return $out;
@@ -184,6 +203,16 @@ function langgam_fikir_book_schema_extras( $post_id, $schema ) {
     }
     if ( $edition = $get( 'edition' ) ) {
         $schema['bookEdition'] = $edition;
+    }
+    // OCLC number: a typed identifier plus the WorldCat record as sameAs.
+    if ( $oclc = preg_replace( '/\D+/', '', $get( 'oclc' ) ) ) {
+        $identifier         = isset( $schema['identifier'] ) ? (array) $schema['identifier'] : array();
+        $identifier[]       = array( '@type' => 'PropertyValue', 'propertyID' => 'OCLC', 'value' => $oclc );
+        $schema['identifier'] = $identifier;
+
+        $same_as          = isset( $schema['sameAs'] ) ? (array) $schema['sameAs'] : array();
+        $same_as[]        = langgam_fikir_worldcat_url( $oclc );
+        $schema['sameAs'] = array_values( array_unique( $same_as ) );
     }
     if ( $original = $get( 'original_title' ) ) {
         $schema['alternateName'] = $original;

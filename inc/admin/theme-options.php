@@ -513,6 +513,7 @@ function langgam_fikir_render_options_page() {
                         <p class="lf-help"><?php esc_html_e( 'Optional. Paste the token from the Chrome or Edge Origin Trials console to test WebMCP in those browsers. Emitted as a meta http-equiv="origin-trial" tag. Tokens are tied to this domain and expire.', 'langgam-fikir' ); ?></p>
                     </div>
                 </div>
+                <?php langgam_fikir_render_extra_cards( 'social', $opts ); ?>
             </div>
 
             <div class="lf-submit">

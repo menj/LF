@@ -392,3 +392,10 @@
     width: 110px;
     font-family: monospace;
 }
+
+.lf-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}

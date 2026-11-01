@@ -255,6 +255,48 @@ function langgam_fikir_extra_options_schema() {
             ),
         ),
 
+        /* -------------------------------------------- Social & SEO (adds) */
+        'social'   => array(
+            'existing' => true,
+            'cards'    => array(
+                array(
+                    'title'  => __( 'More Social Profiles', 'langgam-fikir' ),
+                    'desc'   => __( 'Further profiles shown as icons beside the four above (in the footer and on the Contact page) and listed in Schema.org sameAs. Leave a field empty to hide that icon.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'social_threads' => $f( 'url', __( 'Threads URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'social_tiktok' => $f( 'url', __( 'TikTok URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'social_youtube' => $f( 'url', __( 'YouTube URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'social_telegram' => $f( 'url', __( 'Telegram URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'social_bluesky' => $f( 'url', __( 'Bluesky URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'social_mastodon' => $f( 'url', __( 'Mastodon URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'social_goodreads' => $f( 'url', __( 'Goodreads URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'social_medium' => $f( 'url', __( 'Medium URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'social_substack' => $f( 'url', __( 'Substack URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'social_spotify' => $f( 'url', __( 'Spotify URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'social_pinterest' => $f( 'url', __( 'Pinterest URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'footer_social' => $f( 'checkbox', __( 'Show the profile icons in the footer', 'langgam-fikir' ), 1 ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Share Buttons', 'langgam-fikir' ),
+                    'desc'   => __( 'The buttons visitors use to share a book, article or page, and where they appear.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'share_whatsapp' => $f( 'checkbox', __( 'WhatsApp', 'langgam-fikir' ), 1 ),
+                        'share_facebook' => $f( 'checkbox', __( 'Facebook', 'langgam-fikir' ), 1 ),
+                        'share_x' => $f( 'checkbox', __( 'X', 'langgam-fikir' ), 1 ),
+                        'share_telegram' => $f( 'checkbox', __( 'Telegram', 'langgam-fikir' ), 1 ),
+                        'share_threads' => $f( 'checkbox', __( 'Threads', 'langgam-fikir' ), 0 ),
+                        'share_bluesky' => $f( 'checkbox', __( 'Bluesky', 'langgam-fikir' ), 0 ),
+                        'share_reddit' => $f( 'checkbox', __( 'Reddit', 'langgam-fikir' ), 0 ),
+                        'share_copy' => $f( 'checkbox', __( 'Copy link button', 'langgam-fikir' ), 1 ),
+                        'share_on_books' => $f( 'checkbox', __( 'Show on book pages', 'langgam-fikir' ), 1 ),
+                        'share_on_posts' => $f( 'checkbox', __( 'Show on articles', 'langgam-fikir' ), 1 ),
+                        'share_on_pages' => $f( 'checkbox', __( 'Show on pages (About and other standard pages)', 'langgam-fikir' ), 1, __( 'The Contact and Privacy Policy pages never show it.', 'langgam-fikir' ) ),
+                    ),
+                ),
+            ),
+        ),
+
         /* ------------------------------------------------------ Labels tab */
         'labels'   => array(
             'label' => __( 'Labels & 404', 'langgam-fikir' ),
@@ -266,6 +308,8 @@ function langgam_fikir_extra_options_schema() {
                     'fields' => array(
                         'label_learn_more' => $f( 'text', __( 'Book card: learn more', 'langgam-fikir' ), __( 'Learn More', 'langgam-fikir' ) ),
                         'label_read_more'  => $f( 'text', __( 'Article card: read more', 'langgam-fikir' ), __( 'Read More', 'langgam-fikir' ) ),
+                        'lbl_share'        => $f( 'text', __( 'Share bar label', 'langgam-fikir' ), __( 'Share:', 'langgam-fikir' ) ),
+                        'lbl_follow_us'    => $f( 'text', __( 'Social profiles label', 'langgam-fikir' ), __( 'Follow us', 'langgam-fikir' ) ),
                     ),
                 ),
                 array(
@@ -285,6 +329,7 @@ function langgam_fikir_extra_options_schema() {
                         'lbl_pages' => $f( 'text', __( 'Pages', 'langgam-fikir' ), __( 'Pages', 'langgam-fikir' ) ),
                         'lbl_dimensions' => $f( 'text', __( 'Size', 'langgam-fikir' ), __( 'Size', 'langgam-fikir' ) ),
                         'lbl_isbn' => $f( 'text', __( 'ISBN', 'langgam-fikir' ), __( 'ISBN', 'langgam-fikir' ) ),
+                        'lbl_oclc' => $f( 'text', __( 'OCLC number', 'langgam-fikir' ), __( 'OCLC number', 'langgam-fikir' ) ),
                         'lbl_category' => $f( 'text', __( 'Category', 'langgam-fikir' ), __( 'Category', 'langgam-fikir' ) ),
                         'lbl_topics' => $f( 'text', __( 'Topics (tags)', 'langgam-fikir' ), __( 'Topics', 'langgam-fikir' ) ),
                     ),

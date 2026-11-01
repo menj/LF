@@ -133,6 +133,7 @@ For manual server access:
 - Corners are Soft by default (rounder than 2.10). **Sharp** restores the previous radii.
 - Re-check the Contact page: the placeholder phone number is gone, the email shown is the Footer Contact email, and the intro text is editable under About & Contact Pages.
 - Book pages show the new fields once you fill them in (edit a book, open the **Meta Boxes** panel at the bottom of the block editor: Book Details). Assign categories and tags to your books so the new chips and the archive filters have something to show.
+- Theme Options → Social & SEO: add your profile URLs (the footer and Contact page icons appear as soon as one is set) and choose the share networks and where the share bar shows. It now also shows on articles and standard pages, not only books.
 - Existing per-page About/Contact meta box values still work as a fallback where Theme Options leaves the matching field to them (About contact heading and phone, Contact description, email and phone).
 
 **Rollback:** safe; the new options are additive and ignored by 2.10.0.

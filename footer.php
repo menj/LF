@@ -15,6 +15,11 @@
                     ?>
                     <p class="tagline"><?php echo esc_html( $description ); ?></p>
                 <?php endif; ?>
+                <?php
+                if ( langgam_fikir_get_option( 'footer_social' ) ) {
+                    langgam_fikir_render_social_links( 'footer' );
+                }
+                ?>
             </div>
             
             <div class="footer-legal-column">

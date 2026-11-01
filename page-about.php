@@ -100,6 +100,12 @@ get_header();
                         }
                         ?>
                         
+                        <?php
+                        if ( langgam_fikir_share_enabled_for( 'page' ) ) {
+                            langgam_fikir_render_share_bar();
+                        }
+                        ?>
+                        
                         <div class="about-contact-cta">
                             <?php if ( $contact_heading ) : ?>
                             <p class="contact-prompt"><?php echo esc_html( $contact_heading ); ?></p>

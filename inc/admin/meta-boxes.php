@@ -35,6 +35,7 @@ function langgam_fikir_book_details_callback( $post ) {
         __( 'Author', 'langgam-fikir' )      => '' !== (string) get_post_meta( $post->ID, '_book_author', true ),
         __( 'Year', 'langgam-fikir' )        => '' !== (string) get_post_meta( $post->ID, '_book_year', true ),
         __( 'ISBN', 'langgam-fikir' )        => '' !== (string) get_post_meta( $post->ID, '_book_isbn', true ),
+        __( 'OCLC number', 'langgam-fikir' ) => '' !== (string) get_post_meta( $post->ID, '_book_oclc', true ),
         __( 'Pages', 'langgam-fikir' )       => '' !== (string) get_post_meta( $post->ID, '_book_pages', true ),
         __( 'Format', 'langgam-fikir' )      => '' !== (string) get_post_meta( $post->ID, '_book_format', true ),
         __( 'Category', 'langgam-fikir' )    => has_term( '', 'book-category', $post ),

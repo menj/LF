@@ -131,6 +131,7 @@ LF/
 │   ├── meta-boxes.php                 Book details, contact, about (registration + save)
 │   ├── options-schema.php             Schema for the Design, About & Contact Pages and Labels tabs and extra cards; defaults, sanitising, langgam_fikir_text()
 │   ├── book-fields.php                Book field schema (editor box, saving, page rows, Schema.org extras), archive sort, admin columns
+│   ├── social.php                     Profile icons, share bar and networks; inlines assets/icons/*.svg
 │   ├── design.php                     Body classes for palette/corners/fonts/parallax, custom-colour CSS, hero photo
 │   ├── template-functions.php         Shared helpers, language helpers
 │   ├── template-hooks.php             Action/filter hooks
@@ -159,6 +160,7 @@ LF/
 ├── assets/
 │   ├── css/                           main.css, design.css, additional.css, admin.css, theme-options.css, fonts.css, fonts-premium.css, showcase.css
 │   ├── js/                            main.js, admin.js, theme-options.js, showcase.js, webmcp.js
+│   ├── icons/                         Monochrome social SVGs (GPL icon pack; no LinkedIn/Scribd, see its README.txt)
 │   ├── images/hero/                   Bundled hero photographs (Pexels), 1920 and 960 px
 │   └── fonts/                         Self-hosted WOFF2
 ├── languages/                         .pot / .po / .mo
