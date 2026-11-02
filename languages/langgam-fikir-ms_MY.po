@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: Langgam Fikir 2.11.0\n"
 "Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
 "POT-Creation-Date: 2026-11-01 05:23+0000\n"
-"PO-Revision-Date: 2026-04-09 13:43+0000\n"
+"PO-Revision-Date: 2026-11-02 05:36+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: ms\n"
+"Language: ms_MY\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Theme Name of the theme
 #: style.css
@@ -49,13 +49,15 @@ msgstr ""
 
 #: archive-book.php:18
 msgid "Our Publications"
-msgstr ""
+msgstr "Terbitan Kami"
 
 #: archive-book.php:19
 msgid ""
 "Explore our complete catalog of works, from contemporary fiction to critical"
 " essays and historical accounts."
 msgstr ""
+"Terokai katalog lengkap karya kami, daripada fiksyen kontemporari hingga "
+"esei kritis dan catatan sejarah."
 
 #: archive-book.php:38 archive.php:68 home.php:122 index.php:115
 #: search.php:123 taxonomy-book-category.php:46 taxonomy-book-tag.php:54
@@ -69,24 +71,23 @@ msgstr "Seterusnya &rarr;"
 
 #: archive-book.php:45
 msgid "No books found."
-msgstr ""
+msgstr "Tiada buku ditemui."
 
 #: archive.php:75
 msgid "No posts found."
-msgstr ""
+msgstr "Tiada catatan ditemui."
 
 #: comments.php:21
 #, php-format
 msgid "One comment on &ldquo;%s&rdquo;"
-msgstr ""
+msgstr "Satu komen pada &ldquo;%s&rdquo;"
 
 #: comments.php:26
 #, php-format
 msgctxt "comments title"
 msgid "%1$s comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s komen pada &ldquo;%2$s&rdquo;"
 
 #: comments.php:49
 msgid "Comments are closed."
@@ -95,12 +96,12 @@ msgstr "Komen ditutup."
 #: footer.php:90 inc/admin/theme-options.php:396
 #, php-format
 msgid "%1$s is a registered enterprise in Malaysia (Reg. No.: %2$s)."
-msgstr ""
+msgstr "%1$s ialah perniagaan berdaftar di Malaysia (No. Pendaftaran: %2$s)."
 
 #: footer.php:96 inc/admin/theme-options.php:402
 #, php-format
 msgid "%s is a registered enterprise in Malaysia."
-msgstr ""
+msgstr "%s ialah perniagaan berdaftar di Malaysia."
 
 #. translators: %s: site name
 #. translators: %s: post title
@@ -110,15 +111,15 @@ msgstr ""
 #: template-parts/content/resource-card.php:46
 #, php-format
 msgid "about %s"
-msgstr ""
+msgstr "tentang %s"
 
 #: front-page.php:63
 msgid "About Langgam Fikir"
-msgstr ""
+msgstr "Tentang Langgam Fikir"
 
 #: front-page.php:70
 msgid "Library of books"
-msgstr ""
+msgstr "Perpustakaan buku"
 
 #: front-page.php:76 inc/admin/theme-options.php:288
 #: inc/template-functions.php:56
@@ -127,11 +128,11 @@ msgstr "Tahun Kecemerlangan"
 
 #: front-page.php:123
 msgid "publications"
-msgstr ""
+msgstr "terbitan"
 
 #: front-page.php:167
 msgid "resources"
-msgstr ""
+msgstr "sumber"
 
 #: header.php:13
 msgid "Skip to content"
@@ -139,12 +140,12 @@ msgstr "Langkau ke kandungan"
 
 #: header.php:53
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: home.php:17 inc/breadcrumbs.php:101
 #, fuzzy
 msgid "Resources"
-msgstr "Sumber Lain"
+msgstr "Sumber"
 
 #: home.php:39
 msgid "Featured Resources"
@@ -152,11 +153,11 @@ msgstr "Sumber Pilihan"
 
 #: home.php:69
 msgid "Previous"
-msgstr ""
+msgstr "Sebelumnya"
 
 #: home.php:72
 msgid "Next"
-msgstr ""
+msgstr "Seterusnya"
 
 #: home.php:86
 msgid "Other Resources"
@@ -164,7 +165,7 @@ msgstr "Sumber Lain"
 
 #: home.php:129
 msgid "No resources found."
-msgstr ""
+msgstr "Tiada sumber ditemui."
 
 #: inc/admin/meta-boxes-faq.php:27
 msgid "Frequently Asked Questions (FAQ)"
@@ -314,12 +315,12 @@ msgstr ""
 #: inc/admin/meta-boxes.php:35 inc/book-fields.php:43 inc/book-fields.php:269
 #: inc/options-schema.php:321
 msgid "Author"
-msgstr ""
+msgstr "Penulis"
 
 #: inc/admin/meta-boxes.php:36 inc/book-fields.php:271
 #: inc/options-schema.php:327
 msgid "Year"
-msgstr ""
+msgstr "Tahun"
 
 #: inc/admin/meta-boxes.php:37 inc/book-fields.php:56
 #: inc/options-schema.php:333
@@ -329,17 +330,17 @@ msgstr ""
 #: inc/admin/meta-boxes.php:38 inc/book-fields.php:57
 #: inc/options-schema.php:334
 msgid "OCLC number"
-msgstr ""
+msgstr "Nombor OCLC"
 
 #: inc/admin/meta-boxes.php:39 inc/book-fields.php:64
 #: inc/options-schema.php:331
 msgid "Pages"
-msgstr ""
+msgstr "Halaman"
 
 #: inc/admin/meta-boxes.php:40 inc/book-fields.php:63
 #: inc/options-schema.php:330
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: inc/admin/meta-boxes.php:41 inc/options-schema.php:335
 msgid "Category"
@@ -373,19 +374,19 @@ msgstr ""
 
 #: inc/admin/meta-boxes.php:99 inc/template-functions.php:95
 msgid "Published"
-msgstr ""
+msgstr "Diterbitkan"
 
 #: inc/admin/meta-boxes.php:103 inc/template-functions.php:96
 msgid "New Release"
-msgstr ""
+msgstr "Terbitan Baharu"
 
 #: inc/admin/meta-boxes.php:107 inc/template-functions.php:97
 msgid "Limited Edition"
-msgstr ""
+msgstr "Edisi Terhad"
 
 #: inc/admin/meta-boxes.php:111 inc/template-functions.php:98
 msgid "Digital Only"
-msgstr ""
+msgstr "Digital Sahaja"
 
 #: inc/admin/meta-boxes.php:115
 msgid "Pipeline"
@@ -393,7 +394,7 @@ msgstr ""
 
 #: inc/admin/meta-boxes.php:118 inc/template-functions.php:94
 msgid "Announced"
-msgstr ""
+msgstr "Diumumkan"
 
 #: inc/admin/meta-boxes.php:122
 msgid "Upcoming"
@@ -401,11 +402,11 @@ msgstr ""
 
 #: inc/admin/meta-boxes.php:125 inc/template-functions.php:99
 msgid "Pre-Order"
-msgstr ""
+msgstr "Tempahan Awal"
 
 #: inc/admin/meta-boxes.php:129 inc/template-functions.php:100
 msgid "Coming Soon"
-msgstr ""
+msgstr "Akan Datang"
 
 #: inc/admin/meta-boxes.php:133
 msgid "Unavailable"
@@ -413,15 +414,15 @@ msgstr ""
 
 #: inc/admin/meta-boxes.php:136 inc/template-functions.php:101
 msgid "Sold Out"
-msgstr ""
+msgstr "Kehabisan Stok"
 
 #: inc/admin/meta-boxes.php:140 inc/template-functions.php:102
 msgid "Reprinting"
-msgstr ""
+msgstr "Dicetak Semula"
 
 #: inc/admin/meta-boxes.php:144 inc/template-functions.php:103
 msgid "Out of Print"
-msgstr ""
+msgstr "Tidak Lagi Dicetak"
 
 #: inc/admin/meta-boxes.php:151
 msgid "Price (RM)"
@@ -429,7 +430,7 @@ msgstr ""
 
 #: inc/admin/meta-boxes.php:156 single-book.php:288
 msgid "Language"
-msgstr ""
+msgstr "Bahasa"
 
 #: inc/admin/meta-boxes.php:163
 msgid "— Use site default —"
@@ -847,35 +848,35 @@ msgstr ""
 
 #: inc/book-fields.php:23
 msgid "Paperback"
-msgstr ""
+msgstr "Kulit Lembut"
 
 #: inc/book-fields.php:24
 msgid "Hardcover"
-msgstr ""
+msgstr "Kulit Keras"
 
 #: inc/book-fields.php:25
 msgid "E-book"
-msgstr ""
+msgstr "E-buku"
 
 #: inc/book-fields.php:26
 msgid "Audiobook"
-msgstr ""
+msgstr "Buku Audio"
 
 #: inc/book-fields.php:39
 msgid "Title & credits"
-msgstr ""
+msgstr "Tajuk & kredit"
 
 #: inc/book-fields.php:41
 msgid "Subtitle"
-msgstr ""
+msgstr "Tajuk kecil"
 
 #: inc/book-fields.php:42 inc/options-schema.php:325
 msgid "Original title"
-msgstr ""
+msgstr "Tajuk asal"
 
 #: inc/book-fields.php:42
 msgid "For translations: the title in the original language"
-msgstr ""
+msgstr "Untuk terjemahan: tajuk dalam bahasa asal"
 
 #: inc/book-fields.php:44 inc/options-schema.php:322
 msgid "Translator"
@@ -883,23 +884,23 @@ msgstr "Penterjemah"
 
 #: inc/book-fields.php:44 inc/book-fields.php:46 inc/book-fields.php:52
 msgid "Leave blank if not applicable"
-msgstr ""
+msgstr "Biarkan kosong jika tidak berkenaan"
 
 #: inc/book-fields.php:45 inc/options-schema.php:323
 msgid "Translated from"
-msgstr ""
+msgstr "Diterjemahkan daripada"
 
 #: inc/book-fields.php:45
 msgid "For example Arabic"
-msgstr ""
+msgstr "Contohnya bahasa Arab"
 
 #: inc/book-fields.php:46 inc/options-schema.php:324
 msgid "Editor"
-msgstr ""
+msgstr "Penyunting"
 
 #: inc/book-fields.php:50
 msgid "Publication"
-msgstr ""
+msgstr "Penerbitan"
 
 #: inc/book-fields.php:52 inc/options-schema.php:326
 msgid "Publisher"
@@ -907,44 +908,44 @@ msgstr "Penerbit"
 
 #: inc/book-fields.php:53
 msgid "Publication year"
-msgstr ""
+msgstr "Tahun terbitan"
 
 #: inc/book-fields.php:54 inc/options-schema.php:328
 msgid "Edition"
-msgstr ""
+msgstr "Edisi"
 
 #: inc/book-fields.php:54
 msgid "For example First edition"
-msgstr ""
+msgstr "Contohnya edisi pertama"
 
 #: inc/book-fields.php:55 inc/options-schema.php:329
 msgid "Series"
-msgstr ""
+msgstr "Siri"
 
 #: inc/book-fields.php:55
 msgid "Series name and volume"
-msgstr ""
+msgstr "Nama siri dan jilid"
 
 #: inc/book-fields.php:57
 msgid ""
 "The WorldCat number. Digits only; a prefix such as ocm or ocn is removed."
-msgstr ""
+msgstr "Nombor WorldCat. Angka sahaja; awalan seperti ocm atau ocn dibuang."
 
 #: inc/book-fields.php:61
 msgid "Physical details"
-msgstr ""
+msgstr "Butiran fizikal"
 
 #: inc/book-fields.php:65 inc/options-schema.php:332
 msgid "Size"
-msgstr ""
+msgstr "Saiz"
 
 #: inc/book-fields.php:65
 msgid "For example 14 × 21 cm"
-msgstr ""
+msgstr "Contohnya 14 × 21 cm"
 
 #: inc/book-fields.php:270
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: inc/breadcrumbs.php:31 inc/schema.php:162
 msgid "Home"
@@ -958,7 +959,7 @@ msgstr "Terbitan"
 #: inc/breadcrumbs.php:106
 #, php-format
 msgid "Search results for \"%s\""
-msgstr ""
+msgstr "Hasil carian untuk \"%s\""
 
 #: inc/breadcrumbs.php:111
 msgid "Page Not Found"
@@ -966,11 +967,11 @@ msgstr "Halaman Tidak Ditemui"
 
 #: inc/breadcrumbs.php:129
 msgid "Breadcrumb"
-msgstr ""
+msgstr "Jejak navigasi"
 
 #: inc/hrefmaster-integration.php:179
 msgid "HrefMaster detected"
-msgstr ""
+msgstr "HrefMaster dikesan"
 
 #. translators: %s: HrefMaster version number
 #: inc/hrefmaster-integration.php:184
@@ -984,10 +985,13 @@ msgid ""
 "theme automatically aligns Schema.org inLanguage and Open Graph og:locale "
 "with HrefMaster's per-page settings."
 msgstr ""
+"Pengurusan atribut hreflang dan lang HTML diserahkan kepada pemalam. Tema "
+"ini menyelaraskan Schema.org inLanguage dan Open Graph og:locale secara "
+"automatik dengan tetapan HrefMaster bagi setiap halaman."
 
 #: inc/meta-boxes.php:19 single-book.php:261
 msgid "Book Details"
-msgstr ""
+msgstr "Butiran Buku"
 
 #: inc/meta-boxes.php:34
 msgid "Contact Information"
@@ -1252,7 +1256,7 @@ msgstr ""
 
 #: inc/options-schema.php:175 inc/post-types.php:32
 msgid "View Books"
-msgstr ""
+msgstr "Lihat Buku"
 
 #: inc/options-schema.php:175
 msgid "Links to the publications archive."
@@ -1976,39 +1980,39 @@ msgstr "Buku"
 
 #: inc/post-types.php:22
 msgid "Book Archives"
-msgstr ""
+msgstr "Arkib Buku"
 
 #: inc/post-types.php:23
 msgid "Book Attributes"
-msgstr ""
+msgstr "Atribut Buku"
 
 #: inc/post-types.php:24
 msgid "Parent Book:"
-msgstr ""
+msgstr "Buku Induk:"
 
 #: inc/post-types.php:25
 msgid "All Books"
-msgstr ""
+msgstr "Semua Buku"
 
 #: inc/post-types.php:26
 msgid "Add New Book"
-msgstr ""
+msgstr "Tambah Buku Baharu"
 
 #: inc/post-types.php:27
 msgid "Add New"
-msgstr ""
+msgstr "Tambah Baharu"
 
 #: inc/post-types.php:28
 msgid "New Book"
-msgstr ""
+msgstr "Buku Baharu"
 
 #: inc/post-types.php:29
 msgid "Edit Book"
-msgstr ""
+msgstr "Sunting Buku"
 
 #: inc/post-types.php:30
 msgid "Update Book"
-msgstr ""
+msgstr "Kemas Kini Buku"
 
 #: inc/post-types.php:31 search.php:105
 msgid "View Book"
@@ -2016,390 +2020,396 @@ msgstr "Lihat Buku"
 
 #: inc/post-types.php:33
 msgid "Search Book"
-msgstr ""
+msgstr "Cari Buku"
 
 #: inc/post-types.php:34
 msgid "Not found"
-msgstr ""
+msgstr "Tidak ditemui"
 
 #: inc/post-types.php:35
 msgid "Not found in Trash"
-msgstr ""
+msgstr "Tidak ditemui dalam Tong Sampah"
 
 #: inc/post-types.php:36
 msgid "Book Cover"
-msgstr ""
+msgstr "Kulit Buku"
 
 #: inc/post-types.php:37
 msgid "Set book cover"
-msgstr ""
+msgstr "Tetapkan kulit buku"
 
 #: inc/post-types.php:38
 msgid "Remove book cover"
-msgstr ""
+msgstr "Buang kulit buku"
 
 #: inc/post-types.php:39
 msgid "Use as book cover"
-msgstr ""
+msgstr "Gunakan sebagai kulit buku"
 
 #: inc/post-types.php:40
 msgid "Insert into book"
-msgstr ""
+msgstr "Sisipkan ke dalam buku"
 
 #: inc/post-types.php:41
 msgid "Uploaded to this book"
-msgstr ""
+msgstr "Dimuat naik ke buku ini"
 
 #: inc/post-types.php:42
 msgid "Books list"
-msgstr ""
+msgstr "Senarai buku"
 
 #: inc/post-types.php:43
 msgid "Books list navigation"
-msgstr ""
+msgstr "Navigasi senarai buku"
 
 #: inc/post-types.php:44
 msgid "Filter books list"
-msgstr ""
+msgstr "Tapis senarai buku"
 
 #: inc/post-types.php:49
 msgid "Books published by Langgam Fikir"
-msgstr ""
+msgstr "Buku yang diterbitkan oleh Langgam Fikir"
 
 #: inc/post-types.php:80
 msgctxt "taxonomy general name"
 msgid "Book Categories"
-msgstr ""
+msgstr "Kategori Buku"
 
 #: inc/post-types.php:81
 msgctxt "taxonomy singular name"
 msgid "Book Category"
-msgstr ""
+msgstr "Kategori Buku"
 
 #: inc/post-types.php:82
 msgid "Search Book Categories"
-msgstr ""
+msgstr "Cari Kategori Buku"
 
 #: inc/post-types.php:83
 msgid "All Book Categories"
-msgstr ""
+msgstr "Semua Kategori Buku"
 
 #: inc/post-types.php:84
 msgid "Parent Book Category"
-msgstr ""
+msgstr "Kategori Buku Induk"
 
 #: inc/post-types.php:85
 msgid "Parent Book Category:"
-msgstr ""
+msgstr "Kategori Buku Induk:"
 
 #: inc/post-types.php:86
 msgid "Edit Book Category"
-msgstr ""
+msgstr "Sunting Kategori Buku"
 
 #: inc/post-types.php:87
 msgid "Update Book Category"
-msgstr ""
+msgstr "Kemas Kini Kategori Buku"
 
 #: inc/post-types.php:88
 msgid "Add New Book Category"
-msgstr ""
+msgstr "Tambah Kategori Buku Baharu"
 
 #: inc/post-types.php:89
 msgid "New Book Category Name"
-msgstr ""
+msgstr "Nama Kategori Buku Baharu"
 
 #: inc/post-types.php:90
 msgid "Book Categories"
-msgstr ""
+msgstr "Kategori Buku"
 
 #: inc/post-types.php:107
 msgctxt "taxonomy general name"
 msgid "Book Tags"
-msgstr ""
+msgstr "Tag Buku"
 
 #: inc/post-types.php:108
 msgctxt "taxonomy singular name"
 msgid "Book Tag"
-msgstr ""
+msgstr "Tag Buku"
 
 #: inc/post-types.php:109
 msgid "Search Book Tags"
-msgstr ""
+msgstr "Cari Tag Buku"
 
 #: inc/post-types.php:110
 msgid "Popular Book Tags"
-msgstr ""
+msgstr "Tag Buku Popular"
 
 #: inc/post-types.php:111
 msgid "All Book Tags"
-msgstr ""
+msgstr "Semua Tag Buku"
 
 #: inc/post-types.php:112
 msgid "Edit Book Tag"
-msgstr ""
+msgstr "Sunting Tag Buku"
 
 #: inc/post-types.php:113
 msgid "Update Book Tag"
-msgstr ""
+msgstr "Kemas Kini Tag Buku"
 
 #: inc/post-types.php:114
 msgid "Add New Book Tag"
-msgstr ""
+msgstr "Tambah Tag Buku Baharu"
 
 #: inc/post-types.php:115
 msgid "New Book Tag Name"
-msgstr ""
+msgstr "Nama Tag Buku Baharu"
 
 #: inc/post-types.php:116
 msgid "Separate book tags with commas"
-msgstr ""
+msgstr "Pisahkan tag buku dengan koma"
 
 #: inc/post-types.php:117
 msgid "Add or remove book tags"
-msgstr ""
+msgstr "Tambah atau buang tag buku"
 
 #: inc/post-types.php:118
 msgid "Choose from the most used book tags"
-msgstr ""
+msgstr "Pilih daripada tag buku yang paling kerap digunakan"
 
 #: inc/post-types.php:119
 msgid "Book Tags"
-msgstr ""
+msgstr "Tag Buku"
 
 #: inc/schema.php:236
 #, php-format
 msgid "Search: %s"
-msgstr ""
+msgstr "Carian: %s"
 
 #: inc/schema.php:242
 msgid "Page not found"
-msgstr ""
+msgstr "Halaman tidak ditemui"
 
 #: inc/schema.php:413
 msgid ""
 "Browse all publications by Langgam Fikir — theology, history, philosophy, "
 "and comparative religion."
 msgstr ""
+"Lihat semua terbitan Langgam Fikir — teologi, sejarah, falsafah dan "
+"perbandingan agama."
 
 #: inc/schema.php:415
 msgid "Resources, articles, and insights from Langgam Fikir."
-msgstr ""
+msgstr "Sumber, artikel dan wawasan daripada Langgam Fikir."
 
 #. translators: %s: term name
 #: inc/schema.php:421
 #, php-format
 msgid "Browse all content in %s."
-msgstr ""
+msgstr "Lihat semua kandungan dalam %s."
 
 #. translators: %s: search query
 #: inc/schema.php:428
 #, php-format
 msgid "Search results for \"%s\" on Langgam Fikir."
-msgstr ""
+msgstr "Hasil carian untuk \"%s\" di Langgam Fikir."
 
 #: inc/schema.php:479
 msgid "Browse all publications by Langgam Fikir."
-msgstr ""
+msgstr "Lihat semua terbitan Langgam Fikir."
 
 #: inc/schema.php:483
 msgid "Articles, interviews, and updates from Langgam Fikir."
-msgstr ""
+msgstr "Artikel, temu bual dan kemas kini daripada Langgam Fikir."
 
 #: inc/schema.php:716
 msgid "Publications — Langgam Fikir"
-msgstr ""
+msgstr "Terbitan — Langgam Fikir"
 
 #: inc/setup.php:33
 msgid "Primary Menu"
-msgstr ""
+msgstr "Menu Utama"
 
 #: inc/setup.php:34
 msgid "Footer Menu"
-msgstr ""
+msgstr "Menu Pengaki"
 
 #: inc/setup.php:35
 msgid "Footer Legal Menu"
-msgstr ""
+msgstr "Menu Undang-undang Pengaki"
 
 #. translators: %s: network name
 #: inc/social.php:100
 #, php-format
 msgid "Langgam Fikir on %s (opens in a new tab)"
-msgstr ""
+msgstr "Langgam Fikir di %s (dibuka dalam tab baharu)"
 
 #: inc/social.php:150
 msgid "Share this page"
-msgstr ""
+msgstr "Kongsi halaman ini"
 
 #. translators: %s: network name
 #: inc/social.php:158
 #, php-format
 msgid "Share on %s"
-msgstr ""
+msgstr "Kongsi di %s"
 
 #: inc/social.php:164
 msgid "Copy link"
-msgstr ""
+msgstr "Salin pautan"
 
 #: inc/social.php:166
 msgid "Copy Link"
-msgstr ""
+msgstr "Salin Pautan"
 
 #: inc/template-functions.php:36
 msgid ""
 "Book publisher of ideas that transcend borders—bringing critical, thought-"
 "provoking works to readers who seek truth."
 msgstr ""
+"Penerbit buku yang menyebarkan idea merentas sempadan—membawa karya kritis "
+"dan merangsang pemikiran kepada pembaca yang mencari kebenaran."
 
 #. translators: %s: contact form subject
 #: inc/template-functions.php:335
 #, php-format
 msgid "Contact Form: %s"
-msgstr ""
+msgstr "Borang Hubungan: %s"
 
 #: inc/template-functions.php:341
 msgid "Name:"
-msgstr ""
+msgstr "Nama:"
 
 #: inc/template-functions.php:343
 msgid "Email:"
-msgstr ""
+msgstr "Emel:"
 
 #: inc/template-functions.php:345
 msgid "Subject:"
-msgstr ""
+msgstr "Subjek:"
 
 #: inc/template-functions.php:347
 msgid "Message:"
-msgstr ""
+msgstr "Mesej:"
 
 #: inc/template-functions.php:579
 msgid "Malay (Malaysia)"
-msgstr ""
+msgstr "Melayu (Malaysia)"
 
 #: inc/template-functions.php:580
 msgid "English (United States)"
-msgstr ""
+msgstr "Inggeris (Amerika Syarikat)"
 
 #: inc/template-functions.php:581
 msgid "English (United Kingdom)"
-msgstr ""
+msgstr "Inggeris (United Kingdom)"
 
 #: inc/template-functions.php:582
 msgid "English"
-msgstr ""
+msgstr "Inggeris"
 
 #: inc/template-functions.php:583
 msgid "Arabic"
-msgstr ""
+msgstr "Arab"
 
 #: inc/template-functions.php:584
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonesia"
 
 #: inc/template-functions.php:585
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Cina (Ringkas)"
 
 #: inc/template-functions.php:586
 msgid "Chinese (Traditional)"
-msgstr ""
+msgstr "Cina (Tradisional)"
 
 #: inc/template-functions.php:587
 msgid "Japanese"
-msgstr ""
+msgstr "Jepun"
 
 #: inc/template-functions.php:588
 msgid "Korean"
-msgstr ""
+msgstr "Korea"
 
 #: inc/template-functions.php:589
 msgid "French"
-msgstr ""
+msgstr "Perancis"
 
 #: inc/template-functions.php:590
 msgid "German"
-msgstr ""
+msgstr "Jerman"
 
 #: inc/template-functions.php:591
 msgid "Spanish"
-msgstr ""
+msgstr "Sepanyol"
 
 #: inc/template-functions.php:592
 msgid "Portuguese (Brazil)"
-msgstr ""
+msgstr "Portugis (Brazil)"
 
 #: inc/template-functions.php:593
 msgid "Turkish"
-msgstr ""
+msgstr "Turki"
 
 #: inc/template-functions.php:594
 msgid "Urdu"
-msgstr ""
+msgstr "Urdu"
 
 #: inc/template-functions.php:595
 msgid "Persian"
-msgstr ""
+msgstr "Parsi"
 
 #: inc/template-functions.php:596
 msgid "Bengali"
-msgstr ""
+msgstr "Bengali"
 
 #: inc/template-functions.php:597
 msgid "Hindi"
-msgstr ""
+msgstr "Hindi"
 
 #: inc/template-functions.php:598
 msgid "Thai"
-msgstr ""
+msgstr "Thai"
 
 #: inc/template-functions.php:599
 msgid "Russian"
-msgstr ""
+msgstr "Rusia"
 
 #: inc/template-functions.php:600
 msgid "Latin"
-msgstr ""
+msgstr "Latin"
 
 #: inc/template-functions.php:601
 msgid "Hebrew"
-msgstr ""
+msgstr "Ibrani"
 
 #: inc/template-functions.php:602
 msgid "Greek"
-msgstr ""
+msgstr "Yunani"
 
 #. Template Name of the theme
 #: inc/template-hooks.php:55
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Dasar Privasi"
 
 #: inc/template-hooks.php:57
 msgid "Terms of Service"
-msgstr ""
+msgstr "Terma Perkhidmatan"
 
 #: inc/toc.php:157 page-privacy.php:26
 msgid "Contents"
-msgstr ""
+msgstr "Kandungan"
 
 #: inc/webmcp.php:260
 msgid "No publication with that slug."
-msgstr ""
+msgstr "Tiada terbitan dengan slug itu."
 
 #: index.php:48
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Hasil Carian bagi: %s"
 
 #: index.php:122
 msgid "Nothing found."
-msgstr ""
+msgstr "Tiada apa-apa ditemui."
 
 #: page-contact.php:76
 msgid ""
 "Compose a message to the publisher. Fill in the fields; the visitor reviews "
 "and sends it."
 msgstr ""
+"Karang mesej kepada penerbit. Isikan medan; pelawat menyemak dan "
+"menghantarnya."
 
 #: page-contact.php:81 template-parts/content/author-bio.php:66
 msgid "Website"
@@ -2407,23 +2417,23 @@ msgstr "Laman web"
 
 #: page-contact.php:82
 msgid "Leave this field empty."
-msgstr ""
+msgstr "Biarkan medan ini kosong."
 
 #: page-contact.php:91
 msgid "The sender's full name."
-msgstr ""
+msgstr "Nama penuh penghantar."
 
 #: page-contact.php:99
 msgid "The sender's email address for the reply."
-msgstr ""
+msgstr "Alamat emel penghantar untuk balasan."
 
 #: page-contact.php:109
 msgid "Short subject line for the message."
-msgstr ""
+msgstr "Baris subjek ringkas untuk mesej."
 
 #: page-contact.php:117
 msgid "The message body."
-msgstr ""
+msgstr "Isi mesej."
 
 #: page.php:41 single.php:109
 msgid "Pages:"
@@ -2433,15 +2443,14 @@ msgstr "Halaman:"
 #: search.php:24
 #, php-format
 msgid "Search results for: %s"
-msgstr ""
+msgstr "Hasil carian bagi: %s"
 
 #. translators: %s: number of results
 #: search.php:41
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s hasil ditemui"
 
 #: search.php:78
 msgid "Page"
@@ -2460,107 +2469,114 @@ msgid ""
 "No results matched your search. Try different keywords or browse our "
 "catalogue."
 msgstr ""
+"Tiada hasil sepadan dengan carian anda. Cuba kata kunci lain atau layari "
+"katalog kami."
 
 #. translators: 1: average rating, 2: review count
 #: single-book.php:248
 #, php-format
 msgid "%1$s (%2$d reviews)"
-msgstr ""
+msgstr "%1$s (%2$d ulasan)"
 
 #: single-book.php:270
 msgid "(opens WorldCat in a new tab)"
-msgstr ""
+msgstr "(membuka WorldCat dalam tab baharu)"
 
 #: single-book.php:315
 msgid "Price"
-msgstr ""
+msgstr "Harga"
 
 #: single-book.php:322
 msgid "About the Book"
-msgstr ""
+msgstr "Tentang Buku"
 
 #: single-book.php:338
 msgid "Order This Book"
-msgstr ""
+msgstr "Tempah Buku Ini"
 
 #: single-book.php:341
 msgid "Decrease quantity"
-msgstr ""
+msgstr "Kurangkan kuantiti"
 
 #: single-book.php:342
 msgid "Quantity"
-msgstr ""
+msgstr "Kuantiti"
 
 #: single-book.php:343
 msgid "Increase quantity"
-msgstr ""
+msgstr "Tambah kuantiti"
 
 #: single-book.php:350
 msgid "PRE-ORDER NOW"
-msgstr ""
+msgstr "TEMPAH AWAL SEKARANG"
 
 #: single-book.php:352
 msgid "ADD TO CART"
-msgstr ""
+msgstr "TAMBAH KE TROLI"
 
 #: single-book.php:372
 msgid "PRE-ORDER"
-msgstr ""
+msgstr "TEMPAH AWAL"
 
 #: single-book.php:374
 msgid "ORDER"
-msgstr ""
+msgstr "TEMPAH"
 
 #: single-book.php:382
 msgid "This title has been announced. Stay tuned for further details."
-msgstr ""
+msgstr "Tajuk ini telah diumumkan. Nantikan butiran lanjut."
 
 #: single-book.php:386
 msgid "This book is coming soon. Check back later for availability."
 msgstr ""
+"Buku ini akan datang. Semak semula kemudian untuk mengetahui "
+"ketersediaannya."
 
 #: single-book.php:390
 msgid ""
 "This book is currently sold out. Check back for updates on availability."
 msgstr ""
+"Buku ini kini kehabisan stok. Semak semula untuk mendapatkan maklumat "
+"ketersediaan terkini."
 
 #: single-book.php:394
 msgid ""
 "This book is currently being reprinted. It will be available again soon."
 msgstr ""
+"Buku ini sedang dicetak semula. Buku ini akan tersedia semula tidak lama "
+"lagi."
 
 #: single-book.php:398
 msgid "This book is currently out of print."
-msgstr ""
+msgstr "Buku ini kini tidak lagi dicetak."
 
 #: single-book.php:463
 msgid "You May Also Like"
-msgstr ""
+msgstr "Anda Mungkin Menyukai"
 
 #: single.php:64
 #, php-format
 msgid "%d min read"
 msgid_plural "%d min read"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d min bacaan"
 
 #. translators: %s: last-updated date
 #: single.php:81
 #, php-format
 msgid "Updated %s"
-msgstr ""
+msgstr "Dikemas kini %s"
 
 #: single.php:132
 msgid "Tags"
-msgstr ""
+msgstr "Tag"
 
 #: single.php:152
 msgid "Previous Article"
-msgstr ""
+msgstr "Artikel Sebelumnya"
 
 #: single.php:161
 msgid "Next Article"
-msgstr ""
+msgstr "Artikel Seterusnya"
 
 #: single.php:189
 msgid "Related Articles"
@@ -2578,7 +2594,7 @@ msgstr "Lihat Semua Buku"
 #: taxonomy-book-tag.php:23
 #, php-format
 msgid "Tagged: %s"
-msgstr ""
+msgstr "Bertag: %s"
 
 #: taxonomy-book-tag.php:62
 msgid "No books found with this tag."
@@ -2587,13 +2603,13 @@ msgstr "Tiada buku ditemui dengan tag ini."
 #: template-parts/content/author-bio.php:32
 #: template-parts/content/author-bio.php:43
 msgid "About the author"
-msgstr ""
+msgstr "Tentang penulis"
 
 #. translators: %s: author display name
 #: template-parts/content/author-bio.php:58
 #, php-format
 msgid "View all posts by %s"
-msgstr ""
+msgstr "Lihat semua catatan oleh %s"
 
 #: template-parts/content/book-card.php:57
 #, php-format
@@ -2607,35 +2623,34 @@ msgstr "Tahun: %s"
 
 #: template-parts/content/faq-section.php:33
 msgid "Frequently Asked Questions"
-msgstr ""
+msgstr "Soalan Lazim"
 
 #: template-parts/content/reviews-section.php:34
 msgid "Reviews"
-msgstr ""
+msgstr "Ulasan"
 
 #: template-parts/content/reviews-section.php:38
 msgid "Average rating"
-msgstr ""
+msgstr "Purata penilaian"
 
 #. translators: %d: total number of reviews
 #: template-parts/content/reviews-section.php:47
 #, php-format
 msgid "Based on %d review"
 msgid_plural "Based on %d reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Berdasarkan %d ulasan"
 
 #. translators: 1: rating, 2: count
 #: template-parts/content/reviews-section.php:56
 #, php-format
 msgid "Average rating %1$s out of 5 based on %2$d reviews"
-msgstr ""
+msgstr "Purata penilaian %1$s daripada 5 berdasarkan %2$d ulasan"
 
 #. translators: %d: rating value
 #: template-parts/content/reviews-section.php:74
 #, php-format
 msgid "%d out of 5 stars"
-msgstr ""
+msgstr "%d daripada 5 bintang"
 
 #~ msgid "Back to Homepage"
 #~ msgstr "Kembali ke Laman Utama"
