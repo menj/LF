@@ -11,6 +11,87 @@ get_header();
 <main id="primary" class="site-main" tabindex="-1">
 
 <!-- Hero Section -->
+<?php
+$hero_layout  = (string) langgam_fikir_get_option( 'hero_layout' );
+$about_url    = get_permalink( get_page_by_path( 'about-langgam-fikir' ) );
+$hero_upload  = (int) langgam_fikir_get_option( 'hero_background_image' );
+$hero_photo_s = $hero_upload ? null : langgam_fikir_hero_photo_urls();
+if ( 'banner' !== $hero_layout ) :
+    ?>
+<section class="hero hero--split">
+    <div class="container hero-split-grid">
+        <div class="hero-split-text">
+            <h1><?php echo esc_html( langgam_fikir_text( 'hero_heading' ) ); ?></h1>
+            <p class="hero-lead"><?php echo esc_html( langgam_fikir_get_option( 'hero_text' ) ); ?></p>
+            <div class="hero-buttons">
+                <a href="<?php echo esc_url( get_post_type_archive_link( 'book' ) ); ?>" class="btn btn-solid">
+                    <?php echo esc_html( langgam_fikir_text( 'hero_primary_label' ) ); ?>
+                </a>
+                <a href="<?php echo esc_url( $about_url ); ?>" class="hero-link">
+                    <?php echo esc_html( langgam_fikir_text( 'hero_secondary_label' ) ); ?>
+                    <span aria-hidden="true">&rarr;</span>
+                    <span class="screen-reader-text"><?php
+                        /* translators: %s: site name */
+                        printf( esc_html__( 'about %s', 'langgam-fikir' ), esc_html( get_bloginfo( 'name' ) ) );
+                    ?></span>
+                </a>
+            </div>
+        </div>
+        <?php
+        $hero_covers = array();
+        if ( 'photo' !== langgam_fikir_get_option( 'hero_visual' ) ) {
+            $cover_query = new WP_Query( array(
+                'post_type'           => 'book',
+                'posts_per_page'      => 6,
+                'orderby'             => 'date',
+                'order'               => 'DESC',
+                'no_found_rows'       => true,
+                'ignore_sticky_posts' => true,
+                'meta_query'          => array( array( 'key' => '_thumbnail_id', 'compare' => 'EXISTS' ) ),
+            ) );
+            foreach ( $cover_query->posts as $cover_post ) {
+                $hero_covers[] = $cover_post;
+            }
+            wp_reset_postdata();
+            if ( count( $hero_covers ) < 3 ) {
+                $hero_covers = array();
+            }
+        }
+        if ( $hero_covers ) :
+            ?>
+            <div class="hero-split-media hero-covers">
+                <?php foreach ( $hero_covers as $i => $cover_post ) : ?>
+                    <a class="hero-cover hero-cover--<?php echo (int) ( $i + 1 ); ?>" href="<?php echo esc_url( get_permalink( $cover_post ) ); ?>">
+                        <?php
+                        echo get_the_post_thumbnail( $cover_post, 'medium', array(
+                            'alt'           => esc_attr( get_the_title( $cover_post ) ),
+                            'loading'       => 0 === $i ? 'eager' : 'lazy',
+                            'fetchpriority' => 0 === $i ? 'high' : 'auto',
+                        ) );
+                        ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        <?php elseif ( $hero_upload || $hero_photo_s ) : ?>
+            <div class="hero-split-media">
+                <?php
+                if ( $hero_upload ) {
+                    // The LCP element: never lazy, high priority.
+                    echo wp_get_attachment_image( $hero_upload, 'large', false, array(
+                        'class'         => 'hero-split-img',
+                        'alt'           => '',
+                        'loading'       => 'eager',
+                        'fetchpriority' => 'high',
+                    ) );
+                } else {
+                    ?>
+                    <img class="hero-split-img" src="<?php echo esc_url( $hero_photo_s['small'] ); ?>" srcset="<?php echo esc_url( $hero_photo_s['small'] ); ?> 960w, <?php echo esc_url( $hero_photo_s['full'] ); ?> 1920w" sizes="(min-width: 900px) 50vw, 100vw" alt="" loading="eager" fetchpriority="high" decoding="async" />
+                <?php } ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>
+<?php else : ?>
 <section class="hero">
     <?php
     $hero_bg_id = langgam_fikir_get_option( 'hero_background_image' );
@@ -48,6 +129,37 @@ get_header();
         </div>
     </div>
 </section>
+<?php endif; ?>
+
+<?php if ( langgam_fikir_get_option( 'highlights_enabled' ) ) :
+    $highlight_icons = array(
+        1 => '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+        2 => '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+        3 => '<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+    );
+    $highlights = array();
+    foreach ( $highlight_icons as $n => $icon ) {
+        $label = langgam_fikir_text( 'highlight_' . $n );
+        if ( '' !== trim( (string) $label ) ) {
+            $highlights[] = array( 'icon' => $icon, 'label' => $label );
+        }
+    }
+    if ( $highlights ) :
+        ?>
+<!-- Highlights Strip -->
+<section class="lf-highlights" aria-label="<?php esc_attr_e( 'Highlights', 'langgam-fikir' ); ?>">
+    <div class="container">
+        <ul class="lf-highlights-inner">
+            <?php foreach ( $highlights as $item ) : ?>
+                <li class="lf-highlight">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><?php echo $item['icon']; // phpcs:ignore WordPress.Security.EscapeOutput -- static markup above ?></svg>
+                    <span><?php echo esc_html( $item['label'] ); ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+    <?php endif; endif; ?>
 
 <!-- About Snippet Section -->
 <section class="about-snippet">

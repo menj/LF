@@ -13,6 +13,23 @@
 /*--------------------------------------------------------------
 # Light palettes (keep the colours in sync with langgam_fikir_color_schemes())
 --------------------------------------------------------------*/
+body.lf-scheme-folio {
+    --color-primary: #5A1F2A;
+    --color-secondary: #4D6A52;
+    --color-accent: #C79A3B;
+    --color-accent-dark: #A47C27;
+    --color-text: #2A2118;
+    --color-text-light: #5E5246;
+    --color-text-muted: #7E7164;
+    --color-bg-primary: #F4EDE0;
+    --color-bg-secondary: #E8E6D8;
+    --color-bg-muted: #DAD7C6;
+    --color-bg-tint: #E8E6D8;
+    --color-bg-hero: #5A1F2A;
+    --color-border: #DDD2BE;
+    --color-on-accent: #2A2118;
+}
+
 body.lf-scheme-slate {
     --color-primary: #2E3A46;
     --color-secondary: #5F7F93;
@@ -148,4 +165,221 @@ body.lf-tagline-heading .tagline {
         transform: none;
         will-change: auto;
     }
+}
+
+
+/*--------------------------------------------------------------
+# Folio layer: section headings, split hero, highlights strip (2.12.0)
+# Layout only; colours come from the palette variables above.
+--------------------------------------------------------------*/
+
+/* Section headings: left-aligned, a short brass rule above (replaces the centred underline) */
+.section-header-centered {
+    text-align: left;
+}
+
+.section-header-title {
+    display: block;
+    padding-bottom: 0;
+}
+
+.section-header-title::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    margin-bottom: var(--spacing-md);
+    background: var(--color-accent);
+}
+
+.section-header-title::after,
+.revealed .section-header-title::after,
+.section-header-centered.revealed .section-header-title::after {
+    display: none;
+}
+
+.section-header-subtitle {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 38rem;
+}
+
+/* Solid button in the heading colour */
+.btn-solid {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-on-hero);
+}
+
+.btn-solid:hover,
+.btn-solid:focus-visible {
+    background-color: color-mix(in srgb, var(--color-primary) 82%, #000);
+    border-color: color-mix(in srgb, var(--color-primary) 82%, #000);
+    color: var(--color-on-hero);
+}
+
+/* Split hero: text beside a rounded photo */
+.hero.hero--split {
+    background: transparent;
+    color: var(--color-text);
+    text-align: left;
+    overflow: visible;
+    padding: var(--spacing-xl) 0;
+}
+
+.hero-split-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.hero.hero--split h1 {
+    font-family: var(--font-primary) !important;
+    font-style: normal;
+    font-weight: 600 !important;
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    line-height: 1.06;
+    color: var(--color-primary) !important;
+    margin: 0 0 var(--spacing-md);
+}
+
+.hero.hero--split h1::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    margin-bottom: var(--spacing-md);
+    background: var(--color-accent);
+}
+
+.hero-lead {
+    font-family: var(--font-reading);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+    max-width: 34rem;
+    margin: 0 0 var(--spacing-lg);
+}
+
+.hero.hero--split .hero-buttons {
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.hero-link {
+    color: var(--color-text);
+    font-family: var(--font-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+}
+
+.hero-link:hover,
+.hero-link:focus-visible {
+    color: var(--color-primary);
+}
+
+.hero-split-media {
+    margin: 0;
+}
+
+.hero-split-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3.2;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 28px 48px -28px color-mix(in srgb, var(--color-primary) 55%, transparent);
+}
+
+@media (max-width: 899px) {
+    .hero-split-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Highlights strip under the hero */
+.lf-highlights {
+    padding: 0 0 var(--spacing-xl);
+}
+
+.lf-highlights-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 1.75rem 0.5rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.lf-highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1.25rem;
+    text-align: center;
+    font-family: var(--font-secondary);
+    color: var(--color-text);
+}
+
+.lf-highlight svg {
+    color: var(--color-primary);
+}
+
+.lf-highlight + .lf-highlight {
+    border-left: 1px solid var(--color-border);
+}
+
+@media (max-width: 699px) {
+    .lf-highlight + .lf-highlight {
+        border-left: 0;
+        border-top: 1px solid var(--color-border);
+        margin-top: 0.75rem;
+        padding-top: 1.25rem;
+    }
+}
+
+/* Floating covers: the latest covers scattered and tilted, each with a soft shadow */
+.hero-covers {
+    position: relative;
+    aspect-ratio: 1 / 0.95;
+}
+
+.hero-cover {
+    position: absolute;
+    display: block;
+    width: 28%;
+    line-height: 0;
+    transition: transform 0.35s ease, z-index 0s;
+}
+
+.hero-cover img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 22px 26px -12px rgba(30, 18, 10, 0.5), 0 2px 5px rgba(30, 18, 10, 0.25);
+}
+
+.hero-cover:hover,
+.hero-cover:focus-visible {
+    transform: translateY(-8px) rotate(0deg) !important;
+    z-index: 5;
+}
+
+.hero-cover--1 { left: 2%;  top: 16%; transform: rotate(-6deg); }
+.hero-cover--2 { left: 28%; top: 0;   transform: rotate(4deg); }
+.hero-cover--3 { left: 58%; top: 10%; transform: rotate(-3deg); }
+.hero-cover--4 { left: 12%; top: 50%; transform: rotate(5deg); }
+.hero-cover--5 { left: 42%; top: 42%; transform: rotate(-4deg); width: 30%; }
+.hero-cover--6 { left: 72%; top: 48%; transform: rotate(6deg); width: 24%; }
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-cover { transition: none; }
 }
