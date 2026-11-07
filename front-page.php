@@ -10,6 +10,23 @@ get_header();
 
 <main id="primary" class="site-main" tabindex="-1">
 
+<?php
+$announce_text = trim( (string) langgam_fikir_text( 'announce_text' ) );
+if ( langgam_fikir_get_option( 'announce_enabled' ) && '' !== $announce_text ) :
+    $announce_url   = langgam_fikir_get_option( 'announce_url' );
+    $announce_label = trim( (string) langgam_fikir_text( 'announce_label' ) );
+    ?>
+<aside class="container lf-announce-wrap" aria-label="<?php esc_attr_e( 'Announcement', 'langgam-fikir' ); ?>">
+    <div class="lf-announce">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <span class="lf-announce-text"><?php echo esc_html( $announce_text ); ?></span>
+        <?php if ( $announce_url && '' !== $announce_label ) : ?>
+            <a class="lf-announce-link" href="<?php echo esc_url( $announce_url ); ?>"><?php echo esc_html( $announce_label ); ?></a>
+        <?php endif; ?>
+    </div>
+</aside>
+<?php endif; ?>
+
 <!-- Hero Section -->
 <?php
 $hero_layout  = (string) langgam_fikir_get_option( 'hero_layout' );

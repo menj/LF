@@ -192,6 +192,16 @@ function langgam_fikir_extra_options_schema() {
                     ),
                 ),
                 array(
+                    'title'  => __( 'Announcement Bar', 'langgam-fikir' ),
+                    'desc'   => __( 'A slim notice above the hero, for an event, launch or sale. Off by default; hidden when the text is empty.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'announce_enabled' => $f( 'checkbox', __( 'Show the announcement bar', 'langgam-fikir' ), 0 ),
+                        'announce_text'    => $f( 'text', __( 'Announcement text', 'langgam-fikir' ), __( 'Special event: join us for our next book launch.', 'langgam-fikir' ), '', array( 'allow_empty' => true ) ),
+                        'announce_label'   => $f( 'text', __( 'Link text', 'langgam-fikir' ), __( 'Learn More', 'langgam-fikir' ), __( 'Empty hides the link.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                        'announce_url'     => $f( 'url', __( 'Link address', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                    ),
+                ),
+                array(
                     'title'  => __( 'Highlights Strip', 'langgam-fikir' ),
                     'desc'   => __( 'Three short facts in a band under the hero. Empty ones are hidden.', 'langgam-fikir' ),
                     'fields' => array(

@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Split hero**: heading and text beside a rounded photo, with the hero picture either the latest book covers scattered and tilted (default, falls back to the photo until three books have covers) or a photo. The full-width banner hero stays as an option. New Theme Options: Hero layout, Hero heading, Hero picture.
 - **Large faint site name** behind the hero and under the footer (Theme Options > Homepage; on by default).
 - **Publications carousel**: Latest Publications becomes a swipeable snap row with previous and next buttons (a Grid layout stays available). Works without JavaScript by swiping, scrolling or keyboard.
+- **Announcement bar** above the homepage hero (star, text, link): off by default, editable in Theme Options > Homepage.
+- **Publications archive** restyled: centred title, a rounded search pill that searches books, and a cover-first grid (cover with soft shadow, title, author, price; no card chrome).
 - **Highlights strip** under the hero: three short facts with icons, editable or hideable in Theme Options > Homepage.
 
 ### Changed
