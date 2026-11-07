@@ -43,6 +43,11 @@ function langgam_fikir_hero_photos() {
  */
 function langgam_fikir_color_schemes() {
     return array(
+        'folio' => array(
+            'label'  => __( 'Folio', 'langgam-fikir' ),
+            'note'   => __( 'Cream, oxblood and sage with brass. Bookish and warm.', 'langgam-fikir' ),
+            'colors' => array( '#5A1F2A', '#C79A3B', '#E8E6D8', '#F4EDE0' ),
+        ),
         'earth' => array(
             'label'  => __( 'Earth', 'langgam-fikir' ),
             'note'   => __( 'Warm browns and gold. The original look.', 'langgam-fikir' ),
@@ -101,7 +106,7 @@ function langgam_fikir_extra_options_schema() {
                     'title'  => __( 'Colour Palette', 'langgam-fikir' ),
                     'desc'   => __( 'Pick a light palette, then optionally override individual colours. Dark mode is not offered.', 'langgam-fikir' ),
                     'fields' => array(
-                        'color_scheme'     => $f( 'scheme', __( 'Palette', 'langgam-fikir' ), 'earth' ),
+                        'color_scheme'     => $f( 'scheme', __( 'Palette', 'langgam-fikir' ), 'folio' ),
                         'color_primary'    => $f( 'color', __( 'Headings and hero', 'langgam-fikir' ), '', __( 'Optional. Empty uses the palette.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
                         'color_accent'     => $f( 'color', __( 'Accent', 'langgam-fikir' ), '', __( 'Buttons, highlights and badges. Empty uses the palette.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
                         'color_background' => $f( 'color', __( 'Page background', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
@@ -165,6 +170,18 @@ function langgam_fikir_extra_options_schema() {
                     'title'  => __( 'Hero Photo and Buttons', 'langgam-fikir' ),
                     'desc'   => __( 'A photograph behind the hero statement, tinted with your colours, with a parallax effect. A picture chosen under Hero Background Image above overrides it. Photos are from Pexels.', 'langgam-fikir' ),
                     'fields' => array(
+                        'hero_layout'          => $f( 'select', __( 'Hero layout', 'langgam-fikir' ), 'split', __( 'Split puts the heading and text beside the picture. Banner puts the statement over a full-width photo. Card puts a white card with the heading and buttons over the photo.', 'langgam-fikir' ), array( 'choices' => array(
+                            'split'  => __( 'Split (text beside a photo)', 'langgam-fikir' ),
+                            'banner' => __( 'Banner (text over a full-width photo)', 'langgam-fikir' ),
+                            'card'   => __( 'Card (white card over a full-width photo)', 'langgam-fikir' ),
+                        ) ) ),
+                        'hero_visual'          => $f( 'select', __( 'Hero picture (Split layout)', 'langgam-fikir' ), 'covers', __( 'Covers scatters your latest book covers; it falls back to the photo until at least three books have a cover image.', 'langgam-fikir' ), array( 'choices' => array(
+                            'covers' => __( 'Floating book covers', 'langgam-fikir' ),
+                            'photo'  => __( 'Photo', 'langgam-fikir' ),
+                        ) ) ),
+                        'ghost_wordmark'       => $f( 'checkbox', __( 'Large faint site name behind the hero and in the footer', 'langgam-fikir' ), 1 ),
+                        'hero_eyebrow'         => $f( 'text', __( 'Hero eyebrow (Split and Card layouts)', 'langgam-fikir' ), __( 'Independent publisher · Since 2015', 'langgam-fikir' ), __( 'A small line above the heading. Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                        'hero_heading'         => $f( 'text', __( 'Hero heading (Split layout)', 'langgam-fikir' ), __( 'Books that cross borders.', 'langgam-fikir' ), __( 'The large heading. The Hero Text above becomes the paragraph under it.', 'langgam-fikir' ) ),
                         'hero_photo'           => $f( 'select', __( 'Hero photo', 'langgam-fikir' ), 'library-corridor', '', array( 'choices' => array_merge(
                             langgam_fikir_hero_photos(),
                             array(
@@ -174,6 +191,49 @@ function langgam_fikir_extra_options_schema() {
                         ) ) ),
                         'hero_primary_label'   => $f( 'text', __( 'First button', 'langgam-fikir' ), __( 'View Books', 'langgam-fikir' ), __( 'Links to the publications archive.', 'langgam-fikir' ) ),
                         'hero_secondary_label' => $f( 'text', __( 'Second button', 'langgam-fikir' ), __( 'Learn More', 'langgam-fikir' ), __( 'Links to the About page.', 'langgam-fikir' ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Announcement Bar', 'langgam-fikir' ),
+                    'desc'   => __( 'A slim notice above the hero, for an event, launch or sale. Off by default; hidden when the text is empty.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'announce_enabled' => $f( 'checkbox', __( 'Show the announcement bar', 'langgam-fikir' ), 0 ),
+                        'announce_text'    => $f( 'text', __( 'Announcement text', 'langgam-fikir' ), __( 'Special event: join us for our next book launch.', 'langgam-fikir' ), '', array( 'allow_empty' => true ) ),
+                        'announce_label'   => $f( 'text', __( 'Link text', 'langgam-fikir' ), __( 'Learn More', 'langgam-fikir' ), __( 'Empty hides the link.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                        'announce_url'     => $f( 'url', __( 'Link address', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Header Button', 'langgam-fikir' ),
+                    'desc'   => __( 'An optional button at the right of the menu, for example "Submit a manuscript". Hidden when the text or the address is empty.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'header_cta_label' => $f( 'text', __( 'Button text', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                        'header_cta_url'   => $f( 'url', __( 'Button address', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Call-to-action Band', 'langgam-fikir' ),
+                    'desc'   => __( 'A full-width band in the heading colour with a short pitch, up to three points and a button. Off by default.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'cta_enabled'      => $f( 'checkbox', __( 'Show the band', 'langgam-fikir' ), 0 ),
+                        'cta_eyebrow'      => $f( 'text', __( 'Eyebrow', 'langgam-fikir' ), __( 'Work with us', 'langgam-fikir' ), '', array( 'allow_empty' => true ) ),
+                        'cta_heading'      => $f( 'text', __( 'Heading', 'langgam-fikir' ), __( 'Have a manuscript that deserves a readership?', 'langgam-fikir' ) ),
+                        'cta_text'         => $f( 'textarea', __( 'Text', 'langgam-fikir' ), __( 'We publish few books so that we can give each one our full attention.', 'langgam-fikir' ) ),
+                        'cta_point_1'      => $f( 'text', __( 'Point 1', 'langgam-fikir' ), __( 'Careful editorial partnership', 'langgam-fikir' ), '', array( 'allow_empty' => true ) ),
+                        'cta_point_2'      => $f( 'text', __( 'Point 2', 'langgam-fikir' ), __( 'Thoughtful, unhurried design', 'langgam-fikir' ), '', array( 'allow_empty' => true ) ),
+                        'cta_point_3'      => $f( 'text', __( 'Point 3', 'langgam-fikir' ), __( 'Honest advocacy for every author', 'langgam-fikir' ), '', array( 'allow_empty' => true ) ),
+                        'cta_button_label' => $f( 'text', __( 'Button text', 'langgam-fikir' ), __( 'Get in touch', 'langgam-fikir' ) ),
+                        'cta_button_url'   => $f( 'url', __( 'Button address', 'langgam-fikir' ), '', __( 'Empty links to the Contact page.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Highlights Strip', 'langgam-fikir' ),
+                    'desc'   => __( 'Three short facts in a band under the hero. Empty ones are hidden.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'highlights_enabled' => $f( 'checkbox', __( 'Show the highlights strip', 'langgam-fikir' ), 1 ),
+                        'highlight_1'        => $f( 'text', __( 'Highlight 1', 'langgam-fikir' ), __( 'Independent Malaysian publisher', 'langgam-fikir' ), '', array( 'allow_empty' => true ) ),
+                        'highlight_2'        => $f( 'text', __( 'Highlight 2', 'langgam-fikir' ), __( 'Translations and original works', 'langgam-fikir' ), '', array( 'allow_empty' => true ) ),
+                        'highlight_3'        => $f( 'text', __( 'Highlight 3', 'langgam-fikir' ), __( 'Publishing since 2015', 'langgam-fikir' ), '', array( 'allow_empty' => true ) ),
                     ),
                 ),
                 array(
@@ -193,6 +253,10 @@ function langgam_fikir_extra_options_schema() {
                         'books_subtitle'     => $f( 'textarea', __( 'Publications subtitle', 'langgam-fikir' ), __( 'Our newest releases, representing the finest in contemporary thought and literature.', 'langgam-fikir' ) ),
                         'resources_heading'  => $f( 'text', __( 'Resources heading', 'langgam-fikir' ), __( 'Resources & Insights', 'langgam-fikir' ) ),
                         'resources_subtitle' => $f( 'textarea', __( 'Resources subtitle', 'langgam-fikir' ), __( 'Articles, interviews, and updates from the world of Langgam Fikir.', 'langgam-fikir' ) ),
+                        'books_layout'       => $f( 'select', __( 'Publications layout', 'langgam-fikir' ), 'carousel', __( 'Carousel is a swipeable row with previous and next buttons; Grid wraps the books into rows.', 'langgam-fikir' ), array( 'choices' => array(
+                            'carousel' => __( 'Carousel (swipeable row)', 'langgam-fikir' ),
+                            'grid'     => __( 'Grid', 'langgam-fikir' ),
+                        ) ) ),
                         'view_more_label'    => $f( 'text', __( '"View more" button', 'langgam-fikir' ), __( 'VIEW MORE', 'langgam-fikir' ) ),
                     ),
                 ),

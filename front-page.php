@@ -10,8 +10,113 @@ get_header();
 
 <main id="primary" class="site-main" tabindex="-1">
 
+<?php
+$announce_text = trim( (string) langgam_fikir_text( 'announce_text' ) );
+if ( langgam_fikir_get_option( 'announce_enabled' ) && '' !== $announce_text ) :
+    $announce_url   = langgam_fikir_get_option( 'announce_url' );
+    $announce_label = trim( (string) langgam_fikir_text( 'announce_label' ) );
+    ?>
+<aside class="container lf-announce-wrap" aria-label="<?php esc_attr_e( 'Announcement', 'langgam-fikir' ); ?>">
+    <div class="lf-announce">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <span class="lf-announce-text"><?php echo esc_html( $announce_text ); ?></span>
+        <?php if ( $announce_url && '' !== $announce_label ) : ?>
+            <a class="lf-announce-link" href="<?php echo esc_url( $announce_url ); ?>"><?php echo esc_html( $announce_label ); ?></a>
+        <?php endif; ?>
+    </div>
+</aside>
+<?php endif; ?>
+
 <!-- Hero Section -->
-<section class="hero">
+<?php
+$hero_layout  = (string) langgam_fikir_get_option( 'hero_layout' );
+$about_url    = get_permalink( get_page_by_path( 'about-langgam-fikir' ) );
+$hero_upload  = (int) langgam_fikir_get_option( 'hero_background_image' );
+$hero_photo_s = $hero_upload ? null : langgam_fikir_hero_photo_urls();
+if ( ! in_array( $hero_layout, array( 'banner', 'card' ), true ) ) :
+    ?>
+<section class="hero hero--split">
+    <?php if ( langgam_fikir_get_option( 'ghost_wordmark' ) ) : ?>
+        <span class="lf-wordmark" aria-hidden="true"><?php bloginfo( 'name' ); ?></span>
+    <?php endif; ?>
+    <div class="container hero-split-grid">
+        <div class="hero-split-text">
+            <?php $hero_eyebrow = trim( (string) langgam_fikir_text( 'hero_eyebrow' ) ); ?>
+            <?php if ( '' !== $hero_eyebrow ) : ?>
+                <p class="hero-eyebrow"><?php echo esc_html( $hero_eyebrow ); ?></p>
+            <?php endif; ?>
+            <h1><?php echo esc_html( langgam_fikir_text( 'hero_heading' ) ); ?></h1>
+            <p class="hero-lead"><?php echo esc_html( langgam_fikir_get_option( 'hero_text' ) ); ?></p>
+            <div class="hero-buttons">
+                <a href="<?php echo esc_url( get_post_type_archive_link( 'book' ) ); ?>" class="btn btn-solid">
+                    <?php echo esc_html( langgam_fikir_text( 'hero_primary_label' ) ); ?>
+                </a>
+                <a href="<?php echo esc_url( $about_url ); ?>" class="hero-link">
+                    <?php echo esc_html( langgam_fikir_text( 'hero_secondary_label' ) ); ?>
+                    <span aria-hidden="true">&rarr;</span>
+                    <span class="screen-reader-text"><?php
+                        /* translators: %s: site name */
+                        printf( esc_html__( 'about %s', 'langgam-fikir' ), esc_html( get_bloginfo( 'name' ) ) );
+                    ?></span>
+                </a>
+            </div>
+        </div>
+        <?php
+        $hero_covers = array();
+        if ( 'photo' !== langgam_fikir_get_option( 'hero_visual' ) ) {
+            $cover_query = new WP_Query( array(
+                'post_type'           => 'book',
+                'posts_per_page'      => 6,
+                'orderby'             => 'date',
+                'order'               => 'DESC',
+                'no_found_rows'       => true,
+                'ignore_sticky_posts' => true,
+                'meta_query'          => array( array( 'key' => '_thumbnail_id', 'compare' => 'EXISTS' ) ),
+            ) );
+            foreach ( $cover_query->posts as $cover_post ) {
+                $hero_covers[] = $cover_post;
+            }
+            wp_reset_postdata();
+            if ( count( $hero_covers ) < 3 ) {
+                $hero_covers = array();
+            }
+        }
+        if ( $hero_covers ) :
+            ?>
+            <div class="hero-split-media hero-covers">
+                <?php foreach ( $hero_covers as $i => $cover_post ) : ?>
+                    <a class="hero-cover hero-cover--<?php echo (int) ( $i + 1 ); ?>" href="<?php echo esc_url( get_permalink( $cover_post ) ); ?>">
+                        <?php
+                        echo get_the_post_thumbnail( $cover_post, 'medium', array(
+                            'alt'           => esc_attr( get_the_title( $cover_post ) ),
+                            'loading'       => 'eager',
+                            'fetchpriority' => $i < 3 ? 'high' : 'auto',
+                        ) );
+                        ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        <?php elseif ( $hero_upload || $hero_photo_s ) : ?>
+            <div class="hero-split-media">
+                <?php
+                if ( $hero_upload ) {
+                    // The LCP element: never lazy, high priority.
+                    echo wp_get_attachment_image( $hero_upload, 'large', false, array(
+                        'class'         => 'hero-split-img',
+                        'alt'           => '',
+                        'loading'       => 'eager',
+                        'fetchpriority' => 'high',
+                    ) );
+                } else {
+                    ?>
+                    <img class="hero-split-img" src="<?php echo esc_url( $hero_photo_s['small'] ); ?>" srcset="<?php echo esc_url( $hero_photo_s['small'] ); ?> 960w, <?php echo esc_url( $hero_photo_s['full'] ); ?> 1920w" sizes="(min-width: 900px) 50vw, 100vw" alt="" loading="eager" fetchpriority="high" decoding="async" />
+                <?php } ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>
+<?php else : ?>
+<section class="hero<?php echo 'card' === $hero_layout ? ' hero--card' : ''; ?>">
     <?php
     $hero_bg_id = langgam_fikir_get_option( 'hero_background_image' );
     if ( $hero_bg_id ) :
@@ -28,17 +133,27 @@ get_header();
     <?php endif; ?>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
+        <?php if ( 'card' === $hero_layout ) : ?>
+            <div class="hero-card">
+            <?php $hero_eyebrow = trim( (string) langgam_fikir_text( 'hero_eyebrow' ) ); ?>
+            <?php if ( '' !== $hero_eyebrow ) : ?>
+                <p class="hero-eyebrow"><?php echo esc_html( $hero_eyebrow ); ?></p>
+            <?php endif; ?>
+            <h1><?php echo esc_html( langgam_fikir_text( 'hero_heading' ) ); ?></h1>
+            <p class="hero-lead"><?php echo esc_html( langgam_fikir_get_option( 'hero_text' ) ); ?></p>
+        <?php else : ?>
         <h1>
             <?php 
             $hero_text = langgam_fikir_get_option( 'hero_text' );
             echo esc_html( $hero_text );
             ?>
         </h1>
+        <?php endif; ?>
         <div class="hero-buttons">
-            <a href="<?php echo esc_url( get_post_type_archive_link( 'book' ) ); ?>" class="btn btn-outline-light">
+            <a href="<?php echo esc_url( get_post_type_archive_link( 'book' ) ); ?>" class="btn <?php echo 'card' === $hero_layout ? 'btn-solid' : 'btn-outline-light'; ?>">
                 <?php echo esc_html( langgam_fikir_text( 'hero_primary_label' ) ); ?>
             </a>
-            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'about-langgam-fikir' ) ) ); ?>" class="btn btn-outline-light">
+            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'about-langgam-fikir' ) ) ); ?>" class="btn <?php echo 'card' === $hero_layout ? 'btn-outline-dark' : 'btn-outline-light'; ?>">
                 <?php echo esc_html( langgam_fikir_text( 'hero_secondary_label' ) ); ?>
                 <span class="screen-reader-text"><?php
                     /* translators: %s: site name */
@@ -46,8 +161,81 @@ get_header();
                 ?></span>
             </a>
         </div>
+        <?php if ( 'card' === $hero_layout ) : ?>
+            </div><!-- .hero-card -->
+        <?php endif; ?>
     </div>
 </section>
+<?php endif; ?>
+
+<?php if ( langgam_fikir_get_option( 'highlights_enabled' ) ) :
+    $highlight_icons = array(
+        1 => '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+        2 => '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+        3 => '<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+    );
+    $highlights = array();
+    foreach ( $highlight_icons as $n => $icon ) {
+        $label = langgam_fikir_text( 'highlight_' . $n );
+        if ( '' !== trim( (string) $label ) ) {
+            $highlights[] = array( 'icon' => $icon, 'label' => $label );
+        }
+    }
+    if ( $highlights ) :
+        ?>
+<!-- Highlights Strip -->
+<section class="lf-highlights" aria-label="<?php esc_attr_e( 'Highlights', 'langgam-fikir' ); ?>">
+    <div class="container">
+        <ul class="lf-highlights-inner">
+            <?php foreach ( $highlights as $item ) : ?>
+                <li class="lf-highlight">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><?php echo $item['icon']; // phpcs:ignore WordPress.Security.EscapeOutput -- static markup above ?></svg>
+                    <span><?php echo esc_html( $item['label'] ); ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+    <?php endif; endif; ?>
+
+<?php if ( langgam_fikir_get_option( 'cta_enabled' ) ) :
+    $cta_points = array();
+    foreach ( array( 1, 2, 3 ) as $n ) {
+        $point = trim( (string) langgam_fikir_text( 'cta_point_' . $n ) );
+        if ( '' !== $point ) {
+            $cta_points[] = $point;
+        }
+    }
+    $cta_url     = langgam_fikir_get_option( 'cta_button_url' );
+    $cta_url     = $cta_url ? $cta_url : get_permalink( get_page_by_path( 'contact' ) );
+    $cta_eyebrow = trim( (string) langgam_fikir_text( 'cta_eyebrow' ) );
+    ?>
+<!-- Call-to-action Band -->
+<section class="lf-cta">
+    <div class="container lf-cta-inner">
+        <div class="lf-cta-copy">
+            <?php if ( '' !== $cta_eyebrow ) : ?>
+                <p class="lf-cta-eyebrow"><?php echo esc_html( $cta_eyebrow ); ?></p>
+            <?php endif; ?>
+            <h2><?php echo esc_html( langgam_fikir_text( 'cta_heading' ) ); ?></h2>
+            <p><?php echo esc_html( langgam_fikir_text( 'cta_text' ) ); ?></p>
+            <?php if ( $cta_url ) : ?>
+                <a class="btn lf-cta-button" href="<?php echo esc_url( $cta_url ); ?>"><?php echo esc_html( langgam_fikir_text( 'cta_button_label' ) ); ?></a>
+            <?php endif; ?>
+        </div>
+        <?php if ( $cta_points ) : ?>
+            <ul class="lf-cta-points">
+                <?php foreach ( $cta_points as $point ) : ?>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>
+                        <span><?php echo esc_html( $point ); ?></span>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </div>
+</section>
+<?php endif; ?>
 
 <!-- About Snippet Section -->
 <section class="about-snippet">
@@ -97,7 +285,14 @@ get_header();
             <h2 class="section-header-title"><?php echo esc_html( langgam_fikir_text( 'books_heading' ) ); ?></h2>
             <p class="section-header-subtitle"><?php echo esc_html( langgam_fikir_text( 'books_subtitle' ) ); ?></p>
         </div>
-        <div class="books-grid stagger-children">
+        <?php $books_carousel = 'grid' !== langgam_fikir_get_option( 'books_layout' ); ?>
+        <?php if ( $books_carousel ) : ?>
+            <div class="lf-carousel-controls" hidden>
+                <button type="button" class="lf-carousel-btn" data-dir="-1" aria-label="<?php esc_attr_e( 'Previous books', 'langgam-fikir' ); ?>"><span aria-hidden="true">&larr;</span></button>
+                <button type="button" class="lf-carousel-btn" data-dir="1" aria-label="<?php esc_attr_e( 'Next books', 'langgam-fikir' ); ?>"><span aria-hidden="true">&rarr;</span></button>
+            </div>
+        <?php endif; ?>
+        <div class="books-grid stagger-children<?php echo $books_carousel ? ' books-grid--carousel' : ''; ?>"<?php echo $books_carousel ? ' data-lf-carousel tabindex="0" role="region" aria-label="' . esc_attr__( 'Latest publications', 'langgam-fikir' ) . '"' : ''; ?>>
             <?php
             $books_count = langgam_fikir_get_option( 'featured_books_count', 6 );
             $featured_books = new WP_Query( array(

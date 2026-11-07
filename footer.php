@@ -102,6 +102,9 @@
                 <?php endif; ?>
             </div>
         </div>
+        <?php if ( langgam_fikir_get_option( 'ghost_wordmark' ) ) : ?>
+            <span class="lf-wordmark" aria-hidden="true"><?php bloginfo( 'name' ); ?></span>
+        <?php endif; ?>
     </footer>
     
 </div><!-- #page -->

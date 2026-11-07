@@ -5,6 +5,27 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **Folio palette** (cream page, oxblood headings, sage surfaces, brass accent), now the default. Earth, Slate, Sage and Clay remain.
+- **Split hero**: heading and text beside a rounded photo, with the hero picture either the latest book covers scattered and tilted (default, falls back to the photo until three books have covers) or a photo. The full-width banner hero stays as an option. New Theme Options: Hero layout, Hero heading, Hero picture.
+- **Large faint site name** behind the hero and under the footer (Theme Options > Homepage; on by default).
+- **Publications carousel**: Latest Publications becomes a swipeable snap row with previous and next buttons (a Grid layout stays available). Works without JavaScript by swiping, scrolling or keyboard.
+- **Announcement bar** above the homepage hero (star, text, link): off by default, editable in Theme Options > Homepage.
+- **Publications archive** restyled: centred title, a rounded search pill that searches books, and a cover-first grid (cover with soft shadow, title, author, price; no card chrome).
+- **Card hero** (third Hero layout): a cream card with the eyebrow, heading, text and two buttons over a full-width photo. A small **eyebrow** line (editable) now also sits above the Split and Card headings.
+- **Call-to-action band**: a full-width band in the heading colour with a short pitch, up to three ticked points and a button (Theme Options > Homepage; off by default; links to Contact when no address is set).
+- **Header button**: an optional filled button at the right of the menu, for example "Submit a manuscript". Hidden until both text and address are set.
+- **Highlights strip** under the hero: three short facts with icons, editable or hideable in Theme Options > Homepage.
+
+### Changed
+- The current menu item and hovered links on wide screens are shown as a soft pill instead of an underline.
+- Section headings are left-aligned with a short brass rule above instead of a centred underline.
+- The tagline is larger and darker (1.2rem, body text colour) so the Ferments script is readable; the footer tagline matches the header.
+- The hero text fades in sooner (0.05 s and 0.2 s delays, 0.7 s long).
+- The mobile footer is left-aligned throughout; the tagline and column headings no longer float off the title's edge.
+
 ## [2.11.0] - 2026-10-31
 
 Design and content release. The Showcase becomes a readable card grid, the look is configurable from Theme Options, and the text of the homepage, About, Contact, footer and 404 pages is editable.
