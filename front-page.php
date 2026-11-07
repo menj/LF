@@ -19,6 +19,9 @@ $hero_photo_s = $hero_upload ? null : langgam_fikir_hero_photo_urls();
 if ( 'banner' !== $hero_layout ) :
     ?>
 <section class="hero hero--split">
+    <?php if ( langgam_fikir_get_option( 'ghost_wordmark' ) ) : ?>
+        <span class="lf-wordmark" aria-hidden="true"><?php bloginfo( 'name' ); ?></span>
+    <?php endif; ?>
     <div class="container hero-split-grid">
         <div class="hero-split-text">
             <h1><?php echo esc_html( langgam_fikir_text( 'hero_heading' ) ); ?></h1>
@@ -65,8 +68,8 @@ if ( 'banner' !== $hero_layout ) :
                         <?php
                         echo get_the_post_thumbnail( $cover_post, 'medium', array(
                             'alt'           => esc_attr( get_the_title( $cover_post ) ),
-                            'loading'       => 0 === $i ? 'eager' : 'lazy',
-                            'fetchpriority' => 0 === $i ? 'high' : 'auto',
+                            'loading'       => 'eager',
+                            'fetchpriority' => $i < 3 ? 'high' : 'auto',
                         ) );
                         ?>
                     </a>
@@ -209,7 +212,14 @@ if ( 'banner' !== $hero_layout ) :
             <h2 class="section-header-title"><?php echo esc_html( langgam_fikir_text( 'books_heading' ) ); ?></h2>
             <p class="section-header-subtitle"><?php echo esc_html( langgam_fikir_text( 'books_subtitle' ) ); ?></p>
         </div>
-        <div class="books-grid stagger-children">
+        <?php $books_carousel = 'grid' !== langgam_fikir_get_option( 'books_layout' ); ?>
+        <?php if ( $books_carousel ) : ?>
+            <div class="lf-carousel-controls" hidden>
+                <button type="button" class="lf-carousel-btn" data-dir="-1" aria-label="<?php esc_attr_e( 'Previous books', 'langgam-fikir' ); ?>"><span aria-hidden="true">&larr;</span></button>
+                <button type="button" class="lf-carousel-btn" data-dir="1" aria-label="<?php esc_attr_e( 'Next books', 'langgam-fikir' ); ?>"><span aria-hidden="true">&rarr;</span></button>
+            </div>
+        <?php endif; ?>
+        <div class="books-grid stagger-children<?php echo $books_carousel ? ' books-grid--carousel' : ''; ?>"<?php echo $books_carousel ? ' data-lf-carousel tabindex="0" role="region" aria-label="' . esc_attr__( 'Latest publications', 'langgam-fikir' ) . '"' : ''; ?>>
             <?php
             $books_count = langgam_fikir_get_option( 'featured_books_count', 6 );
             $featured_books = new WP_Query( array(

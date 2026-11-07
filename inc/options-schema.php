@@ -178,6 +178,7 @@ function langgam_fikir_extra_options_schema() {
                             'covers' => __( 'Floating book covers', 'langgam-fikir' ),
                             'photo'  => __( 'Photo', 'langgam-fikir' ),
                         ) ) ),
+                        'ghost_wordmark'       => $f( 'checkbox', __( 'Large faint site name behind the hero and in the footer', 'langgam-fikir' ), 1 ),
                         'hero_heading'         => $f( 'text', __( 'Hero heading (Split layout)', 'langgam-fikir' ), __( 'Books that cross borders.', 'langgam-fikir' ), __( 'The large heading. The Hero Text above becomes the paragraph under it.', 'langgam-fikir' ) ),
                         'hero_photo'           => $f( 'select', __( 'Hero photo', 'langgam-fikir' ), 'library-corridor', '', array( 'choices' => array_merge(
                             langgam_fikir_hero_photos(),
@@ -217,6 +218,10 @@ function langgam_fikir_extra_options_schema() {
                         'books_subtitle'     => $f( 'textarea', __( 'Publications subtitle', 'langgam-fikir' ), __( 'Our newest releases, representing the finest in contemporary thought and literature.', 'langgam-fikir' ) ),
                         'resources_heading'  => $f( 'text', __( 'Resources heading', 'langgam-fikir' ), __( 'Resources & Insights', 'langgam-fikir' ) ),
                         'resources_subtitle' => $f( 'textarea', __( 'Resources subtitle', 'langgam-fikir' ), __( 'Articles, interviews, and updates from the world of Langgam Fikir.', 'langgam-fikir' ) ),
+                        'books_layout'       => $f( 'select', __( 'Publications layout', 'langgam-fikir' ), 'carousel', __( 'Carousel is a swipeable row with previous and next buttons; Grid wraps the books into rows.', 'langgam-fikir' ), array( 'choices' => array(
+                            'carousel' => __( 'Carousel (swipeable row)', 'langgam-fikir' ),
+                            'grid'     => __( 'Grid', 'langgam-fikir' ),
+                        ) ) ),
                         'view_more_label'    => $f( 'text', __( '"View more" button', 'langgam-fikir' ), __( 'VIEW MORE', 'langgam-fikir' ) ),
                     ),
                 ),
