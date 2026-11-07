@@ -14,9 +14,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Publications carousel**: Latest Publications becomes a swipeable snap row with previous and next buttons (a Grid layout stays available). Works without JavaScript by swiping, scrolling or keyboard.
 - **Announcement bar** above the homepage hero (star, text, link): off by default, editable in Theme Options > Homepage.
 - **Publications archive** restyled: centred title, a rounded search pill that searches books, and a cover-first grid (cover with soft shadow, title, author, price; no card chrome).
+- **Card hero** (third Hero layout): a cream card with the eyebrow, heading, text and two buttons over a full-width photo. A small **eyebrow** line (editable) now also sits above the Split and Card headings.
+- **Call-to-action band**: a full-width band in the heading colour with a short pitch, up to three ticked points and a button (Theme Options > Homepage; off by default; links to Contact when no address is set).
+- **Header button**: an optional filled button at the right of the menu, for example "Submit a manuscript". Hidden until both text and address are set.
 - **Highlights strip** under the hero: three short facts with icons, editable or hideable in Theme Options > Homepage.
 
 ### Changed
+- The current menu item and hovered links on wide screens are shown as a soft pill instead of an underline.
 - Section headings are left-aligned with a short brass rule above instead of a centred underline.
 - The tagline is larger and darker (1.2rem, body text colour) so the Ferments script is readable; the footer tagline matches the header.
 - The hero text fades in sooner (0.05 s and 0.2 s delays, 0.7 s long).

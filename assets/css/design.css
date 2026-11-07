@@ -598,3 +598,157 @@ body.lf-tagline-heading .tagline {
     padding: 0;
     border: 0;
 }
+
+/* Eyebrow line above a hero heading */
+.hero-eyebrow {
+    margin: 0 0 var(--spacing-sm);
+    font-family: var(--font-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+}
+
+/* Card hero: a white card with the heading and buttons over the full-width photo */
+.hero--card .hero-card {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    background: var(--color-bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 28px 48px -24px rgba(20, 10, 5, 0.55);
+    text-align: center;
+}
+
+.hero.hero--card h1 {
+    font-style: normal;
+    font-weight: 600 !important;
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    line-height: 1.12;
+    color: var(--color-primary) !important;
+    margin: 0 0 var(--spacing-sm);
+}
+
+.hero--card .hero-lead {
+    margin: 0 auto var(--spacing-md);
+}
+
+.hero--card .hero-buttons {
+    justify-content: center;
+}
+
+/* Call-to-action band in the heading colour */
+.lf-cta {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-primary);
+    color: var(--color-on-hero);
+}
+
+.lf-cta-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.lf-cta-eyebrow {
+    margin: 0 0 var(--spacing-sm);
+    font-family: var(--font-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.lf-cta h2 {
+    font-family: var(--font-primary) !important;
+    font-weight: 600 !important;
+    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    line-height: 1.12;
+    color: var(--color-on-hero) !important;
+    margin: 0 0 var(--spacing-md);
+}
+
+.lf-cta-copy > p:not(.lf-cta-eyebrow) {
+    max-width: 34rem;
+    margin: 0 0 var(--spacing-lg);
+    opacity: 0.9;
+}
+
+.lf-cta-button {
+    background: var(--color-bg-primary);
+    border-color: var(--color-bg-primary);
+    color: var(--color-primary);
+}
+
+.lf-cta-button:hover,
+.lf-cta-button:focus-visible {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-accent);
+}
+
+.lf-cta-points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.lf-cta-points li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    font-family: var(--font-secondary);
+    font-size: 1.05rem;
+}
+
+.lf-cta-points svg {
+    flex: none;
+    margin-top: 0.1rem;
+    color: var(--color-accent);
+}
+
+@media (max-width: 899px) {
+    .lf-cta-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Header button and the current menu item as a pill (wide screens) */
+.header-cta {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+@media (min-width: 769px) {
+    .main-navigation a {
+        padding: 0.4rem 0.95rem;
+        border-radius: 999px;
+    }
+
+    .main-navigation a::after {
+        display: none;
+    }
+
+    .main-navigation .current-menu-item > a,
+    .main-navigation a:hover {
+        background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+    }
+}
+
+/* Card and banner heroes: let the photo show, and keep the highlights strip off the hero */
+.hero--card .hero-overlay {
+    background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--color-bg-hero) 38%, transparent) 0%,
+        color-mix(in srgb, var(--color-bg-hero) 62%, #000) 100%
+    );
+}
+
+.hero:not(.hero--split) + .lf-highlights {
+    padding-top: var(--spacing-xl);
+}
