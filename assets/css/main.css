@@ -2131,25 +2131,27 @@ p {
     /* Footer */
     .footer-content {
         flex-direction: column;
-        text-align: center;
+        align-items: stretch;
+        text-align: left;
         gap: var(--spacing-md);
     }
     
     .footer-legal-navigation ul {
-        align-items: center;
+        align-items: flex-start;
     }
     
     .footer-contact-info {
-        align-items: center;
+        align-items: flex-start;
     }
     
     .footer-contact-info .contact-item {
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .footer-bottom-inner {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
     }
     
     /* 404 */
