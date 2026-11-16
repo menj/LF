@@ -88,7 +88,7 @@ if ( ! in_array( $hero_layout, array( 'banner', 'card' ), true ) ) :
                     <a class="hero-cover hero-cover--<?php echo (int) ( $i + 1 ); ?>" href="<?php echo esc_url( get_permalink( $cover_post ) ); ?>">
                         <?php
                         echo get_the_post_thumbnail( $cover_post, 'medium', array(
-                            'alt'           => esc_attr( get_the_title( $cover_post ) ),
+                            'alt'           => wp_strip_all_tags( get_the_title( $cover_post ) ),
                             'loading'       => 'eager',
                             'fetchpriority' => $i < 3 ? 'high' : 'auto',
                         ) );

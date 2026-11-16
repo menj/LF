@@ -752,3 +752,8 @@ body.lf-tagline-heading .tagline {
 .hero:not(.hero--split) + .lf-highlights {
     padding-top: var(--spacing-xl);
 }
+
+/* Split hero without a picture (no photo and fewer than three covers): one centred-width column */
+.hero-split-grid:not(:has(.hero-split-media)) {
+    grid-template-columns: minmax(0, 46rem);
+}

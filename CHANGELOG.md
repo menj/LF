@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - The current menu item and hovered links on wide screens are shown as a soft pill instead of an underline.
+- The Split hero collapses to one column when it has no picture (no photo and fewer than three covers).
 - Section headings are left-aligned with a short brass rule above instead of a centred underline.
 - The tagline is larger and darker (1.2rem, body text colour) so the Ferments script is readable; the footer tagline matches the header.
 - The hero text fades in sooner (0.05 s and 0.2 s delays, 0.7 s long).
