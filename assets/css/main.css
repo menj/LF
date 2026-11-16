@@ -330,11 +330,12 @@ p {
 
 .tagline {
     font-family: var(--font-secondary);
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     font-style: italic;
-    color: var(--color-text-light);
+    color: var(--color-text);
+    letter-spacing: 0.02em;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.25;
 }
 
 .header-right {
@@ -1552,8 +1553,8 @@ p {
 }
 
 .footer-branding .tagline {
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
+    font-size: 1.2rem;
+    color: var(--color-text);
 }
 
 .footer-heading {
@@ -2046,7 +2047,7 @@ p {
     }
     
     .tagline {
-        font-size: 0.7rem;
+        font-size: 1.05rem;
     }
     
     .header-right {
@@ -2130,25 +2131,27 @@ p {
     /* Footer */
     .footer-content {
         flex-direction: column;
-        text-align: center;
+        align-items: stretch;
+        text-align: left;
         gap: var(--spacing-md);
     }
     
     .footer-legal-navigation ul {
-        align-items: center;
+        align-items: flex-start;
     }
     
     .footer-contact-info {
-        align-items: center;
+        align-items: flex-start;
     }
     
     .footer-contact-info .contact-item {
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .footer-bottom-inner {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
     }
     
     /* 404 */
@@ -3098,11 +3101,11 @@ body .wp-site-blocks .wp-block-heading,
 
 /* Hero text entrance animation */
 .hero h1 {
-    animation: heroFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+    animation: heroFadeUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.05s both;
 }
 
 .hero-buttons {
-    animation: heroFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+    animation: heroFadeUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
 }
 
 @keyframes heroFadeUp {

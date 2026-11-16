@@ -70,6 +70,14 @@
                     ?>
                 </nav>
                 
+                <?php
+                $header_cta_label = trim( (string) langgam_fikir_text( 'header_cta_label' ) );
+                $header_cta_url   = langgam_fikir_get_option( 'header_cta_url' );
+                if ( '' !== $header_cta_label && $header_cta_url ) :
+                    ?>
+                    <a class="btn btn-solid header-cta" href="<?php echo esc_url( $header_cta_url ); ?>"><?php echo esc_html( $header_cta_label ); ?></a>
+                <?php endif; ?>
+
                 <?php if ( class_exists( 'WooCommerce' ) ) : ?>
                     <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart-link">
                         <svg class="cart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -387,6 +387,7 @@
         initBookSort();
         initShareCopyLink();
         initFaqAccordion();
+        initCarousels();
     }
 
     /**
@@ -413,6 +414,45 @@
                     panel.removeAttribute('hidden');
                 }
             });
+        });
+    }
+
+
+    /**
+     * Book carousels (2.12.0): the previous/next buttons scroll a snap row by one card.
+     * The buttons are hidden in the markup and shown here, so without JS the row still
+     * scrolls by swipe, scroll bar or keyboard.
+     */
+    function initCarousels() {
+        var rows = document.querySelectorAll('[data-lf-carousel]');
+        if (!rows.length) return;
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        rows.forEach(function (row) {
+            var controls = row.previousElementSibling;
+            if (!controls || !controls.classList.contains('lf-carousel-controls')) return;
+            var buttons = controls.querySelectorAll('.lf-carousel-btn');
+            if (buttons.length !== 2) return;
+            controls.removeAttribute('hidden');
+
+            function update() {
+                var max = row.scrollWidth - row.clientWidth - 2;
+                buttons[0].disabled = row.scrollLeft <= 2;
+                buttons[1].disabled = row.scrollLeft >= max;
+                controls.hidden = max <= 0;
+            }
+
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var card = row.firstElementChild;
+                    var step = card ? card.getBoundingClientRect().width + 24 : row.clientWidth * 0.8;
+                    row.scrollBy({ left: step * Number(button.getAttribute('data-dir')), behavior: reduce ? 'auto' : 'smooth' });
+                });
+            });
+
+            row.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
         });
     }
 
