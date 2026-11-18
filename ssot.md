@@ -78,7 +78,7 @@ All are self-hosted. Crimson Text and Inter are declared in `/assets/css/fonts.c
 
 ### 3.2a Palettes, corners and design layer
 
-Earth (the table above) is the default palette and the base in `:root`. Slate, Sage and Clay are light alternatives declared as `body.lf-scheme-*` in `assets/css/design.css`; individually picked colours are emitted as one `body.lf-has-custom-colours` block (see `inc/design.php`). Additional tokens: `--color-bg-tint`, `--color-on-accent`, `--color-on-hero` (palette), `--radius-sm/md/lg/xl/btn/pill` (corners: Soft default, Sharp, Round). Book-status colours and brand share colours are semantic and stay literal. Dark mode is not offered (see 9.2).
+Earth (the table above) is the base in `:root`. **Folio** (cream page, oxblood headings, sage surfaces, brass accent) is the default palette from 2.12.0, applied as `body.lf-scheme-folio`; choosing Earth removes the class. Slate, Sage and Clay are light alternatives declared as `body.lf-scheme-*` in `assets/css/design.css`; individually picked colours are emitted as one `body.lf-has-custom-colours` block (see `inc/design.php`). Additional tokens: `--color-bg-tint`, `--color-on-accent`, `--color-on-hero` (palette), `--radius-sm/md/lg/xl/btn/pill` (corners: Soft default, Sharp, Round). Book-status colours and brand share colours are semantic and stay literal. Dark mode is not offered (see 9.2).
 
 ### 3.3 Spacing scale
 
@@ -339,7 +339,7 @@ All theme source strings are in **en_US**. Translations live in `/languages/` as
 
 ### 9.2 Out of scope
 
-- **Dark Mode** is permanently out of scope. No dark palette, no `prefers-color-scheme` switching, no toggle. *Amended at 2.11.0 on MENJ's instruction:* a palette selector is in scope, limited to light palettes (Earth, Slate, Sage, Clay) plus custom colours in Theme Options → Design.
+- **Dark Mode** is permanently out of scope. No dark palette, no `prefers-color-scheme` switching, no toggle. *Amended at 2.11.0 on MENJ's instruction:* a palette selector is in scope, limited to light palettes (Folio, Earth, Slate, Sage, Clay) plus custom colours in Theme Options → Design.
 
 ### 9.3 Deferred
 
@@ -355,7 +355,7 @@ When in doubt, defer to MENJ. Brand decisions, scope decisions, and "is this in 
 
 | Field | Value |
 |---|---|
-| Latest released version | **2.11.0** |
+| Latest released version | **2.12.0** |
 | Active development phase | Phase 4 (Admin Power Features) — next |
 | In-progress phase | Phase 5 (Frontend Polish) — 3 of 8 items delivered |
 | SEO/AEO audit score | **92/100** (last assessed at v2.6.0) |
@@ -390,5 +390,5 @@ When more than one doc covers a topic, this is which one wins:
 
 ---
 
-**Last Updated:** October 31, 2026 (v2.11.0)
+**Last Updated:** November 18, 2026 (v2.12.0)
 **Maintained by:** MENJ

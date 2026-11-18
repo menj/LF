@@ -5,7 +5,9 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.12.0] - 2026-11-18
+
+Design release. A new default palette and homepage: a split hero, a highlights strip, a swipeable publications carousel and a cover-first Publications archive, with optional announcement, call-to-action and header-button elements. All of it is editable in Theme Options.
 
 ### Added
 - **Folio palette** (cream page, oxblood headings, sage surfaces, brass accent), now the default. Earth, Slate, Sage and Clay remain.
