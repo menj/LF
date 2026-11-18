@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Langgam Fikir 2.11.0\n"
 "Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
-"POT-Creation-Date: 2026-11-01 05:23+0000\n"
+"POT-Creation-Date: 2026-11-18 04:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,17 +56,29 @@ msgid ""
 " essays and historical accounts."
 msgstr ""
 
-#: archive-book.php:38 archive.php:68 home.php:122 index.php:115
+#: archive-book.php:24
+msgid "Search books"
+msgstr ""
+
+#: archive-book.php:25
+msgid "Search books&hellip;"
+msgstr ""
+
+#: archive-book.php:26
+msgid "Search"
+msgstr ""
+
+#: archive-book.php:47 archive.php:68 home.php:122 index.php:115
 #: search.php:123 taxonomy-book-category.php:46 taxonomy-book-tag.php:54
 msgid "&larr; Previous"
 msgstr ""
 
-#: archive-book.php:39 archive.php:69 home.php:123 index.php:116
+#: archive-book.php:48 archive.php:69 home.php:123 index.php:116
 #: search.php:124 taxonomy-book-category.php:47 taxonomy-book-tag.php:55
 msgid "Next &rarr;"
 msgstr ""
 
-#: archive-book.php:45
+#: archive-book.php:54
 msgid "No books found."
 msgstr ""
 
@@ -101,34 +113,54 @@ msgstr ""
 msgid "%s is a registered enterprise in Malaysia."
 msgstr ""
 
+#: front-page.php:19
+msgid "Announcement"
+msgstr ""
+
 #. translators: %s: site name
 #. translators: %s: post title
 #. translators: %s: post or book title
-#: front-page.php:45 index.php:103 search.php:112
+#: front-page.php:59 front-page.php:160 index.php:103 search.php:112
 #: template-parts/content/book-card.php:76
 #: template-parts/content/resource-card.php:46
 #, php-format
 msgid "about %s"
 msgstr ""
 
-#: front-page.php:63
+#: front-page.php:187
+msgid "Highlights"
+msgstr ""
+
+#: front-page.php:251
 msgid "About Langgam Fikir"
 msgstr ""
 
-#: front-page.php:70
+#: front-page.php:258
 msgid "Library of books"
 msgstr ""
 
-#: front-page.php:76 inc/admin/theme-options.php:288
+#: front-page.php:264 inc/admin/theme-options.php:288
 #: inc/template-functions.php:56
 msgid "Years of Excellence"
 msgstr ""
 
-#: front-page.php:123
+#: front-page.php:291
+msgid "Previous books"
+msgstr ""
+
+#: front-page.php:292
+msgid "Next books"
+msgstr ""
+
+#: front-page.php:295
+msgid "Latest publications"
+msgstr ""
+
+#: front-page.php:318
 msgid "publications"
 msgstr ""
 
-#: front-page.php:167
+#: front-page.php:362
 msgid "resources"
 msgstr ""
 
@@ -308,40 +340,40 @@ msgid "Excerpt"
 msgstr ""
 
 #: inc/admin/meta-boxes.php:35 inc/book-fields.php:43 inc/book-fields.php:269
-#: inc/options-schema.php:321
+#: inc/options-schema.php:385
 msgid "Author"
 msgstr ""
 
 #: inc/admin/meta-boxes.php:36 inc/book-fields.php:271
-#: inc/options-schema.php:327
+#: inc/options-schema.php:391
 msgid "Year"
 msgstr ""
 
 #: inc/admin/meta-boxes.php:37 inc/book-fields.php:56
-#: inc/options-schema.php:333
+#: inc/options-schema.php:397
 msgid "ISBN"
 msgstr ""
 
 #: inc/admin/meta-boxes.php:38 inc/book-fields.php:57
-#: inc/options-schema.php:334
+#: inc/options-schema.php:398
 msgid "OCLC number"
 msgstr ""
 
 #: inc/admin/meta-boxes.php:39 inc/book-fields.php:64
-#: inc/options-schema.php:331
+#: inc/options-schema.php:395
 msgid "Pages"
 msgstr ""
 
 #: inc/admin/meta-boxes.php:40 inc/book-fields.php:63
-#: inc/options-schema.php:330
+#: inc/options-schema.php:394
 msgid "Format"
 msgstr ""
 
-#: inc/admin/meta-boxes.php:41 inc/options-schema.php:335
+#: inc/admin/meta-boxes.php:41 inc/options-schema.php:399
 msgid "Category"
 msgstr ""
 
-#: inc/admin/meta-boxes.php:42 inc/options-schema.php:336
+#: inc/admin/meta-boxes.php:42 inc/options-schema.php:400
 msgid "Topics"
 msgstr ""
 
@@ -642,7 +674,7 @@ msgstr ""
 msgid "Control how many items appear in each homepage section."
 msgstr ""
 
-#: inc/admin/theme-options.php:300 inc/options-schema.php:192
+#: inc/admin/theme-options.php:300 inc/options-schema.php:252
 msgid "Latest Publications"
 msgstr ""
 
@@ -650,7 +682,7 @@ msgstr ""
 msgid "Number of books shown (1–12)."
 msgstr ""
 
-#: inc/admin/theme-options.php:307 inc/options-schema.php:194
+#: inc/admin/theme-options.php:307 inc/options-schema.php:254
 #: inc/schema.php:482
 msgid "Resources & Insights"
 msgstr ""
@@ -865,7 +897,7 @@ msgstr ""
 msgid "Subtitle"
 msgstr ""
 
-#: inc/book-fields.php:42 inc/options-schema.php:325
+#: inc/book-fields.php:42 inc/options-schema.php:389
 msgid "Original title"
 msgstr ""
 
@@ -873,7 +905,7 @@ msgstr ""
 msgid "For translations: the title in the original language"
 msgstr ""
 
-#: inc/book-fields.php:44 inc/options-schema.php:322
+#: inc/book-fields.php:44 inc/options-schema.php:386
 msgid "Translator"
 msgstr ""
 
@@ -881,7 +913,7 @@ msgstr ""
 msgid "Leave blank if not applicable"
 msgstr ""
 
-#: inc/book-fields.php:45 inc/options-schema.php:323
+#: inc/book-fields.php:45 inc/options-schema.php:387
 msgid "Translated from"
 msgstr ""
 
@@ -889,7 +921,7 @@ msgstr ""
 msgid "For example Arabic"
 msgstr ""
 
-#: inc/book-fields.php:46 inc/options-schema.php:324
+#: inc/book-fields.php:46 inc/options-schema.php:388
 msgid "Editor"
 msgstr ""
 
@@ -897,7 +929,7 @@ msgstr ""
 msgid "Publication"
 msgstr ""
 
-#: inc/book-fields.php:52 inc/options-schema.php:326
+#: inc/book-fields.php:52 inc/options-schema.php:390
 msgid "Publisher"
 msgstr ""
 
@@ -905,7 +937,7 @@ msgstr ""
 msgid "Publication year"
 msgstr ""
 
-#: inc/book-fields.php:54 inc/options-schema.php:328
+#: inc/book-fields.php:54 inc/options-schema.php:392
 msgid "Edition"
 msgstr ""
 
@@ -913,7 +945,7 @@ msgstr ""
 msgid "For example First edition"
 msgstr ""
 
-#: inc/book-fields.php:55 inc/options-schema.php:329
+#: inc/book-fields.php:55 inc/options-schema.php:393
 msgid "Series"
 msgstr ""
 
@@ -930,7 +962,7 @@ msgstr ""
 msgid "Physical details"
 msgstr ""
 
-#: inc/book-fields.php:65 inc/options-schema.php:332
+#: inc/book-fields.php:65 inc/options-schema.php:396
 msgid "Size"
 msgstr ""
 
@@ -1010,553 +1042,800 @@ msgid "Leather-bound books"
 msgstr ""
 
 #: inc/options-schema.php:47
-msgid "Earth"
+msgid "Folio"
 msgstr ""
 
 #: inc/options-schema.php:48
-msgid "Warm browns and gold. The original look."
+msgid "Cream, oxblood and sage with brass. Bookish and warm."
 msgstr ""
 
 #: inc/options-schema.php:52
-msgid "Slate"
+msgid "Earth"
 msgstr ""
 
 #: inc/options-schema.php:53
-msgid "Cool blue-grey, crisp and calm."
+msgid "Warm browns and gold. The original look."
 msgstr ""
 
 #: inc/options-schema.php:57
-msgid "Sage"
+msgid "Slate"
 msgstr ""
 
 #: inc/options-schema.php:58
-msgid "Muted green with soft brass."
+msgid "Cool blue-grey, crisp and calm."
 msgstr ""
 
 #: inc/options-schema.php:62
-msgid "Clay"
+msgid "Sage"
 msgstr ""
 
 #: inc/options-schema.php:63
+msgid "Muted green with soft brass."
+msgstr ""
+
+#: inc/options-schema.php:67
+msgid "Clay"
+msgstr ""
+
+#: inc/options-schema.php:68
 msgid "Terracotta and warm sand."
 msgstr ""
 
-#: inc/options-schema.php:91
+#: inc/options-schema.php:96
 msgid "Separate paragraphs with a blank line."
 msgstr ""
 
-#: inc/options-schema.php:97
+#: inc/options-schema.php:102
 msgid "Design"
 msgstr ""
 
-#: inc/options-schema.php:101
+#: inc/options-schema.php:106
 msgid "Colour Palette"
 msgstr ""
 
-#: inc/options-schema.php:102
+#: inc/options-schema.php:107
 msgid ""
 "Pick a light palette, then optionally override individual colours. Dark mode"
 " is not offered."
 msgstr ""
 
-#: inc/options-schema.php:104
+#: inc/options-schema.php:109
 msgid "Palette"
 msgstr ""
 
-#: inc/options-schema.php:105
+#: inc/options-schema.php:110
 msgid "Headings and hero"
 msgstr ""
 
-#: inc/options-schema.php:105
+#: inc/options-schema.php:110
 msgid "Optional. Empty uses the palette."
 msgstr ""
 
-#: inc/options-schema.php:106
+#: inc/options-schema.php:111
 msgid "Accent"
 msgstr ""
 
-#: inc/options-schema.php:106
+#: inc/options-schema.php:111
 msgid "Buttons, highlights and badges. Empty uses the palette."
 msgstr ""
 
-#: inc/options-schema.php:107
+#: inc/options-schema.php:112
 msgid "Page background"
 msgstr ""
 
-#: inc/options-schema.php:108
+#: inc/options-schema.php:113
 msgid "Alternate sections"
 msgstr ""
 
-#: inc/options-schema.php:108
+#: inc/options-schema.php:113
 msgid "Cards and tinted bands."
 msgstr ""
 
-#: inc/options-schema.php:109
+#: inc/options-schema.php:114
 msgid "Body text"
 msgstr ""
 
-#: inc/options-schema.php:113
+#: inc/options-schema.php:118
 msgid "Typography"
 msgstr ""
 
-#: inc/options-schema.php:114
+#: inc/options-schema.php:119
 msgid ""
 "Five typefaces share the work: Kagnue for titles, Crimson Text for headings,"
 " Sabon Next LT for reading text, Inter for the interface and Ferments for "
 "the tagline. Change any role here."
 msgstr ""
 
-#: inc/options-schema.php:116
+#: inc/options-schema.php:121
 msgid "Site title and page titles"
 msgstr ""
 
-#: inc/options-schema.php:117
+#: inc/options-schema.php:122
 msgid "Kagnue"
 msgstr ""
 
-#: inc/options-schema.php:118
+#: inc/options-schema.php:123
 msgid "Same as headings"
 msgstr ""
 
-#: inc/options-schema.php:120
+#: inc/options-schema.php:125
 msgid "Headings and book titles"
 msgstr ""
 
-#: inc/options-schema.php:121 inc/options-schema.php:127
+#: inc/options-schema.php:126 inc/options-schema.php:132
 msgid "Crimson Text"
 msgstr ""
 
-#: inc/options-schema.php:122 inc/options-schema.php:126
-#: inc/options-schema.php:132
+#: inc/options-schema.php:127 inc/options-schema.php:131
+#: inc/options-schema.php:137
 msgid "Sabon Next LT"
 msgstr ""
 
-#: inc/options-schema.php:123
+#: inc/options-schema.php:128
 msgid "Georgia (system)"
 msgstr ""
 
-#: inc/options-schema.php:125
+#: inc/options-schema.php:130
 msgid "Reading text"
 msgstr ""
 
-#: inc/options-schema.php:125
+#: inc/options-schema.php:130
 msgid "Articles, About text, synopses and lead paragraphs."
 msgstr ""
 
-#: inc/options-schema.php:128 inc/options-schema.php:131
+#: inc/options-schema.php:133 inc/options-schema.php:136
 msgid "Inter"
 msgstr ""
 
-#: inc/options-schema.php:130
+#: inc/options-schema.php:135
 msgid "Interface and body"
 msgstr ""
 
-#: inc/options-schema.php:130
+#: inc/options-schema.php:135
 msgid "Navigation, buttons, forms and small text."
 msgstr ""
 
-#: inc/options-schema.php:133
+#: inc/options-schema.php:138
 msgid "System sans-serif"
 msgstr ""
 
-#: inc/options-schema.php:135
+#: inc/options-schema.php:140
 msgid "Tagline and accents"
 msgstr ""
 
-#: inc/options-schema.php:136
+#: inc/options-schema.php:141
 msgid "Ferments (script)"
 msgstr ""
 
-#: inc/options-schema.php:137
+#: inc/options-schema.php:142
 msgid "Same as headings (italic)"
 msgstr ""
 
-#: inc/options-schema.php:142
+#: inc/options-schema.php:147
 msgid "Corners and Motion"
 msgstr ""
 
-#: inc/options-schema.php:143
+#: inc/options-schema.php:148
 msgid ""
 "How rounded cards, images, buttons and fields are, and whether parts of the "
 "page drift while scrolling."
 msgstr ""
 
-#: inc/options-schema.php:145
+#: inc/options-schema.php:150
 msgid "Corners"
 msgstr ""
 
-#: inc/options-schema.php:146
+#: inc/options-schema.php:151
 msgid "Soft (default)"
 msgstr ""
 
-#: inc/options-schema.php:147
+#: inc/options-schema.php:152
 msgid "Round (pill buttons, large radii)"
 msgstr ""
 
-#: inc/options-schema.php:148
+#: inc/options-schema.php:153
 msgid "Sharp (the pre-2.11 look)"
 msgstr ""
 
-#: inc/options-schema.php:150
+#: inc/options-schema.php:155
 msgid "Parallax scrolling"
 msgstr ""
 
-#: inc/options-schema.php:150
+#: inc/options-schema.php:155
 msgid ""
 "Hero image, Showcase backdrop, the homepage About image, the About page logo"
 " and the book cover. Always off for visitors who prefer reduced motion."
 msgstr ""
 
-#: inc/options-schema.php:151
+#: inc/options-schema.php:156
 msgid "On for wide screens (default)"
 msgstr ""
 
-#: inc/options-schema.php:152
+#: inc/options-schema.php:157
 msgid "On for all screens"
 msgstr ""
 
-#: inc/options-schema.php:153
+#: inc/options-schema.php:158
 msgid "Off"
 msgstr ""
 
-#: inc/options-schema.php:165
+#: inc/options-schema.php:170
 msgid "Hero Photo and Buttons"
 msgstr ""
 
-#: inc/options-schema.php:166
+#: inc/options-schema.php:171
 msgid ""
 "A photograph behind the hero statement, tinted with your colours, with a "
 "parallax effect. A picture chosen under Hero Background Image above "
 "overrides it. Photos are from Pexels."
 msgstr ""
 
-#: inc/options-schema.php:168
-msgid "Hero photo"
+#: inc/options-schema.php:173
+msgid "Hero layout"
 msgstr ""
 
-#: inc/options-schema.php:171
-msgid "Random (a different photo each visit)"
+#: inc/options-schema.php:173
+msgid ""
+"Split puts the heading and text beside the picture. Banner puts the "
+"statement over a full-width photo. Card puts a white card with the heading "
+"and buttons over the photo."
 msgstr ""
 
-#: inc/options-schema.php:172
-msgid "No photo (solid colour)"
-msgstr ""
-
-#: inc/options-schema.php:175
-msgid "First button"
-msgstr ""
-
-#: inc/options-schema.php:175 inc/post-types.php:32
-msgid "View Books"
+#: inc/options-schema.php:174
+msgid "Split (text beside a photo)"
 msgstr ""
 
 #: inc/options-schema.php:175
-msgid "Links to the publications archive."
+msgid "Banner (text over a full-width photo)"
 msgstr ""
 
 #: inc/options-schema.php:176
-msgid "Second button"
+msgid "Card (white card over a full-width photo)"
 msgstr ""
 
-#: inc/options-schema.php:176 inc/options-schema.php:311
-msgid "Learn More"
+#: inc/options-schema.php:178
+msgid "Hero picture (Split layout)"
 msgstr ""
 
-#: inc/options-schema.php:176
-msgid "Links to the About page."
+#: inc/options-schema.php:178
+msgid ""
+"Covers scatters your latest book covers; it falls back to the photo until at"
+" least three books have a cover image."
+msgstr ""
+
+#: inc/options-schema.php:179
+msgid "Floating book covers"
 msgstr ""
 
 #: inc/options-schema.php:180
+msgid "Photo"
+msgstr ""
+
+#: inc/options-schema.php:182
+msgid "Large faint site name behind the hero and in the footer"
+msgstr ""
+
+#: inc/options-schema.php:183
+msgid "Hero eyebrow (Split and Card layouts)"
+msgstr ""
+
+#: inc/options-schema.php:183
+msgid "Independent publisher · Since 2015"
+msgstr ""
+
+#: inc/options-schema.php:183
+msgid "A small line above the heading. Empty hides it."
+msgstr ""
+
+#: inc/options-schema.php:184
+msgid "Hero heading (Split layout)"
+msgstr ""
+
+#: inc/options-schema.php:184
+msgid "Books that cross borders."
+msgstr ""
+
+#: inc/options-schema.php:184
+msgid "The large heading. The Hero Text above becomes the paragraph under it."
+msgstr ""
+
+#: inc/options-schema.php:185
+msgid "Hero photo"
+msgstr ""
+
+#: inc/options-schema.php:188
+msgid "Random (a different photo each visit)"
+msgstr ""
+
+#: inc/options-schema.php:189
+msgid "No photo (solid colour)"
+msgstr ""
+
+#: inc/options-schema.php:192
+msgid "First button"
+msgstr ""
+
+#: inc/options-schema.php:192 inc/post-types.php:32
+msgid "View Books"
+msgstr ""
+
+#: inc/options-schema.php:192
+msgid "Links to the publications archive."
+msgstr ""
+
+#: inc/options-schema.php:193
+msgid "Second button"
+msgstr ""
+
+#: inc/options-schema.php:193 inc/options-schema.php:202
+#: inc/options-schema.php:375
+msgid "Learn More"
+msgstr ""
+
+#: inc/options-schema.php:193
+msgid "Links to the About page."
+msgstr ""
+
+#: inc/options-schema.php:197
+msgid "Announcement Bar"
+msgstr ""
+
+#: inc/options-schema.php:198
+msgid ""
+"A slim notice above the hero, for an event, launch or sale. Off by default; "
+"hidden when the text is empty."
+msgstr ""
+
+#: inc/options-schema.php:200
+msgid "Show the announcement bar"
+msgstr ""
+
+#: inc/options-schema.php:201
+msgid "Announcement text"
+msgstr ""
+
+#: inc/options-schema.php:201
+msgid "Special event: join us for our next book launch."
+msgstr ""
+
+#: inc/options-schema.php:202
+msgid "Link text"
+msgstr ""
+
+#: inc/options-schema.php:202
+msgid "Empty hides the link."
+msgstr ""
+
+#: inc/options-schema.php:203
+msgid "Link address"
+msgstr ""
+
+#: inc/options-schema.php:207
+msgid "Header Button"
+msgstr ""
+
+#: inc/options-schema.php:208
+msgid ""
+"An optional button at the right of the menu, for example \"Submit a "
+"manuscript\". Hidden when the text or the address is empty."
+msgstr ""
+
+#: inc/options-schema.php:210 inc/options-schema.php:225
+msgid "Button text"
+msgstr ""
+
+#: inc/options-schema.php:211 inc/options-schema.php:226
+msgid "Button address"
+msgstr ""
+
+#: inc/options-schema.php:215
+msgid "Call-to-action Band"
+msgstr ""
+
+#: inc/options-schema.php:216
+msgid ""
+"A full-width band in the heading colour with a short pitch, up to three "
+"points and a button. Off by default."
+msgstr ""
+
+#: inc/options-schema.php:218
+msgid "Show the band"
+msgstr ""
+
+#: inc/options-schema.php:219
+msgid "Eyebrow"
+msgstr ""
+
+#: inc/options-schema.php:219
+msgid "Work with us"
+msgstr ""
+
+#: inc/options-schema.php:220 inc/options-schema.php:243
+#: inc/options-schema.php:422
+msgid "Heading"
+msgstr ""
+
+#: inc/options-schema.php:220
+msgid "Have a manuscript that deserves a readership?"
+msgstr ""
+
+#: inc/options-schema.php:221 inc/options-schema.php:244
+msgid "Text"
+msgstr ""
+
+#: inc/options-schema.php:221
+msgid "We publish few books so that we can give each one our full attention."
+msgstr ""
+
+#: inc/options-schema.php:222
+msgid "Point 1"
+msgstr ""
+
+#: inc/options-schema.php:222
+msgid "Careful editorial partnership"
+msgstr ""
+
+#: inc/options-schema.php:223
+msgid "Point 2"
+msgstr ""
+
+#: inc/options-schema.php:223
+msgid "Thoughtful, unhurried design"
+msgstr ""
+
+#: inc/options-schema.php:224
+msgid "Point 3"
+msgstr ""
+
+#: inc/options-schema.php:224
+msgid "Honest advocacy for every author"
+msgstr ""
+
+#: inc/options-schema.php:225
+msgid "Get in touch"
+msgstr ""
+
+#: inc/options-schema.php:226
+msgid "Empty links to the Contact page."
+msgstr ""
+
+#: inc/options-schema.php:230
+msgid "Highlights Strip"
+msgstr ""
+
+#: inc/options-schema.php:231
+msgid "Three short facts in a band under the hero. Empty ones are hidden."
+msgstr ""
+
+#: inc/options-schema.php:233
+msgid "Show the highlights strip"
+msgstr ""
+
+#: inc/options-schema.php:234
+msgid "Highlight 1"
+msgstr ""
+
+#: inc/options-schema.php:234
+msgid "Independent Malaysian publisher"
+msgstr ""
+
+#: inc/options-schema.php:235
+msgid "Highlight 2"
+msgstr ""
+
+#: inc/options-schema.php:235
+msgid "Translations and original works"
+msgstr ""
+
+#: inc/options-schema.php:236
+msgid "Highlight 3"
+msgstr ""
+
+#: inc/options-schema.php:236
+msgid "Publishing since 2015"
+msgstr ""
+
+#: inc/options-schema.php:240
 msgid "About Section Text"
 msgstr ""
 
-#: inc/options-schema.php:181
+#: inc/options-schema.php:241
 msgid ""
 "The text beside the About image on the homepage. The image comes from the "
 "About page's featured image."
 msgstr ""
 
-#: inc/options-schema.php:183 inc/options-schema.php:358
-msgid "Heading"
-msgstr ""
-
-#: inc/options-schema.php:183
+#: inc/options-schema.php:243
 msgid "Preserving the Art of Thoughtful Publishing"
 msgstr ""
 
-#: inc/options-schema.php:184
-msgid "Text"
-msgstr ""
-
-#: inc/options-schema.php:184
+#: inc/options-schema.php:244
 msgid ""
 "At Langgam Fikir, we believe that books are more than just paper and ink—they are vessels of culture, history, and human experience. Founded with a mission to elevate local voices and translate global wisdom.\n"
 "\n"
 "Our catalog spans history, philosophy, literature, and social sciences, carefully curated to challenge perspectives and enrich the mind."
 msgstr ""
 
-#: inc/options-schema.php:185
+#: inc/options-schema.php:245
 msgid "Button"
 msgstr ""
 
-#: inc/options-schema.php:185
+#: inc/options-schema.php:245
 msgid "Read Our Full Story"
 msgstr ""
 
-#: inc/options-schema.php:189
+#: inc/options-schema.php:249
 msgid "Section Headings"
 msgstr ""
 
-#: inc/options-schema.php:190
+#: inc/options-schema.php:250
 msgid ""
 "Headings and subtitles of the Latest Publications and Resources sections."
 msgstr ""
 
-#: inc/options-schema.php:192
+#: inc/options-schema.php:252
 msgid "Publications heading"
 msgstr ""
 
-#: inc/options-schema.php:193
+#: inc/options-schema.php:253
 msgid "Publications subtitle"
 msgstr ""
 
-#: inc/options-schema.php:193
+#: inc/options-schema.php:253
 msgid ""
 "Our newest releases, representing the finest in contemporary thought and "
 "literature."
 msgstr ""
 
-#: inc/options-schema.php:194
+#: inc/options-schema.php:254
 msgid "Resources heading"
 msgstr ""
 
-#: inc/options-schema.php:195
+#: inc/options-schema.php:255
 msgid "Resources subtitle"
 msgstr ""
 
-#: inc/options-schema.php:195
+#: inc/options-schema.php:255
 msgid "Articles, interviews, and updates from the world of Langgam Fikir."
 msgstr ""
 
-#: inc/options-schema.php:196
+#: inc/options-schema.php:256
+msgid "Publications layout"
+msgstr ""
+
+#: inc/options-schema.php:256
+msgid ""
+"Carousel is a swipeable row with previous and next buttons; Grid wraps the "
+"books into rows."
+msgstr ""
+
+#: inc/options-schema.php:257
+msgid "Carousel (swipeable row)"
+msgstr ""
+
+#: inc/options-schema.php:258
+msgid "Grid"
+msgstr ""
+
+#: inc/options-schema.php:260
 msgid "\"View more\" button"
 msgstr ""
 
-#: inc/options-schema.php:196
+#: inc/options-schema.php:260
 msgid "VIEW MORE"
 msgstr ""
 
-#: inc/options-schema.php:204
+#: inc/options-schema.php:268
 msgid "About & Contact Pages"
 msgstr ""
 
 #. Template Name of the theme
-#: inc/options-schema.php:208
+#: inc/options-schema.php:272
 msgid "About Page"
 msgstr ""
 
-#: inc/options-schema.php:209
+#: inc/options-schema.php:273
 msgid ""
 "Text on the About page layout. Anything typed in the About page editor "
 "replaces the \"Mission text\" below."
 msgstr ""
 
-#: inc/options-schema.php:211
+#: inc/options-schema.php:275
 msgid "Lead paragraph"
 msgstr ""
 
-#: inc/options-schema.php:211
+#: inc/options-schema.php:275
 msgid ""
 "Langgam Fikir is an independent publishing house dedicated to bringing "
 "profound narratives and critical thought to the forefront of the Malaysian "
 "literary scene."
 msgstr ""
 
-#: inc/options-schema.php:211
+#: inc/options-schema.php:275
 msgid "The larger introduction under the page title."
 msgstr ""
 
-#: inc/options-schema.php:212
+#: inc/options-schema.php:276
 msgid "Section heading"
 msgstr ""
 
-#: inc/options-schema.php:212
+#: inc/options-schema.php:276
 msgid "Our Mission"
 msgstr ""
 
-#: inc/options-schema.php:213
+#: inc/options-schema.php:277
 msgid "Mission text"
 msgstr ""
 
-#: inc/options-schema.php:213
+#: inc/options-schema.php:277
 msgid ""
 "Founded in 2015, we operate with a singular vision: to publish books that matter. In an age of fleeting digital content, we believe in the enduring power of the physical book as a technology for preserving deep thought.\n"
 "\n"
 "We focus on translating key works of global philosophy and literature into Malay, while also nurturing local voices that speak with clarity and courage on contemporary issues."
 msgstr ""
 
-#: inc/options-schema.php:214
+#: inc/options-schema.php:278
 msgid "Card 1 title"
 msgstr ""
 
-#: inc/options-schema.php:214
+#: inc/options-schema.php:278
 msgid "Translation"
 msgstr ""
 
-#: inc/options-schema.php:215
+#: inc/options-schema.php:279
 msgid "Card 1 text"
 msgstr ""
 
-#: inc/options-schema.php:215
+#: inc/options-schema.php:279
 msgid ""
 "Bridging cultures by bringing world classics to local readers with high-"
 "fidelity translations."
 msgstr ""
 
-#: inc/options-schema.php:216
+#: inc/options-schema.php:280
 msgid "Card 2 title"
 msgstr ""
 
-#: inc/options-schema.php:216
+#: inc/options-schema.php:280
 msgid "Original Works"
 msgstr ""
 
-#: inc/options-schema.php:217
+#: inc/options-schema.php:281
 msgid "Card 2 text"
 msgstr ""
 
-#: inc/options-schema.php:217
+#: inc/options-schema.php:281
 msgid ""
 "Providing a platform for Malaysian thinkers, poets, and storytellers to "
 "document our times."
 msgstr ""
 
-#: inc/options-schema.php:217
+#: inc/options-schema.php:281
 msgid "Empty cards are hidden."
 msgstr ""
 
-#: inc/options-schema.php:218
+#: inc/options-schema.php:282
 msgid "Contact prompt"
 msgstr ""
 
-#: inc/options-schema.php:218
+#: inc/options-schema.php:282
 msgid "Have any questions?"
 msgstr ""
 
-#: inc/options-schema.php:219
+#: inc/options-schema.php:283
 msgid "Contact link text"
 msgstr ""
 
-#: inc/options-schema.php:219
+#: inc/options-schema.php:283
 msgid "Contact us!"
 msgstr ""
 
 #. Template Name of the theme
-#: inc/options-schema.php:223
+#: inc/options-schema.php:287
 msgid "Contact Page"
 msgstr ""
 
-#: inc/options-schema.php:224
+#: inc/options-schema.php:288
 msgid ""
 "Text on the Contact page and in its form. The email, phone and address shown"
 " beside the form come from Contact & Footer."
 msgstr ""
 
-#: inc/options-schema.php:226
+#: inc/options-schema.php:290
 msgid "Introduction"
 msgstr ""
 
-#: inc/options-schema.php:226
+#: inc/options-schema.php:290
 msgid ""
 "We would love to hear from you. Send us a message and we will reply as soon "
 "as we can."
 msgstr ""
 
-#: inc/options-schema.php:226
+#: inc/options-schema.php:290
 msgid "Shown beside the form. Leave empty to hide it."
 msgstr ""
 
-#: inc/options-schema.php:227
+#: inc/options-schema.php:291
 msgid "Social links label"
 msgstr ""
 
-#: inc/options-schema.php:227
+#: inc/options-schema.php:291
 msgid "Find us on:"
 msgstr ""
 
-#: inc/options-schema.php:228
+#: inc/options-schema.php:292
 msgid "Name placeholder"
 msgstr ""
 
-#: inc/options-schema.php:228
+#: inc/options-schema.php:292
 msgid "Name"
 msgstr ""
 
-#: inc/options-schema.php:229
+#: inc/options-schema.php:293
 msgid "Email placeholder"
 msgstr ""
 
-#: inc/options-schema.php:229
+#: inc/options-schema.php:293
 msgid "Email"
 msgstr ""
 
-#: inc/options-schema.php:230
+#: inc/options-schema.php:294
 msgid "Subject placeholder"
 msgstr ""
 
-#: inc/options-schema.php:230
+#: inc/options-schema.php:294
 msgid "Subject"
 msgstr ""
 
-#: inc/options-schema.php:231
+#: inc/options-schema.php:295
 msgid "Message placeholder"
 msgstr ""
 
-#: inc/options-schema.php:231
+#: inc/options-schema.php:295
 msgid "Type your message"
 msgstr ""
 
-#: inc/options-schema.php:232
+#: inc/options-schema.php:296
 msgid "Submit button"
 msgstr ""
 
-#: inc/options-schema.php:232
+#: inc/options-schema.php:296
 msgid "Send message"
 msgstr ""
 
-#: inc/options-schema.php:233
+#: inc/options-schema.php:297
 msgid "Success message"
 msgstr ""
 
-#: inc/options-schema.php:233
+#: inc/options-schema.php:297
 msgid "Thank you for your message! We will get back to you soon."
 msgstr ""
 
-#: inc/options-schema.php:234
+#: inc/options-schema.php:298
 msgid "Error message"
 msgstr ""
 
-#: inc/options-schema.php:234
+#: inc/options-schema.php:298
 msgid "There was an error sending your message. Please try again."
 msgstr ""
 
-#: inc/options-schema.php:235
+#: inc/options-schema.php:299
 msgid "Order email subject"
 msgstr ""
 
-#: inc/options-schema.php:235
+#: inc/options-schema.php:299
 msgid "Book Order - {title}"
 msgstr ""
 
-#: inc/options-schema.php:235
+#: inc/options-schema.php:299
 msgid "Pre-filled when a visitor clicks Order on a book. Use {title}."
 msgstr ""
 
-#: inc/options-schema.php:236
+#: inc/options-schema.php:300
 msgid "Order email message"
 msgstr ""
 
-#: inc/options-schema.php:236
+#: inc/options-schema.php:300
 msgid ""
 "I am interested in ordering:\n"
 "\n"
@@ -1572,341 +1851,341 @@ msgid ""
 "Thank you."
 msgstr ""
 
-#: inc/options-schema.php:236
+#: inc/options-schema.php:300
 msgid ""
 "Use {title}, {author}, {year} and {price}. A line whose author, year or "
 "price is empty is left out."
 msgstr ""
 
-#: inc/options-schema.php:247
+#: inc/options-schema.php:311
 msgid "Footer Wording"
 msgstr ""
 
-#: inc/options-schema.php:248
+#: inc/options-schema.php:312
 msgid "Headings and the copyright suffix in the footer."
 msgstr ""
 
-#: inc/options-schema.php:250
+#: inc/options-schema.php:314
 msgid "Legal column heading"
 msgstr ""
 
-#: inc/options-schema.php:250
+#: inc/options-schema.php:314
 msgid "Legal"
 msgstr ""
 
-#: inc/options-schema.php:251
+#: inc/options-schema.php:315
 msgid "Contact column heading"
 msgstr ""
 
-#: inc/options-schema.php:251
+#: inc/options-schema.php:315
 msgid "Contact"
 msgstr ""
 
-#: inc/options-schema.php:252
+#: inc/options-schema.php:316
 msgid "Copyright suffix"
 msgstr ""
 
-#: inc/options-schema.php:252
+#: inc/options-schema.php:316
 msgid "All rights reserved."
 msgstr ""
 
-#: inc/options-schema.php:252
+#: inc/options-schema.php:316
 msgid "Shown after \"© year site name.\""
 msgstr ""
 
-#: inc/options-schema.php:263
+#: inc/options-schema.php:327
 msgid "More Social Profiles"
 msgstr ""
 
-#: inc/options-schema.php:264
+#: inc/options-schema.php:328
 msgid ""
 "Further profiles shown as icons beside the four above (in the footer and on "
 "the Contact page) and listed in Schema.org sameAs. Leave a field empty to "
 "hide that icon."
 msgstr ""
 
-#: inc/options-schema.php:266
+#: inc/options-schema.php:330
 msgid "LinkedIn URL"
 msgstr ""
 
-#: inc/options-schema.php:267
+#: inc/options-schema.php:331
 msgid "Threads URL"
 msgstr ""
 
-#: inc/options-schema.php:268
+#: inc/options-schema.php:332
 msgid "TikTok URL"
 msgstr ""
 
-#: inc/options-schema.php:269
+#: inc/options-schema.php:333
 msgid "YouTube URL"
 msgstr ""
 
-#: inc/options-schema.php:270
+#: inc/options-schema.php:334
 msgid "Telegram URL"
 msgstr ""
 
-#: inc/options-schema.php:271
+#: inc/options-schema.php:335
 msgid "Bluesky URL"
 msgstr ""
 
-#: inc/options-schema.php:272
+#: inc/options-schema.php:336
 msgid "Mastodon URL"
 msgstr ""
 
-#: inc/options-schema.php:273
+#: inc/options-schema.php:337
 msgid "Goodreads URL"
 msgstr ""
 
-#: inc/options-schema.php:274
+#: inc/options-schema.php:338
 msgid "Medium URL"
 msgstr ""
 
-#: inc/options-schema.php:275
+#: inc/options-schema.php:339
 msgid "Substack URL"
 msgstr ""
 
-#: inc/options-schema.php:276
+#: inc/options-schema.php:340
 msgid "Spotify URL"
 msgstr ""
 
-#: inc/options-schema.php:277
+#: inc/options-schema.php:341
 msgid "Pinterest URL"
 msgstr ""
 
-#: inc/options-schema.php:278
+#: inc/options-schema.php:342
 msgid "Show the profile icons in the footer"
 msgstr ""
 
-#: inc/options-schema.php:282
+#: inc/options-schema.php:346
 msgid "Share Buttons"
 msgstr ""
 
-#: inc/options-schema.php:283
+#: inc/options-schema.php:347
 msgid ""
 "The buttons visitors use to share a book, article or page, and where they "
 "appear."
 msgstr ""
 
-#: inc/options-schema.php:285
+#: inc/options-schema.php:349
 msgid "WhatsApp"
 msgstr ""
 
-#: inc/options-schema.php:286
+#: inc/options-schema.php:350
 msgid "Facebook"
 msgstr ""
 
-#: inc/options-schema.php:287
+#: inc/options-schema.php:351
 msgid "X"
 msgstr ""
 
-#: inc/options-schema.php:288
+#: inc/options-schema.php:352
 msgid "LinkedIn"
 msgstr ""
 
-#: inc/options-schema.php:289
+#: inc/options-schema.php:353
 msgid "Telegram"
 msgstr ""
 
-#: inc/options-schema.php:290
+#: inc/options-schema.php:354
 msgid "Threads"
 msgstr ""
 
-#: inc/options-schema.php:291
+#: inc/options-schema.php:355
 msgid "Bluesky"
 msgstr ""
 
-#: inc/options-schema.php:292
+#: inc/options-schema.php:356
 msgid "Reddit"
 msgstr ""
 
-#: inc/options-schema.php:293
+#: inc/options-schema.php:357
 msgid "Copy link button"
 msgstr ""
 
-#: inc/options-schema.php:294
+#: inc/options-schema.php:358
 msgid "Show on book pages"
 msgstr ""
 
-#: inc/options-schema.php:295
+#: inc/options-schema.php:359
 msgid "Show on articles"
 msgstr ""
 
-#: inc/options-schema.php:296
+#: inc/options-schema.php:360
 msgid "Show on pages (About and other standard pages)"
 msgstr ""
 
-#: inc/options-schema.php:296
+#: inc/options-schema.php:360
 msgid "The Contact and Privacy Policy pages never show it."
 msgstr ""
 
-#: inc/options-schema.php:304
+#: inc/options-schema.php:368
 msgid "Labels & 404"
 msgstr ""
 
-#: inc/options-schema.php:308
+#: inc/options-schema.php:372
 msgid "Buttons"
 msgstr ""
 
-#: inc/options-schema.php:309
+#: inc/options-schema.php:373
 msgid "Button text used across the site."
 msgstr ""
 
-#: inc/options-schema.php:311
+#: inc/options-schema.php:375
 msgid "Book card: learn more"
 msgstr ""
 
-#: inc/options-schema.php:312
+#: inc/options-schema.php:376
 msgid "Article card: read more"
 msgstr ""
 
-#: inc/options-schema.php:312 index.php:100 search.php:107
+#: inc/options-schema.php:376 index.php:100 search.php:107
 msgid "Read More"
 msgstr ""
 
-#: inc/options-schema.php:313
+#: inc/options-schema.php:377
 msgid "Share bar label"
 msgstr ""
 
-#: inc/options-schema.php:313
+#: inc/options-schema.php:377
 msgid "Share:"
 msgstr ""
 
-#: inc/options-schema.php:314
+#: inc/options-schema.php:378
 msgid "Social profiles label"
 msgstr ""
 
-#: inc/options-schema.php:314
+#: inc/options-schema.php:378
 msgid "Follow us"
 msgstr ""
 
-#: inc/options-schema.php:318
+#: inc/options-schema.php:382
 msgid "Book Information Labels"
 msgstr ""
 
-#: inc/options-schema.php:319
+#: inc/options-schema.php:383
 msgid "The labels in the information card on each book page."
 msgstr ""
 
-#: inc/options-schema.php:336
+#: inc/options-schema.php:400
 msgid "Topics (tags)"
 msgstr ""
 
-#: inc/options-schema.php:340
+#: inc/options-schema.php:404
 msgid "Browsing and Sorting"
 msgstr ""
 
-#: inc/options-schema.php:341
+#: inc/options-schema.php:405
 msgid ""
 "The category and topic filters and the sort menu on the Publications archive"
 " and the category and tag pages."
 msgstr ""
 
-#: inc/options-schema.php:343
+#: inc/options-schema.php:407
 msgid "Category filter heading"
 msgstr ""
 
-#: inc/options-schema.php:343
+#: inc/options-schema.php:407
 msgid "Browse by category"
 msgstr ""
 
-#: inc/options-schema.php:344
+#: inc/options-schema.php:408
 msgid "Topic filter heading"
 msgstr ""
 
-#: inc/options-schema.php:344
+#: inc/options-schema.php:408
 msgid "Browse by topic"
 msgstr ""
 
-#: inc/options-schema.php:345
+#: inc/options-schema.php:409
 msgid "\"All\" chip"
 msgstr ""
 
-#: inc/options-schema.php:345
+#: inc/options-schema.php:409
 msgid "All"
 msgstr ""
 
-#: inc/options-schema.php:346
+#: inc/options-schema.php:410
 msgid "Sort menu label"
 msgstr ""
 
-#: inc/options-schema.php:346
+#: inc/options-schema.php:410
 msgid "Sort by"
 msgstr ""
 
-#: inc/options-schema.php:347
+#: inc/options-schema.php:411
 msgid "Sort: newest"
 msgstr ""
 
-#: inc/options-schema.php:347
+#: inc/options-schema.php:411
 msgid "Newest first"
 msgstr ""
 
-#: inc/options-schema.php:348
+#: inc/options-schema.php:412
 msgid "Sort: oldest"
 msgstr ""
 
-#: inc/options-schema.php:348
+#: inc/options-schema.php:412
 msgid "Oldest first"
 msgstr ""
 
-#: inc/options-schema.php:349
+#: inc/options-schema.php:413
 msgid "Sort: title"
 msgstr ""
 
-#: inc/options-schema.php:349
+#: inc/options-schema.php:413
 msgid "Title A to Z"
 msgstr ""
 
-#: inc/options-schema.php:350
+#: inc/options-schema.php:414
 msgid "Apply button"
 msgstr ""
 
-#: inc/options-schema.php:350
+#: inc/options-schema.php:414
 msgid "Apply"
 msgstr ""
 
-#: inc/options-schema.php:351
+#: inc/options-schema.php:415
 msgid "Result count"
 msgstr ""
 
-#: inc/options-schema.php:351
+#: inc/options-schema.php:415
 msgid "{n} titles"
 msgstr ""
 
-#: inc/options-schema.php:351
+#: inc/options-schema.php:415
 msgid "Use {n} for the number of books."
 msgstr ""
 
-#: inc/options-schema.php:355
+#: inc/options-schema.php:419
 msgid "404 Page"
 msgstr ""
 
-#: inc/options-schema.php:356
+#: inc/options-schema.php:420
 msgid ""
 "The \"page not found\" screen: a bookshelf with a gap, one random quip, a "
 "message and a few books to try instead."
 msgstr ""
 
-#: inc/options-schema.php:358
+#: inc/options-schema.php:422
 msgid "This page has wandered off the shelf."
 msgstr ""
 
-#: inc/options-schema.php:359
+#: inc/options-schema.php:423
 msgid "Message"
 msgstr ""
 
-#: inc/options-schema.php:359
+#: inc/options-schema.php:423
 msgid ""
 "We looked under every cover, behind the footnotes and between the lines. Nothing.\n"
 "\n"
 "The page you wanted may have moved, been renamed, or never existed outside someone's imagination (which, to be fair, is where most good books begin)."
 msgstr ""
 
-#: inc/options-schema.php:360
+#: inc/options-schema.php:424
 msgid "Quips"
 msgstr ""
 
-#: inc/options-schema.php:360
+#: inc/options-schema.php:424
 msgid ""
 "Misshelved, not lost. Probably.\n"
 "Even the best index misses an entry.\n"
@@ -1917,36 +2196,36 @@ msgid ""
 "It was here a minute ago. We checked the margins."
 msgstr ""
 
-#: inc/options-schema.php:360
+#: inc/options-schema.php:424
 msgid ""
 "One per line. A different one is shown at random each time. Empty hides it."
 msgstr ""
 
-#: inc/options-schema.php:361
+#: inc/options-schema.php:425
 msgid "Home button"
 msgstr ""
 
-#: inc/options-schema.php:361
+#: inc/options-schema.php:425
 msgid "Take me home"
 msgstr ""
 
-#: inc/options-schema.php:362
+#: inc/options-schema.php:426
 msgid "Books button"
 msgstr ""
 
-#: inc/options-schema.php:362 search.php:138
+#: inc/options-schema.php:426 search.php:138
 msgid "Browse Books"
 msgstr ""
 
-#: inc/options-schema.php:363
+#: inc/options-schema.php:427
 msgid "Suggested books heading"
 msgstr ""
 
-#: inc/options-schema.php:363
+#: inc/options-schema.php:427
 msgid "While you are here, these are definitely on the shelf"
 msgstr ""
 
-#: inc/options-schema.php:363
+#: inc/options-schema.php:427
 msgid "Shows three books under the message. Empty hides them."
 msgstr ""
 
