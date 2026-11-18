@@ -133,7 +133,7 @@ For manual server access:
 - Publications archive: the book search and cover-first grid are automatic.
 - The Malay translation (ms_MY) now covers the front end and admin; set the site language to Bahasa Melayu to use it.
 
-**Rollback:** safe; the new options are additive and ignored by 2.11.0.
+**Rollback:** safe for the site; 2.11.0 ignores the new options. Saving Theme Options while on 2.11.0 drops the 2.12 settings (hero layout, highlights, announcement bar, call-to-action band, header button and so on), so note them first if you want to reapply them after upgrading again.
 
 ---
 

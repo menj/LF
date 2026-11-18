@@ -78,7 +78,7 @@ All are self-hosted. Crimson Text and Inter are declared in `/assets/css/fonts.c
 
 ### 3.2a Palettes, corners and design layer
 
-Earth (the table above) is the default palette and the base in `:root`. Slate, Sage and Clay are light alternatives declared as `body.lf-scheme-*` in `assets/css/design.css`; individually picked colours are emitted as one `body.lf-has-custom-colours` block (see `inc/design.php`). Additional tokens: `--color-bg-tint`, `--color-on-accent`, `--color-on-hero` (palette), `--radius-sm/md/lg/xl/btn/pill` (corners: Soft default, Sharp, Round). Book-status colours and brand share colours are semantic and stay literal. Dark mode is not offered (see 9.2).
+Earth (the table above) is the base in `:root`. **Folio** (cream page, oxblood headings, sage surfaces, brass accent) is the default palette from 2.12.0, applied as `body.lf-scheme-folio`; choosing Earth removes the class. Slate, Sage and Clay are light alternatives declared as `body.lf-scheme-*` in `assets/css/design.css`; individually picked colours are emitted as one `body.lf-has-custom-colours` block (see `inc/design.php`). Additional tokens: `--color-bg-tint`, `--color-on-accent`, `--color-on-hero` (palette), `--radius-sm/md/lg/xl/btn/pill` (corners: Soft default, Sharp, Round). Book-status colours and brand share colours are semantic and stay literal. Dark mode is not offered (see 9.2).
 
 ### 3.3 Spacing scale
 
