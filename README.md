@@ -6,7 +6,7 @@ A child theme of WordPress Twenty Twenty-Five (2025 default theme) with custom b
 
 - **Theme Name:** Langgam Fikir
 - **Parent Theme:** Twenty Twenty-Five
-- **Version:** 2.11.0
+- **Version:** 2.12.0
 - **Author:** MENJ
 - **License:** GPL v2 or later
 - **Requires WordPress:** 6.7+
@@ -289,6 +289,16 @@ Edit `/assets/css/main.css`:
 ```
 
 ## Version History / Changelog
+
+### Version 2.12.0 (November 2026) — Folio Design
+
+- **NEW:** Folio palette (cream, oxblood, sage, brass) as the default, alongside Earth, Slate, Sage and Clay
+- **NEW:** Hero layouts: Split (text beside scattered book covers or a photo), Banner (the previous look) and Card; editable eyebrow and heading
+- **NEW:** Highlights strip, large faint site name, swipeable Latest Publications carousel, announcement bar, call-to-action band and optional header button
+- **NEW:** Publications archive with a book search and a cover-first grid
+- **CHANGED:** Left-aligned section headings with a brass rule; soft pill for the current menu item
+- **FIXED:** Unreadably small tagline; inconsistent mobile footer alignment
+- **NEW:** Malay (ms_MY) translation of the front end and admin
 
 ### Version 2.11.0 (October 2026) — Design & Content
 

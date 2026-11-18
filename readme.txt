@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.11.0
+Stable tag: 2.12.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,15 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.12.0 (November 2026) =
+* NEW: Folio palette (cream, oxblood, sage, brass) as the new default; Earth, Slate, Sage and Clay remain
+* NEW: Hero layouts: Split (default; text beside the latest book covers scattered and tilted, or a photo), Banner (the previous look) and Card (white card over a photo), with an editable eyebrow and heading
+* NEW: Highlights strip, large faint site name, swipeable Latest Publications carousel, announcement bar, call-to-action band and an optional header button, all editable in Theme Options > Homepage
+* NEW: Publications archive with a book search and a cover-first grid
+* CHANGED: Section headings left-aligned with a brass rule; the current menu item is a soft pill on wide screens
+* FIXED: Header and footer taglines were too small and pale to read; the mobile footer is aligned consistently
+* Malay (ms_MY) translation of the front end and admin
 
 = 2.11.0 (October 2026) =
 * NEW: Theme Options > Design: four light palettes with custom colours, five-typeface font roles (Kagnue, Crimson Text, Sabon Next LT, Inter, Ferments), corner style, parallax setting
@@ -447,6 +456,9 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 * Typography and color system implementation
 
 == Upgrade Notice ==
+
+= 2.12.0 =
+New default palette (Folio) and a redesigned homepage with a split hero, carousel and highlights strip. Hard-refresh after updating. A site that already saved the Earth palette keeps it; choose Folio, or a hero layout, in Theme Options > Design and Homepage. The previous look is available as the Banner hero.
 
 = 2.11.0 =
 Design and content options in Theme Options, a card-based Showcase, a hero photo, and a new 404. Hard-refresh after updating; defaults change the look slightly (rounder corners, hero photo, five-font stack) and can be reverted in Theme Options > Design and Homepage.

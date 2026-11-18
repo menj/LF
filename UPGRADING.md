@@ -118,7 +118,26 @@ For manual server access:
 
 ## Version-Specific Upgrade Notes
 
-### Upgrading to 2.11.0 (Latest) ✅
+### Upgrading to 2.12.0 (Latest) ✅
+
+**Status:** RELEASED — design release.
+
+**Changes:** see `CHANGELOG.md` [2.12.0].
+
+**Action required:**
+- Hard-refresh after updating (CSS and JS changed: `design.css`, `main.css`, `main.js`).
+- **Palette:** Folio is the new default where no palette has been saved. A site that already saved Earth keeps it; choose Folio in Theme Options → Design if you want the new look.
+- **Homepage:** the hero is now the Split layout (heading and text beside the latest book covers, or a photo), with a highlights strip below it and Latest Publications as a swipeable row. Theme Options → Homepage: choose **Banner** as the Hero layout to keep the previous full-width photo hero, **Grid** as the Publications layout to keep the grid, and switch off the highlights strip or the faint site name if you do not want them.
+- Optional and off by default: announcement bar, call-to-action band, header button (Theme Options → Homepage). Fill them in to show them.
+- Check the highlights strip wording (defaults: "Independent Malaysian publisher", "Translations and original works", "Publishing since 2015") and the hero eyebrow and heading; edit them to suit.
+- Publications archive: the book search and cover-first grid are automatic.
+- The Malay translation (ms_MY) now covers the front end and admin; set the site language to Bahasa Melayu to use it.
+
+**Rollback:** safe; the new options are additive and ignored by 2.11.0.
+
+---
+
+### Upgrading to 2.11.0 ✅
 
 **Status:** RELEASED — design and content release.
 

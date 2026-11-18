@@ -339,7 +339,7 @@ All theme source strings are in **en_US**. Translations live in `/languages/` as
 
 ### 9.2 Out of scope
 
-- **Dark Mode** is permanently out of scope. No dark palette, no `prefers-color-scheme` switching, no toggle. *Amended at 2.11.0 on MENJ's instruction:* a palette selector is in scope, limited to light palettes (Earth, Slate, Sage, Clay) plus custom colours in Theme Options → Design.
+- **Dark Mode** is permanently out of scope. No dark palette, no `prefers-color-scheme` switching, no toggle. *Amended at 2.11.0 on MENJ's instruction:* a palette selector is in scope, limited to light palettes (Folio, Earth, Slate, Sage, Clay) plus custom colours in Theme Options → Design.
 
 ### 9.3 Deferred
 
@@ -355,7 +355,7 @@ When in doubt, defer to MENJ. Brand decisions, scope decisions, and "is this in 
 
 | Field | Value |
 |---|---|
-| Latest released version | **2.11.0** |
+| Latest released version | **2.12.0** |
 | Active development phase | Phase 4 (Admin Power Features) — next |
 | In-progress phase | Phase 5 (Frontend Polish) — 3 of 8 items delivered |
 | SEO/AEO audit score | **92/100** (last assessed at v2.6.0) |
@@ -390,5 +390,5 @@ When more than one doc covers a topic, this is which one wins:
 
 ---
 
-**Last Updated:** October 31, 2026 (v2.11.0)
+**Last Updated:** November 18, 2026 (v2.12.0)
 **Maintained by:** MENJ
