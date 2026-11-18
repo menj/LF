@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Langgam Fikir 2.11.0\n"
 "Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
 "POT-Creation-Date: 2026-11-01 05:23+0000\n"
-"PO-Revision-Date: 2026-11-02 06:11+0000\n"
+"PO-Revision-Date: 2026-11-18 04:40+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: ms_MY\n"
@@ -59,17 +59,17 @@ msgstr ""
 "Terokai katalog lengkap karya kami, daripada fiksyen kontemporari hingga "
 "esei kritis dan catatan sejarah."
 
-#: archive-book.php:38 archive.php:68 home.php:122 index.php:115
+#: archive-book.php:47 archive.php:68 home.php:122 index.php:115
 #: search.php:123 taxonomy-book-category.php:46 taxonomy-book-tag.php:54
 msgid "&larr; Previous"
 msgstr "&larr; Sebelumnya"
 
-#: archive-book.php:39 archive.php:69 home.php:123 index.php:116
+#: archive-book.php:48 archive.php:69 home.php:123 index.php:116
 #: search.php:124 taxonomy-book-category.php:47 taxonomy-book-tag.php:55
 msgid "Next &rarr;"
 msgstr "Seterusnya &rarr;"
 
-#: archive-book.php:45
+#: archive-book.php:54
 msgid "No books found."
 msgstr "Tiada buku ditemui."
 
@@ -106,31 +106,31 @@ msgstr "%s ialah perniagaan berdaftar di Malaysia."
 #. translators: %s: site name
 #. translators: %s: post title
 #. translators: %s: post or book title
-#: front-page.php:45 index.php:103 search.php:112
+#: front-page.php:59 front-page.php:160 index.php:103 search.php:112
 #: template-parts/content/book-card.php:76
 #: template-parts/content/resource-card.php:46
 #, php-format
 msgid "about %s"
 msgstr "tentang %s"
 
-#: front-page.php:63
+#: front-page.php:251
 msgid "About Langgam Fikir"
 msgstr "Tentang Langgam Fikir"
 
-#: front-page.php:70
+#: front-page.php:258
 msgid "Library of books"
 msgstr "Perpustakaan buku"
 
-#: front-page.php:76 inc/admin/theme-options.php:288
+#: front-page.php:264 inc/admin/theme-options.php:288
 #: inc/template-functions.php:56
 msgid "Years of Excellence"
 msgstr "Tahun Kecemerlangan"
 
-#: front-page.php:123
+#: front-page.php:318
 msgid "publications"
 msgstr "terbitan"
 
-#: front-page.php:167
+#: front-page.php:362
 msgid "resources"
 msgstr "sumber"
 
@@ -326,40 +326,40 @@ msgid "Excerpt"
 msgstr "Petikan"
 
 #: inc/admin/meta-boxes.php:35 inc/book-fields.php:43 inc/book-fields.php:269
-#: inc/options-schema.php:321
+#: inc/options-schema.php:385
 msgid "Author"
 msgstr "Penulis"
 
 #: inc/admin/meta-boxes.php:36 inc/book-fields.php:271
-#: inc/options-schema.php:327
+#: inc/options-schema.php:391
 msgid "Year"
 msgstr "Tahun"
 
 #: inc/admin/meta-boxes.php:37 inc/book-fields.php:56
-#: inc/options-schema.php:333
+#: inc/options-schema.php:397
 msgid "ISBN"
 msgstr ""
 
 #: inc/admin/meta-boxes.php:38 inc/book-fields.php:57
-#: inc/options-schema.php:334
+#: inc/options-schema.php:398
 msgid "OCLC number"
 msgstr "Nombor OCLC"
 
 #: inc/admin/meta-boxes.php:39 inc/book-fields.php:64
-#: inc/options-schema.php:331
+#: inc/options-schema.php:395
 msgid "Pages"
 msgstr "Halaman"
 
 #: inc/admin/meta-boxes.php:40 inc/book-fields.php:63
-#: inc/options-schema.php:330
+#: inc/options-schema.php:394
 msgid "Format"
 msgstr "Format"
 
-#: inc/admin/meta-boxes.php:41 inc/options-schema.php:335
+#: inc/admin/meta-boxes.php:41 inc/options-schema.php:399
 msgid "Category"
 msgstr "Kategori"
 
-#: inc/admin/meta-boxes.php:42 inc/options-schema.php:336
+#: inc/admin/meta-boxes.php:42 inc/options-schema.php:400
 msgid "Topics"
 msgstr "Topik"
 
@@ -679,7 +679,7 @@ msgstr "Bilangan Kandungan"
 msgid "Control how many items appear in each homepage section."
 msgstr "Kawal bilangan item dalam setiap bahagian laman utama."
 
-#: inc/admin/theme-options.php:300 inc/options-schema.php:192
+#: inc/admin/theme-options.php:300 inc/options-schema.php:252
 msgid "Latest Publications"
 msgstr "Terbitan Terkini"
 
@@ -687,7 +687,7 @@ msgstr "Terbitan Terkini"
 msgid "Number of books shown (1–12)."
 msgstr "Bilangan buku dipaparkan (1–12)."
 
-#: inc/admin/theme-options.php:307 inc/options-schema.php:194
+#: inc/admin/theme-options.php:307 inc/options-schema.php:254
 #: inc/schema.php:482
 msgid "Resources & Insights"
 msgstr "Sumber & Wawasan"
@@ -930,7 +930,7 @@ msgstr "Tajuk & kredit"
 msgid "Subtitle"
 msgstr "Tajuk kecil"
 
-#: inc/book-fields.php:42 inc/options-schema.php:325
+#: inc/book-fields.php:42 inc/options-schema.php:389
 msgid "Original title"
 msgstr "Tajuk asal"
 
@@ -938,7 +938,7 @@ msgstr "Tajuk asal"
 msgid "For translations: the title in the original language"
 msgstr "Untuk terjemahan: tajuk dalam bahasa asal"
 
-#: inc/book-fields.php:44 inc/options-schema.php:322
+#: inc/book-fields.php:44 inc/options-schema.php:386
 msgid "Translator"
 msgstr "Penterjemah"
 
@@ -946,7 +946,7 @@ msgstr "Penterjemah"
 msgid "Leave blank if not applicable"
 msgstr "Biarkan kosong jika tidak berkenaan"
 
-#: inc/book-fields.php:45 inc/options-schema.php:323
+#: inc/book-fields.php:45 inc/options-schema.php:387
 msgid "Translated from"
 msgstr "Diterjemahkan daripada"
 
@@ -954,7 +954,7 @@ msgstr "Diterjemahkan daripada"
 msgid "For example Arabic"
 msgstr "Contohnya bahasa Arab"
 
-#: inc/book-fields.php:46 inc/options-schema.php:324
+#: inc/book-fields.php:46 inc/options-schema.php:388
 msgid "Editor"
 msgstr "Penyunting"
 
@@ -962,7 +962,7 @@ msgstr "Penyunting"
 msgid "Publication"
 msgstr "Penerbitan"
 
-#: inc/book-fields.php:52 inc/options-schema.php:326
+#: inc/book-fields.php:52 inc/options-schema.php:390
 msgid "Publisher"
 msgstr "Penerbit"
 
@@ -970,7 +970,7 @@ msgstr "Penerbit"
 msgid "Publication year"
 msgstr "Tahun terbitan"
 
-#: inc/book-fields.php:54 inc/options-schema.php:328
+#: inc/book-fields.php:54 inc/options-schema.php:392
 msgid "Edition"
 msgstr "Edisi"
 
@@ -978,7 +978,7 @@ msgstr "Edisi"
 msgid "For example First edition"
 msgstr "Contohnya edisi pertama"
 
-#: inc/book-fields.php:55 inc/options-schema.php:329
+#: inc/book-fields.php:55 inc/options-schema.php:393
 msgid "Series"
 msgstr "Siri"
 
@@ -995,7 +995,7 @@ msgstr "Nombor WorldCat. Angka sahaja; awalan seperti ocm atau ocn dibuang."
 msgid "Physical details"
 msgstr "Butiran fizikal"
 
-#: inc/book-fields.php:65 inc/options-schema.php:332
+#: inc/book-fields.php:65 inc/options-schema.php:396
 msgid "Size"
 msgstr "Saiz"
 
@@ -1077,51 +1077,51 @@ msgstr "Buku terbuka"
 msgid "Leather-bound books"
 msgstr "Buku bersampul kulit"
 
-#: inc/options-schema.php:47
+#: inc/options-schema.php:52
 msgid "Earth"
 msgstr "Bumi"
 
-#: inc/options-schema.php:48
+#: inc/options-schema.php:53
 msgid "Warm browns and gold. The original look."
 msgstr "Coklat hangat dan emas. Rupa asal."
 
-#: inc/options-schema.php:52
+#: inc/options-schema.php:57
 msgid "Slate"
 msgstr "Kelabu Batu"
 
-#: inc/options-schema.php:53
+#: inc/options-schema.php:58
 msgid "Cool blue-grey, crisp and calm."
 msgstr "Biru-kelabu sejuk, jelas dan tenang."
 
-#: inc/options-schema.php:57
+#: inc/options-schema.php:62
 msgid "Sage"
 msgstr "Hijau Sage"
 
-#: inc/options-schema.php:58
+#: inc/options-schema.php:63
 msgid "Muted green with soft brass."
 msgstr "Hijau pudar dengan loyang lembut."
 
-#: inc/options-schema.php:62
+#: inc/options-schema.php:67
 msgid "Clay"
 msgstr "Tanah Liat"
 
-#: inc/options-schema.php:63
+#: inc/options-schema.php:68
 msgid "Terracotta and warm sand."
 msgstr "Terakota dan pasir hangat."
 
-#: inc/options-schema.php:91
+#: inc/options-schema.php:96
 msgid "Separate paragraphs with a blank line."
 msgstr "Pisahkan perenggan dengan baris kosong."
 
-#: inc/options-schema.php:97
+#: inc/options-schema.php:102
 msgid "Design"
 msgstr "Reka Bentuk"
 
-#: inc/options-schema.php:101
+#: inc/options-schema.php:106
 msgid "Colour Palette"
 msgstr "Palet Warna"
 
-#: inc/options-schema.php:102
+#: inc/options-schema.php:107
 msgid ""
 "Pick a light palette, then optionally override individual colours. Dark mode"
 " is not offered."
@@ -1129,47 +1129,47 @@ msgstr ""
 "Pilih palet cerah, kemudian ganti warna tertentu jika mahu. Mod gelap tidak "
 "disediakan."
 
-#: inc/options-schema.php:104
+#: inc/options-schema.php:109
 msgid "Palette"
 msgstr "Palet"
 
-#: inc/options-schema.php:105
+#: inc/options-schema.php:110
 msgid "Headings and hero"
 msgstr "Tajuk dan hero"
 
-#: inc/options-schema.php:105
+#: inc/options-schema.php:110
 msgid "Optional. Empty uses the palette."
 msgstr "Pilihan. Kosong bermaksud menggunakan palet."
 
-#: inc/options-schema.php:106
+#: inc/options-schema.php:111
 msgid "Accent"
 msgstr "Aksen"
 
-#: inc/options-schema.php:106
+#: inc/options-schema.php:111
 msgid "Buttons, highlights and badges. Empty uses the palette."
 msgstr "Butang, serlahan dan lencana. Kosong bermaksud menggunakan palet."
 
-#: inc/options-schema.php:107
+#: inc/options-schema.php:112
 msgid "Page background"
 msgstr "Latar halaman"
 
-#: inc/options-schema.php:108
+#: inc/options-schema.php:113
 msgid "Alternate sections"
 msgstr "Bahagian selang-seli"
 
-#: inc/options-schema.php:108
+#: inc/options-schema.php:113
 msgid "Cards and tinted bands."
 msgstr "Kad dan jalur bertona."
 
-#: inc/options-schema.php:109
+#: inc/options-schema.php:114
 msgid "Body text"
 msgstr "Teks isi"
 
-#: inc/options-schema.php:113
+#: inc/options-schema.php:118
 msgid "Typography"
 msgstr "Tipografi"
 
-#: inc/options-schema.php:114
+#: inc/options-schema.php:119
 msgid ""
 "Five typefaces share the work: Kagnue for titles, Crimson Text for headings,"
 " Sabon Next LT for reading text, Inter for the interface and Ferments for "
@@ -1179,76 +1179,76 @@ msgstr ""
 "untuk tajuk bahagian, Sabon Next LT untuk teks bacaan, Inter untuk antara "
 "muka dan Ferments untuk slogan. Tukar mana-mana peranan di sini."
 
-#: inc/options-schema.php:116
+#: inc/options-schema.php:121
 msgid "Site title and page titles"
 msgstr "Tajuk tapak dan tajuk halaman"
 
-#: inc/options-schema.php:117
+#: inc/options-schema.php:122
 msgid "Kagnue"
 msgstr ""
 
-#: inc/options-schema.php:118
+#: inc/options-schema.php:123
 msgid "Same as headings"
 msgstr "Sama seperti tajuk bahagian"
 
-#: inc/options-schema.php:120
+#: inc/options-schema.php:125
 msgid "Headings and book titles"
 msgstr "Tajuk bahagian dan tajuk buku"
 
-#: inc/options-schema.php:121 inc/options-schema.php:127
+#: inc/options-schema.php:126 inc/options-schema.php:132
 msgid "Crimson Text"
 msgstr ""
 
-#: inc/options-schema.php:122 inc/options-schema.php:126
-#: inc/options-schema.php:132
+#: inc/options-schema.php:127 inc/options-schema.php:131
+#: inc/options-schema.php:137
 msgid "Sabon Next LT"
 msgstr ""
 
-#: inc/options-schema.php:123
+#: inc/options-schema.php:128
 msgid "Georgia (system)"
 msgstr "Georgia (sistem)"
 
-#: inc/options-schema.php:125
+#: inc/options-schema.php:130
 msgid "Reading text"
 msgstr "Teks bacaan"
 
-#: inc/options-schema.php:125
+#: inc/options-schema.php:130
 msgid "Articles, About text, synopses and lead paragraphs."
 msgstr "Artikel, teks Tentang, sinopsis dan perenggan pembuka."
 
-#: inc/options-schema.php:128 inc/options-schema.php:131
+#: inc/options-schema.php:133 inc/options-schema.php:136
 msgid "Inter"
 msgstr ""
 
-#: inc/options-schema.php:130
+#: inc/options-schema.php:135
 msgid "Interface and body"
 msgstr "Antara muka dan isi"
 
-#: inc/options-schema.php:130
+#: inc/options-schema.php:135
 msgid "Navigation, buttons, forms and small text."
 msgstr "Navigasi, butang, borang dan teks kecil."
 
-#: inc/options-schema.php:133
+#: inc/options-schema.php:138
 msgid "System sans-serif"
 msgstr "Sans-serif sistem"
 
-#: inc/options-schema.php:135
+#: inc/options-schema.php:140
 msgid "Tagline and accents"
 msgstr "Slogan dan aksen"
 
-#: inc/options-schema.php:136
+#: inc/options-schema.php:141
 msgid "Ferments (script)"
 msgstr "Ferments (skrip)"
 
-#: inc/options-schema.php:137
+#: inc/options-schema.php:142
 msgid "Same as headings (italic)"
 msgstr "Sama seperti tajuk bahagian (condong)"
 
-#: inc/options-schema.php:142
+#: inc/options-schema.php:147
 msgid "Corners and Motion"
 msgstr "Sudut dan Gerakan"
 
-#: inc/options-schema.php:143
+#: inc/options-schema.php:148
 msgid ""
 "How rounded cards, images, buttons and fields are, and whether parts of the "
 "page drift while scrolling."
@@ -1256,27 +1256,27 @@ msgstr ""
 "Tahap kebulatan kad, imej, butang dan medan, serta sama ada bahagian halaman"
 " bergerak perlahan semasa menatal."
 
-#: inc/options-schema.php:145
+#: inc/options-schema.php:150
 msgid "Corners"
 msgstr "Sudut"
 
-#: inc/options-schema.php:146
+#: inc/options-schema.php:151
 msgid "Soft (default)"
 msgstr "Lembut (lalai)"
 
-#: inc/options-schema.php:147
+#: inc/options-schema.php:152
 msgid "Round (pill buttons, large radii)"
 msgstr "Bulat (butang pil, jejari besar)"
 
-#: inc/options-schema.php:148
+#: inc/options-schema.php:153
 msgid "Sharp (the pre-2.11 look)"
 msgstr "Tajam (rupa sebelum 2.11)"
 
-#: inc/options-schema.php:150
+#: inc/options-schema.php:155
 msgid "Parallax scrolling"
 msgstr "Tatal paralaks"
 
-#: inc/options-schema.php:150
+#: inc/options-schema.php:155
 msgid ""
 "Hero image, Showcase backdrop, the homepage About image, the About page logo"
 " and the book cover. Always off for visitors who prefer reduced motion."
@@ -1285,23 +1285,23 @@ msgstr ""
 "dan kulit buku. Sentiasa dimatikan bagi pelawat yang mengutamakan pergerakan"
 " terkurang."
 
-#: inc/options-schema.php:151
+#: inc/options-schema.php:156
 msgid "On for wide screens (default)"
 msgstr "Hidup untuk skrin lebar (lalai)"
 
-#: inc/options-schema.php:152
+#: inc/options-schema.php:157
 msgid "On for all screens"
 msgstr "Hidup untuk semua skrin"
 
-#: inc/options-schema.php:153
+#: inc/options-schema.php:158
 msgid "Off"
 msgstr "Mati"
 
-#: inc/options-schema.php:165
+#: inc/options-schema.php:170
 msgid "Hero Photo and Buttons"
 msgstr "Foto Hero dan Butang"
 
-#: inc/options-schema.php:166
+#: inc/options-schema.php:171
 msgid ""
 "A photograph behind the hero statement, tinted with your colours, with a "
 "parallax effect. A picture chosen under Hero Background Image above "
@@ -1311,47 +1311,48 @@ msgstr ""
 "paralaks. Gambar yang dipilih di bawah Imej Latar Hero di atas mengatasinya."
 " Foto daripada Pexels."
 
-#: inc/options-schema.php:168
+#: inc/options-schema.php:185
 msgid "Hero photo"
 msgstr "Foto hero"
 
-#: inc/options-schema.php:171
+#: inc/options-schema.php:188
 msgid "Random (a different photo each visit)"
 msgstr "Rawak (foto berbeza setiap lawatan)"
 
-#: inc/options-schema.php:172
+#: inc/options-schema.php:189
 msgid "No photo (solid colour)"
 msgstr "Tiada foto (warna pepejal)"
 
-#: inc/options-schema.php:175
+#: inc/options-schema.php:192
 msgid "First button"
 msgstr "Butang pertama"
 
-#: inc/options-schema.php:175 inc/post-types.php:32
+#: inc/options-schema.php:192 inc/post-types.php:32
 msgid "View Books"
 msgstr "Lihat Buku"
 
-#: inc/options-schema.php:175
+#: inc/options-schema.php:192
 msgid "Links to the publications archive."
 msgstr "Memaut ke arkib terbitan."
 
-#: inc/options-schema.php:176
+#: inc/options-schema.php:193
 msgid "Second button"
 msgstr "Butang kedua"
 
-#: inc/options-schema.php:176 inc/options-schema.php:311
+#: inc/options-schema.php:193 inc/options-schema.php:202
+#: inc/options-schema.php:375
 msgid "Learn More"
 msgstr "Ketahui Lagi"
 
-#: inc/options-schema.php:176
+#: inc/options-schema.php:193
 msgid "Links to the About page."
 msgstr "Memaut ke halaman Tentang."
 
-#: inc/options-schema.php:180
+#: inc/options-schema.php:240
 msgid "About Section Text"
 msgstr "Teks Bahagian Tentang"
 
-#: inc/options-schema.php:181
+#: inc/options-schema.php:241
 msgid ""
 "The text beside the About image on the homepage. The image comes from the "
 "About page's featured image."
@@ -1359,19 +1360,20 @@ msgstr ""
 "Teks di sebelah imej Tentang di laman utama. Imej diambil daripada imej "
 "pilihan halaman Tentang."
 
-#: inc/options-schema.php:183 inc/options-schema.php:358
+#: inc/options-schema.php:220 inc/options-schema.php:243
+#: inc/options-schema.php:422
 msgid "Heading"
 msgstr "Tajuk"
 
-#: inc/options-schema.php:183
+#: inc/options-schema.php:243
 msgid "Preserving the Art of Thoughtful Publishing"
 msgstr "Memelihara Seni Penerbitan Berfikir"
 
-#: inc/options-schema.php:184
+#: inc/options-schema.php:221 inc/options-schema.php:244
 msgid "Text"
 msgstr "Teks"
 
-#: inc/options-schema.php:184
+#: inc/options-schema.php:244
 msgid ""
 "At Langgam Fikir, we believe that books are more than just paper and ink—they are vessels of culture, history, and human experience. Founded with a mission to elevate local voices and translate global wisdom.\n"
 "\n"
@@ -1381,32 +1383,32 @@ msgstr ""
 "\n"
 "Katalog kami merangkumi sejarah, falsafah, sastera dan sains sosial, dipilih dengan teliti untuk mencabar sudut pandangan dan memperkaya minda."
 
-#: inc/options-schema.php:185
+#: inc/options-schema.php:245
 msgid "Button"
 msgstr "Butang"
 
-#: inc/options-schema.php:185
+#: inc/options-schema.php:245
 msgid "Read Our Full Story"
 msgstr "Baca Cerita Penuh Kami"
 
-#: inc/options-schema.php:189
+#: inc/options-schema.php:249
 msgid "Section Headings"
 msgstr "Tajuk Bahagian"
 
-#: inc/options-schema.php:190
+#: inc/options-schema.php:250
 msgid ""
 "Headings and subtitles of the Latest Publications and Resources sections."
 msgstr "Tajuk dan tajuk kecil bagi bahagian Terbitan Terkini dan Sumber."
 
-#: inc/options-schema.php:192
+#: inc/options-schema.php:252
 msgid "Publications heading"
 msgstr "Tajuk Terbitan"
 
-#: inc/options-schema.php:193
+#: inc/options-schema.php:253
 msgid "Publications subtitle"
 msgstr "Tajuk kecil Terbitan"
 
-#: inc/options-schema.php:193
+#: inc/options-schema.php:253
 msgid ""
 "Our newest releases, representing the finest in contemporary thought and "
 "literature."
@@ -1414,36 +1416,36 @@ msgstr ""
 "Keluaran terbaharu kami, mewakili yang terbaik dalam pemikiran dan "
 "kesusasteraan kontemporari."
 
-#: inc/options-schema.php:194
+#: inc/options-schema.php:254
 msgid "Resources heading"
 msgstr "Tajuk Sumber"
 
-#: inc/options-schema.php:195
+#: inc/options-schema.php:255
 msgid "Resources subtitle"
 msgstr "Tajuk kecil Sumber"
 
-#: inc/options-schema.php:195
+#: inc/options-schema.php:255
 msgid "Articles, interviews, and updates from the world of Langgam Fikir."
 msgstr "Artikel, temu bual dan kemas kini daripada dunia Langgam Fikir."
 
-#: inc/options-schema.php:196
+#: inc/options-schema.php:260
 msgid "\"View more\" button"
 msgstr "Butang \"Lihat lagi\""
 
-#: inc/options-schema.php:196
+#: inc/options-schema.php:260
 msgid "VIEW MORE"
 msgstr "LIHAT LAGI"
 
-#: inc/options-schema.php:204
+#: inc/options-schema.php:268
 msgid "About & Contact Pages"
 msgstr "Halaman Tentang & Hubungi"
 
 #. Template Name of the theme
-#: inc/options-schema.php:208
+#: inc/options-schema.php:272
 msgid "About Page"
 msgstr "Halaman Tentang"
 
-#: inc/options-schema.php:209
+#: inc/options-schema.php:273
 msgid ""
 "Text on the About page layout. Anything typed in the About page editor "
 "replaces the \"Mission text\" below."
@@ -1451,11 +1453,11 @@ msgstr ""
 "Teks pada reka letak halaman Tentang. Apa-apa yang ditaip dalam penyunting "
 "halaman Tentang menggantikan \"Teks misi\" di bawah."
 
-#: inc/options-schema.php:211
+#: inc/options-schema.php:275
 msgid "Lead paragraph"
 msgstr "Perenggan pembuka"
 
-#: inc/options-schema.php:211
+#: inc/options-schema.php:275
 msgid ""
 "Langgam Fikir is an independent publishing house dedicated to bringing "
 "profound narratives and critical thought to the forefront of the Malaysian "
@@ -1464,23 +1466,23 @@ msgstr ""
 "Langgam Fikir ialah rumah penerbitan bebas yang berdedikasi membawa naratif "
 "mendalam dan pemikiran kritis ke barisan hadapan dunia sastera Malaysia."
 
-#: inc/options-schema.php:211
+#: inc/options-schema.php:275
 msgid "The larger introduction under the page title."
 msgstr "Pengenalan yang lebih besar di bawah tajuk halaman."
 
-#: inc/options-schema.php:212
+#: inc/options-schema.php:276
 msgid "Section heading"
 msgstr "Tajuk bahagian"
 
-#: inc/options-schema.php:212
+#: inc/options-schema.php:276
 msgid "Our Mission"
 msgstr "Misi Kami"
 
-#: inc/options-schema.php:213
+#: inc/options-schema.php:277
 msgid "Mission text"
 msgstr "Teks misi"
 
-#: inc/options-schema.php:213
+#: inc/options-schema.php:277
 msgid ""
 "Founded in 2015, we operate with a singular vision: to publish books that matter. In an age of fleeting digital content, we believe in the enduring power of the physical book as a technology for preserving deep thought.\n"
 "\n"
@@ -1490,19 +1492,19 @@ msgstr ""
 "\n"
 "Kami menumpukan usaha menterjemahkan karya utama falsafah dan sastera dunia ke dalam bahasa Melayu, di samping memupuk suara tempatan yang bercakap dengan jelas dan berani tentang isu semasa."
 
-#: inc/options-schema.php:214
+#: inc/options-schema.php:278
 msgid "Card 1 title"
 msgstr "Tajuk kad 1"
 
-#: inc/options-schema.php:214
+#: inc/options-schema.php:278
 msgid "Translation"
 msgstr "Terjemahan"
 
-#: inc/options-schema.php:215
+#: inc/options-schema.php:279
 msgid "Card 1 text"
 msgstr "Teks kad 1"
 
-#: inc/options-schema.php:215
+#: inc/options-schema.php:279
 msgid ""
 "Bridging cultures by bringing world classics to local readers with high-"
 "fidelity translations."
@@ -1510,19 +1512,19 @@ msgstr ""
 "Menghubungkan budaya dengan membawa karya klasik dunia kepada pembaca "
 "tempatan melalui terjemahan yang setia."
 
-#: inc/options-schema.php:216
+#: inc/options-schema.php:280
 msgid "Card 2 title"
 msgstr "Tajuk kad 2"
 
-#: inc/options-schema.php:216
+#: inc/options-schema.php:280
 msgid "Original Works"
 msgstr "Karya Asli"
 
-#: inc/options-schema.php:217
+#: inc/options-schema.php:281
 msgid "Card 2 text"
 msgstr "Teks kad 2"
 
-#: inc/options-schema.php:217
+#: inc/options-schema.php:281
 msgid ""
 "Providing a platform for Malaysian thinkers, poets, and storytellers to "
 "document our times."
@@ -1530,32 +1532,32 @@ msgstr ""
 "Menyediakan wadah kepada pemikir, penyair dan pencerita Malaysia untuk "
 "mendokumentasikan zaman kita."
 
-#: inc/options-schema.php:217
+#: inc/options-schema.php:281
 msgid "Empty cards are hidden."
 msgstr "Kad kosong disembunyikan."
 
-#: inc/options-schema.php:218
+#: inc/options-schema.php:282
 msgid "Contact prompt"
 msgstr "Gesaan hubungan"
 
-#: inc/options-schema.php:218
+#: inc/options-schema.php:282
 msgid "Have any questions?"
 msgstr "Ada soalan?"
 
-#: inc/options-schema.php:219
+#: inc/options-schema.php:283
 msgid "Contact link text"
 msgstr "Teks pautan hubungan"
 
-#: inc/options-schema.php:219
+#: inc/options-schema.php:283
 msgid "Contact us!"
 msgstr "Hubungi kami!"
 
 #. Template Name of the theme
-#: inc/options-schema.php:223
+#: inc/options-schema.php:287
 msgid "Contact Page"
 msgstr "Halaman Hubungi"
 
-#: inc/options-schema.php:224
+#: inc/options-schema.php:288
 msgid ""
 "Text on the Contact page and in its form. The email, phone and address shown"
 " beside the form come from Contact & Footer."
@@ -1563,11 +1565,11 @@ msgstr ""
 "Teks pada halaman Hubungi dan dalam borangnya. Emel, telefon dan alamat yang"
 " dipaparkan di sebelah borang diambil daripada Hubungan & Pengaki."
 
-#: inc/options-schema.php:226
+#: inc/options-schema.php:290
 msgid "Introduction"
 msgstr "Pengenalan"
 
-#: inc/options-schema.php:226
+#: inc/options-schema.php:290
 msgid ""
 "We would love to hear from you. Send us a message and we will reply as soon "
 "as we can."
@@ -1575,94 +1577,94 @@ msgstr ""
 "Kami ingin mendengar daripada anda. Hantarkan mesej kepada kami dan kami "
 "akan membalas secepat mungkin."
 
-#: inc/options-schema.php:226
+#: inc/options-schema.php:290
 msgid "Shown beside the form. Leave empty to hide it."
 msgstr "Dipaparkan di sebelah borang. Biarkan kosong untuk menyembunyikannya."
 
-#: inc/options-schema.php:227
+#: inc/options-schema.php:291
 msgid "Social links label"
 msgstr "Label pautan sosial"
 
-#: inc/options-schema.php:227
+#: inc/options-schema.php:291
 msgid "Find us on:"
 msgstr "Temui kami di:"
 
-#: inc/options-schema.php:228
+#: inc/options-schema.php:292
 msgid "Name placeholder"
 msgstr "Pemegang tempat nama"
 
-#: inc/options-schema.php:228
+#: inc/options-schema.php:292
 msgid "Name"
 msgstr "Nama"
 
-#: inc/options-schema.php:229
+#: inc/options-schema.php:293
 msgid "Email placeholder"
 msgstr "Pemegang tempat emel"
 
-#: inc/options-schema.php:229
+#: inc/options-schema.php:293
 msgid "Email"
 msgstr "Emel"
 
-#: inc/options-schema.php:230
+#: inc/options-schema.php:294
 msgid "Subject placeholder"
 msgstr "Pemegang tempat subjek"
 
-#: inc/options-schema.php:230
+#: inc/options-schema.php:294
 msgid "Subject"
 msgstr "Subjek"
 
-#: inc/options-schema.php:231
+#: inc/options-schema.php:295
 msgid "Message placeholder"
 msgstr "Pemegang tempat mesej"
 
-#: inc/options-schema.php:231
+#: inc/options-schema.php:295
 msgid "Type your message"
 msgstr "Taipkan mesej anda"
 
-#: inc/options-schema.php:232
+#: inc/options-schema.php:296
 msgid "Submit button"
 msgstr "Butang hantar"
 
-#: inc/options-schema.php:232
+#: inc/options-schema.php:296
 msgid "Send message"
 msgstr "Hantar mesej"
 
-#: inc/options-schema.php:233
+#: inc/options-schema.php:297
 msgid "Success message"
 msgstr "Mesej kejayaan"
 
-#: inc/options-schema.php:233
+#: inc/options-schema.php:297
 msgid "Thank you for your message! We will get back to you soon."
 msgstr ""
 "Terima kasih atas mesej anda! Kami akan menghubungi anda secepat mungkin."
 
-#: inc/options-schema.php:234
+#: inc/options-schema.php:298
 msgid "Error message"
 msgstr "Mesej ralat"
 
-#: inc/options-schema.php:234
+#: inc/options-schema.php:298
 msgid "There was an error sending your message. Please try again."
 msgstr "Terdapat ralat semasa menghantar mesej anda. Sila cuba lagi."
 
-#: inc/options-schema.php:235
+#: inc/options-schema.php:299
 msgid "Order email subject"
 msgstr "Subjek emel tempahan"
 
-#: inc/options-schema.php:235
+#: inc/options-schema.php:299
 msgid "Book Order - {title}"
 msgstr "Tempahan Buku - {title}"
 
-#: inc/options-schema.php:235
+#: inc/options-schema.php:299
 msgid "Pre-filled when a visitor clicks Order on a book. Use {title}."
 msgstr ""
 "Diisi terlebih dahulu apabila pelawat mengklik Tempah pada buku. Gunakan "
 "{title}."
 
-#: inc/options-schema.php:236
+#: inc/options-schema.php:300
 msgid "Order email message"
 msgstr "Mesej emel tempahan"
 
-#: inc/options-schema.php:236
+#: inc/options-schema.php:300
 msgid ""
 "I am interested in ordering:\n"
 "\n"
@@ -1690,7 +1692,7 @@ msgstr ""
 "\n"
 "Terima kasih."
 
-#: inc/options-schema.php:236
+#: inc/options-schema.php:300
 msgid ""
 "Use {title}, {author}, {year} and {price}. A line whose author, year or "
 "price is empty is left out."
@@ -1698,47 +1700,47 @@ msgstr ""
 "Gunakan {title}, {author}, {year} dan {price}. Baris yang penulis, tahun "
 "atau harganya kosong akan ditinggalkan."
 
-#: inc/options-schema.php:247
+#: inc/options-schema.php:311
 msgid "Footer Wording"
 msgstr "Perkataan Pengaki"
 
-#: inc/options-schema.php:248
+#: inc/options-schema.php:312
 msgid "Headings and the copyright suffix in the footer."
 msgstr "Tajuk dan akhiran hak cipta dalam pengaki."
 
-#: inc/options-schema.php:250
+#: inc/options-schema.php:314
 msgid "Legal column heading"
 msgstr "Tajuk lajur Undang-undang"
 
-#: inc/options-schema.php:250
+#: inc/options-schema.php:314
 msgid "Legal"
 msgstr "Undang-undang"
 
-#: inc/options-schema.php:251
+#: inc/options-schema.php:315
 msgid "Contact column heading"
 msgstr "Tajuk lajur Hubungan"
 
-#: inc/options-schema.php:251
+#: inc/options-schema.php:315
 msgid "Contact"
 msgstr "Hubungi"
 
-#: inc/options-schema.php:252
+#: inc/options-schema.php:316
 msgid "Copyright suffix"
 msgstr "Akhiran hak cipta"
 
-#: inc/options-schema.php:252
+#: inc/options-schema.php:316
 msgid "All rights reserved."
 msgstr "Hak cipta terpelihara."
 
-#: inc/options-schema.php:252
+#: inc/options-schema.php:316
 msgid "Shown after \"© year site name.\""
 msgstr "Dipaparkan selepas \"© tahun nama tapak.\""
 
-#: inc/options-schema.php:263
+#: inc/options-schema.php:327
 msgid "More Social Profiles"
 msgstr "Lebih Banyak Profil Sosial"
 
-#: inc/options-schema.php:264
+#: inc/options-schema.php:328
 msgid ""
 "Further profiles shown as icons beside the four above (in the footer and on "
 "the Contact page) and listed in Schema.org sameAs. Leave a field empty to "
@@ -1748,63 +1750,63 @@ msgstr ""
 " pengaki dan pada halaman Hubungi) dan disenaraikan dalam Schema.org sameAs."
 " Biarkan medan kosong untuk menyembunyikan ikon itu."
 
-#: inc/options-schema.php:266
+#: inc/options-schema.php:330
 msgid "LinkedIn URL"
 msgstr "URL LinkedIn"
 
-#: inc/options-schema.php:267
+#: inc/options-schema.php:331
 msgid "Threads URL"
 msgstr "URL Threads"
 
-#: inc/options-schema.php:268
+#: inc/options-schema.php:332
 msgid "TikTok URL"
 msgstr "URL TikTok"
 
-#: inc/options-schema.php:269
+#: inc/options-schema.php:333
 msgid "YouTube URL"
 msgstr "URL YouTube"
 
-#: inc/options-schema.php:270
+#: inc/options-schema.php:334
 msgid "Telegram URL"
 msgstr "URL Telegram"
 
-#: inc/options-schema.php:271
+#: inc/options-schema.php:335
 msgid "Bluesky URL"
 msgstr "URL Bluesky"
 
-#: inc/options-schema.php:272
+#: inc/options-schema.php:336
 msgid "Mastodon URL"
 msgstr "URL Mastodon"
 
-#: inc/options-schema.php:273
+#: inc/options-schema.php:337
 msgid "Goodreads URL"
 msgstr "URL Goodreads"
 
-#: inc/options-schema.php:274
+#: inc/options-schema.php:338
 msgid "Medium URL"
 msgstr "URL Medium"
 
-#: inc/options-schema.php:275
+#: inc/options-schema.php:339
 msgid "Substack URL"
 msgstr "URL Substack"
 
-#: inc/options-schema.php:276
+#: inc/options-schema.php:340
 msgid "Spotify URL"
 msgstr "URL Spotify"
 
-#: inc/options-schema.php:277
+#: inc/options-schema.php:341
 msgid "Pinterest URL"
 msgstr "URL Pinterest"
 
-#: inc/options-schema.php:278
+#: inc/options-schema.php:342
 msgid "Show the profile icons in the footer"
 msgstr "Papar ikon profil dalam pengaki"
 
-#: inc/options-schema.php:282
+#: inc/options-schema.php:346
 msgid "Share Buttons"
 msgstr "Butang Perkongsian"
 
-#: inc/options-schema.php:283
+#: inc/options-schema.php:347
 msgid ""
 "The buttons visitors use to share a book, article or page, and where they "
 "appear."
@@ -1812,115 +1814,115 @@ msgstr ""
 "Butang yang digunakan pelawat untuk berkongsi buku, artikel atau halaman, "
 "dan tempat butang itu dipaparkan."
 
-#: inc/options-schema.php:285
+#: inc/options-schema.php:349
 msgid "WhatsApp"
 msgstr ""
 
-#: inc/options-schema.php:286
+#: inc/options-schema.php:350
 msgid "Facebook"
 msgstr ""
 
-#: inc/options-schema.php:287
+#: inc/options-schema.php:351
 msgid "X"
 msgstr ""
 
-#: inc/options-schema.php:288
+#: inc/options-schema.php:352
 msgid "LinkedIn"
 msgstr ""
 
-#: inc/options-schema.php:289
+#: inc/options-schema.php:353
 msgid "Telegram"
 msgstr ""
 
-#: inc/options-schema.php:290
+#: inc/options-schema.php:354
 msgid "Threads"
 msgstr ""
 
-#: inc/options-schema.php:291
+#: inc/options-schema.php:355
 msgid "Bluesky"
 msgstr ""
 
-#: inc/options-schema.php:292
+#: inc/options-schema.php:356
 msgid "Reddit"
 msgstr ""
 
-#: inc/options-schema.php:293
+#: inc/options-schema.php:357
 msgid "Copy link button"
 msgstr "Butang salin pautan"
 
-#: inc/options-schema.php:294
+#: inc/options-schema.php:358
 msgid "Show on book pages"
 msgstr "Papar pada halaman buku"
 
-#: inc/options-schema.php:295
+#: inc/options-schema.php:359
 msgid "Show on articles"
 msgstr "Papar pada artikel"
 
-#: inc/options-schema.php:296
+#: inc/options-schema.php:360
 msgid "Show on pages (About and other standard pages)"
 msgstr "Papar pada halaman (Tentang dan halaman standard lain)"
 
-#: inc/options-schema.php:296
+#: inc/options-schema.php:360
 msgid "The Contact and Privacy Policy pages never show it."
 msgstr "Halaman Hubungi dan Dasar Privasi tidak pernah memaparkannya."
 
-#: inc/options-schema.php:304
+#: inc/options-schema.php:368
 msgid "Labels & 404"
 msgstr "Label & 404"
 
-#: inc/options-schema.php:308
+#: inc/options-schema.php:372
 msgid "Buttons"
 msgstr "Butang"
 
-#: inc/options-schema.php:309
+#: inc/options-schema.php:373
 msgid "Button text used across the site."
 msgstr "Teks butang yang digunakan di seluruh tapak."
 
-#: inc/options-schema.php:311
+#: inc/options-schema.php:375
 msgid "Book card: learn more"
 msgstr "Kad buku: ketahui lagi"
 
-#: inc/options-schema.php:312
+#: inc/options-schema.php:376
 msgid "Article card: read more"
 msgstr "Kad artikel: baca lagi"
 
-#: inc/options-schema.php:312 index.php:100 search.php:107
+#: inc/options-schema.php:376 index.php:100 search.php:107
 msgid "Read More"
 msgstr "Baca Lagi"
 
-#: inc/options-schema.php:313
+#: inc/options-schema.php:377
 msgid "Share bar label"
 msgstr "Label bar perkongsian"
 
-#: inc/options-schema.php:313
+#: inc/options-schema.php:377
 msgid "Share:"
 msgstr "Kongsi:"
 
-#: inc/options-schema.php:314
+#: inc/options-schema.php:378
 msgid "Social profiles label"
 msgstr "Label profil sosial"
 
-#: inc/options-schema.php:314
+#: inc/options-schema.php:378
 msgid "Follow us"
 msgstr "Ikuti kami"
 
-#: inc/options-schema.php:318
+#: inc/options-schema.php:382
 msgid "Book Information Labels"
 msgstr "Label Maklumat Buku"
 
-#: inc/options-schema.php:319
+#: inc/options-schema.php:383
 msgid "The labels in the information card on each book page."
 msgstr "Label dalam kad maklumat pada setiap halaman buku."
 
-#: inc/options-schema.php:336
+#: inc/options-schema.php:400
 msgid "Topics (tags)"
 msgstr "Topik (tag)"
 
-#: inc/options-schema.php:340
+#: inc/options-schema.php:404
 msgid "Browsing and Sorting"
 msgstr "Semak Imbas dan Isih"
 
-#: inc/options-schema.php:341
+#: inc/options-schema.php:405
 msgid ""
 "The category and topic filters and the sort menu on the Publications archive"
 " and the category and tag pages."
@@ -1928,87 +1930,87 @@ msgstr ""
 "Penapis kategori dan topik serta menu isih pada arkib Terbitan dan halaman "
 "kategori dan tag."
 
-#: inc/options-schema.php:343
+#: inc/options-schema.php:407
 msgid "Category filter heading"
 msgstr "Tajuk penapis kategori"
 
-#: inc/options-schema.php:343
+#: inc/options-schema.php:407
 msgid "Browse by category"
 msgstr "Layari mengikut kategori"
 
-#: inc/options-schema.php:344
+#: inc/options-schema.php:408
 msgid "Topic filter heading"
 msgstr "Tajuk penapis topik"
 
-#: inc/options-schema.php:344
+#: inc/options-schema.php:408
 msgid "Browse by topic"
 msgstr "Layari mengikut topik"
 
-#: inc/options-schema.php:345
+#: inc/options-schema.php:409
 msgid "\"All\" chip"
 msgstr "Cip \"Semua\""
 
-#: inc/options-schema.php:345
+#: inc/options-schema.php:409
 msgid "All"
 msgstr "Semua"
 
-#: inc/options-schema.php:346
+#: inc/options-schema.php:410
 msgid "Sort menu label"
 msgstr "Label menu isih"
 
-#: inc/options-schema.php:346
+#: inc/options-schema.php:410
 msgid "Sort by"
 msgstr "Isih mengikut"
 
-#: inc/options-schema.php:347
+#: inc/options-schema.php:411
 msgid "Sort: newest"
 msgstr "Isih: terbaharu"
 
-#: inc/options-schema.php:347
+#: inc/options-schema.php:411
 msgid "Newest first"
 msgstr "Terbaharu dahulu"
 
-#: inc/options-schema.php:348
+#: inc/options-schema.php:412
 msgid "Sort: oldest"
 msgstr "Isih: terlama"
 
-#: inc/options-schema.php:348
+#: inc/options-schema.php:412
 msgid "Oldest first"
 msgstr "Terlama dahulu"
 
-#: inc/options-schema.php:349
+#: inc/options-schema.php:413
 msgid "Sort: title"
 msgstr "Isih: tajuk"
 
-#: inc/options-schema.php:349
+#: inc/options-schema.php:413
 msgid "Title A to Z"
 msgstr "Tajuk A hingga Z"
 
-#: inc/options-schema.php:350
+#: inc/options-schema.php:414
 msgid "Apply button"
 msgstr "Butang laksana"
 
-#: inc/options-schema.php:350
+#: inc/options-schema.php:414
 msgid "Apply"
 msgstr "Laksana"
 
-#: inc/options-schema.php:351
+#: inc/options-schema.php:415
 msgid "Result count"
 msgstr "Bilangan hasil"
 
-#: inc/options-schema.php:351
+#: inc/options-schema.php:415
 msgid "{n} titles"
 msgstr "{n} tajuk"
 
-#: inc/options-schema.php:351
+#: inc/options-schema.php:415
 msgid "Use {n} for the number of books."
 msgstr "Gunakan {n} untuk bilangan buku."
 
-#: inc/options-schema.php:355
+#: inc/options-schema.php:419
 msgid "404 Page"
 msgstr "Halaman 404"
 
-#: inc/options-schema.php:356
+#: inc/options-schema.php:420
 msgid ""
 "The \"page not found\" screen: a bookshelf with a gap, one random quip, a "
 "message and a few books to try instead."
@@ -2016,15 +2018,15 @@ msgstr ""
 "Skrin \"halaman tidak ditemui\": rak buku yang berlompang, satu gurauan "
 "rawak, satu mesej dan beberapa buku untuk dicuba."
 
-#: inc/options-schema.php:358
+#: inc/options-schema.php:422
 msgid "This page has wandered off the shelf."
 msgstr "Halaman ini telah merayau keluar dari rak."
 
-#: inc/options-schema.php:359
+#: inc/options-schema.php:423
 msgid "Message"
 msgstr "Mesej"
 
-#: inc/options-schema.php:359
+#: inc/options-schema.php:423
 msgid ""
 "We looked under every cover, behind the footnotes and between the lines. Nothing.\n"
 "\n"
@@ -2034,11 +2036,11 @@ msgstr ""
 "\n"
 "Halaman yang anda cari mungkin telah berpindah, ditukar nama, atau tidak pernah wujud di luar imaginasi seseorang (yang, sejujurnya, ialah tempat bermulanya kebanyakan buku yang baik)."
 
-#: inc/options-schema.php:360
+#: inc/options-schema.php:424
 msgid "Quips"
 msgstr "Gurauan"
 
-#: inc/options-schema.php:360
+#: inc/options-schema.php:424
 msgid ""
 "Misshelved, not lost. Probably.\n"
 "Even the best index misses an entry.\n"
@@ -2056,38 +2058,38 @@ msgstr ""
 "Para penyunting kami telah dimaklumkan. Mereka berpura-pura terkejut.\n"
 "Tadi ada di sini. Kami sudah semak tepi halaman."
 
-#: inc/options-schema.php:360
+#: inc/options-schema.php:424
 msgid ""
 "One per line. A different one is shown at random each time. Empty hides it."
 msgstr ""
 "Satu baris satu gurauan. Gurauan berbeza dipaparkan secara rawak setiap "
 "kali. Kosong menyembunyikannya."
 
-#: inc/options-schema.php:361
+#: inc/options-schema.php:425
 msgid "Home button"
 msgstr "Butang laman utama"
 
-#: inc/options-schema.php:361
+#: inc/options-schema.php:425
 msgid "Take me home"
 msgstr "Bawa saya pulang"
 
-#: inc/options-schema.php:362
+#: inc/options-schema.php:426
 msgid "Books button"
 msgstr "Butang buku"
 
-#: inc/options-schema.php:362 search.php:138
+#: inc/options-schema.php:426 search.php:138
 msgid "Browse Books"
 msgstr "Lihat Buku"
 
-#: inc/options-schema.php:363
+#: inc/options-schema.php:427
 msgid "Suggested books heading"
 msgstr "Tajuk buku cadangan"
 
-#: inc/options-schema.php:363
+#: inc/options-schema.php:427
 msgid "While you are here, these are definitely on the shelf"
 msgstr "Sementara anda di sini, buku ini pasti ada di rak"
 
-#: inc/options-schema.php:363
+#: inc/options-schema.php:427
 msgid "Shows three books under the message. Empty hides them."
 msgstr "Memaparkan tiga buku di bawah mesej. Kosong menyembunyikannya."
 
@@ -2783,6 +2785,301 @@ msgstr "Purata penilaian %1$s daripada 5 berdasarkan %2$d ulasan"
 #, php-format
 msgid "%d out of 5 stars"
 msgstr "%d daripada 5 bintang"
+
+#: archive-book.php:24
+msgid "Search books"
+msgstr "Cari buku"
+
+#: archive-book.php:25
+msgid "Search books&hellip;"
+msgstr "Cari buku&hellip;"
+
+#: archive-book.php:26
+msgid "Search"
+msgstr "Cari"
+
+#: front-page.php:19
+msgid "Announcement"
+msgstr "Pengumuman"
+
+#: front-page.php:187
+msgid "Highlights"
+msgstr "Sorotan"
+
+#: front-page.php:291
+msgid "Previous books"
+msgstr "Buku sebelumnya"
+
+#: front-page.php:292
+msgid "Next books"
+msgstr "Buku seterusnya"
+
+#: front-page.php:295
+msgid "Latest publications"
+msgstr "Terbitan terkini"
+
+#: inc/options-schema.php:47
+msgid "Folio"
+msgstr ""
+
+#: inc/options-schema.php:48
+msgid "Cream, oxblood and sage with brass. Bookish and warm."
+msgstr ""
+"Krim, merah hati dan hijau sage dengan loyang. Beraura buku dan hangat."
+
+#: inc/options-schema.php:173
+msgid "Hero layout"
+msgstr "Reka letak hero"
+
+#: inc/options-schema.php:173
+msgid ""
+"Split puts the heading and text beside the picture. Banner puts the "
+"statement over a full-width photo. Card puts a white card with the heading "
+"and buttons over the photo."
+msgstr ""
+"Berpecah meletakkan tajuk dan teks di sebelah gambar. Sepanduk meletakkan "
+"kenyataan di atas foto lebar penuh. Kad meletakkan kad putih yang memuatkan "
+"tajuk dan butang di atas foto."
+
+#: inc/options-schema.php:174
+msgid "Split (text beside a photo)"
+msgstr "Berpecah (teks di sebelah foto)"
+
+#: inc/options-schema.php:175
+msgid "Banner (text over a full-width photo)"
+msgstr "Sepanduk (teks di atas foto lebar penuh)"
+
+#: inc/options-schema.php:176
+msgid "Card (white card over a full-width photo)"
+msgstr "Kad (kad putih di atas foto lebar penuh)"
+
+#: inc/options-schema.php:178
+msgid "Hero picture (Split layout)"
+msgstr "Gambar hero (reka letak Berpecah)"
+
+#: inc/options-schema.php:178
+msgid ""
+"Covers scatters your latest book covers; it falls back to the photo until at"
+" least three books have a cover image."
+msgstr ""
+"Kulit buku menyebarkan kulit buku terbaharu anda; kembali kepada foto "
+"sehingga sekurang-kurangnya tiga buku mempunyai imej kulit."
+
+#: inc/options-schema.php:179
+msgid "Floating book covers"
+msgstr "Kulit buku terapung"
+
+#: inc/options-schema.php:180
+msgid "Photo"
+msgstr "Foto"
+
+#: inc/options-schema.php:182
+msgid "Large faint site name behind the hero and in the footer"
+msgstr "Nama tapak yang besar dan samar di belakang hero dan dalam pengaki"
+
+#: inc/options-schema.php:183
+msgid "Hero eyebrow (Split and Card layouts)"
+msgstr "Baris pengantar hero (reka letak Berpecah dan Kad)"
+
+#: inc/options-schema.php:183
+msgid "Independent publisher · Since 2015"
+msgstr "Penerbit bebas · Sejak 2015"
+
+#: inc/options-schema.php:183
+msgid "A small line above the heading. Empty hides it."
+msgstr "Baris kecil di atas tajuk. Kosong menyembunyikannya."
+
+#: inc/options-schema.php:184
+msgid "Hero heading (Split layout)"
+msgstr "Tajuk hero (reka letak Berpecah)"
+
+#: inc/options-schema.php:184
+msgid "Books that cross borders."
+msgstr "Buku yang merentas sempadan."
+
+#: inc/options-schema.php:184
+msgid "The large heading. The Hero Text above becomes the paragraph under it."
+msgstr "Tajuk besar. Teks Hero di atas menjadi perenggan di bawahnya."
+
+#: inc/options-schema.php:197
+msgid "Announcement Bar"
+msgstr "Bar Pengumuman"
+
+#: inc/options-schema.php:198
+msgid ""
+"A slim notice above the hero, for an event, launch or sale. Off by default; "
+"hidden when the text is empty."
+msgstr ""
+"Notis ringkas di atas hero, untuk acara, pelancaran atau jualan. Dimatikan "
+"secara lalai; tersembunyi apabila teks kosong."
+
+#: inc/options-schema.php:200
+msgid "Show the announcement bar"
+msgstr "Papar bar pengumuman"
+
+#: inc/options-schema.php:201
+msgid "Announcement text"
+msgstr "Teks pengumuman"
+
+#: inc/options-schema.php:201
+msgid "Special event: join us for our next book launch."
+msgstr ""
+"Acara istimewa: sertai kami pada pelancaran buku kami yang seterusnya."
+
+#: inc/options-schema.php:202
+msgid "Link text"
+msgstr "Teks pautan"
+
+#: inc/options-schema.php:202
+msgid "Empty hides the link."
+msgstr "Kosong menyembunyikan pautan."
+
+#: inc/options-schema.php:203
+msgid "Link address"
+msgstr "Alamat pautan"
+
+#: inc/options-schema.php:207
+msgid "Header Button"
+msgstr "Butang Pengepala"
+
+#: inc/options-schema.php:208
+msgid ""
+"An optional button at the right of the menu, for example \"Submit a "
+"manuscript\". Hidden when the text or the address is empty."
+msgstr ""
+"Butang pilihan di sebelah kanan menu, contohnya \"Hantar manuskrip\". "
+"Tersembunyi apabila teks atau alamat kosong."
+
+#: inc/options-schema.php:210 inc/options-schema.php:225
+msgid "Button text"
+msgstr "Teks butang"
+
+#: inc/options-schema.php:211 inc/options-schema.php:226
+msgid "Button address"
+msgstr "Alamat butang"
+
+#: inc/options-schema.php:215
+msgid "Call-to-action Band"
+msgstr "Bahagian Seruan Tindakan"
+
+#: inc/options-schema.php:216
+msgid ""
+"A full-width band in the heading colour with a short pitch, up to three "
+"points and a button. Off by default."
+msgstr ""
+"Bahagian lebar penuh dalam warna tajuk dengan pengenalan ringkas, sehingga "
+"tiga perkara dan satu butang. Dimatikan secara lalai."
+
+#: inc/options-schema.php:218
+msgid "Show the band"
+msgstr "Papar bahagian ini"
+
+#: inc/options-schema.php:219
+msgid "Eyebrow"
+msgstr "Baris pengantar"
+
+#: inc/options-schema.php:219
+msgid "Work with us"
+msgstr "Bekerjasama dengan kami"
+
+#: inc/options-schema.php:220
+msgid "Have a manuscript that deserves a readership?"
+msgstr "Ada manuskrip yang layak mendapat pembaca?"
+
+#: inc/options-schema.php:221
+msgid "We publish few books so that we can give each one our full attention."
+msgstr ""
+"Kami menerbitkan sedikit buku supaya dapat memberikan setiap satunya "
+"perhatian penuh kami."
+
+#: inc/options-schema.php:222
+msgid "Point 1"
+msgstr "Perkara 1"
+
+#: inc/options-schema.php:222
+msgid "Careful editorial partnership"
+msgstr "Kerjasama penyuntingan yang teliti"
+
+#: inc/options-schema.php:223
+msgid "Point 2"
+msgstr "Perkara 2"
+
+#: inc/options-schema.php:223
+msgid "Thoughtful, unhurried design"
+msgstr "Reka bentuk yang teliti dan tidak tergesa-gesa"
+
+#: inc/options-schema.php:224
+msgid "Point 3"
+msgstr "Perkara 3"
+
+#: inc/options-schema.php:224
+msgid "Honest advocacy for every author"
+msgstr "Pembelaan yang jujur untuk setiap penulis"
+
+#: inc/options-schema.php:225
+msgid "Get in touch"
+msgstr "Hubungi kami"
+
+#: inc/options-schema.php:226
+msgid "Empty links to the Contact page."
+msgstr "Kosong memaut ke halaman Hubungi."
+
+#: inc/options-schema.php:230
+msgid "Highlights Strip"
+msgstr "Jalur Sorotan"
+
+#: inc/options-schema.php:231
+msgid "Three short facts in a band under the hero. Empty ones are hidden."
+msgstr ""
+"Tiga fakta ringkas dalam jalur di bawah hero. Yang kosong disembunyikan."
+
+#: inc/options-schema.php:233
+msgid "Show the highlights strip"
+msgstr "Papar jalur sorotan"
+
+#: inc/options-schema.php:234
+msgid "Highlight 1"
+msgstr "Sorotan 1"
+
+#: inc/options-schema.php:234
+msgid "Independent Malaysian publisher"
+msgstr "Penerbit bebas Malaysia"
+
+#: inc/options-schema.php:235
+msgid "Highlight 2"
+msgstr "Sorotan 2"
+
+#: inc/options-schema.php:235
+msgid "Translations and original works"
+msgstr "Terjemahan dan karya asli"
+
+#: inc/options-schema.php:236
+msgid "Highlight 3"
+msgstr "Sorotan 3"
+
+#: inc/options-schema.php:236
+msgid "Publishing since 2015"
+msgstr "Menerbitkan sejak 2015"
+
+#: inc/options-schema.php:256
+msgid "Publications layout"
+msgstr "Reka letak terbitan"
+
+#: inc/options-schema.php:256
+msgid ""
+"Carousel is a swipeable row with previous and next buttons; Grid wraps the "
+"books into rows."
+msgstr ""
+"Karusel ialah barisan yang boleh diseret dengan butang sebelumnya dan "
+"seterusnya; Grid menyusun buku ke dalam baris."
+
+#: inc/options-schema.php:257
+msgid "Carousel (swipeable row)"
+msgstr "Karusel (barisan boleh diseret)"
+
+#: inc/options-schema.php:258
+msgid "Grid"
+msgstr "Grid"
 
 #~ msgid "Back to Homepage"
 #~ msgstr "Kembali ke Laman Utama"
