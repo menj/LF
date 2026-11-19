@@ -361,6 +361,17 @@ function langgam_fikir_extra_options_schema() {
             'existing' => true,
             'cards'    => array(
                 array(
+                    'title'  => __( 'Search Engines', 'langgam-fikir' ),
+                    'desc'   => __( 'Who prints the meta description, social sharing tags and the site-wide Schema.org data. With an SEO plugin (Rank Math, Yoast, All in One SEO, SEOPress, The SEO Framework) the theme steps back and only adds Book, the publications list and FAQ data to the plugin\'s own graph, so nothing is printed twice.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'seo_mode' => $f( 'select', __( 'SEO output', 'langgam-fikir' ), 'auto', __( 'Automatic is right for almost every site.', 'langgam-fikir' ), array( 'choices' => array(
+                            'auto'   => __( 'Automatic: the SEO plugin if one is active, otherwise the theme', 'langgam-fikir' ),
+                            'theme'  => __( 'Always the theme (switch the plugin\'s meta and schema off)', 'langgam-fikir' ),
+                            'plugin' => __( 'Never the theme for meta and site-wide schema', 'langgam-fikir' ),
+                        ) ) ),
+                    ),
+                ),
+                array(
                     'title'  => __( 'More Social Profiles', 'langgam-fikir' ),
                     'desc'   => __( 'Further profiles shown as icons beside the four above (in the footer and on the Contact page) and listed in Schema.org sameAs. Leave a field empty to hide that icon.', 'langgam-fikir' ),
                     'fields' => array(

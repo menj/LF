@@ -80,7 +80,7 @@ function langgam_fikir_enqueue_assets() {
     // Additional CSS for forms and extra pages (only where needed).
     // Match by assigned template first (Template Name templates are slug-independent),
     // then by slug for pages that pick up page-{slug}.php automatically.
-    if ( is_page_template( array( 'page-contact.php', 'page-about.php', 'page-privacy.php' ) )
+    if ( is_page_template( array( 'page-contact.php', 'page-about.php', 'page-privacy.php', 'page-sitemap.php' ) )
         || is_page( array( 'contact', 'about', 'privacy-policy' ) ) ) {
         wp_enqueue_style( 
             'langgam-fikir-additional', 

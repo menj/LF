@@ -4,7 +4,7 @@
  *
  * Renders a visible accordion of FAQ entries when the current post has any
  * stored in `_langgam_fikir_faq` meta. Pairs with the FAQPage JSON-LD
- * emitted by langgam_fikir_schema_faq() so search results and the visible
+ * emitted by langgam_fikir_schema_faq_node() so search results and the visible
  * page show the same data — Google's preferred consistency model.
  *
  * Output is silent when no FAQ entries exist.

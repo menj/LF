@@ -5,6 +5,31 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.14.0] - 2026-11-19
+
+SEO and Schema.org rebuild, following a review of the live homepage and Google's SEO Starter Guide.
+
+### Added
+- **One JSON-LD graph per page** (`inc/schema.php`): Organization (`/#organization`), WebSite (`/#website`), a typed WebPage (`CollectionPage`, `ItemPage`, `AboutPage`, `ContactPage`, `ProfilePage`), BreadcrumbList, BlogPosting with its author Person, Book, ItemList and FAQPage, all linked by `@id` (`publisher`, `isPartOf`, `mainEntity`, `breadcrumb`, `primaryImageOfPage`). The ids follow the Rank Math and Yoast convention.
+- **SEO plugin awareness**: Rank Math, Yoast, AIOSEO, SEOPress and The SEO Framework are detected. The theme then leaves titles, meta description, canonical, Open Graph, Twitter and WebSite/Organization/WebPage to the plugin. For Rank Math (`rank_math/json_ld`) and Yoast (`wpseo_schema_graph`) the theme's Book, ItemList, FAQPage and, where the plugin prints none, BreadcrumbList go into the plugin's own graph; the plugin's Organization gains sameAs, SSM registration number, slogan and contact point only where it has none. New setting: Theme Options > Social & SEO > Search Engines (Automatic, Always the theme, Never the theme).
+- **Homepage ItemList** of the books shown (Showcase, then Latest Publications), each item a short Book (name, url, author, isbn, cover).
+- **Organization** now carries legalName, alternateName, slogan, description, logo with size, ContactPoint (Malay and English), the SSM registration number as an identifier, and every social profile as sameAs.
+- **Open Graph and Twitter**: og:image width, height, alt and type; book:release_date and book:tag; article:section and article:tag; twitter:image:alt and twitter:site (from the X profile URL); a summary card for square logos and a large card for wide images.
+- **Canonical** link on the front page, blog and archives (core prints it on singular views only).
+- **Sitemap page template** (`page-sitemap.php`): pages, every publication grouped by category, the latest 50 articles and article categories, for visitors (the Google starter guide recommends both an HTML and an XML sitemap).
+- **Cover alt text**: a book cover whose alt text is empty, a file name, or the title retyped in lower case is described as "Cover of {Title}".
+
+### Changed
+- Meta descriptions are unique per view and cut on a word boundary at 155 characters; page 2+ of a listing adds "Page N.". The front page uses Default meta description, then the hero text.
+- The Book node moved from `single-book.php` into the graph. `datePublished` is the year itself (it was an invented 1 January), prices are numeric ("RM 35" becomes "35.00") with `seller` and `itemCondition`, "A & B" authors become two people, and the publisher is the site's own Organization when it matches.
+- Articles are `BlogPosting` with a headline of at most 110 characters, keywords, all categories and a linked author.
+- Schema breadcrumbs use "Publications", the same word as the visible trail, and include the book's category.
+
+### Fixed
+- The homepage meta description was the blog description ("Resources, articles, and insights…") when the homepage shows the latest posts.
+- og:url was built from the raw request and kept query strings.
+- Footer contact microdata and review microdata created extra, disconnected Organization and Review entities (the reviews had no `itemReviewed`). Both are removed; the JSON-LD carries the same facts.
+
 ## [2.13.0] - 2026-11-19
 
 Branded login screen. `wp-login.php` no longer looks like stock WordPress.

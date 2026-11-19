@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Langgam Fikir 2.13.0\n"
+"Project-Id-Version: Langgam Fikir 2.14.0\n"
 "Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
 "POT-Creation-Date: 2026-11-01 05:23+0000\n"
 "PO-Revision-Date: 2026-11-18 04:40+0000\n"
@@ -3180,6 +3180,78 @@ msgstr "Pilih kata laluan baharu"
 #: inc/login.php, inc/options-schema.php
 msgid "Create an account"
 msgstr "Cipta akaun"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "%1$s, by %2$s."
+msgstr "%1$s, oleh %2$s."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Browse all publications by Langgam Fikir: theology, history, philosophy, literature and comparative religion."
+msgstr "Layari semua terbitan Langgam Fikir: teologi, sejarah, falsafah, sastera dan perbandingan agama."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Articles, interviews and updates from Langgam Fikir."
+msgstr "Artikel, wawancara dan berita terkini daripada Langgam Fikir."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Books and articles in %s from Langgam Fikir."
+msgstr "Buku dan artikel dalam %s daripada Langgam Fikir."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Page %d."
+msgstr "Halaman %d."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Business registration number (SSM)"
+msgstr "Nombor pendaftaran perniagaan (SSM)"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Search Engines"
+msgstr "Enjin Carian"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Who prints the meta description, social sharing tags and the site-wide Schema.org data. With an SEO plugin (Rank Math, Yoast, All in One SEO, SEOPress, The SEO Framework) the theme steps back and only adds Book, the publications list and FAQ data to the plugin's own graph, so nothing is printed twice."
+msgstr "Siapa yang mencetak perihalan meta, tag perkongsian sosial dan data Schema.org seluruh laman. Dengan pemalam SEO (Rank Math, Yoast, All in One SEO, SEOPress, The SEO Framework) tema berundur dan hanya menambah data Buku, senarai terbitan dan Soalan Lazim ke dalam graf pemalam itu sendiri, supaya tiada apa yang dicetak dua kali."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "SEO output"
+msgstr "Output SEO"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Automatic is right for almost every site."
+msgstr "Automatik sesuai untuk hampir semua laman."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Automatic: the SEO plugin if one is active, otherwise the theme"
+msgstr "Automatik: pemalam SEO jika ada yang aktif, jika tidak tema"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Always the theme (switch the plugin's meta and schema off)"
+msgstr "Sentiasa tema (matikan meta dan skema pemalam)"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Never the theme for meta and site-wide schema"
+msgstr "Tidak sekali-kali tema untuk meta dan skema seluruh laman"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Cover of %s"
+msgstr "Kulit buku %s"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Other publications"
+msgstr "Terbitan lain"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Articles"
+msgstr "Artikel"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Article categories"
+msgstr "Kategori artikel"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Sitemap"
+msgstr "Peta Laman"
 
 #~ msgid "Back to Homepage"
 #~ msgstr "Kembali ke Laman Utama"

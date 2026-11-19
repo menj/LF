@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.13.0
+Stable tag: 2.14.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,15 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.14.0 (November 2026) =
+* NEW: One connected Schema.org graph (Organization, WebSite, WebPage, BreadcrumbList, BlogPosting, Person, Book, ItemList, FAQPage) with stable @ids shared with Rank Math and Yoast
+* NEW: SEO plugin awareness: with Rank Math, Yoast, AIOSEO, SEOPress or The SEO Framework active, the theme stops printing its own meta description, Open Graph, Twitter and site-wide schema, and merges its Book, publications list and FAQ data into the plugin's graph
+* NEW: Homepage ItemList of the books shown; Organization gains legal name, SSM registration number, slogan, contact point and sameAs
+* NEW: Sitemap page template (HTML sitemap for visitors) and "Cover of {title}" alt text for covers with missing or file-name alt text
+* FIX: Homepage meta description was the blog description when the homepage shows latest posts; og:url no longer carries query strings; canonical on the front page and archives
+* FIX: Book datePublished is the year instead of an invented 1 January; prices are numeric; multiple authors are separate people
+* FIX: Footer and review microdata removed (they created extra, disconnected Organization and Review entities)
 
 = 2.13.0 (November 2026) =
 * NEW: Branded login screen: the log in, lost password and reset password screens use your palette, custom colours, corners, fonts and logo instead of the stock WordPress look
@@ -461,6 +470,9 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 * Typography and color system implementation
 
 == Upgrade Notice ==
+
+= 2.14.0 =
+Schema.org and meta tags rebuilt as one graph. If an SEO plugin is active the theme now defers to it; set that plugin's schema for the Books post type to None so there is one Book node. Re-test pages in Google's Rich Results Test.
 
 = 2.13.0 =
 The WordPress login screen now matches the site. It is on by default; switch it off or change the layout in Theme Options > Login Page.

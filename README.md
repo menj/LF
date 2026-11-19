@@ -6,7 +6,7 @@ A child theme of WordPress Twenty Twenty-Five (2025 default theme) with custom b
 
 - **Theme Name:** Langgam Fikir
 - **Parent Theme:** Twenty Twenty-Five
-- **Version:** 2.13.0
+- **Version:** 2.14.0
 - **Author:** MENJ
 - **License:** GPL v2 or later
 - **Requires WordPress:** 6.7+
@@ -289,6 +289,13 @@ Edit `/assets/css/main.css`:
 ```
 
 ## Version History / Changelog
+
+### Version 2.14.0 (November 2026) — SEO and Schema.org
+
+- **NEW:** One connected JSON-LD graph with stable `@id`s, shared with Rank Math and Yoast, so the site describes one publisher and one website
+- **NEW:** SEO plugin awareness (Theme Options > Social & SEO > Search Engines): the theme defers meta and site-wide schema to the plugin and merges Book, ItemList and FAQ into its graph
+- **NEW:** HTML Sitemap page template; descriptive cover alt text
+- **FIX:** Homepage description, canonical/og:url, book dates and prices, duplicate microdata
 
 ### Version 2.13.0 (November 2026) — Branded Login
 

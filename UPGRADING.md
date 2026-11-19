@@ -118,7 +118,16 @@ For manual server access:
 
 ## Version-Specific Upgrade Notes
 
-### Upgrading to 2.13.0 (Latest) ✅
+### Upgrading to 2.14.0 (Latest) ✅
+
+**Status:** RELEASED — SEO and Schema.org rebuild.
+
+- **With Rank Math (or Yoast, AIOSEO, SEOPress, The SEO Framework):** the theme no longer prints a second meta description, Open Graph and Twitter set, or its own WebSite/Organization. In Rank Math, set **Titles & Meta > Books > Schema Type** to **None** (the theme supplies a richer Book node inside Rank Math's graph), and check **Titles & Meta > Local SEO**: use *Organization* rather than *BookStore* unless there is a walk-in shop with opening hours, set the legal name to "Langgam Fikir Enterprise", and use the country code "MY".
+- **Without an SEO plugin:** nothing to do; the theme prints everything.
+- Optional: create a page called "Sitemap" with the **Sitemap** template and add it to the footer menu.
+- Re-test the homepage, a book and an article in Google's Rich Results Test and the Schema Markup Validator.
+
+### Upgrading to 2.13.0 ✅
 
 **Status:** RELEASED — branded login screen.
 

@@ -64,7 +64,7 @@ $lf_aggregate = langgam_fikir_get_aggregate_rating();
 
     <div class="reviews-list">
         <?php foreach ( $lf_reviews as $lf_review ) : ?>
-            <article class="review-item" itemscope itemtype="https://schema.org/Review">
+            <article class="review-item">
                 <header class="review-header">
                     <?php echo langgam_fikir_render_stars( $lf_review['rating'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     <span class="screen-reader-text">

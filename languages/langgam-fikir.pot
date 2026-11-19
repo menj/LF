@@ -4,7 +4,7 @@
 # MENJ <contact@langgamfikir.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Langgam Fikir 2.13.0\n"
+"Project-Id-Version: Langgam Fikir 2.14.0\n"
 "Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
 "POT-Creation-Date: 2026-11-18 04:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -3009,4 +3009,76 @@ msgstr ""
 
 #: inc/login.php, inc/options-schema.php
 msgid "Create an account"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "%1$s, by %2$s."
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Browse all publications by Langgam Fikir: theology, history, philosophy, literature and comparative religion."
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Articles, interviews and updates from Langgam Fikir."
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Books and articles in %s from Langgam Fikir."
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Page %d."
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Business registration number (SSM)"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Search Engines"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Who prints the meta description, social sharing tags and the site-wide Schema.org data. With an SEO plugin (Rank Math, Yoast, All in One SEO, SEOPress, The SEO Framework) the theme steps back and only adds Book, the publications list and FAQ data to the plugin's own graph, so nothing is printed twice."
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "SEO output"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Automatic is right for almost every site."
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Automatic: the SEO plugin if one is active, otherwise the theme"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Always the theme (switch the plugin's meta and schema off)"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Never the theme for meta and site-wide schema"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Cover of %s"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Other publications"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Articles"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Article categories"
+msgstr ""
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Sitemap"
 msgstr ""
