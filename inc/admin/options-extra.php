@@ -42,6 +42,12 @@ function langgam_fikir_extend_option_tabs( $tabs ) {
             $ordered['labels'] = $new['labels'];
         }
     }
+    // Any other new tab (for example Login Page) goes at the end instead of being dropped.
+    foreach ( $new as $slug => $tab ) {
+        if ( ! isset( $ordered[ $slug ] ) ) {
+            $ordered[ $slug ] = $tab;
+        }
+    }
     return $ordered;
 }
 

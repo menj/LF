@@ -5,6 +5,19 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.13.0] - 2026-11-19
+
+Branded login screen. `wp-login.php` no longer looks like stock WordPress.
+
+### Added
+- **Branded login screen** (`inc/login.php`, `assets/css/login.css`): log in, lost password, reset password and register screens use the active palette, any individually picked colours, the corner style and the font roles from Theme Options > Design, so they change with the site. The logo is the Custom Logo, then the Site Icon, then the site name set in Kagnue. The logo links to the site and the browser tab reads "Log In ‹ Site name".
+- **Three layouts**: Split (default; a tinted photo panel with the site name, tagline, caption and legal entity beside the form), Photo (the form on a card over a full-screen tinted photo) and Minimal (the form alone on the page colour). On phones the Split panel becomes a banner above the form.
+- **Theme Options > Login Page** tab: on/off switch, layout, photo (same as the homepage hero, a bundled photo, a random one or none), welcome heading, line under it and photo panel caption. Each screen gets its own heading (for example "Forgot your password?").
+- Themed fields, focus rings, autofill colour, show-password button, Remember Me checkbox, primary button, error and notice boxes and the language switcher. Respects reduced motion. Malay translations for all new text.
+
+### Fixed
+- Theme Options tabs from the options schema that are not in the built-in order are now added at the end instead of being silently dropped.
+
 ## [2.12.0] - 2026-11-18
 
 Design release. A new default palette and homepage: a split hero, a highlights strip, a swipeable publications carousel and a cover-first Publications archive, with optional announcement, call-to-action and header-button elements. All of it is editable in Theme Options.

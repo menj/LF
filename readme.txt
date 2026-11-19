@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.12.0
+Stable tag: 2.13.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,11 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.13.0 (November 2026) =
+* NEW: Branded login screen: the log in, lost password and reset password screens use your palette, custom colours, corners, fonts and logo instead of the stock WordPress look
+* NEW: Three login layouts (Split photo panel, Photo card, Minimal), a choice of photo, and editable welcome text, in Theme Options > Login Page
+* FIX: Theme Options tabs not listed in the built-in order are now shown instead of being dropped
 
 = 2.12.0 (November 2026) =
 * NEW: Folio palette (cream, oxblood, sage, brass) as the new default; Earth, Slate, Sage and Clay remain
@@ -456,6 +461,9 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 * Typography and color system implementation
 
 == Upgrade Notice ==
+
+= 2.13.0 =
+The WordPress login screen now matches the site. It is on by default; switch it off or change the layout in Theme Options > Login Page.
 
 = 2.12.0 =
 New default palette (Folio) and a redesigned homepage with a split hero, carousel and highlights strip. Hard-refresh after updating. A site that already saved the Earth palette keeps it; choose Folio, or a hero layout, in Theme Options > Design and Homepage. The previous look is available as the Banner hero.

@@ -118,7 +118,15 @@ For manual server access:
 
 ## Version-Specific Upgrade Notes
 
-### Upgrading to 2.12.0 (Latest) ✅
+### Upgrading to 2.13.0 (Latest) ✅
+
+**Status:** RELEASED — branded login screen.
+
+- Nothing to migrate. The branded login screen is on by default and uses the Custom Logo (or Site Icon) and the active palette.
+- To change it, go to **Appearance > Theme Options > Login Page** (layout, photo, welcome text), or untick *Use the branded login screen* to restore the stock WordPress screen.
+- Hard-refresh `wp-login.php` once after updating.
+
+### Upgrading to 2.12.0 ✅
 
 **Status:** RELEASED — design release.
 

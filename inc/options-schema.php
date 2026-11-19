@@ -162,6 +162,43 @@ function langgam_fikir_extra_options_schema() {
             ),
         ),
 
+        /* ------------------------------------------------------ Login page */
+        'login'    => array(
+            'label' => __( 'Login Page', 'langgam-fikir' ),
+            'icon'  => 'dashicons-lock',
+            'cards' => array(
+                array(
+                    'title'  => __( 'Branded Login Screen', 'langgam-fikir' ),
+                    'desc'   => __( 'The WordPress log in, lost password and reset password screens, styled with your palette, fonts, corners and logo (Appearance > Editor > Site Identity, or the Site Icon). Colours follow the Design tab.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'login_custom' => $f( 'checkbox', __( 'Use the branded login screen', 'langgam-fikir' ), 1, __( 'Untick to go back to the standard WordPress screen.', 'langgam-fikir' ) ),
+                        'login_layout' => $f( 'select', __( 'Layout', 'langgam-fikir' ), 'split', __( 'Split puts a photo panel with the site name and tagline beside the form. Photo puts the form on a card over a full-screen photo. Minimal is the form alone on the page colour.', 'langgam-fikir' ), array( 'choices' => array(
+                            'split'   => __( 'Split (photo panel beside the form)', 'langgam-fikir' ),
+                            'photo'   => __( 'Photo (form card over a full-screen photo)', 'langgam-fikir' ),
+                            'minimal' => __( 'Minimal (form only)', 'langgam-fikir' ),
+                        ) ) ),
+                        'login_photo'  => $f( 'select', __( 'Photo', 'langgam-fikir' ), 'hero', __( 'Tinted with the heading colour. Not used by the Minimal layout.', 'langgam-fikir' ), array( 'choices' => array_merge(
+                            array( 'hero' => __( 'Same as the homepage hero', 'langgam-fikir' ) ),
+                            langgam_fikir_hero_photos(),
+                            array(
+                                'random' => __( 'A different bundled photo each visit', 'langgam-fikir' ),
+                                'none'   => __( 'No photo (solid colour)', 'langgam-fikir' ),
+                            )
+                        ) ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Login Text', 'langgam-fikir' ),
+                    'desc'   => __( 'The welcome above the form and the line under the site name and tagline on the photo panel. The other screens (lost password, new password) have their own fixed headings.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'login_heading' => $f( 'text', __( 'Heading', 'langgam-fikir' ), __( 'Welcome back', 'langgam-fikir' ), __( 'Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                        'login_text'    => $f( 'text', __( 'Line under the heading', 'langgam-fikir' ), __( 'Sign in to manage books, articles and the catalogue.', 'langgam-fikir' ), __( 'Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                        'login_caption' => $f( 'textarea', __( 'Photo panel caption', 'langgam-fikir' ), __( 'Books, articles and ideas, from manuscript to bookshelf.', 'langgam-fikir' ), __( 'Shown on the Split and Photo layouts. Empty hides it.', 'langgam-fikir' ), array( 'rows' => 2, 'allow_empty' => true ) ),
+                    ),
+                ),
+            ),
+        ),
+
         /* ---------------------------------------------------- Homepage (adds) */
         'homepage' => array(
             'existing' => true,

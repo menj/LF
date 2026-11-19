@@ -4,7 +4,7 @@
 # MENJ <contact@langgamfikir.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Langgam Fikir 2.12.0\n"
+"Project-Id-Version: Langgam Fikir 2.13.0\n"
 "Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
 "POT-Creation-Date: 2026-11-18 04:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -2909,4 +2909,104 @@ msgstr ""
 #: template-parts/content/reviews-section.php:74
 #, php-format
 msgid "%d out of 5 stars"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Login Page"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Branded Login Screen"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "The WordPress log in, lost password and reset password screens, styled with your palette, fonts, corners and logo (Appearance > Editor > Site Identity, or the Site Icon). Colours follow the Design tab."
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Use the branded login screen"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Untick to go back to the standard WordPress screen."
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Layout"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Split puts a photo panel with the site name and tagline beside the form. Photo puts the form on a card over a full-screen photo. Minimal is the form alone on the page colour."
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Split (photo panel beside the form)"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Photo (form card over a full-screen photo)"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Minimal (form only)"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Tinted with the heading colour. Not used by the Minimal layout."
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Same as the homepage hero"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "A different bundled photo each visit"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Login Text"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "The welcome above the form and the line under the site name and tagline on the photo panel. The other screens (lost password, new password) have their own fixed headings."
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Empty hides it."
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Welcome back"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Line under the heading"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Sign in to manage books, articles and the catalogue."
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Photo panel caption"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Books, articles and ideas, from manuscript to bookshelf."
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Shown on the Split and Photo layouts. Empty hides it."
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Forgot your password?"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Choose a new password"
+msgstr ""
+
+#: inc/login.php, inc/options-schema.php
+msgid "Create an account"
 msgstr ""

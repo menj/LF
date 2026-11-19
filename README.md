@@ -6,7 +6,7 @@ A child theme of WordPress Twenty Twenty-Five (2025 default theme) with custom b
 
 - **Theme Name:** Langgam Fikir
 - **Parent Theme:** Twenty Twenty-Five
-- **Version:** 2.12.0
+- **Version:** 2.13.0
 - **Author:** MENJ
 - **License:** GPL v2 or later
 - **Requires WordPress:** 6.7+
@@ -289,6 +289,11 @@ Edit `/assets/css/main.css`:
 ```
 
 ## Version History / Changelog
+
+### Version 2.13.0 (November 2026) — Branded Login
+
+- **NEW:** The WordPress login, lost password and reset password screens follow the theme: palette, custom colours, corners, fonts and logo
+- **NEW:** Split, Photo and Minimal login layouts with a photo choice and editable welcome text (Theme Options > Login Page)
 
 ### Version 2.12.0 (November 2026) — Folio Design
 

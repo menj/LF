@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Langgam Fikir 2.12.0\n"
+"Project-Id-Version: Langgam Fikir 2.13.0\n"
 "Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
 "POT-Creation-Date: 2026-11-01 05:23+0000\n"
 "PO-Revision-Date: 2026-11-18 04:40+0000\n"
@@ -3080,6 +3080,106 @@ msgstr "Karusel (barisan boleh diseret)"
 #: inc/options-schema.php:258
 msgid "Grid"
 msgstr "Grid"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Login Page"
+msgstr "Halaman Log Masuk"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Branded Login Screen"
+msgstr "Skrin Log Masuk Berjenama"
+
+#: inc/login.php, inc/options-schema.php
+msgid "The WordPress log in, lost password and reset password screens, styled with your palette, fonts, corners and logo (Appearance > Editor > Site Identity, or the Site Icon). Colours follow the Design tab."
+msgstr "Skrin log masuk, lupa kata laluan dan set semula kata laluan WordPress, digayakan dengan palet, fon, bucu dan logo anda (Penampilan > Editor > Identiti Laman, atau Ikon Laman). Warna mengikut tab Reka Bentuk."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Use the branded login screen"
+msgstr "Guna skrin log masuk berjenama"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Untick to go back to the standard WordPress screen."
+msgstr "Nyahtanda untuk kembali ke skrin WordPress biasa."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Layout"
+msgstr "Susun Atur"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Split puts a photo panel with the site name and tagline beside the form. Photo puts the form on a card over a full-screen photo. Minimal is the form alone on the page colour."
+msgstr "Belah meletakkan panel foto dengan nama laman dan slogan di sebelah borang. Foto meletakkan borang pada kad di atas foto skrin penuh. Minimal ialah borang sahaja pada warna halaman."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Split (photo panel beside the form)"
+msgstr "Belah (panel foto di sebelah borang)"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Photo (form card over a full-screen photo)"
+msgstr "Foto (kad borang di atas foto skrin penuh)"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Minimal (form only)"
+msgstr "Minimal (borang sahaja)"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Tinted with the heading colour. Not used by the Minimal layout."
+msgstr "Diwarnakan dengan warna tajuk. Tidak digunakan oleh susun atur Minimal."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Same as the homepage hero"
+msgstr "Sama seperti hero laman utama"
+
+#: inc/login.php, inc/options-schema.php
+msgid "A different bundled photo each visit"
+msgstr "Foto terbina dalam yang berbeza setiap lawatan"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Login Text"
+msgstr "Teks Log Masuk"
+
+#: inc/login.php, inc/options-schema.php
+msgid "The welcome above the form and the line under the site name and tagline on the photo panel. The other screens (lost password, new password) have their own fixed headings."
+msgstr "Ucapan alu-aluan di atas borang dan baris di bawah nama laman dan slogan pada panel foto. Skrin lain (lupa kata laluan, kata laluan baharu) mempunyai tajuk tetap masing-masing."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Empty hides it."
+msgstr "Kosongkan untuk menyembunyikannya."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Welcome back"
+msgstr "Selamat kembali"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Line under the heading"
+msgstr "Baris di bawah tajuk"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Sign in to manage books, articles and the catalogue."
+msgstr "Log masuk untuk mengurus buku, artikel dan katalog."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Photo panel caption"
+msgstr "Kapsyen panel foto"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Books, articles and ideas, from manuscript to bookshelf."
+msgstr "Buku, artikel dan gagasan, dari manuskrip ke rak buku."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Shown on the Split and Photo layouts. Empty hides it."
+msgstr "Dipaparkan pada susun atur Belah dan Foto. Kosongkan untuk menyembunyikannya."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Forgot your password?"
+msgstr "Terlupa kata laluan?"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Choose a new password"
+msgstr "Pilih kata laluan baharu"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Create an account"
+msgstr "Cipta akaun"
 
 #~ msgid "Back to Homepage"
 #~ msgstr "Kembali ke Laman Utama"
