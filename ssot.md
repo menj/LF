@@ -268,7 +268,9 @@ Each status maps to a `schema.org/Offer.availability` value in the Book JSON-LD.
 1. `_hrefmaster_html_lang` post meta (when HrefMaster active and meta set)
 2. `hrefmaster_get_self_lang()` (when HrefMaster active, no per-post override)
 3. `_book_language` post meta (book CPT only, plugin-independent)
-4. `get_locale()` (final fallback)
+4. `get_locale()` (final fallback; `en-US` if WordPress reports none)
+
+**Default language is en_US.** The site runs in English (Settings > General > Site Language: English (United States)), so `<html lang>`, `og:locale` and Schema.org `inLanguage` are `en-US` unless a book's Language field or HrefMaster says otherwise. The Malay translation (`ms_MY`) is optional and applies only when the site language is switched to Bahasa Melayu.
 
 ### 7.2 WooCommerce (light support only)
 
@@ -325,7 +327,7 @@ The `.pot` and `.po` `Project-Id-Version` headers should also track major/minor 
 
 ### 8.3 Source language
 
-All theme source strings are in **en_US**. Translations live in `/languages/` as `.po`/`.mo` files. Brand identifiers ("Langgam Fikir", "Langgam Fikir Enterprise", the tagline) are intentionally untranslated as proper nouns.
+All theme source strings are in **en_US**, and en_US is the default site language. Translations live in `/languages/` as `.po`/`.mo` files. Brand identifiers ("Langgam Fikir", "Langgam Fikir Enterprise", the tagline) are intentionally untranslated as proper nouns.
 
 ---
 

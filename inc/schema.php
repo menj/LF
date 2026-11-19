@@ -160,7 +160,8 @@ function langgam_fikir_schema_lang( $post_id = 0 ) {
     if ( function_exists( 'langgam_fikir_get_page_lang' ) ) {
         return langgam_fikir_get_page_lang( $post_id );
     }
-    return str_replace( '_', '-', get_locale() );
+    $locale = (string) get_locale();
+    return str_replace( '_', '-', '' !== $locale ? $locale : 'en_US' );
 }
 
 /**
@@ -528,7 +529,7 @@ function langgam_fikir_schema_organization_node() {
             '@type'             => 'ContactPoint',
             'contactType'       => 'customer service',
             'areaServed'        => 'MY',
-            'availableLanguage' => array( 'ms', 'en' ),
+            'availableLanguage' => array( 'en', 'ms' ),
         );
         if ( $email ) {
             $contact['email'] = $email;

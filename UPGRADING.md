@@ -148,7 +148,7 @@ For manual server access:
 - Optional and off by default: announcement bar, call-to-action band, header button (Theme Options → Homepage). Fill them in to show them.
 - Check the highlights strip wording (defaults: "Independent Malaysian publisher", "Translations and original works", "Publishing since 2015") and the hero eyebrow and heading; edit them to suit.
 - Publications archive: the book search and cover-first grid are automatic.
-- The Malay translation (ms_MY) now covers the front end and admin; set the site language to Bahasa Melayu to use it.
+- The Malay translation (ms_MY) now covers the front end and admin. English (en_US) stays the default; the translation applies only if the site language is set to Bahasa Melayu.
 
 **Rollback:** safe for the site; 2.11.0 ignores the new options. Saving Theme Options while on 2.11.0 drops the 2.12 settings (hero layout, highlights, announcement bar, call-to-action band, header button and so on), so note them first if you want to reapply them after upgrading again.
 

@@ -93,8 +93,9 @@ function langgam_fikir_get_page_lang( $post_id = 0 ) {
         }
     }
 
-    // 4. Final fallback: site locale, normalised to BCP 47.
-    return str_replace( '_', '-', get_locale() );
+    // 4. Final fallback: site locale, normalised to BCP 47 (en-US if WordPress reports none).
+    $locale = (string) get_locale();
+    return str_replace( '_', '-', '' !== $locale ? $locale : 'en_US' );
 }
 
 /**
