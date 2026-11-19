@@ -757,3 +757,151 @@ body.lf-tagline-heading .tagline {
 .hero-split-grid:not(:has(.hero-split-media)) {
     grid-template-columns: minmax(0, 46rem);
 }
+
+/*--------------------------------------------------------------
+# Header: tagline size and tablet navigation (2.14.0)
+  Ferments is a fine script, so the tagline needs more size than the
+  site name to read at the same weight. Below 1024px (tablets held
+  upright) the full menu and header button no longer fit beside the
+  logo, so the menu button the phone layout uses takes over; from 1024
+  to 1279px the menu is tightened to fit on one row.
+--------------------------------------------------------------*/
+.site-branding .tagline {
+    font-size: 1.8rem;
+    line-height: 1.1;
+}
+
+.footer-branding .tagline {
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+@media (max-width: 1023px) {
+    .header-container {
+        flex-wrap: wrap;
+        row-gap: var(--spacing-sm);
+    }
+
+    .logo-text-wrapper {
+        gap: var(--spacing-sm);
+    }
+
+    .site-branding .tagline {
+        font-size: 1.55rem;
+    }
+
+    /* The menu, header button and cart become items of the header row itself, so the
+       button can sit beside the menu button instead of taking a row of its own. */
+    .header-right {
+        display: contents;
+    }
+
+    .header-cta,
+    .cart-link {
+        order: 2;
+        margin-left: auto;
+    }
+
+    .header-cta + .cart-link {
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 3;
+    }
+
+    .main-navigation {
+        display: none;
+        width: 100%;
+        order: 4;
+    }
+
+    .main-navigation.active {
+        display: block;
+        padding-top: var(--spacing-sm);
+        border-top: 1px solid var(--color-border);
+    }
+
+    .main-navigation ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+
+    /* Full-width rows, not the wide-screen pills. */
+    .main-navigation ul li a {
+        display: block;
+        padding: 0.75rem 0;
+        border-radius: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .main-navigation .current-menu-item > a,
+    .main-navigation a:hover {
+        background: none;
+        color: var(--color-primary);
+    }
+
+    .main-navigation a::after {
+        display: none;
+    }
+}
+
+/* Phones: the header button would not fit beside the logo, so it moves into the opened
+   menu as its last item and the closed header stays one row. */
+@media (max-width: 599px) {
+    .header-cta {
+        display: none;
+    }
+
+    .main-navigation.active ~ .header-cta {
+        display: block;
+        order: 5;
+        width: 100%;
+        margin: 0 0 var(--spacing-sm);
+        text-align: center;
+    }
+
+    .menu-toggle {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-branding .tagline {
+        font-size: 1.4rem;
+    }
+
+    .footer-branding .tagline {
+        font-size: 1.35rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .header-right {
+        gap: var(--spacing-sm);
+        min-width: 0;
+    }
+
+    .logo-text-wrapper {
+        gap: var(--spacing-sm);
+    }
+
+    .custom-logo {
+        max-height: 52px;
+    }
+
+    .main-navigation ul {
+        gap: 0.15rem;
+    }
+
+    .main-navigation a {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.95rem;
+    }
+
+    .header-cta {
+        padding: 0.55rem 1rem;
+    }
+}
