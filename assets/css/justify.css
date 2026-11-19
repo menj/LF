@@ -14,24 +14,24 @@
 
 /* Where: article text, block and page-builder content. Paragraphs centred or right-aligned
    in the editor, pull quotes, buttons and captions keep their own alignment. */
-body.lf-justify :is(.entry-content, .wp-block-post-content, .elementor-widget-text-editor, .elementor-widget-theme-post-content) :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *),
-body.lf-justify-site :is(.book-synopsis-text, .about-text, .about-snippet-content) :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *),
-body.lf-justify-fallback article :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *) {
+body.lf-justify :is(.entry-content, .wp-block-post-content, .elementor-widget-text-editor, .elementor-widget-theme-post-content) :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *, .lf-cite *, .lf-cite-references *),
+body.lf-justify-site :is(.book-synopsis-text, .about-text, .about-snippet-content) :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *, .lf-cite *, .lf-cite-references *),
+body.lf-justify-fallback article :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *, .lf-cite *, .lf-cite-references *) {
     text-align: justify;
     text-justify: inter-word;
 }
 
 /* The last line of a paragraph keeps its natural start alignment. */
-body.lf-justify :is(.entry-content, .wp-block-post-content, .elementor-widget-text-editor, .elementor-widget-theme-post-content) p:not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *),
-body.lf-justify-site :is(.book-synopsis-text, .about-text, .about-snippet-content) p:not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *),
-body.lf-justify-fallback article p:not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *) {
+body.lf-justify :is(.entry-content, .wp-block-post-content, .elementor-widget-text-editor, .elementor-widget-theme-post-content) p:not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *, .lf-cite *, .lf-cite-references *),
+body.lf-justify-site :is(.book-synopsis-text, .about-text, .about-snippet-content) p:not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *, .lf-cite *, .lf-cite-references *),
+body.lf-justify-fallback article p:not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *, .lf-cite *, .lf-cite-references *) {
     text-align-last: start;
 }
 
 /* Hyphenation: the browser's dictionary for the page (or element) language. */
-body.lf-justify-hyphens :is(.entry-content, .wp-block-post-content, .elementor-widget-text-editor, .elementor-widget-theme-post-content) :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *),
-body.lf-justify-hyphens.lf-justify-site :is(.book-synopsis-text, .about-text, .about-snippet-content) :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *),
-body.lf-justify-hyphens.lf-justify-fallback article :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *) {
+body.lf-justify-hyphens :is(.entry-content, .wp-block-post-content, .elementor-widget-text-editor, .elementor-widget-theme-post-content) :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *, .lf-cite *, .lf-cite-references *),
+body.lf-justify-hyphens.lf-justify-site :is(.book-synopsis-text, .about-text, .about-snippet-content) :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *, .lf-cite *, .lf-cite-references *),
+body.lf-justify-hyphens.lf-justify-fallback article :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *, .lf-cite *, .lf-cite-references *) {
     -webkit-hyphens: auto;
     hyphens: auto;
     hyphenate-limit-chars: 7 3 3;
@@ -40,7 +40,7 @@ body.lf-justify-hyphens.lf-justify-fallback article :is(p, li):not(.has-text-ali
 
 /* Wide screens only: on narrow screens put text back to its normal alignment. */
 @media (max-width: 767px) {
-    body.lf-justify-desktop :is(.entry-content, .wp-block-post-content, .elementor-widget-text-editor, .elementor-widget-theme-post-content, .book-synopsis-text, .about-text, .about-snippet-content, article) :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *) {
+    body.lf-justify-desktop :is(.entry-content, .wp-block-post-content, .elementor-widget-text-editor, .elementor-widget-theme-post-content, .book-synopsis-text, .about-text, .about-snippet-content, article) :is(p, li):not(.has-text-align-center, .has-text-align-right, .has-text-align-left, .wp-block-pullquote *, .wp-block-button *, figcaption *, .wp-caption-text *, .lf-cite *, .lf-cite-references *) {
         text-align: start;
         text-align-last: auto;
         -webkit-hyphens: manual;

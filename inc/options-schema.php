@@ -35,6 +35,48 @@ function langgam_fikir_hero_photos() {
 }
 
 /**
+ * Citation styles: key => short name (also the Theme Options choices; used by inc/citations.php).
+ */
+function langgam_fikir_cite_format_names() {
+    return array(
+        'apa'       => 'APA',
+        'mla'       => 'MLA',
+        'chicago'   => 'Chicago',
+        'harvard'   => 'Harvard',
+        'vancouver' => 'Vancouver',
+        'ieee'      => 'IEEE',
+        'ama'       => 'AMA',
+        'asa'       => 'ASA',
+        'turabian'  => 'Turabian',
+        'wikipedia' => 'Wikipedia',
+        'acs'       => 'ACS',
+        'aip'       => 'AIP',
+        'nlm'       => 'NLM',
+        'aaa'       => 'AAA',
+        'apsa'      => 'APSA',
+        'oscola'    => 'OSCOLA',
+        'nature'    => 'Nature',
+        'acm'       => 'ACM',
+        'bluebook'  => 'Bluebook',
+        'iso690'    => 'ISO 690',
+    );
+}
+
+/**
+ * Download formats: key => label.
+ */
+function langgam_fikir_cite_export_names() {
+    return array(
+        'bibtex'      => 'BibTeX (.bib)',
+        'ris'         => 'RIS (.ris)',
+        'endnote'     => 'EndNote (.enw)',
+        'csl-json'    => 'CSL-JSON (.json)',
+        'cff'         => 'CFF (.cff)',
+        'dublin-core' => 'Dublin Core (.xml)',
+    );
+}
+
+/**
  * Light colour palettes. Dark mode is out of scope (ssot.md 9.2); every palette has a light page.
  * The values here drive the swatches and preview in Theme Options; the same palettes live in
  * assets/css/design.css as body.lf-scheme-* rules, so keep the two in sync.
@@ -209,6 +251,77 @@ function langgam_fikir_extra_options_schema() {
                         'login_heading' => $f( 'text', __( 'Heading', 'langgam-fikir' ), __( 'Welcome back', 'langgam-fikir' ), __( 'Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
                         'login_text'    => $f( 'text', __( 'Line under the heading', 'langgam-fikir' ), __( 'Sign in to manage books, articles and the catalogue.', 'langgam-fikir' ), __( 'Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
                         'login_caption' => $f( 'textarea', __( 'Photo panel caption', 'langgam-fikir' ), __( 'Books, articles and ideas, from manuscript to bookshelf.', 'langgam-fikir' ), __( 'Shown on the Split and Photo layouts. Empty hides it.', 'langgam-fikir' ), array( 'rows' => 2, 'allow_empty' => true ) ),
+                    ),
+                ),
+            ),
+        ),
+
+        /* ------------------------------------------------------- Citations */
+        'citations' => array(
+            'label' => __( 'Citations', 'langgam-fikir' ),
+            'icon'  => 'dashicons-format-quote',
+            'cards' => array(
+                array(
+                    'title'  => __( 'Citation Box', 'langgam-fikir' ),
+                    'desc'   => __( 'A "Cite this" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). This replaces the CitePress plugin; its settings were copied here. You can also place a box anywhere with the Citation block or the [cite] shortcode.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'cite_auto'      => $f( 'checkbox', __( 'Add the citation box automatically', 'langgam-fikir' ), 0 ),
+                        'cite_on_posts'  => $f( 'checkbox', __( 'On articles', 'langgam-fikir' ), 1 ),
+                        'cite_on_books'  => $f( 'checkbox', __( 'On book pages', 'langgam-fikir' ), 1 ),
+                        'cite_on_pages'  => $f( 'checkbox', __( 'On pages', 'langgam-fikir' ), 0 ),
+                        'cite_position'  => $f( 'select', __( 'Position on articles and pages', 'langgam-fikir' ), 'bottom', __( 'On book pages the box sits under the synopsis.', 'langgam-fikir' ), array( 'choices' => array(
+                            'bottom' => __( 'After the text', 'langgam-fikir' ),
+                            'top'    => __( 'Before the text', 'langgam-fikir' ),
+                        ) ) ),
+                        'cite_exclude'   => $f( 'text', __( 'Never on these posts', 'langgam-fikir' ), '', __( 'Post IDs separated by commas.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Styles and Exports', 'langgam-fikir' ),
+                    'desc'   => __( 'The citation styles readers can pick from (the first ticked is shown first) and the files they can download.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'cite_formats' => $f( 'checklist', __( 'Citation styles', 'langgam-fikir' ), implode( ',', array_keys( langgam_fikir_cite_format_names() ) ), '', array( 'choices' => langgam_fikir_cite_format_names(), 'min_one' => 'apa' ) ),
+                        'cite_exports' => $f( 'checklist', __( 'Download formats', 'langgam-fikir' ), 'bibtex,ris,endnote,csl-json,cff,dublin-core', __( 'Untick them all to hide the download menu.', 'langgam-fikir' ), array( 'choices' => langgam_fikir_cite_export_names() ) ),
+                        'cite_picker'  => $f( 'select', __( 'Style picker', 'langgam-fikir' ), 'dropdown', '', array( 'choices' => array(
+                            'dropdown' => __( 'Drop-down menu', 'langgam-fikir' ),
+                            'tabs'     => __( 'Tabs', 'langgam-fikir' ),
+                            'buttons'  => __( 'Buttons', 'langgam-fikir' ),
+                        ) ) ),
+                        'cite_box'     => $f( 'select', __( 'Box style', 'langgam-fikir' ), 'classic', __( 'Colours, fonts and corners follow the Design tab.', 'langgam-fikir' ), array( 'choices' => array(
+                            'classic'  => __( 'Classic (accent bar, tinted header)', 'langgam-fikir' ),
+                            'academic' => __( 'Academic (ruled, bookish)', 'langgam-fikir' ),
+                            'minimal'  => __( 'Minimal (no frame)', 'langgam-fikir' ),
+                        ) ) ),
+                        'cite_toggle'  => $f( 'checkbox', __( 'Show the collapse button', 'langgam-fikir' ), 1 ),
+                        'cite_et_al'   => $f( 'number', __( 'Use "et al." after this many authors', 'langgam-fikir' ), 3, '', array( 'min' => 1, 'max' => 999 ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Scholarly Metadata', 'langgam-fikir' ),
+                    'desc'   => __( 'Helps Google Scholar and reference managers recognise articles and books.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'cite_scholar' => $f( 'checkbox', __( 'Google Scholar tags (citation_title, citation_author and so on)', 'langgam-fikir' ), 1 ),
+                        'cite_schema'  => $f( 'checkbox', __( 'Mark articles as ScholarlyArticle in Schema.org', 'langgam-fikir' ), 1, __( 'Added to the theme\'s existing article data, not as a second copy.', 'langgam-fikir' ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Citation Analytics', 'langgam-fikir' ),
+                    'desc'   => __( 'Counts how often citations are shown, copied and downloaded. Stored on this site only; see Appearance > Citation Analytics.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'cite_analytics' => $f( 'checkbox', __( 'Count citation views, copies and downloads', 'langgam-fikir' ), 0 ),
+                        'cite_consent'   => $f( 'checkbox', __( 'Only count visitors who accepted statistics cookies', 'langgam-fikir' ), 1, __( 'Reads the consent cookie of CookieYes, Complianz, Cookiebot, GDPR Cookie Compliance or Borlabs. Without a consent plugin, counting is allowed.', 'langgam-fikir' ) ),
+                        'cite_cooldown'  => $f( 'select', __( 'Count repeat actions', 'langgam-fikir' ), 'session', '', array( 'choices' => array(
+                            'session' => __( 'Once a minute per visitor (no personal data stored)', 'langgam-fikir' ),
+                            'ip_hash' => __( 'Once a minute per IP address (a one-way hash, kept briefly)', 'langgam-fikir' ),
+                            'none'    => __( 'Every time', 'langgam-fikir' ),
+                        ) ) ),
+                        'cite_retention' => $f( 'select', __( 'Keep records for', 'langgam-fikir' ), '90', '', array( 'choices' => array(
+                            '30'  => __( '30 days', 'langgam-fikir' ),
+                            '90'  => __( '90 days', 'langgam-fikir' ),
+                            '180' => __( '180 days', 'langgam-fikir' ),
+                            '365' => __( 'One year', 'langgam-fikir' ),
+                            '0'   => __( 'Forever', 'langgam-fikir' ),
+                        ) ) ),
                     ),
                 ),
             ),
@@ -537,6 +650,18 @@ function langgam_fikir_sanitize_extra_options( $input ) {
     $schemes = langgam_fikir_color_schemes();
 
     foreach ( langgam_fikir_extra_fields() as $key => $field ) {
+        if ( 'checklist' === $field['type'] ) {
+            // Submitted as an array of ticked keys (or already stored as a comma list).
+            $picked = isset( $input[ $key ] ) ? $input[ $key ] : array();
+            $picked = is_array( $picked ) ? $picked : explode( ',', (string) $picked );
+            $picked = array_values( array_intersect( array_keys( $field['choices'] ), array_map( 'trim', array_map( 'strval', wp_unslash( $picked ) ) ) ) );
+            if ( ! $picked && ! empty( $field['min_one'] ) ) {
+                $picked = array( $field['min_one'] );
+            }
+            $clean[ $key ] = implode( ',', $picked );
+            continue;
+        }
+
         $raw = isset( $input[ $key ] ) && is_scalar( $input[ $key ] ) ? wp_unslash( (string) $input[ $key ] ) : '';
 
         switch ( $field['type'] ) {

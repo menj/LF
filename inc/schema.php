@@ -800,7 +800,14 @@ function langgam_fikir_schema_article_node( $post_id ) {
     if ( comments_open( $post_id ) || get_comments_number( $post_id ) ) {
         $article['commentCount'] = (int) get_comments_number( $post_id );
     }
-    return $article;
+
+    /**
+     * Filters the article node (inc/citations.php adds ScholarlyArticle to its type).
+     *
+     * @param array $article The BlogPosting node.
+     * @param int   $post_id The article.
+     */
+    return apply_filters( 'langgam_fikir_schema_article_node', $article, $post_id );
 }
 
 /**

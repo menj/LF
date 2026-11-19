@@ -293,6 +293,7 @@ Edit `/assets/css/main.css`:
 ### Version 2.15.0 (November 2026) — Built-in plugins
 
 - **NEW:** Text justification built in, replacing the Auto Justify Content plugin (Theme Options > Design > Text Justification)
+- **NEW:** Citations built in, replacing the CitePress plugin (Theme Options > Citations, Appearance > Citation Analytics): 20 styles, six downloads, in-text citations, reference lists, the Citation block, Google Scholar tags; books cited as books
 - **NEW:** Plugin takeover module: imports an absorbed plugin's settings once, deactivates it, shows a notice and marks it "Built into the Langgam Fikir theme" on the Plugins screen
 
 ### Version 2.14.0 (November 2026) — SEO and Schema.org

@@ -36,6 +36,12 @@ function langgam_fikir_absorbed_plugins() {
             'tab'      => 'design',
             'import'   => 'langgam_fikir_justify_import_plugin_settings',
         ),
+        'citepress/citepress.php' => array(
+            'name'     => 'CitePress',
+            'settings' => __( 'Theme Options > Citations', 'langgam-fikir' ),
+            'tab'      => 'citations',
+            'import'   => 'langgam_fikir_cite_import_plugin_settings',
+        ),
     );
 
     /**

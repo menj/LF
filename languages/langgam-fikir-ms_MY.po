@@ -3333,6 +3333,482 @@ msgstr "Terbina dalam tema Langgam Fikir."
 msgid "Settings"
 msgstr "Tetapan"
 
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citations"
+msgstr "Petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation Box"
+msgstr "Kotak Petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "A \"Cite this\" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). This replaces the CitePress plugin; its settings were copied here. You can also place a box anywhere with the Citation block or the [cite] shortcode."
+msgstr "Kotak \"Petik ini\" yang digunakan pembaca untuk menyalin rujukan dalam gaya mereka atau memuat turunnya untuk Zotero, Mendeley atau EndNote. Buku dipetik sebagai buku (pengarang, tahun, judul, penerbit, ISBN). Ini menggantikan pemalam CitePress; tetapannya telah disalin ke sini. Anda juga boleh meletakkan kotak di mana-mana dengan blok Petikan atau kod pendek [cite]."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Add the citation box automatically"
+msgstr "Tambah kotak petikan secara automatik"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On articles"
+msgstr "Pada artikel"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On book pages"
+msgstr "Pada halaman buku"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On pages"
+msgstr "Pada halaman"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Position on articles and pages"
+msgstr "Kedudukan pada artikel dan halaman"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On book pages the box sits under the synopsis."
+msgstr "Pada halaman buku, kotak diletakkan di bawah sinopsis."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "After the text"
+msgstr "Selepas teks"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Before the text"
+msgstr "Sebelum teks"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Never on these posts"
+msgstr "Jangan pada kiriman ini"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Post IDs separated by commas."
+msgstr "ID kiriman dipisahkan dengan koma."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Styles and Exports"
+msgstr "Gaya dan Eksport"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "The citation styles readers can pick from (the first ticked is shown first) and the files they can download."
+msgstr "Gaya petikan yang boleh dipilih pembaca (yang pertama ditanda dipaparkan dahulu) dan fail yang boleh dimuat turun."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation styles"
+msgstr "Gaya petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Download formats"
+msgstr "Format muat turun"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Untick them all to hide the download menu."
+msgstr "Nyahtanda semuanya untuk menyembunyikan menu muat turun."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Style picker"
+msgstr "Pemilih gaya"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Drop-down menu"
+msgstr "Menu lungsur"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Tabs"
+msgstr "Tab"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Box style"
+msgstr "Gaya kotak"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Colours, fonts and corners follow the Design tab."
+msgstr "Warna, fon dan bucu mengikut tab Reka Bentuk."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Classic (accent bar, tinted header)"
+msgstr "Klasik (jalur aksen, kepala berwarna)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Academic (ruled, bookish)"
+msgstr "Akademik (bergaris, gaya buku)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Minimal (no frame)"
+msgstr "Minimal (tanpa bingkai)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Show the collapse button"
+msgstr "Tunjukkan butang lipat"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Use \"et al.\" after this many authors"
+msgstr "Guna \"et al.\" selepas bilangan pengarang ini"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Scholarly Metadata"
+msgstr "Metadata Ilmiah"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Helps Google Scholar and reference managers recognise articles and books."
+msgstr "Membantu Google Scholar dan pengurus rujukan mengenali artikel dan buku."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Google Scholar tags (citation_title, citation_author and so on)"
+msgstr "Tag Google Scholar (citation_title, citation_author dan sebagainya)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Mark articles as ScholarlyArticle in Schema.org"
+msgstr "Tandakan artikel sebagai ScholarlyArticle dalam Schema.org"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Added to the theme's existing article data, not as a second copy."
+msgstr "Ditambah pada data artikel sedia ada tema, bukan sebagai salinan kedua."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation Analytics"
+msgstr "Analitik Petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts how often citations are shown, copied and downloaded. Stored on this site only; see Appearance > Citation Analytics."
+msgstr "Mengira berapa kerap petikan dipaparkan, disalin dan dimuat turun. Disimpan di laman ini sahaja; lihat Penampilan > Analitik Petikan."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Count citation views, copies and downloads"
+msgstr "Kira paparan, salinan dan muat turun petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Only count visitors who accepted statistics cookies"
+msgstr "Hanya kira pelawat yang menerima kuki statistik"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Reads the consent cookie of CookieYes, Complianz, Cookiebot, GDPR Cookie Compliance or Borlabs. Without a consent plugin, counting is allowed."
+msgstr "Membaca kuki persetujuan CookieYes, Complianz, Cookiebot, GDPR Cookie Compliance atau Borlabs. Tanpa pemalam persetujuan, pengiraan dibenarkan."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Count repeat actions"
+msgstr "Kira tindakan berulang"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Once a minute per visitor (no personal data stored)"
+msgstr "Sekali seminit bagi setiap pelawat (tiada data peribadi disimpan)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Once a minute per IP address (a one-way hash, kept briefly)"
+msgstr "Sekali seminit bagi setiap alamat IP (cincangan sehala, disimpan sebentar)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Every time"
+msgstr "Setiap kali"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Keep records for"
+msgstr "Simpan rekod selama"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "30 days"
+msgstr "30 hari"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "90 days"
+msgstr "90 hari"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "180 days"
+msgstr "180 hari"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "One year"
+msgstr "Satu tahun"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Forever"
+msgstr "Selama-lamanya"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "n.d."
+msgstr "t.t."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "See reference %d"
+msgstr "Lihat rujukan %d"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Cite this book"
+msgstr "Petik buku ini"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Cite this article"
+msgstr "Petik artikel ini"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation style"
+msgstr "Gaya petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Copy"
+msgstr "Salin"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Download"
+msgstr "Muat turun"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Show or hide the citation"
+msgstr "Tunjukkan atau sembunyikan petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "References"
+msgstr "Rujukan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Back to citation %d in the text"
+msgstr "Kembali ke petikan %d dalam teks"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation copied."
+msgstr "Petikan disalin."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Copying failed. Select the citation and copy it by hand."
+msgstr "Penyalinan gagal. Pilih petikan dan salin secara manual."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Download started."
+msgstr "Muat turun bermula."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "If you use this work, please cite it as below."
+msgstr "Jika anda menggunakan karya ini, sila petik seperti di bawah."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation"
+msgstr "Petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "When you view, copy or download a citation, the site may count it: which article or book, which citation style or file format, and when. No name, email or account is stored with it."
+msgstr "Apabila anda melihat, menyalin atau memuat turun petikan, laman ini mungkin mengiranya: artikel atau buku yang mana, gaya petikan atau format fail yang mana, dan bila. Tiada nama, e-mel atau akaun disimpan bersamanya."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "To avoid counting the same visitor twice, a one-way hash of your IP address is kept for up to a minute."
+msgstr "Untuk mengelakkan pelawat yang sama dikira dua kali, cincangan sehala alamat IP anda disimpan sehingga seminit."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Nothing is counted unless you accept statistics cookies."
+msgstr "Tiada apa yang dikira melainkan anda menerima kuki statistik."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are deleted after %d days."
+msgstr "Kiraan dipadam selepas %d hari."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are kept until an administrator deletes them."
+msgstr "Kiraan disimpan sehingga pentadbir memadamnya."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation analytics"
+msgstr "Analitik petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Post"
+msgstr "Kiriman"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Style or format"
+msgstr "Gaya atau format"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Action"
+msgstr "Tindakan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Time"
+msgstr "Masa"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation analytics store no personal data."
+msgstr "Analitik petikan tidak menyimpan data peribadi."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "You are not allowed to do that."
+msgstr "Anda tidak dibenarkan berbuat demikian."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "All citation counts were deleted."
+msgstr "Semua kiraan petikan telah dipadam."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counting is off, so nothing new is recorded. Switch it on in %s."
+msgstr "Pengiraan dimatikan, jadi tiada apa yang baharu direkodkan. Hidupkannya di %s."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Theme Options > Citations"
+msgstr "Pilihan Tema > Petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citations shown"
+msgstr "Petikan dipaparkan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citations copied"
+msgstr "Petikan disalin"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Files downloaded"
+msgstr "Fail dimuat turun"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Most cited"
+msgstr "Paling banyak dipetik"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Article or book"
+msgstr "Artikel atau buku"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Shown"
+msgstr "Dipaparkan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Copied"
+msgstr "Disalin"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Downloaded"
+msgstr "Dimuat turun"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "No citations counted yet."
+msgstr "Belum ada petikan dikira."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Styles readers choose"
+msgstr "Gaya pilihan pembaca"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "No styles counted yet."
+msgstr "Belum ada gaya dikira."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Downloads by format"
+msgstr "Muat turun mengikut format"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "No downloads yet."
+msgstr "Belum ada muat turun."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Your data"
+msgstr "Data anda"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are kept on this site only and deleted automatically after %d days. No names, emails or accounts are stored."
+msgstr "Kiraan disimpan di laman ini sahaja dan dipadam secara automatik selepas %d hari. Tiada nama, e-mel atau akaun disimpan."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are kept on this site only, until you delete them. No names, emails or accounts are stored."
+msgstr "Kiraan disimpan di laman ini sahaja, sehingga anda memadamnya. Tiada nama, e-mel atau akaun disimpan."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Change the settings"
+msgstr "Ubah tetapan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Delete every citation count? This cannot be undone."
+msgstr "Padam setiap kiraan petikan? Tindakan ini tidak boleh dibatalkan."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Delete all counts"
+msgstr "Padam semua kiraan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "First style in Theme Options"
+msgstr "Gaya pertama dalam Pilihan Tema"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "A \"Cite this\" box, an in-text citation or a reference list entry for this post, or for another post or book."
+msgstr "Kotak \"Petik ini\", petikan dalam teks atau entri senarai rujukan bagi kiriman ini, atau bagi kiriman atau buku lain."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "cite"
+msgstr "petik"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "citation"
+msgstr "petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "reference"
+msgstr "rujukan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "bibliography"
+msgstr "bibliografi"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Show as"
+msgstr "Papar sebagai"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation box"
+msgstr "Kotak petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "In-text citation"
+msgstr "Petikan dalam teks"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Reference only"
+msgstr "Rujukan sahaja"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Style shown first"
+msgstr "Gaya dipaparkan dahulu"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Cite another post or book (ID)"
+msgstr "Petik kiriman atau buku lain (ID)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Leave empty to cite this post."
+msgstr "Biarkan kosong untuk memetik kiriman ini."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Collapse"
+msgstr "Lipat"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Link"
+msgstr "Pautan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Link the citation"
+msgstr "Pautkan petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Advanced"
+msgstr "Lanjutan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Only these styles"
+msgstr "Gaya ini sahaja"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Comma-separated, for example apa,mla,chicago. Empty uses Theme Options."
+msgstr "Dipisahkan dengan koma, contohnya apa,mla,chicago. Kosong menggunakan Pilihan Tema."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Leave out these styles"
+msgstr "Kecualikan gaya ini"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Author shown instead"
+msgstr "Pengarang yang dipaparkan sebagai ganti"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Save the post to preview its citation, or choose a post or book to cite."
+msgstr "Simpan kiriman untuk pratonton petikannya, atau pilih kiriman atau buku untuk dipetik."
+
 #~ msgid "Back to Homepage"
 #~ msgstr "Kembali ke Laman Utama"
 

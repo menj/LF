@@ -148,6 +148,13 @@ get_header();
                                 <?php the_content(); ?>
                             </div>
                         </div>
+
+                        <?php
+                        // "Cite this book" box (inc/citations.php), when Theme Options > Citations adds it to book pages.
+                        if ( function_exists( 'langgam_fikir_cite_book_box' ) ) {
+                            langgam_fikir_cite_book_box();
+                        }
+                        ?>
                         
                         <?php
                         // Get book status

@@ -279,6 +279,9 @@ Plugins whose job the theme now does itself are listed in `langgam_fikir_absorbe
 | Plugin | Theme module | Settings | Imported options |
 |---|---|---|---|
 | Auto Justify Content 2.0.0 | `inc/justify.php`, `assets/css/justify.css` | Theme Options > Design > Text Justification | `ajc_enabled`, `ajc_scope`, `ajc_hyphen`, `ajc_mobile`, `ajc_fallback`, `ajc_exclude` |
+| CitePress 3.0.1 | `inc/citations.php`, `inc/citations-analytics.php`, `assets/css/citations.css`, `assets/js/citations.js`, `assets/js/citations-block.js`, `assets/css/citations-admin.css`, `assets/js/citations-admin.js` | Theme Options > Citations; Appearance > Citation Analytics | `citepress_setting` (all keys) and the rows of `{prefix}citepress_analytics` (copied to `{prefix}lf_citation_analytics`) |
+
+Compatibility kept for CitePress content: the `[cite]`, `[citepress_cite]`, `[cite_bibliography]` and `[citepress_cite_bibliography]` shortcodes and the `citepress/block` block (same attributes, plus `postId`). The citation style and download-format catalogues live in `inc/options-schema.php` (Theme Options needs them before `inc/citations.php` loads).
 
 To absorb another plugin: build its feature as an `inc/` module with settings in the options schema, write an import callback that maps its options to theme keys, and add it to the list. WordPress.org themes may not deactivate plugins; this is a site-specific choice.
 

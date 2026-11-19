@@ -399,3 +399,17 @@
     gap: 0.5rem;
     font-weight: 500;
 }
+
+/* Checklist fields: a wrapping grid of tick boxes (e.g. citation styles). */
+.lf-checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 0.5rem 1rem;
+    margin: 0.25rem 0 0;
+    padding: 0;
+    border: 0;
+}
+
+.lf-checklist .lf-check {
+    font-weight: 400;
+}

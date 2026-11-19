@@ -123,7 +123,9 @@ For manual server access:
 **Status:** RELEASED — built-in plugins.
 
 - **Auto Justify Content** is now part of the theme. Open any admin page once after updating: the theme copies the plugin's settings (`ajc_*` options) to **Theme Options > Design > Text Justification**, deactivates the plugin and shows a notice. The front end looks the same.
-- The plugin's files and options are left in place, so if you ever switch to another theme you can re-activate it and it works as before. Otherwise delete it from the Plugins screen.
+- **CitePress** is now part of the theme. On the same first admin page load its settings move to **Theme Options > Citations**, its analytics history is copied into the theme's own table (shown under **Appearance > Citation Analytics**), and the plugin is deactivated. `[cite]`, `[citepress_cite]`, `[cite_bibliography]`, `[citepress_cite_bibliography]` and existing Citation blocks keep working unchanged. Book pages now get book citations; if "On book pages" is not wanted, untick it. The box now follows the theme palette (CitePress's light/dark/auto colour scheme and sharp-corners switch are replaced by Theme Options > Design).
+- Because the history is copied first, deleting CitePress afterwards is safe (its uninstall drops only its own table and options).
+- The plugins' files and options are left in place, so if you ever switch to another theme you can re-activate them and they work as before. Otherwise delete them from the Plugins screen.
 - While this theme is active the plugin cannot be re-activated: the Plugins screen shows "Built into the Langgam Fikir theme" instead of Activate, and an activation by other means is reversed on the next admin page load.
 
 ### Upgrading to 2.14.0 ✅

@@ -3162,3 +3162,479 @@ msgstr ""
 #: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
 msgid "Settings"
 msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citations"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation Box"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "A \"Cite this\" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). This replaces the CitePress plugin; its settings were copied here. You can also place a box anywhere with the Citation block or the [cite] shortcode."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Add the citation box automatically"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On articles"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On book pages"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On pages"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Position on articles and pages"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On book pages the box sits under the synopsis."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "After the text"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Before the text"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Never on these posts"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Post IDs separated by commas."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Styles and Exports"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "The citation styles readers can pick from (the first ticked is shown first) and the files they can download."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation styles"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Download formats"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Untick them all to hide the download menu."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Style picker"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Drop-down menu"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Tabs"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Box style"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Colours, fonts and corners follow the Design tab."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Classic (accent bar, tinted header)"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Academic (ruled, bookish)"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Minimal (no frame)"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Show the collapse button"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Use \"et al.\" after this many authors"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Scholarly Metadata"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Helps Google Scholar and reference managers recognise articles and books."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Google Scholar tags (citation_title, citation_author and so on)"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Mark articles as ScholarlyArticle in Schema.org"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Added to the theme's existing article data, not as a second copy."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation Analytics"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts how often citations are shown, copied and downloaded. Stored on this site only; see Appearance > Citation Analytics."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Count citation views, copies and downloads"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Only count visitors who accepted statistics cookies"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Reads the consent cookie of CookieYes, Complianz, Cookiebot, GDPR Cookie Compliance or Borlabs. Without a consent plugin, counting is allowed."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Count repeat actions"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Once a minute per visitor (no personal data stored)"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Once a minute per IP address (a one-way hash, kept briefly)"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Every time"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Keep records for"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "30 days"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "90 days"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "180 days"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "One year"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Forever"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "n.d."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "See reference %d"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Cite this book"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Cite this article"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation style"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Copy"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Download"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Show or hide the citation"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "References"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Back to citation %d in the text"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation copied."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Copying failed. Select the citation and copy it by hand."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Download started."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "If you use this work, please cite it as below."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "When you view, copy or download a citation, the site may count it: which article or book, which citation style or file format, and when. No name, email or account is stored with it."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "To avoid counting the same visitor twice, a one-way hash of your IP address is kept for up to a minute."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Nothing is counted unless you accept statistics cookies."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are deleted after %d days."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are kept until an administrator deletes them."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation analytics"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Post"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Style or format"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Action"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Time"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation analytics store no personal data."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "You are not allowed to do that."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "All citation counts were deleted."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counting is off, so nothing new is recorded. Switch it on in %s."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Theme Options > Citations"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citations shown"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citations copied"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Files downloaded"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Most cited"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Article or book"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Shown"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Copied"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Downloaded"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "No citations counted yet."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Styles readers choose"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "No styles counted yet."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Downloads by format"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "No downloads yet."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Your data"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are kept on this site only and deleted automatically after %d days. No names, emails or accounts are stored."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are kept on this site only, until you delete them. No names, emails or accounts are stored."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Change the settings"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Delete every citation count? This cannot be undone."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Delete all counts"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "First style in Theme Options"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "A \"Cite this\" box, an in-text citation or a reference list entry for this post, or for another post or book."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "cite"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "citation"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "reference"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "bibliography"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Show as"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation box"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "In-text citation"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Reference only"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Style shown first"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Cite another post or book (ID)"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Leave empty to cite this post."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Collapse"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Link"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Link the citation"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Advanced"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Only these styles"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Comma-separated, for example apa,mla,chicago. Empty uses Theme Options."
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Leave out these styles"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Author shown instead"
+msgstr ""
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Save the post to preview its citation, or choose a post or book to cite."
+msgstr ""
