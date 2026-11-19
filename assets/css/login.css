@@ -578,6 +578,7 @@ body.lf-login--photo:not(.interim-login) {
 }
 
 body.lf-login--photo:not(.interim-login) #login {
+    box-sizing: border-box;
     width: min(440px, calc(100% - 32px));
     margin-top: clamp(24px, 8vh, 96px);
     padding: 40px 40px 32px;
@@ -703,6 +704,70 @@ body.lf-login--minimal .privacy-policy-page-link {
     body.lf-login--photo:not(.interim-login) #login {
         padding: 32px 22px 24px;
         margin-top: 16px;
+    }
+}
+
+/* Touch screens (phones, tablets): iOS Safari draws fixed backgrounds zoomed in and blurry. */
+@media (hover: none), (max-width: 1024px) {
+    body.lf-login--photo:not(.interim-login) {
+        background-attachment: scroll;
+    }
+}
+
+/* Phones held sideways: keep the Split banner short so the form starts on screen. */
+@media (max-width: 960px) and (max-height: 540px) {
+    body.lf-login--split .lf-login-brand {
+        min-height: 0;
+        padding: 20px 24px 18px;
+    }
+
+    body.lf-login--split .lf-login-brand__rule {
+        display: none;
+    }
+
+    body.lf-login--split .lf-login-brand__name {
+        font-size: 1.75rem;
+    }
+
+    body.lf-login--split .lf-login-brand__tagline {
+        margin-top: 6px;
+        font-size: 1.1rem;
+    }
+
+    body.lf-login--split:not(.interim-login) #login {
+        padding-top: 24px;
+    }
+}
+
+/* Any short screen (phones sideways, small laptop windows): less above the form. */
+@media (max-height: 540px) {
+    /* The Split banner already shows the site name, so the logo would repeat it. */
+    body.lf-login--split #login h1 {
+        display: none;
+    }
+
+    body.lf-login #login h1 a {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 16px;
+    }
+
+    .lf-login-intro {
+        margin-bottom: 18px;
+    }
+
+    .lf-login-intro__heading {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .lf-login-intro__text {
+        display: none;
+    }
+
+    body.lf-login--photo:not(.interim-login) #login {
+        margin-top: 16px;
+        padding-top: 24px;
     }
 }
 
