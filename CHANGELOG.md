@@ -5,7 +5,15 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.14.0] - 2026-11-19
+## [2.15.0] - 2026-11-19
+
+Built-in plugins: features from plugins this site uses now live in the theme, so they work as soon as the theme is active.
+
+### Added
+- **Text justification** (`inc/justify.php`, `assets/css/justify.css`), replacing the **Auto Justify Content** plugin (v2.0.0, by MENJ). Same options, now in **Theme Options > Design > Text Justification**: on/off; articles only or the whole site (articles, pages, book synopses, the About text); hyphenation; wide screens only (768px and up); an "any article text" fallback; selectors to leave alone. Paragraphs centred or right-aligned in the editor, pull quotes, buttons and captions keep their own alignment (the plugin forced them to justify). The last line of each paragraph aligns to the start, so it also suits right-to-left text. Rules are a static stylesheet switched on by body classes; only the exclusions are inline, one rule per selector so a typo in one does not cancel the rest.
+- **Plugin takeover** (`inc/plugin-takeover.php`): a list of plugins the theme replaces. When one is active, the theme copies its settings into Theme Options once (keeping every other setting as it is), deactivates it, and shows a dismissible notice naming the plugin and where its settings went. On the Plugins screen the plugin shows "Built into the Langgam Fikir theme" and a Settings link instead of Activate; activating it anyway is reversed straight away. Network-activated plugins on multisite are only switched off by a network administrator (others get an explanatory notice). The plugin's own files and options are not touched, so switching theme and re-activating it restores it exactly.
+
+
 
 SEO and Schema.org rebuild, following a review of the live homepage and Google's SEO Starter Guide.
 

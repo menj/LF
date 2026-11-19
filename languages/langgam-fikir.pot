@@ -4,7 +4,7 @@
 # MENJ <contact@langgamfikir.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Langgam Fikir 2.14.0\n"
+"Project-Id-Version: Langgam Fikir 2.15.0\n"
 "Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
 "POT-Creation-Date: 2026-11-18 04:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -3081,4 +3081,84 @@ msgstr ""
 
 #: inc/schema.php, inc/options-schema.php, page-sitemap.php
 msgid "Sitemap"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Text Justification"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Justify paragraphs and lists so both edges line up, as in a printed book. The last line of each paragraph stays aligned to the start. This replaces the Auto Justify Content plugin; its settings were copied here."
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Justify text"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Where"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Articles only"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Articles, pages, book synopses and the About text"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Hyphenate long words"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Avoids wide gaps between words in narrow columns. The browser uses the page language (English unless a book sets another)."
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Wide screens only"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Keep text aligned to the start on screens narrower than 768px, where justified lines can leave gaps."
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Also justify any article text"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Includes paragraphs inside any article element, for content added by plugins or page builders."
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Leave these alone"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "CSS selectors, separated by commas, for example .wp-block-quote, .no-justify"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Theme Options > Design > Text Justification"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "%1$s is network-activated, so only a network administrator can switch it off. The theme already does its job; its settings are in %2$s."
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "%1$s was deactivated because the Langgam Fikir theme now does its job. Your settings were copied to %2$s. You can delete the plugin."
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Dismiss"
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Built into the Langgam Fikir theme."
+msgstr ""
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Settings"
 msgstr ""

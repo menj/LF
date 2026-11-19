@@ -118,7 +118,15 @@ For manual server access:
 
 ## Version-Specific Upgrade Notes
 
-### Upgrading to 2.14.0 (Latest) ✅
+### Upgrading to 2.15.0 (Latest) ✅
+
+**Status:** RELEASED — built-in plugins.
+
+- **Auto Justify Content** is now part of the theme. Open any admin page once after updating: the theme copies the plugin's settings (`ajc_*` options) to **Theme Options > Design > Text Justification**, deactivates the plugin and shows a notice. The front end looks the same.
+- The plugin's files and options are left in place, so if you ever switch to another theme you can re-activate it and it works as before. Otherwise delete it from the Plugins screen.
+- While this theme is active the plugin cannot be re-activated: the Plugins screen shows "Built into the Langgam Fikir theme" instead of Activate, and an activation by other means is reversed on the next admin page load.
+
+### Upgrading to 2.14.0 ✅
 
 **Status:** RELEASED — SEO and Schema.org rebuild.
 

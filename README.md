@@ -6,7 +6,7 @@ A child theme of WordPress Twenty Twenty-Five (2025 default theme) with custom b
 
 - **Theme Name:** Langgam Fikir
 - **Parent Theme:** Twenty Twenty-Five
-- **Version:** 2.14.0
+- **Version:** 2.15.0
 - **Author:** MENJ
 - **License:** GPL v2 or later
 - **Requires WordPress:** 6.7+
@@ -289,6 +289,11 @@ Edit `/assets/css/main.css`:
 ```
 
 ## Version History / Changelog
+
+### Version 2.15.0 (November 2026) — Built-in plugins
+
+- **NEW:** Text justification built in, replacing the Auto Justify Content plugin (Theme Options > Design > Text Justification)
+- **NEW:** Plugin takeover module: imports an absorbed plugin's settings once, deactivates it, shows a notice and marks it "Built into the Langgam Fikir theme" on the Plugins screen
 
 ### Version 2.14.0 (November 2026) — SEO and Schema.org
 

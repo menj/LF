@@ -5,7 +5,7 @@
  *
  * @package Langgam_Fikir
  * @since 1.0.0
- * @version 2.14.0
+ * @version 2.15.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Theme Constants
  */
-define( 'LANGGAM_FIKIR_VERSION', '2.14.0' );
+define( 'LANGGAM_FIKIR_VERSION', '2.15.0' );
 define( 'LANGGAM_FIKIR_DIR', get_stylesheet_directory() );
 define( 'LANGGAM_FIKIR_URI', get_stylesheet_directory_uri() );
 
@@ -38,6 +38,8 @@ require_once LANGGAM_FIKIR_DIR . '/inc/toc.php';              // Auto-TOC for lo
 require_once LANGGAM_FIKIR_DIR . '/inc/hrefmaster-integration.php'; // HrefMaster plugin integration (v2.7.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/webmcp.php';              // WebMCP agent tools + public catalogue REST (v2.10.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/login.php';               // Branded login screen (v2.13.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/justify.php';             // Text justification, replaces Auto Justify Content (v2.15.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/plugin-takeover.php';     // Absorbed plugins: import settings, deactivate (v2.15.0)
 
 /**
  * Load Admin-Specific Files

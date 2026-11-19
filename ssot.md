@@ -272,6 +272,16 @@ Each status maps to a `schema.org/Offer.availability` value in the Book JSON-LD.
 
 **Default language is en_US.** The site runs in English (Settings > General > Site Language: English (United States)), so `<html lang>`, `og:locale` and Schema.org `inLanguage` are `en-US` unless a book's Language field or HrefMaster says otherwise. The Malay translation (`ms_MY`) is optional and applies only when the site language is switched to Bahasa Melayu.
 
+### 7.1b Built-in plugins (2.15.0)
+
+Plugins whose job the theme now does itself are listed in `langgam_fikir_absorbed_plugins()` (`inc/plugin-takeover.php`), each with its name, where its settings now live and an import callback. While this theme is active such a plugin is deactivated (after a one-time import of its settings into `langgam_fikir_options`), cannot be re-activated from the Plugins screen, and a notice says so. Its files and options are left untouched.
+
+| Plugin | Theme module | Settings | Imported options |
+|---|---|---|---|
+| Auto Justify Content 2.0.0 | `inc/justify.php`, `assets/css/justify.css` | Theme Options > Design > Text Justification | `ajc_enabled`, `ajc_scope`, `ajc_hyphen`, `ajc_mobile`, `ajc_fallback`, `ajc_exclude` |
+
+To absorb another plugin: build its feature as an `inc/` module with settings in the options schema, write an import callback that maps its options to theme keys, and add it to the list. WordPress.org themes may not deactivate plugins; this is a site-specific choice.
+
 ### 7.2 WooCommerce (light support only)
 
 When `class_exists('WooCommerce')`, `inc/woocommerce.php` loads and adds:
@@ -357,7 +367,7 @@ When in doubt, defer to MENJ. Brand decisions, scope decisions, and "is this in 
 
 | Field | Value |
 |---|---|
-| Latest released version | **2.14.0** |
+| Latest released version | **2.15.0** |
 | Active development phase | Phase 4 (Admin Power Features) — next |
 | In-progress phase | Phase 5 (Frontend Polish) — 3 of 8 items delivered |
 | SEO/AEO audit score | **92/100** (last assessed at v2.6.0) |

@@ -144,6 +144,21 @@ function langgam_fikir_extra_options_schema() {
                     ),
                 ),
                 array(
+                    'title'  => __( 'Text Justification', 'langgam-fikir' ),
+                    'desc'   => __( 'Justify paragraphs and lists so both edges line up, as in a printed book. The last line of each paragraph stays aligned to the start. This replaces the Auto Justify Content plugin; its settings were copied here.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'justify_enabled'  => $f( 'checkbox', __( 'Justify text', 'langgam-fikir' ), 1 ),
+                        'justify_scope'    => $f( 'select', __( 'Where', 'langgam-fikir' ), 'blog_only', '', array( 'choices' => array(
+                            'blog_only'   => __( 'Articles only', 'langgam-fikir' ),
+                            'entire_site' => __( 'Articles, pages, book synopses and the About text', 'langgam-fikir' ),
+                        ) ) ),
+                        'justify_hyphens'  => $f( 'checkbox', __( 'Hyphenate long words', 'langgam-fikir' ), 1, __( 'Avoids wide gaps between words in narrow columns. The browser uses the page language (English unless a book sets another).', 'langgam-fikir' ) ),
+                        'justify_desktop'  => $f( 'checkbox', __( 'Wide screens only', 'langgam-fikir' ), 0, __( 'Keep text aligned to the start on screens narrower than 768px, where justified lines can leave gaps.', 'langgam-fikir' ) ),
+                        'justify_fallback' => $f( 'checkbox', __( 'Also justify any article text', 'langgam-fikir' ), 0, __( 'Includes paragraphs inside any article element, for content added by plugins or page builders.', 'langgam-fikir' ) ),
+                        'justify_exclude'  => $f( 'text', __( 'Leave these alone', 'langgam-fikir' ), '.elementor-testimonial', __( 'CSS selectors, separated by commas, for example .wp-block-quote, .no-justify', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                    ),
+                ),
+                array(
                     'title'  => __( 'Corners and Motion', 'langgam-fikir' ),
                     'desc'   => __( 'How rounded cards, images, buttons and fields are, and whether parts of the page drift while scrolling.', 'langgam-fikir' ),
                     'fields' => array(

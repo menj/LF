@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.14.0
+Stable tag: 2.15.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,10 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.15.0 (November 2026) =
+* NEW: Text justification built in (replaces the Auto Justify Content plugin): justified paragraphs and lists, hyphenation, wide-screens-only, an any-article fallback and exclusions, in Theme Options > Design
+* NEW: Built-in plugin takeover: when a plugin the theme now replaces is active, the theme copies its settings into Theme Options once, deactivates it, shows a notice, and replaces Activate on the Plugins screen with "Built into the Langgam Fikir theme"
 
 = 2.14.0 (November 2026) =
 * NEW: One connected Schema.org graph (Organization, WebSite, WebPage, BreadcrumbList, BlogPosting, Person, Book, ItemList, FAQPage) with stable @ids shared with Rank Math and Yoast
@@ -470,6 +474,9 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 * Typography and color system implementation
 
 == Upgrade Notice ==
+
+= 2.15.0 =
+The Auto Justify Content plugin is now part of the theme. On the first admin page load after updating, its settings are copied to Theme Options > Design > Text Justification and the plugin is deactivated. Nothing changes on the front end. You can delete the plugin afterwards.
 
 = 2.14.0 =
 Schema.org and meta tags rebuilt as one graph. If an SEO plugin is active the theme now defers to it; set that plugin's schema for the Books post type to None so there is one Book node. Re-test pages in Google's Rich Results Test.
