@@ -29,6 +29,8 @@ SEO and Schema.org rebuild, following a review of the live homepage and Google's
 - The homepage meta description was the blog description ("Resources, articles, and insights…") when the homepage shows the latest posts.
 - og:url was built from the raw request and kept query strings.
 - Footer contact microdata and review microdata created extra, disconnected Organization and Review entities (the reviews had no `itemReviewed`). Both are removed; the JSON-LD carries the same facts.
+- Review follow-ups (PR review): the canonical keeps `?paged=N` on plain permalinks; the share image falls back to the bundled hero photo; the post breadcrumb schema matches the visible trail; `wordCount` counts Unicode words; the book list's `itemListOrder` follows `?sort=`.
+- Login screen: the language menu stays readable on the Photo layout; the site name is no longer squeezed into the 64px logo box on phones when there is no logo; "Same as the homepage hero" follows a homepage set to No photo; switching the branded screen off also restores the default logo link and text.
 
 ## [2.13.0] - 2026-11-19
 

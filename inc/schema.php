@@ -125,9 +125,13 @@ function langgam_fikir_current_url() {
         $url = '';
     }
 
-    // get_pagenum_link() keeps query strings such as ?sort=; a canonical should not.
-    if ( $url && ! is_singular() ) {
-        $url = strtok( $url, '?' );
+    // get_pagenum_link() keeps query strings such as ?sort=; a canonical should not. With plain
+    // permalinks the page number and the archive itself are query arguments too, so those stay.
+    if ( $url && ! is_singular() && false !== strpos( $url, '?' ) ) {
+        $query = array();
+        wp_parse_str( (string) wp_parse_url( $url, PHP_URL_QUERY ), $query );
+        $keep  = array_intersect_key( $query, array_flip( array( 'paged', 'page', 'post_type', 'cat', 'tag', 'book-category', 'book-tag', 'author', 'm', 'year', 'monthnum', 'day' ) ) );
+        $url   = add_query_arg( $keep, strtok( $url, '?' ) );
     }
 
     return $url = (string) $url;
@@ -286,6 +290,26 @@ function langgam_fikir_share_image() {
         $candidates[] = array( (int) get_post_thumbnail_id( get_queried_object_id() ), false );
     }
     $candidates[] = array( (int) langgam_fikir_get_option( 'hero_background_image' ), false );
+
+    // No featured image or upload: the bundled hero photo the homepage shows (not 'random',
+    // which would give every share a different picture).
+    $hero = (string) langgam_fikir_get_option( 'hero_photo' );
+    if ( ! ( is_singular() && has_post_thumbnail( get_queried_object_id() ) ) && ! (int) langgam_fikir_get_option( 'hero_background_image' )
+        && isset( langgam_fikir_hero_photos()[ $hero ] ) ) {
+        $file = LANGGAM_FIKIR_DIR . '/assets/images/hero/' . $hero . '-1920.jpg';
+        $size = file_exists( $file ) ? @getimagesize( $file ) : false; // phpcs:ignore WordPress.PHP.NoSilencedErrors
+        if ( $size ) {
+            return $image = array(
+                'url'     => LANGGAM_FIKIR_URI . '/assets/images/hero/' . $hero . '-1920.jpg',
+                'width'   => (int) $size[0],
+                'height'  => (int) $size[1],
+                'alt'     => langgam_fikir_hero_photos()[ $hero ],
+                'type'    => 'image/jpeg',
+                'is_logo' => false,
+            );
+        }
+    }
+
     $candidates[] = array( (int) get_theme_mod( 'custom_logo' ), true );
 
     $image = null;
@@ -589,10 +613,7 @@ function langgam_fikir_schema_breadcrumb_node() {
         }
         $trail[] = array( get_the_title( get_queried_object_id() ), $here );
     } elseif ( is_singular( 'post' ) ) {
-        $blog = (int) get_option( 'page_for_posts' );
-        if ( $blog ) {
-            $trail[] = array( get_the_title( $blog ), get_permalink( $blog ) );
-        }
+        // Home > category > post, as in the visible trail (inc/breadcrumbs.php).
         $categories = get_the_category( get_queried_object_id() );
         if ( $categories ) {
             $trail[] = array( $categories[0]->name, get_category_link( $categories[0]->term_id ) );
@@ -762,7 +783,8 @@ function langgam_fikir_schema_article_node( $post_id ) {
     if ( $description ) {
         $article['description'] = langgam_fikir_trim_text( $description, 200 );
     }
-    $words = str_word_count( wp_strip_all_tags( strip_shortcodes( $content ) ) );
+    // str_word_count() only knows ASCII letters; count Unicode words instead.
+    $words = (int) preg_match_all( "/[\\p{L}\\p{N}][\\p{L}\\p{N}\\p{M}'’-]*/u", wp_strip_all_tags( strip_shortcodes( $content ) ) );
     if ( $words ) {
         $article['wordCount'] = $words;
     }
@@ -1011,9 +1033,22 @@ function langgam_fikir_schema_itemlist_node() {
         '@id'             => $base . '#books',
         'name'            => wp_strip_all_tags( (string) $name ),
         'numberOfItems'   => count( $items ),
-        'itemListOrder'   => 'https://schema.org/ItemListOrderDescending',
+        'itemListOrder'   => langgam_fikir_schema_list_order(),
         'itemListElement' => $items,
     );
+}
+
+/**
+ * The order of the book list: the archive's ?sort= (newest is the default and the homepage order).
+ */
+function langgam_fikir_schema_list_order() {
+    $sort = is_front_page() ? 'newest' : ( isset( $_GET['sort'] ) ? sanitize_key( wp_unslash( $_GET['sort'] ) ) : 'newest' ); // phpcs:ignore WordPress.Security.NonceVerification
+    $map  = array(
+        'newest' => 'ItemListOrderDescending',
+        'oldest' => 'ItemListOrderAscending',
+        'title'  => 'ItemListOrderAscending',
+    );
+    return 'https://schema.org/' . ( isset( $map[ $sort ] ) ? $map[ $sort ] : 'ItemListOrderDescending' );
 }
 
 /**

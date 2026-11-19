@@ -66,6 +66,10 @@ function langgam_fikir_login_photo_url() {
                 return $url;
             }
         }
+        // The homepage was set to "No photo (solid colour)": match it.
+        if ( 'none' === (string) langgam_fikir_get_option( 'hero_photo' ) ) {
+            return '';
+        }
         $photo = langgam_fikir_hero_photo_urls();
         if ( $photo ) {
             return $photo['full'];
@@ -145,13 +149,13 @@ add_filter( 'login_body_class', 'langgam_fikir_login_body_class' );
 /**
  * The logo links to the site, not wordpress.org, and is named after it.
  */
-function langgam_fikir_login_header_url() {
-    return home_url( '/' );
+function langgam_fikir_login_header_url( $url ) {
+    return langgam_fikir_login_enabled() ? home_url( '/' ) : $url;
 }
 add_filter( 'login_headerurl', 'langgam_fikir_login_header_url' );
 
-function langgam_fikir_login_header_text() {
-    return get_bloginfo( 'name', 'display' );
+function langgam_fikir_login_header_text( $text ) {
+    return langgam_fikir_login_enabled() ? get_bloginfo( 'name', 'display' ) : $text;
 }
 add_filter( 'login_headertext', 'langgam_fikir_login_header_text' );
 

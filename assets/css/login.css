@@ -612,8 +612,14 @@ body.lf-login--photo .privacy-policy-page-link {
     margin-top: 28px;
 }
 
-body.lf-login--photo .language-switcher #language-switcher select,
-body.lf-login--photo .language-switcher .dashicons {
+/* The switcher sits on the photo, outside the card: the select keeps its own light field and
+   dark text (WordPress draws it white), only the globe icon turns light. */
+body.lf-login--photo .language-switcher #language-switcher select {
+    color: var(--color-text);
+    background-color: var(--color-bg-primary);
+}
+
+body.lf-login--photo #language-switcher .dashicons {
     color: var(--color-on-hero);
 }
 
@@ -682,9 +688,12 @@ body.lf-login--minimal .privacy-policy-page-link {
         padding-top: 36px;
     }
 
-    body.lf-login--split #login h1 a {
+    body.lf-login--split.lf-login-has-logo #login h1 a {
         width: 64px;
         height: 64px;
+    }
+
+    body.lf-login--split #login h1 a {
         margin-bottom: 24px;
     }
 
