@@ -146,6 +146,7 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 = 2.15.0 (November 2026) =
 * NEW: Text justification: justified paragraphs and lists, hyphenation, wide-screens-only, an any-article fallback and exclusions, in Theme Options > Design
 * NEW: Citations: a "Cite this" box with 20 styles, copy and six downloads, in-text citations and reference lists, the Citation block, Google Scholar tags and optional analytics, in Theme Options > Citations. Book pages are cited as books (publisher, edition, ISBN); [cite id="123"] cites another post or book
+* NEW: Private login address: move the log in screen to an address you choose; wp-login.php and wp-admin send visitors who are not logged in to a 404 page (Theme Options > Login Page)
 * NEW: Plugin detection: when a plugin these features replace is active, the theme copies its settings into Theme Options once, deactivates it, converts its block and shortcode names in posts to the theme's own, shows a notice, and replaces Activate on the Plugins screen with "Built into the Langgam Fikir theme"
 
 = 2.14.0 (November 2026) =
@@ -477,7 +478,7 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 == Upgrade Notice ==
 
 = 2.15.0 =
-Text justification and citations are now theme features. If the plugins that used to provide them are active, the first admin page load after updating copies their settings into Theme Options, deactivates them and converts their blocks and shortcodes in posts to the theme's own (back up the database first). You can delete those plugins afterwards.
+Text justification, citations and a private login address are now theme features (your current login address is kept). If the plugins that used to provide them are active, the first admin page load after updating copies their settings into Theme Options, deactivates them and converts their blocks and shortcodes in posts to the theme's own (back up the database first). You can delete those plugins afterwards.
 
 = 2.14.0 =
 Schema.org and meta tags rebuilt as one graph. If an SEO plugin is active the theme now defers to it; set that plugin's schema for the Books post type to None so there is one Book node. Re-test pages in Google's Rich Results Test.

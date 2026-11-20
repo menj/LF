@@ -294,6 +294,7 @@ Edit `/assets/css/main.css`:
 
 - **NEW:** Text justification (Theme Options > Design > Text Justification)
 - **NEW:** Citations (Theme Options > Citations, Appearance > Citation Analytics): 20 styles, six downloads, in-text citations, reference lists, the Citation block, Google Scholar tags; books cited as books
+- **NEW:** Private login address (Theme Options > Login Page > Login Address): the log in screen moves to an address you choose; wp-login.php and wp-admin show visitors a 404 page
 - **NEW:** Plugin detection: a plugin these features replace is deactivated after its settings are imported, its block and shortcode names in posts are converted to the theme's own, and it shows "Built into the Langgam Fikir theme" on the Plugins screen
 
 ### Version 2.14.0 (November 2026) — SEO and Schema.org

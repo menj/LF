@@ -274,7 +274,7 @@ Each status maps to a `schema.org/Offer.availability` value in the Book JSON-LD.
 
 ### 7.1b Plugin detection (2.15.0)
 
-Text justification (`inc/justify.php`) and citations (`inc/citations.php`, `inc/citations-analytics.php`) are theme features with no reference to any plugin. Only `inc/plugin-takeover.php` knows the plugins they replace, listed in `langgam_fikir_absorbed_plugins()`. Each entry gives the plugin's name, where its settings now live, the feature key, a `running` check, an `import` callback and optional `content` rules.
+Text justification (`inc/justify.php`), citations (`inc/citations.php`, `inc/citations-analytics.php`) and the private login address (`inc/login-address.php`) are theme features with no reference to any plugin. Only `inc/plugin-takeover.php` knows the plugins they replace, listed in `langgam_fikir_absorbed_plugins()`. Each entry gives the plugin's name, where its settings now live, the feature key, a `running` check, an `import` callback and optional `content` rules.
 
 While this theme is active such a plugin is:
 1. imported once into `langgam_fikir_options`;
@@ -288,8 +288,11 @@ While its code is still loaded, `langgam_fikir_feature_conflict( $feature )` is 
 |---|---|---|---|---|
 | Auto Justify Content 2.0.0 | `justify` | Theme Options > Design > Text Justification | `ajc_enabled`, `ajc_scope`, `ajc_hyphen`, `ajc_mobile`, `ajc_fallback`, `ajc_exclude` | none |
 | CitePress 3.0.1 | `citations` | Theme Options > Citations; Appearance > Citation Analytics | `citepress_setting` (all keys); rows of `{prefix}citepress_analytics` → `{prefix}lf_citation_analytics` | `citepress/block` → `langgam-fikir/citation`; `[citepress_cite]` → `[cite]`; `[citepress_cite_bibliography]` → `[cite_bibliography]` |
+| WPS Hide Login 1.9.20 | `login_address` | Theme Options > Login Page > Login Address | `whl_page` → `login_slug`, `whl_redirect_admin` → `login_redirect`, and `login_hide` on (site option fallback on multisite) | none |
 
 The citation style and download-format catalogues live in `inc/options-schema.php` (Theme Options needs them before `inc/citations.php` loads).
+
+The private login address recognises the request at `after_setup_theme` priority 1 (a theme cannot run at `plugins_loaded`, where the plugin did) and serves it at `wp_loaded`, before WordPress picks a screen. It reads its settings straight from `langgam_fikir_options`, without building the options schema, so no translations load before `init`. Recovery from a lock-out: rename the theme folder.
 
 To absorb another plugin: build its feature as an `inc/` module with settings in the options schema and no mention of the plugin, then add an entry to the list in `inc/plugin-takeover.php` with its import callback (also in that file) and any content rules. WordPress.org themes may not deactivate plugins; this is a site-specific choice.
 

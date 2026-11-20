@@ -3645,3 +3645,57 @@ msgid "%d post was updated to use the theme's own block and shortcode names."
 msgid_plural "%d posts were updated to use the theme's own block and shortcode names."
 msgstr[0] ""
 msgstr[1] ""
+
+#: inc/login-address.php
+msgid "This has been disabled."
+msgstr ""
+
+#: inc/login-address.php
+msgid "This feature is not enabled."
+msgstr ""
+
+#: inc/login-address.php
+#, php-format
+msgid "Your login address is %s. Bookmark it: wp-login.php and wp-admin no longer show the login form to visitors."
+msgstr ""
+
+#: inc/login-address.php
+msgid "Theme Options > Login Page > Login Address"
+msgstr ""
+
+#: inc/login-address.php
+#, php-format
+msgid "Your login address stays %s."
+msgstr ""
+
+#: inc/login-address.php
+msgid "Login Address"
+msgstr ""
+
+#: inc/login-address.php
+msgid "Move the log in screen to an address only you know, so password-guessing bots cannot find it. Visitors who are not logged in and open wp-login.php or wp-admin are sent to the redirect address instead. Bookmark the new address before you log out. Locked out? Rename the theme's folder by FTP or in your host's file manager to bring back wp-login.php."
+msgstr ""
+
+#: inc/login-address.php
+msgid "Use a private login address"
+msgstr ""
+
+#: inc/login-address.php
+msgid "If comments require logging in, the comment form's \"log in\" link shows this address."
+msgstr ""
+
+#: inc/login-address.php
+msgid "Login address"
+msgstr ""
+
+#: inc/login-address.php
+msgid "Lower-case letters, numbers and dashes. Names WordPress already uses (such as wp-admin) are not accepted."
+msgstr ""
+
+#: inc/login-address.php
+msgid "Redirect address"
+msgstr ""
+
+#: inc/login-address.php
+msgid "Where wp-login.php and wp-admin send visitors who are not logged in. The default, 404, shows the Page Not Found page."
+msgstr ""

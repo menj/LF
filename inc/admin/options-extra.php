@@ -145,6 +145,19 @@ function langgam_fikir_render_extra_field( $key, $field, $value ) {
             );
             break;
 
+        case 'slug':
+            // The full address around the editable part, e.g. https://example.com/[login]/
+            $pretty = (bool) get_option( 'permalink_structure' );
+            printf(
+                '<span class="lf-slug"><code>%s</code><input type="text" id="%s" name="%s" value="%s" class="regular-text code" spellcheck="false" autocapitalize="none">%s</span>',
+                esc_html( trailingslashit( home_url() ) . ( $pretty ? '' : '?' ) ),
+                esc_attr( $id ),
+                esc_attr( $name ),
+                esc_attr( $value ),
+                $pretty && '/' === substr( (string) get_option( 'permalink_structure' ), -1 ) ? '<code>/</code>' : ''
+            );
+            break;
+
         default:
             printf(
                 '<input type="%s" id="%s" name="%s" value="%s" class="regular-text">',

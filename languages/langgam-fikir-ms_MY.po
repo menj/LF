@@ -3823,3 +3823,57 @@ msgstr "Simpan kiriman untuk pratonton petikannya, atau pilih kiriman atau buku 
 msgid "%d post was updated to use the theme's own block and shortcode names."
 msgid_plural "%d posts were updated to use the theme's own block and shortcode names."
 msgstr[0] "%d kiriman telah dikemas kini untuk menggunakan nama blok dan kod pendek tema sendiri."
+
+#: inc/login-address.php
+msgid "This has been disabled."
+msgstr "Ciri ini telah dilumpuhkan."
+
+#: inc/login-address.php
+msgid "This feature is not enabled."
+msgstr "Ciri ini tidak didayakan."
+
+#: inc/login-address.php
+#, php-format
+msgid "Your login address is %s. Bookmark it: wp-login.php and wp-admin no longer show the login form to visitors."
+msgstr "Alamat log masuk anda ialah %s. Tandakan sebagai penanda buku: wp-login.php dan wp-admin tidak lagi menunjukkan borang log masuk kepada pelawat."
+
+#: inc/login-address.php
+msgid "Theme Options > Login Page > Login Address"
+msgstr "Pilihan Tema > Halaman Log Masuk > Alamat Log Masuk"
+
+#: inc/login-address.php
+#, php-format
+msgid "Your login address stays %s."
+msgstr "Alamat log masuk anda kekal %s."
+
+#: inc/login-address.php
+msgid "Login Address"
+msgstr "Alamat Log Masuk"
+
+#: inc/login-address.php
+msgid "Move the log in screen to an address only you know, so password-guessing bots cannot find it. Visitors who are not logged in and open wp-login.php or wp-admin are sent to the redirect address instead. Bookmark the new address before you log out. Locked out? Rename the theme's folder by FTP or in your host's file manager to bring back wp-login.php."
+msgstr "Pindahkan skrin log masuk ke alamat yang hanya anda ketahui, supaya bot peneka kata laluan tidak dapat menemuinya. Pelawat yang belum log masuk dan membuka wp-login.php atau wp-admin akan dihantar ke alamat ubah hala. Tandakan alamat baharu sebelum anda log keluar. Terkunci di luar? Namakan semula folder tema melalui FTP atau pengurus fail hos anda untuk mengembalikan wp-login.php."
+
+#: inc/login-address.php
+msgid "Use a private login address"
+msgstr "Guna alamat log masuk peribadi"
+
+#: inc/login-address.php
+msgid "If comments require logging in, the comment form's \"log in\" link shows this address."
+msgstr "Jika ulasan memerlukan log masuk, pautan \"log masuk\" pada borang ulasan menunjukkan alamat ini."
+
+#: inc/login-address.php
+msgid "Login address"
+msgstr "Alamat log masuk"
+
+#: inc/login-address.php
+msgid "Lower-case letters, numbers and dashes. Names WordPress already uses (such as wp-admin) are not accepted."
+msgstr "Huruf kecil, nombor dan sengkang. Nama yang sudah digunakan WordPress (seperti wp-admin) tidak diterima."
+
+#: inc/login-address.php
+msgid "Redirect address"
+msgstr "Alamat ubah hala"
+
+#: inc/login-address.php
+msgid "Where wp-login.php and wp-admin send visitors who are not logged in. The default, 404, shows the Page Not Found page."
+msgstr "Ke mana wp-login.php dan wp-admin menghantar pelawat yang belum log masuk. Lalai, 404, menunjukkan halaman Tidak Ditemui."

@@ -38,6 +38,7 @@ require_once LANGGAM_FIKIR_DIR . '/inc/toc.php';              // Auto-TOC for lo
 require_once LANGGAM_FIKIR_DIR . '/inc/hrefmaster-integration.php'; // HrefMaster plugin integration (v2.7.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/webmcp.php';              // WebMCP agent tools + public catalogue REST (v2.10.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/login.php';               // Branded login screen (v2.13.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/login-address.php';       // Private login address (v2.15.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/justify.php';             // Text justification (v2.15.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/citations.php';           // Citation box, styles, downloads, block (v2.15.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/citations-analytics.php'; // Citation analytics table, counting, privacy tools, admin page (v2.15.0)

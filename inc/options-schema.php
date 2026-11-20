@@ -253,6 +253,15 @@ function langgam_fikir_extra_options_schema() {
                         'login_caption' => $f( 'textarea', __( 'Photo panel caption', 'langgam-fikir' ), __( 'Books, articles and ideas, from manuscript to bookshelf.', 'langgam-fikir' ), __( 'Shown on the Split and Photo layouts. Empty hides it.', 'langgam-fikir' ), array( 'rows' => 2, 'allow_empty' => true ) ),
                     ),
                 ),
+                array(
+                    'title'  => __( 'Login Address', 'langgam-fikir' ),
+                    'desc'   => __( 'Move the log in screen to an address only you know, so password-guessing bots cannot find it. Visitors who are not logged in and open wp-login.php or wp-admin are sent to the redirect address instead. Bookmark the new address before you log out. Locked out? Rename the theme\'s folder by FTP or in your host\'s file manager to bring back wp-login.php.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'login_hide'     => $f( 'checkbox', __( 'Use a private login address', 'langgam-fikir' ), 0, __( 'If comments require logging in, the comment form\'s "log in" link shows this address.', 'langgam-fikir' ) ),
+                        'login_slug'     => $f( 'slug', __( 'Login address', 'langgam-fikir' ), 'login', __( 'Lower-case letters, numbers and dashes. Names WordPress already uses (such as wp-admin) are not accepted.', 'langgam-fikir' ) ),
+                        'login_redirect' => $f( 'slug', __( 'Redirect address', 'langgam-fikir' ), '404', __( 'Where wp-login.php and wp-admin send visitors who are not logged in. The default, 404, shows the Page Not Found page.', 'langgam-fikir' ) ),
+                    ),
+                ),
             ),
         ),
 
@@ -680,6 +689,11 @@ function langgam_fikir_sanitize_extra_options( $input ) {
             case 'number':
                 $clean[ $key ] = '' === $raw ? $field['default'] : max( $field['min'], min( $field['max'], absint( $raw ) ) );
                 break;
+            case 'slug':
+                $clean[ $key ] = function_exists( 'langgam_fikir_login_address_clean_slug' )
+                    ? langgam_fikir_login_address_clean_slug( $raw, $field['default'] )
+                    : ( sanitize_title_with_dashes( $raw ) ? sanitize_title_with_dashes( $raw ) : $field['default'] );
+                break;
             case 'image':
                 $id            = absint( $raw );
                 $clean[ $key ] = ( $id && wp_attachment_is_image( $id ) ) ? $id : 0;
@@ -696,6 +710,11 @@ function langgam_fikir_sanitize_extra_options( $input ) {
             default:
                 $clean[ $key ] = sanitize_text_field( $raw );
         }
+    }
+
+    // The redirect must never be the login itself.
+    if ( isset( $clean['login_slug'], $clean['login_redirect'] ) && $clean['login_slug'] === $clean['login_redirect'] ) {
+        $clean['login_redirect'] = '404' === $clean['login_slug'] ? 'not-found' : '404';
     }
 
     return $clean;

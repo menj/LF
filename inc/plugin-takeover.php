@@ -36,6 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *     import   => callable: Theme Options values taken from the plugin's settings,
  *     content  => array( find => text that marks affected posts, rules => regex => replacement )
  *                 converting its block and shortcode names to the theme's,
+ *     note     => callable: extra (escaped) sentence for the notice,
  * ).
  */
 function langgam_fikir_absorbed_plugins() {
@@ -64,6 +65,24 @@ function langgam_fikir_absorbed_plugins() {
                     '#\[(/?)citepress_cite(?=[\s\]/])#'              => '[$1cite',
                 ),
             ),
+        ),
+        'wps-hide-login/wps-hide-login.php' => array(
+            'name'     => 'WPS Hide Login',
+            'settings' => __( 'Theme Options > Login Page > Login Address', 'langgam-fikir' ),
+            'tab'      => 'login',
+            'feature'  => 'login_address',
+            'running'  => static function () {
+                return defined( 'WPS_HIDE_LOGIN_VERSION' ) || class_exists( 'WPS\\WPS_Hide_Login\\Plugin', false );
+            },
+            'import'   => 'langgam_fikir_takeover_import_login_address',
+            'note'     => static function () {
+                if ( ! function_exists( 'langgam_fikir_login_address_url' ) ) {
+                    return '';
+                }
+                $url = langgam_fikir_login_address_url();
+                /* translators: %s: login address */
+                return sprintf( esc_html__( 'Your login address stays %s.', 'langgam-fikir' ), '<strong><a href="' . esc_url( $url ) . '">' . esc_html( $url ) . '</a></strong>' );
+            },
         ),
     );
 
@@ -193,6 +212,13 @@ function langgam_fikir_takeover_notice() {
                 _n( '%d post was updated to use the theme\'s own block and shortcode names.', '%d posts were updated to use the theme\'s own block and shortcode names.', (int) $entry['converted'], 'langgam-fikir' ),
                 (int) $entry['converted']
             ) );
+        }
+
+        if ( ! empty( $plugin['note'] ) && is_callable( $plugin['note'] ) ) {
+            $note = (string) call_user_func( $plugin['note'] );
+            if ( '' !== $note ) {
+                $converted .= ' ' . $note;
+            }
         }
 
         if ( 'network' === $entry['status'] ) {
@@ -357,6 +383,37 @@ function langgam_fikir_takeover_rewrite_content( $find, array $rules ) {
 /* =========================================================================
  * Settings import: map each plugin's options to Theme Options values
  * ====================================================================== */
+
+/**
+ * WPS Hide Login: its whl_page (login slug) and whl_redirect_admin options. The plugin was on,
+ * so the private address stays on, at the same address.
+ *
+ * @return array Theme option values to merge.
+ */
+function langgam_fikir_takeover_import_login_address() {
+    $page     = get_option( 'whl_page' );
+    $redirect = get_option( 'whl_redirect_admin' );
+    if ( ! $page && is_multisite() ) {
+        $page = get_site_option( 'whl_page' );
+    }
+    if ( ! $redirect && is_multisite() ) {
+        $redirect = get_site_option( 'whl_redirect_admin' );
+    }
+    $clean = static function ( $value, $default ) {
+        return function_exists( 'langgam_fikir_login_address_clean_slug' )
+            ? langgam_fikir_login_address_clean_slug( $value, $default )
+            : $default;
+    };
+    $values = array(
+        'login_hide'     => 1,
+        'login_slug'     => $clean( $page ? $page : 'login', 'login' ),
+        'login_redirect' => $clean( $redirect ? $redirect : '404', '404' ),
+    );
+    if ( $values['login_slug'] === $values['login_redirect'] ) {
+        $values['login_redirect'] = '404' === $values['login_slug'] ? 'not-found' : '404';
+    }
+    return $values;
+}
 
 /**
  * Auto Justify Content: its ajc_* options.
