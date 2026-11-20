@@ -3,14 +3,10 @@
  * Citation analytics
  *
  * Counts citation views, copies and downloads (Theme Options > Citations > Citation Analytics)
- * and shows them under Appearance > Citation Analytics. Port of CitePress's analytics with the
- * same safeguards: off by default, data kept on this site only, optional consent check against
- * common cookie-consent plugins, per-visitor cooldown, retention purge, and the WordPress
- * privacy tools (policy text, exporter, eraser).
- *
- * Its own table, {prefix}lf_citation_analytics, so deleting the CitePress plugin (whose uninstall
- * drops {prefix}citepress_analytics) cannot take the history with it; the plugin's rows are
- * copied over once when the theme takes the plugin over.
+ * and shows them under Appearance > Citation Analytics. Off by default, data kept on this site
+ * only (table {prefix}lf_citation_analytics), optional consent check against common
+ * cookie-consent plugins, per-visitor cooldown, retention purge, and the WordPress privacy
+ * tools (policy text, exporter, eraser).
  *
  * @package Langgam_Fikir
  * @since 2.15.0
@@ -58,21 +54,6 @@ function langgam_fikir_cite_install_table() {
 add_action( 'admin_init', 'langgam_fikir_cite_install_table' );
 add_action( 'after_switch_theme', 'langgam_fikir_cite_install_table' );
 
-/**
- * Copy CitePress's rows into the theme's table (once, from the plugin takeover).
- */
-function langgam_fikir_cite_analytics_import() {
-    global $wpdb;
-    langgam_fikir_cite_install_table();
-    $old = preg_replace( '/[^A-Za-z0-9_]/', '', $wpdb->prefix . 'citepress_analytics' );
-    if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $old ) ) !== $old ) { // phpcs:ignore WordPress.DB.DirectDatabaseQuery
-        return 0;
-    }
-    $new = langgam_fikir_cite_table();
-    // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery -- both identifiers constrained to [A-Za-z0-9_]
-    return (int) $wpdb->query( "INSERT INTO `{$new}` (post_id, citation_style, action_type, timestamp) SELECT post_id, citation_style, action_type, timestamp FROM `{$old}`" );
-}
-
 /* =========================================================================
  * Counting
  * ====================================================================== */
@@ -105,7 +86,7 @@ function langgam_fikir_cite_consent_from_cookies() {
 }
 
 /**
- * AJAX: record one view, copy or download. No nonce on purpose (as in CitePress): pages are
+ * AJAX: record one view, copy or download. No nonce on purpose: pages are
  * cached, so a nonce would expire for anonymous visitors, and this only adds to counters for
  * published posts with whitelisted values, rate-limited per visitor.
  */
@@ -208,7 +189,7 @@ add_action( 'admin_init', 'langgam_fikir_cite_privacy_text' );
 /**
  * The counts hold no personal data, so export and erase have nothing to return; registering
  * them still lets the privacy tools report that clearly. Sites that link counts to people can
- * map an email to post IDs with the langgam_fikir_cite_identity filter (as CitePress allowed).
+ * map an email to post IDs with the langgam_fikir_cite_identity filter.
  */
 function langgam_fikir_cite_privacy_exporter( $exporters ) {
     $exporters['langgam-fikir-citations'] = array(

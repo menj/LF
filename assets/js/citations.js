@@ -5,7 +5,6 @@
  * Front end of the citation box (inc/citations.php): switch styles, copy, download
  * (BibTeX, RIS, EndNote, CSL-JSON, CFF, Dublin Core), collapse, and optional counting.
  * The citation itself is already rendered on the server; this only enhances it.
- * Built-in replacement for the CitePress plugin's frontend.js (no jQuery).
  */
 (function () {
     'use strict';

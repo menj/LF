@@ -3088,7 +3088,7 @@ msgid "Text Justification"
 msgstr ""
 
 #: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
-msgid "Justify paragraphs and lists so both edges line up, as in a printed book. The last line of each paragraph stays aligned to the start. This replaces the Auto Justify Content plugin; its settings were copied here."
+msgid "Justify paragraphs and lists so both edges line up, as in a printed book. The last line of each paragraph stays aligned to the start."
 msgstr ""
 
 #: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
@@ -3172,7 +3172,7 @@ msgid "Citation Box"
 msgstr ""
 
 #: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
-msgid "A \"Cite this\" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). This replaces the CitePress plugin; its settings were copied here. You can also place a box anywhere with the Citation block or the [cite] shortcode."
+msgid "A \"Cite this\" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). You can also place a box anywhere with the Citation block or the [cite] shortcode."
 msgstr ""
 
 #: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
@@ -3638,3 +3638,10 @@ msgstr ""
 #: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
 msgid "Save the post to preview its citation, or choose a post or book to cite."
 msgstr ""
+
+#: inc/plugin-takeover.php
+#, php-format
+msgid "%d post was updated to use the theme's own block and shortcode names."
+msgid_plural "%d posts were updated to use the theme's own block and shortcode names."
+msgstr[0] ""
+msgstr[1] ""

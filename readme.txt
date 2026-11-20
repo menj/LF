@@ -144,9 +144,9 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 == Changelog ==
 
 = 2.15.0 (November 2026) =
-* NEW: Text justification built in (replaces the Auto Justify Content plugin): justified paragraphs and lists, hyphenation, wide-screens-only, an any-article fallback and exclusions, in Theme Options > Design
-* NEW: Citations built in (replaces CitePress): a "Cite this" box with 20 styles, copy and six downloads, in-text citations and reference lists, the Citation block, Google Scholar tags and optional analytics, in Theme Options > Citations. Book pages are cited as books (publisher, edition, ISBN); [cite id="123"] cites another post or book
-* NEW: Built-in plugin takeover: when a plugin the theme now replaces is active, the theme copies its settings into Theme Options once, deactivates it, shows a notice, and replaces Activate on the Plugins screen with "Built into the Langgam Fikir theme"
+* NEW: Text justification: justified paragraphs and lists, hyphenation, wide-screens-only, an any-article fallback and exclusions, in Theme Options > Design
+* NEW: Citations: a "Cite this" box with 20 styles, copy and six downloads, in-text citations and reference lists, the Citation block, Google Scholar tags and optional analytics, in Theme Options > Citations. Book pages are cited as books (publisher, edition, ISBN); [cite id="123"] cites another post or book
+* NEW: Plugin detection: when a plugin these features replace is active, the theme copies its settings into Theme Options once, deactivates it, converts its block and shortcode names in posts to the theme's own, shows a notice, and replaces Activate on the Plugins screen with "Built into the Langgam Fikir theme"
 
 = 2.14.0 (November 2026) =
 * NEW: One connected Schema.org graph (Organization, WebSite, WebPage, BreadcrumbList, BlogPosting, Person, Book, ItemList, FAQPage) with stable @ids shared with Rank Math and Yoast
@@ -477,7 +477,7 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 == Upgrade Notice ==
 
 = 2.15.0 =
-The Auto Justify Content and CitePress plugins are now part of the theme. On the first admin page load after updating, their settings (and CitePress's analytics history) are copied into Theme Options and the plugins are deactivated. Existing [cite] shortcodes and Citation blocks keep working. You can delete the plugins afterwards.
+Text justification and citations are now theme features. If the plugins that used to provide them are active, the first admin page load after updating copies their settings into Theme Options, deactivates them and converts their blocks and shortcodes in posts to the theme's own (back up the database first). You can delete those plugins afterwards.
 
 = 2.14.0 =
 Schema.org and meta tags rebuilt as one graph. If an SEO plugin is active the theme now defers to it; set that plugin's schema for the Books post type to None so there is one Book node. Re-test pages in Google's Rich Results Test.

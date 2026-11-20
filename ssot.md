@@ -272,18 +272,26 @@ Each status maps to a `schema.org/Offer.availability` value in the Book JSON-LD.
 
 **Default language is en_US.** The site runs in English (Settings > General > Site Language: English (United States)), so `<html lang>`, `og:locale` and Schema.org `inLanguage` are `en-US` unless a book's Language field or HrefMaster says otherwise. The Malay translation (`ms_MY`) is optional and applies only when the site language is switched to Bahasa Melayu.
 
-### 7.1b Built-in plugins (2.15.0)
+### 7.1b Plugin detection (2.15.0)
 
-Plugins whose job the theme now does itself are listed in `langgam_fikir_absorbed_plugins()` (`inc/plugin-takeover.php`), each with its name, where its settings now live and an import callback. While this theme is active such a plugin is deactivated (after a one-time import of its settings into `langgam_fikir_options`), cannot be re-activated from the Plugins screen, and a notice says so. Its files and options are left untouched.
+Text justification (`inc/justify.php`) and citations (`inc/citations.php`, `inc/citations-analytics.php`) are theme features with no reference to any plugin. Only `inc/plugin-takeover.php` knows the plugins they replace, listed in `langgam_fikir_absorbed_plugins()`. Each entry gives the plugin's name, where its settings now live, the feature key, a `running` check, an `import` callback and optional `content` rules.
 
-| Plugin | Theme module | Settings | Imported options |
-|---|---|---|---|
-| Auto Justify Content 2.0.0 | `inc/justify.php`, `assets/css/justify.css` | Theme Options > Design > Text Justification | `ajc_enabled`, `ajc_scope`, `ajc_hyphen`, `ajc_mobile`, `ajc_fallback`, `ajc_exclude` |
-| CitePress 3.0.1 | `inc/citations.php`, `inc/citations-analytics.php`, `assets/css/citations.css`, `assets/js/citations.js`, `assets/js/citations-block.js`, `assets/css/citations-admin.css`, `assets/js/citations-admin.js` | Theme Options > Citations; Appearance > Citation Analytics | `citepress_setting` (all keys) and the rows of `{prefix}citepress_analytics` (copied to `{prefix}lf_citation_analytics`) |
+While this theme is active such a plugin is:
+1. imported once into `langgam_fikir_options`;
+2. deactivated, with a notice;
+3. once off, its block and shortcode names in post content and widgets are converted to the theme's own (once; flag `langgam_fikir_migrated_content`);
+4. blocked from re-activation on the Plugins screen.
 
-Compatibility kept for CitePress content: the `[cite]`, `[citepress_cite]`, `[cite_bibliography]` and `[citepress_cite_bibliography]` shortcodes and the `citepress/block` block (same attributes, plus `postId`). The citation style and download-format catalogues live in `inc/options-schema.php` (Theme Options needs them before `inc/citations.php` loads).
+While its code is still loaded, `langgam_fikir_feature_conflict( $feature )` is true and the matching feature registers nothing. The plugin's files and options are left untouched.
 
-To absorb another plugin: build its feature as an `inc/` module with settings in the options schema, write an import callback that maps its options to theme keys, and add it to the list. WordPress.org themes may not deactivate plugins; this is a site-specific choice.
+| Plugin | Feature | Settings | Imported | Content converted |
+|---|---|---|---|---|
+| Auto Justify Content 2.0.0 | `justify` | Theme Options > Design > Text Justification | `ajc_enabled`, `ajc_scope`, `ajc_hyphen`, `ajc_mobile`, `ajc_fallback`, `ajc_exclude` | none |
+| CitePress 3.0.1 | `citations` | Theme Options > Citations; Appearance > Citation Analytics | `citepress_setting` (all keys); rows of `{prefix}citepress_analytics` → `{prefix}lf_citation_analytics` | `citepress/block` → `langgam-fikir/citation`; `[citepress_cite]` → `[cite]`; `[citepress_cite_bibliography]` → `[cite_bibliography]` |
+
+The citation style and download-format catalogues live in `inc/options-schema.php` (Theme Options needs them before `inc/citations.php` loads).
+
+To absorb another plugin: build its feature as an `inc/` module with settings in the options schema and no mention of the plugin, then add an entry to the list in `inc/plugin-takeover.php` with its import callback (also in that file) and any content rules. WordPress.org themes may not deactivate plugins; this is a site-specific choice.
 
 ### 7.2 WooCommerce (light support only)
 

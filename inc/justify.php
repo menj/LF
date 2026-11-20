@@ -2,11 +2,9 @@
 /**
  * Text justification
  *
- * Built-in replacement for the Auto Justify Content plugin (by MENJ, GPLv2+): justified
- * paragraphs and lists with the last line aligned to the start, optional hyphenation, a
- * wide-screens-only switch, an "any article text" fallback and selectors to leave alone.
- * Settings: Theme Options > Design > Text Justification. The plugin's own ajc_* options
- * are copied there once (inc/plugin-takeover.php), so an upgraded site keeps its choices.
+ * Justified paragraphs and lists with the last line aligned to the start, optional
+ * hyphenation, a wide-screens-only switch, an "any article text" fallback and selectors to
+ * leave alone. Settings: Theme Options > Design > Text Justification.
  *
  * The rules are static in assets/css/justify.css and switched on by body classes; only the
  * excluded selectors, which are typed in Theme Options, are added inline.
@@ -57,8 +55,8 @@ function langgam_fikir_justify_body_classes( $classes ) {
 add_filter( 'body_class', 'langgam_fikir_justify_body_classes' );
 
 /**
- * Clean a comma-separated selector list (same rules as the plugin: no braces, no angle
- * brackets, no semicolons, so nothing typed here can break out of the rule).
+ * Clean a comma-separated selector list (no braces, no angle brackets, no semicolons, so
+ * nothing typed here can break out of the rule).
  */
 function langgam_fikir_justify_clean_selectors( $value ) {
     $value = preg_replace( '/\s+/', ' ', str_replace( array( "\r", "\n", "\t" ), ' ', (string) $value ) );
@@ -96,36 +94,3 @@ function langgam_fikir_justify_assets() {
     wp_add_inline_style( 'langgam-fikir-justify', $css );
 }
 add_action( 'wp_enqueue_scripts', 'langgam_fikir_justify_assets', 30 );
-
-/**
- * Copy the plugin's ajc_* options into Theme Options (called once by plugin-takeover.php).
- *
- * @return array Theme option values to merge.
- */
-function langgam_fikir_justify_import_plugin_settings() {
-    $map = array(
-        'ajc_enabled'  => 'justify_enabled',
-        'ajc_hyphen'   => 'justify_hyphens',
-        'ajc_mobile'   => 'justify_desktop',
-        'ajc_fallback' => 'justify_fallback',
-    );
-    $values = array();
-    foreach ( $map as $from => $to ) {
-        $stored = get_option( $from, null );
-        if ( null !== $stored ) {
-            $values[ $to ] = rest_sanitize_boolean( $stored ) ? 1 : 0;
-        }
-    }
-
-    $scope = get_option( 'ajc_scope', null );
-    if ( in_array( $scope, array( 'blog_only', 'entire_site' ), true ) ) {
-        $values['justify_scope'] = $scope;
-    }
-
-    $exclude = get_option( 'ajc_exclude', null );
-    if ( null !== $exclude ) {
-        $values['justify_exclude'] = langgam_fikir_justify_clean_selectors( $exclude );
-    }
-
-    return $values;
-}

@@ -2,22 +2,17 @@
 /**
  * Citations
  *
- * Built-in replacement for the CitePress plugin (3.0.1, by MENJ, GPLv2+): a "Cite this" box
- * with 20 citation styles, copy, six download formats (BibTeX, RIS, EndNote, CSL-JSON, CFF,
- * Dublin Core), in-text citations and a reference list, a block, and Google Scholar tags.
- * Analytics live in inc/citations-analytics.php.
+ * A "Cite this" box with 20 citation styles, copy, six download formats (BibTeX, RIS, EndNote,
+ * CSL-JSON, CFF, Dublin Core), in-text citations and a reference list, the Citation block
+ * (langgam-fikir/citation) and Google Scholar tags. Analytics live in inc/citations-analytics.php.
  *
- * Differences from the plugin:
  *  - Book pages are cited as books (author, year, title, edition, publisher, ISBN), and their
- *    downloads use book types. Articles are cited as web articles, as before.
- *  - The citation is rendered on the server too, so it shows without JavaScript and in print;
+ *    downloads use book types. Articles are cited as web articles.
+ *  - The citation is rendered on the server, so it shows without JavaScript and in print;
  *    the script only switches styles, copies and builds downloads.
- *  - [cite id="123"] cites another post or book (the plugin could only cite the current post).
- *  - The box follows the theme's palette, fonts and corners (assets/css/citations.css); no jQuery.
- *  - Settings: Theme Options > Citations. Existing [cite], [citepress_cite], [cite_bibliography],
- *    [citepress_cite_bibliography] and the citepress/block block keep working.
- *  - Nothing here is registered while the CitePress plugin is still active (it is switched
- *    off by inc/plugin-takeover.php), so the two never run at once.
+ *  - [cite id="123"] cites another post or book.
+ *  - The box follows the theme's palette, fonts and corners (assets/css/citations.css).
+ *  - Settings: Theme Options > Citations. Shortcodes: [cite] and [cite_bibliography].
  *
  * @package Langgam_Fikir
  * @since 2.15.0
@@ -36,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // settings catalogues, because Theme Options needs them before this file loads.
 
 /**
- * Templates for web articles (the plugin's, unchanged) and for books.
+ * Templates for web articles and for books.
  *
  * Tokens: {author} {title} {sitename} {publisher} {permalink} (a link) {permalink_url}
  * {date} {date_dmy} (access date) {publication_date} {publication_date_dmy} {publication_year}
@@ -98,7 +93,7 @@ function langgam_fikir_cite_templates() {
     );
 
     /**
-     * Filters the citation templates (same idea as CitePress's citepress_citation_styles).
+     * Filters the citation templates.
      *
      * @param array $templates array( 'web' => style => template, 'book' => style => template ).
      */
@@ -137,13 +132,6 @@ function langgam_fikir_cite_inline_templates() {
 /* =========================================================================
  * Settings
  * ====================================================================== */
-
-/**
- * Whether the CitePress plugin is still running (the theme then stays out of its way).
- */
-function langgam_fikir_cite_plugin_active() {
-    return defined( 'CITEPRESS_VERSION' ) || function_exists( 'citepress_display_citation' );
-}
 
 /**
  * Post types a citation box may appear on.
@@ -363,7 +351,7 @@ function &langgam_fikir_cite_post_state() {
         $state['posts'][ $id ]  = array(
             'markers' => 0,
             'refs'    => array(),
-            'bib'     => $content && ( has_shortcode( $content, 'cite_bibliography' ) || has_shortcode( $content, 'citepress_cite_bibliography' ) || false !== strpos( $content, '"mode":"bibliography"' ) ),
+            'bib'     => $content && ( has_shortcode( $content, 'cite_bibliography' ) || false !== strpos( $content, '"mode":"bibliography"' ) ),
         );
     }
     return $state['posts'][ $id ];
@@ -416,10 +404,10 @@ function langgam_fikir_cite_add_ref( $post_id, $style ) {
  * ====================================================================== */
 
 /**
- * [cite] / [citepress_cite] and the citepress/block block.
+ * [cite] and the Citation block.
  *
- * Attributes (as in CitePress): style, mode (box|inline|bibliography), show_copy, show_export,
- * show_toggle, link, custom_author, formats, exclude_formats, page. New: id (cite another post).
+ * Attributes: style, mode (box|inline|bibliography), show_copy, show_export,
+ * show_toggle, link, custom_author, formats, exclude_formats, page, id (cite another post or book).
  */
 function langgam_fikir_cite_shortcode( $atts = array() ) {
     $atts = shortcode_atts( array(
@@ -559,7 +547,7 @@ function langgam_fikir_cite_box( $work, $formats, $style, $show ) {
 
     ob_start();
     ?>
-    <section class="lf-cite citepress-citation-box" id="<?php echo esc_attr( $uid ); ?>" data-box="<?php echo esc_attr( $box ); ?>" data-picker="<?php echo esc_attr( $picker ); ?>" aria-labelledby="<?php echo esc_attr( $uid ); ?>-title" data-cite="<?php echo esc_attr( wp_json_encode( $data ) ); ?>">
+    <section class="lf-cite" id="<?php echo esc_attr( $uid ); ?>" data-box="<?php echo esc_attr( $box ); ?>" data-picker="<?php echo esc_attr( $picker ); ?>" aria-labelledby="<?php echo esc_attr( $uid ); ?>-title" data-cite="<?php echo esc_attr( wp_json_encode( $data ) ); ?>">
         <div class="lf-cite__head">
             <p class="lf-cite__title" id="<?php echo esc_attr( $uid ); ?>-title">
                 <svg class="lf-cite__icon" width="18" height="18" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8.5 5.5C8.5 4.12 7.38 3 6 3S3.5 4.12 3.5 5.5c0 1.03.63 1.92 1.52 2.3-.15 1.52-.78 2.87-1.87 3.93a.5.5 0 0 0 .35.85c2.14 0 3.92-1.15 4.67-2.85.23-.53.33-1.1.33-1.73V5.5zm8 0C16.5 4.12 15.38 3 14 3s-2.5 1.12-2.5 2.5c0 1.03.63 1.92 1.52 2.3-.15 1.52-.78 2.87-1.87 3.93a.5.5 0 0 0 .35.85c2.14 0 3.92-1.15 4.67-2.85.23-.53.33-1.1.33-1.73V5.5z"/></svg>
@@ -630,7 +618,7 @@ function langgam_fikir_cite_box( $work, $formats, $style, $show ) {
 }
 
 /**
- * [cite_bibliography] / [citepress_cite_bibliography]: the numbered reference list.
+ * [cite_bibliography]: the numbered reference list.
  */
 function langgam_fikir_cite_bibliography( $atts = array() ) {
     $atts = shortcode_atts( array(
@@ -714,7 +702,7 @@ function langgam_fikir_cite_auto_content( $content ) {
  * Template tag for single-book.php: the automatic box for the current book.
  */
 function langgam_fikir_cite_book_box() {
-    if ( ! langgam_fikir_cite_plugin_active() && langgam_fikir_cite_auto_applies() ) {
+    if ( ! langgam_fikir_cite_standing_aside() && langgam_fikir_cite_auto_applies() ) {
         echo langgam_fikir_cite_shortcode( array() ); // phpcs:ignore WordPress.Security.EscapeOutput -- built and escaped above
     }
 }
@@ -760,15 +748,14 @@ function langgam_fikir_cite_maybe_enqueue() {
     }
     $content = (string) $post->post_content;
     if ( langgam_fikir_cite_auto_applies( $post )
-        || has_shortcode( $content, 'cite' ) || has_shortcode( $content, 'citepress_cite' )
-        || has_shortcode( $content, 'cite_bibliography' ) || has_shortcode( $content, 'citepress_cite_bibliography' )
-        || has_block( 'citepress/block', $post ) ) {
+        || has_shortcode( $content, 'cite' ) || has_shortcode( $content, 'cite_bibliography' )
+        || has_block( 'langgam-fikir/citation', $post ) ) {
         langgam_fikir_cite_enqueue();
     }
 }
 
 /**
- * The citepress/block block (same name and attributes as CitePress, plus postId).
+ * The Citation block (langgam-fikir/citation), rendered on the server.
  */
 function langgam_fikir_cite_register_block() {
     $dir = get_stylesheet_directory();
@@ -787,7 +774,7 @@ function langgam_fikir_cite_register_block() {
         wp_set_script_translations( 'langgam-fikir-citations-block', 'langgam-fikir', $dir . '/languages' );
     }
 
-    register_block_type( 'citepress/block', array(
+    register_block_type( 'langgam-fikir/citation', array(
         'api_version'     => 2,
         'title'           => __( 'Citation', 'langgam-fikir' ),
         'editor_script'   => 'langgam-fikir-citations-block',
@@ -896,17 +883,23 @@ function langgam_fikir_cite_scholarly_type( $article, $post_id ) {
 }
 
 /* =========================================================================
- * Hooks (only while CitePress itself is not running)
+ * Hooks
  * ====================================================================== */
 
+/**
+ * Whether another citation tool is still running (detected by inc/plugin-takeover.php,
+ * which switches it off); until then the theme registers nothing, so the two never clash.
+ */
+function langgam_fikir_cite_standing_aside() {
+    return function_exists( 'langgam_fikir_feature_conflict' ) && langgam_fikir_feature_conflict( 'citations' );
+}
+
 function langgam_fikir_cite_boot() {
-    if ( langgam_fikir_cite_plugin_active() ) {
+    if ( langgam_fikir_cite_standing_aside() ) {
         return;
     }
     add_shortcode( 'cite', 'langgam_fikir_cite_shortcode' );
-    add_shortcode( 'citepress_cite', 'langgam_fikir_cite_shortcode' );
     add_shortcode( 'cite_bibliography', 'langgam_fikir_cite_bibliography' );
-    add_shortcode( 'citepress_cite_bibliography', 'langgam_fikir_cite_bibliography' );
 
     add_filter( 'the_content', 'langgam_fikir_cite_auto_content', 20 );
     add_action( 'wp_enqueue_scripts', 'langgam_fikir_cite_maybe_enqueue' );
@@ -916,56 +909,3 @@ function langgam_fikir_cite_boot() {
     langgam_fikir_cite_register_block();
 }
 add_action( 'init', 'langgam_fikir_cite_boot', 20 );
-
-/* =========================================================================
- * Import from CitePress (called once by inc/plugin-takeover.php)
- * ====================================================================== */
-
-/**
- * Map the plugin's citepress_setting option to Theme Options values, and copy its analytics rows.
- *
- * @return array Theme option values.
- */
-function langgam_fikir_cite_import_plugin_settings() {
-    $old = get_option( 'citepress_setting', null );
-    if ( ! is_array( $old ) ) {
-        return array();
-    }
-    $yes = static function ( $key, $default ) use ( $old ) {
-        return isset( $old[ $key ] ) ? ( 'yes' === $old[ $key ] ? 1 : 0 ) : $default;
-    };
-    $pick = static function ( $key, $allowed, $default ) use ( $old ) {
-        return isset( $old[ $key ] ) && in_array( (string) $old[ $key ], $allowed, true ) ? (string) $old[ $key ] : $default;
-    };
-
-    $types  = isset( $old['post_types'] ) ? (array) $old['post_types'] : array( 'post' );
-    $styles = array_values( array_intersect( isset( $old['enabled_formats'] ) ? (array) $old['enabled_formats'] : array_keys( langgam_fikir_cite_format_names() ), array_keys( langgam_fikir_cite_format_names() ) ) );
-    $exp    = array_values( array_intersect( isset( $old['enabled_export_formats'] ) ? (array) $old['enabled_export_formats'] : array_keys( langgam_fikir_cite_export_names() ), array_keys( langgam_fikir_cite_export_names() ) ) );
-
-    $values = array(
-        'cite_auto'      => $yes( 'auto_display', 0 ),
-        'cite_position'  => $pick( 'display_position', array( 'top', 'bottom' ), 'bottom' ),
-        'cite_on_posts'  => in_array( 'post', $types, true ) ? 1 : 0,
-        // Book pages now get real book citations, so they are switched on whenever the plugin was on posts.
-        'cite_on_books'  => ( in_array( 'book', $types, true ) || in_array( 'post', $types, true ) ) ? 1 : 0,
-        'cite_on_pages'  => in_array( 'page', $types, true ) ? 1 : 0,
-        'cite_exclude'   => implode( ',', array_filter( array_map( 'absint', explode( ',', isset( $old['excluded_posts'] ) ? (string) $old['excluded_posts'] : '' ) ) ) ),
-        'cite_formats'   => implode( ',', $styles ? $styles : array( 'apa' ) ),
-        'cite_exports'   => implode( ',', $exp ),
-        'cite_picker'    => $pick( 'format_display_mode', array( 'dropdown', 'tabs', 'buttons' ), 'dropdown' ),
-        'cite_box'       => $pick( 'box_style', array( 'classic', 'academic', 'minimal' ), 'classic' ),
-        'cite_toggle'    => $yes( 'show_toggle', 1 ),
-        'cite_et_al'     => isset( $old['et_al_threshold'] ) ? max( 1, min( 999, absint( $old['et_al_threshold'] ) ) ) : 3,
-        'cite_scholar'   => $yes( 'show_google_scholar', 1 ),
-        'cite_schema'    => $yes( 'show_jsonld', 1 ),
-        'cite_analytics' => $yes( 'enable_analytics', 0 ),
-        'cite_consent'   => $yes( 'require_consent_for_analytics', 1 ),
-        'cite_cooldown'  => $pick( 'analytics_cooldown_mode', array( 'session', 'ip_hash', 'none' ), 'session' ),
-        'cite_retention' => $pick( 'analytics_retention_days', array( '0', '30', '90', '180', '365' ), '90' ),
-    );
-
-    if ( function_exists( 'langgam_fikir_cite_analytics_import' ) ) {
-        langgam_fikir_cite_analytics_import();
-    }
-    return $values;
-}

@@ -1,10 +1,10 @@
 /**
- * Citation block (citepress/block)
+ * Citation block (langgam-fikir/citation)
  * Langgam Fikir WordPress Theme
  *
- * Same block name and attributes as the CitePress plugin, so existing posts keep working,
- * plus postId (cite another post or book). The preview is the real server output
- * (ServerSideRender), so it always matches the front end.
+ * A citation box, in-text citation or reference list entry for this post, or for another
+ * post or book (postId). The preview is the real server output (ServerSideRender), so it
+ * always matches the front end.
  */
 (function (wp) {
     'use strict';
@@ -22,7 +22,7 @@
     var data = window.lfCiteBlock || {};
     var formats = [{ value: '', label: __('First style in Theme Options', 'langgam-fikir') }].concat(data.formats || []);
 
-    wp.blocks.registerBlockType('citepress/block', {
+    wp.blocks.registerBlockType('langgam-fikir/citation', {
         apiVersion: 2,
         title: __('Citation', 'langgam-fikir'),
         description: __('A "Cite this" box, an in-text citation or a reference list entry for this post, or for another post or book.', 'langgam-fikir'),
@@ -112,7 +112,7 @@
             return el('div', blockProps,
                 controls,
                 el(ServerSideRender, {
-                    block: 'citepress/block',
+                    block: 'langgam-fikir/citation',
                     attributes: a,
                     urlQueryArgs: { post_id: wp.data.select('core/editor') ? wp.data.select('core/editor').getCurrentPostId() : 0 },
                     EmptyResponsePlaceholder: function () {

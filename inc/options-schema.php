@@ -187,7 +187,7 @@ function langgam_fikir_extra_options_schema() {
                 ),
                 array(
                     'title'  => __( 'Text Justification', 'langgam-fikir' ),
-                    'desc'   => __( 'Justify paragraphs and lists so both edges line up, as in a printed book. The last line of each paragraph stays aligned to the start. This replaces the Auto Justify Content plugin; its settings were copied here.', 'langgam-fikir' ),
+                    'desc'   => __( 'Justify paragraphs and lists so both edges line up, as in a printed book. The last line of each paragraph stays aligned to the start.', 'langgam-fikir' ),
                     'fields' => array(
                         'justify_enabled'  => $f( 'checkbox', __( 'Justify text', 'langgam-fikir' ), 1 ),
                         'justify_scope'    => $f( 'select', __( 'Where', 'langgam-fikir' ), 'blog_only', '', array( 'choices' => array(
@@ -263,7 +263,7 @@ function langgam_fikir_extra_options_schema() {
             'cards' => array(
                 array(
                     'title'  => __( 'Citation Box', 'langgam-fikir' ),
-                    'desc'   => __( 'A "Cite this" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). This replaces the CitePress plugin; its settings were copied here. You can also place a box anywhere with the Citation block or the [cite] shortcode.', 'langgam-fikir' ),
+                    'desc'   => __( 'A "Cite this" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). You can also place a box anywhere with the Citation block or the [cite] shortcode.', 'langgam-fikir' ),
                     'fields' => array(
                         'cite_auto'      => $f( 'checkbox', __( 'Add the citation box automatically', 'langgam-fikir' ), 0 ),
                         'cite_on_posts'  => $f( 'checkbox', __( 'On articles', 'langgam-fikir' ), 1 ),

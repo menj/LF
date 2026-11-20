@@ -3258,8 +3258,8 @@ msgid "Text Justification"
 msgstr "Penjajaran Teks"
 
 #: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
-msgid "Justify paragraphs and lists so both edges line up, as in a printed book. The last line of each paragraph stays aligned to the start. This replaces the Auto Justify Content plugin; its settings were copied here."
-msgstr "Jajarkan perenggan dan senarai supaya kedua-dua tepi sejajar, seperti dalam buku bercetak. Baris terakhir setiap perenggan kekal sejajar ke permulaan. Ini menggantikan pemalam Auto Justify Content; tetapannya telah disalin ke sini."
+msgid "Justify paragraphs and lists so both edges line up, as in a printed book. The last line of each paragraph stays aligned to the start."
+msgstr "Jajarkan perenggan dan senarai supaya kedua-dua tepi sejajar, seperti dalam buku bercetak. Baris terakhir setiap perenggan kekal sejajar ke permulaan."
 
 #: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
 msgid "Justify text"
@@ -3342,8 +3342,8 @@ msgid "Citation Box"
 msgstr "Kotak Petikan"
 
 #: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
-msgid "A \"Cite this\" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). This replaces the CitePress plugin; its settings were copied here. You can also place a box anywhere with the Citation block or the [cite] shortcode."
-msgstr "Kotak \"Petik ini\" yang digunakan pembaca untuk menyalin rujukan dalam gaya mereka atau memuat turunnya untuk Zotero, Mendeley atau EndNote. Buku dipetik sebagai buku (pengarang, tahun, judul, penerbit, ISBN). Ini menggantikan pemalam CitePress; tetapannya telah disalin ke sini. Anda juga boleh meletakkan kotak di mana-mana dengan blok Petikan atau kod pendek [cite]."
+msgid "A \"Cite this\" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). You can also place a box anywhere with the Citation block or the [cite] shortcode."
+msgstr "Kotak \"Petik ini\" yang digunakan pembaca untuk menyalin rujukan dalam gaya mereka atau memuat turunnya untuk Zotero, Mendeley atau EndNote. Buku dipetik sebagai buku (pengarang, tahun, judul, penerbit, ISBN). Anda juga boleh meletakkan kotak di mana-mana dengan blok Petikan atau kod pendek [cite]."
 
 #: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
 msgid "Add the citation box automatically"
@@ -3817,3 +3817,9 @@ msgstr "Simpan kiriman untuk pratonton petikannya, atau pilih kiriman atau buku 
 
 #~ msgid "Featured Publications"
 #~ msgstr "Terbitan Pilihan"
+
+#: inc/plugin-takeover.php
+#, php-format
+msgid "%d post was updated to use the theme's own block and shortcode names."
+msgid_plural "%d posts were updated to use the theme's own block and shortcode names."
+msgstr[0] "%d kiriman telah dikemas kini untuk menggunakan nama blok dan kod pendek tema sendiri."
