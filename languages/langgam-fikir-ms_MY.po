@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Langgam Fikir 2.12.0\n"
+"Project-Id-Version: Langgam Fikir 2.15.0\n"
 "Report-Msgid-Bugs-To: contact@langgamfikir.com\n"
 "POT-Creation-Date: 2026-11-01 05:23+0000\n"
 "PO-Revision-Date: 2026-11-18 04:40+0000\n"
@@ -3081,6 +3081,734 @@ msgstr "Karusel (barisan boleh diseret)"
 msgid "Grid"
 msgstr "Grid"
 
+#: inc/login.php, inc/options-schema.php
+msgid "Login Page"
+msgstr "Halaman Log Masuk"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Branded Login Screen"
+msgstr "Skrin Log Masuk Berjenama"
+
+#: inc/login.php, inc/options-schema.php
+msgid "The WordPress log in, lost password and reset password screens, styled with your palette, fonts, corners and logo (Appearance > Editor > Site Identity, or the Site Icon). Colours follow the Design tab."
+msgstr "Skrin log masuk, lupa kata laluan dan set semula kata laluan WordPress, digayakan dengan palet, fon, bucu dan logo anda (Penampilan > Editor > Identiti Laman, atau Ikon Laman). Warna mengikut tab Reka Bentuk."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Use the branded login screen"
+msgstr "Guna skrin log masuk berjenama"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Untick to go back to the standard WordPress screen."
+msgstr "Nyahtanda untuk kembali ke skrin WordPress biasa."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Layout"
+msgstr "Susun Atur"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Split puts a photo panel with the site name and tagline beside the form. Photo puts the form on a card over a full-screen photo. Minimal is the form alone on the page colour."
+msgstr "Belah meletakkan panel foto dengan nama laman dan slogan di sebelah borang. Foto meletakkan borang pada kad di atas foto skrin penuh. Minimal ialah borang sahaja pada warna halaman."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Split (photo panel beside the form)"
+msgstr "Belah (panel foto di sebelah borang)"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Photo (form card over a full-screen photo)"
+msgstr "Foto (kad borang di atas foto skrin penuh)"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Minimal (form only)"
+msgstr "Minimal (borang sahaja)"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Tinted with the heading colour. Not used by the Minimal layout."
+msgstr "Diwarnakan dengan warna tajuk. Tidak digunakan oleh susun atur Minimal."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Same as the homepage hero"
+msgstr "Sama seperti hero laman utama"
+
+#: inc/login.php, inc/options-schema.php
+msgid "A different bundled photo each visit"
+msgstr "Foto terbina dalam yang berbeza setiap lawatan"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Login Text"
+msgstr "Teks Log Masuk"
+
+#: inc/login.php, inc/options-schema.php
+msgid "The welcome above the form and the line under the site name and tagline on the photo panel. The other screens (lost password, new password) have their own fixed headings."
+msgstr "Ucapan alu-aluan di atas borang dan baris di bawah nama laman dan slogan pada panel foto. Skrin lain (lupa kata laluan, kata laluan baharu) mempunyai tajuk tetap masing-masing."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Empty hides it."
+msgstr "Kosongkan untuk menyembunyikannya."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Welcome back"
+msgstr "Selamat kembali"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Line under the heading"
+msgstr "Baris di bawah tajuk"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Sign in to manage books, articles and the catalogue."
+msgstr "Log masuk untuk mengurus buku, artikel dan katalog."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Photo panel caption"
+msgstr "Kapsyen panel foto"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Books, articles and ideas, from manuscript to bookshelf."
+msgstr "Buku, artikel dan gagasan, dari manuskrip ke rak buku."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Shown on the Split and Photo layouts. Empty hides it."
+msgstr "Dipaparkan pada susun atur Belah dan Foto. Kosongkan untuk menyembunyikannya."
+
+#: inc/login.php, inc/options-schema.php
+msgid "Forgot your password?"
+msgstr "Terlupa kata laluan?"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Choose a new password"
+msgstr "Pilih kata laluan baharu"
+
+#: inc/login.php, inc/options-schema.php
+msgid "Create an account"
+msgstr "Cipta akaun"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "%1$s, by %2$s."
+msgstr "%1$s, oleh %2$s."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Browse all publications by Langgam Fikir: theology, history, philosophy, literature and comparative religion."
+msgstr "Layari semua terbitan Langgam Fikir: teologi, sejarah, falsafah, sastera dan perbandingan agama."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Articles, interviews and updates from Langgam Fikir."
+msgstr "Artikel, wawancara dan berita terkini daripada Langgam Fikir."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Books and articles in %s from Langgam Fikir."
+msgstr "Buku dan artikel dalam %s daripada Langgam Fikir."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Page %d."
+msgstr "Halaman %d."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Business registration number (SSM)"
+msgstr "Nombor pendaftaran perniagaan (SSM)"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Search Engines"
+msgstr "Enjin Carian"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Who prints the meta description, social sharing tags and the site-wide Schema.org data. With an SEO plugin (Rank Math, Yoast, All in One SEO, SEOPress, The SEO Framework) the theme steps back and only adds Book, the publications list and FAQ data to the plugin's own graph, so nothing is printed twice."
+msgstr "Siapa yang mencetak perihalan meta, tag perkongsian sosial dan data Schema.org seluruh laman. Dengan pemalam SEO (Rank Math, Yoast, All in One SEO, SEOPress, The SEO Framework) tema berundur dan hanya menambah data Buku, senarai terbitan dan Soalan Lazim ke dalam graf pemalam itu sendiri, supaya tiada apa yang dicetak dua kali."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "SEO output"
+msgstr "Output SEO"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Automatic is right for almost every site."
+msgstr "Automatik sesuai untuk hampir semua laman."
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Automatic: the SEO plugin if one is active, otherwise the theme"
+msgstr "Automatik: pemalam SEO jika ada yang aktif, jika tidak tema"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Always the theme (switch the plugin's meta and schema off)"
+msgstr "Sentiasa tema (matikan meta dan skema pemalam)"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Never the theme for meta and site-wide schema"
+msgstr "Tidak sekali-kali tema untuk meta dan skema seluruh laman"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Cover of %s"
+msgstr "Kulit buku %s"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Other publications"
+msgstr "Terbitan lain"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Articles"
+msgstr "Artikel"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Article categories"
+msgstr "Kategori artikel"
+
+#: inc/schema.php, inc/options-schema.php, page-sitemap.php
+msgid "Sitemap"
+msgstr "Peta Laman"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Text Justification"
+msgstr "Penjajaran Teks"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Justify paragraphs and lists so both edges line up, as in a printed book. The last line of each paragraph stays aligned to the start."
+msgstr "Jajarkan perenggan dan senarai supaya kedua-dua tepi sejajar, seperti dalam buku bercetak. Baris terakhir setiap perenggan kekal sejajar ke permulaan."
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Justify text"
+msgstr "Jajarkan teks"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Where"
+msgstr "Di mana"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Articles only"
+msgstr "Artikel sahaja"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Articles, pages, book synopses and the About text"
+msgstr "Artikel, halaman, sinopsis buku dan teks Tentang"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Hyphenate long words"
+msgstr "Sempangkan perkataan panjang"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Avoids wide gaps between words in narrow columns. The browser uses the page language (English unless a book sets another)."
+msgstr "Mengelakkan jarak lebar antara perkataan dalam lajur sempit. Pelayar menggunakan bahasa halaman (Inggeris melainkan buku menetapkan bahasa lain)."
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Wide screens only"
+msgstr "Skrin lebar sahaja"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Keep text aligned to the start on screens narrower than 768px, where justified lines can leave gaps."
+msgstr "Kekalkan teks sejajar ke permulaan pada skrin lebih sempit daripada 768px, di mana baris berjajar boleh meninggalkan jarak."
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Also justify any article text"
+msgstr "Jajarkan juga mana-mana teks artikel"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Includes paragraphs inside any article element, for content added by plugins or page builders."
+msgstr "Termasuk perenggan dalam mana-mana elemen article, untuk kandungan yang ditambah oleh pemalam atau pembina halaman."
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Leave these alone"
+msgstr "Jangan ubah yang ini"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "CSS selectors, separated by commas, for example .wp-block-quote, .no-justify"
+msgstr "Pemilih CSS, dipisahkan dengan koma, contohnya .wp-block-quote, .no-justify"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Theme Options > Design > Text Justification"
+msgstr "Pilihan Tema > Reka Bentuk > Penjajaran Teks"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "%1$s is network-activated, so only a network administrator can switch it off. The theme already does its job; its settings are in %2$s."
+msgstr "%1$s diaktifkan untuk rangkaian, jadi hanya pentadbir rangkaian boleh mematikannya. Tema sudah melakukan tugasnya; tetapannya berada di %2$s."
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "%1$s was deactivated because the Langgam Fikir theme now does its job. Your settings were copied to %2$s. You can delete the plugin."
+msgstr "%1$s telah dinyahaktifkan kerana tema Langgam Fikir kini melakukan tugasnya. Tetapan anda telah disalin ke %2$s. Anda boleh memadam pemalam itu."
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Dismiss"
+msgstr "Tutup"
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Built into the Langgam Fikir theme."
+msgstr "Terbina dalam tema Langgam Fikir."
+
+#: inc/justify.php, inc/plugin-takeover.php, inc/options-schema.php
+msgid "Settings"
+msgstr "Tetapan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citations"
+msgstr "Petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation Box"
+msgstr "Kotak Petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "A \"Cite this\" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). You can also place a box anywhere with the Citation block or the [cite] shortcode."
+msgstr "Kotak \"Petik ini\" yang digunakan pembaca untuk menyalin rujukan dalam gaya mereka atau memuat turunnya untuk Zotero, Mendeley atau EndNote. Buku dipetik sebagai buku (pengarang, tahun, judul, penerbit, ISBN). Anda juga boleh meletakkan kotak di mana-mana dengan blok Petikan atau kod pendek [cite]."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Add the citation box automatically"
+msgstr "Tambah kotak petikan secara automatik"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On articles"
+msgstr "Pada artikel"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On book pages"
+msgstr "Pada halaman buku"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On pages"
+msgstr "Pada halaman"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Position on articles and pages"
+msgstr "Kedudukan pada artikel dan halaman"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "On book pages the box sits under the synopsis."
+msgstr "Pada halaman buku, kotak diletakkan di bawah sinopsis."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "After the text"
+msgstr "Selepas teks"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Before the text"
+msgstr "Sebelum teks"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Never on these posts"
+msgstr "Jangan pada kiriman ini"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Post IDs separated by commas."
+msgstr "ID kiriman dipisahkan dengan koma."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Styles and Exports"
+msgstr "Gaya dan Eksport"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "The citation styles readers can pick from (the first ticked is shown first) and the files they can download."
+msgstr "Gaya petikan yang boleh dipilih pembaca (yang pertama ditanda dipaparkan dahulu) dan fail yang boleh dimuat turun."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation styles"
+msgstr "Gaya petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Download formats"
+msgstr "Format muat turun"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Untick them all to hide the download menu."
+msgstr "Nyahtanda semuanya untuk menyembunyikan menu muat turun."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Style picker"
+msgstr "Pemilih gaya"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Drop-down menu"
+msgstr "Menu lungsur"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Tabs"
+msgstr "Tab"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Box style"
+msgstr "Gaya kotak"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Colours, fonts and corners follow the Design tab."
+msgstr "Warna, fon dan bucu mengikut tab Reka Bentuk."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Classic (accent bar, tinted header)"
+msgstr "Klasik (jalur aksen, kepala berwarna)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Academic (ruled, bookish)"
+msgstr "Akademik (bergaris, gaya buku)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Minimal (no frame)"
+msgstr "Minimal (tanpa bingkai)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Show the collapse button"
+msgstr "Tunjukkan butang lipat"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Use \"et al.\" after this many authors"
+msgstr "Guna \"et al.\" selepas bilangan pengarang ini"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Scholarly Metadata"
+msgstr "Metadata Ilmiah"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Helps Google Scholar and reference managers recognise articles and books."
+msgstr "Membantu Google Scholar dan pengurus rujukan mengenali artikel dan buku."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Google Scholar tags (citation_title, citation_author and so on)"
+msgstr "Tag Google Scholar (citation_title, citation_author dan sebagainya)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Mark articles as ScholarlyArticle in Schema.org"
+msgstr "Tandakan artikel sebagai ScholarlyArticle dalam Schema.org"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Added to the theme's existing article data, not as a second copy."
+msgstr "Ditambah pada data artikel sedia ada tema, bukan sebagai salinan kedua."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation Analytics"
+msgstr "Analitik Petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts how often citations are shown, copied and downloaded. Stored on this site only; see Appearance > Citation Analytics."
+msgstr "Mengira berapa kerap petikan dipaparkan, disalin dan dimuat turun. Disimpan di laman ini sahaja; lihat Penampilan > Analitik Petikan."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Count citation views, copies and downloads"
+msgstr "Kira paparan, salinan dan muat turun petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Only count visitors who accepted statistics cookies"
+msgstr "Hanya kira pelawat yang menerima kuki statistik"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Reads the consent cookie of CookieYes, Complianz, Cookiebot, GDPR Cookie Compliance or Borlabs. Without a consent plugin, counting is allowed."
+msgstr "Membaca kuki persetujuan CookieYes, Complianz, Cookiebot, GDPR Cookie Compliance atau Borlabs. Tanpa pemalam persetujuan, pengiraan dibenarkan."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Count repeat actions"
+msgstr "Kira tindakan berulang"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Once a minute per visitor (no personal data stored)"
+msgstr "Sekali seminit bagi setiap pelawat (tiada data peribadi disimpan)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Once a minute per IP address (a one-way hash, kept briefly)"
+msgstr "Sekali seminit bagi setiap alamat IP (cincangan sehala, disimpan sebentar)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Every time"
+msgstr "Setiap kali"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Keep records for"
+msgstr "Simpan rekod selama"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "30 days"
+msgstr "30 hari"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "90 days"
+msgstr "90 hari"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "180 days"
+msgstr "180 hari"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "One year"
+msgstr "Satu tahun"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Forever"
+msgstr "Selama-lamanya"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "n.d."
+msgstr "t.t."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "See reference %d"
+msgstr "Lihat rujukan %d"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Cite this book"
+msgstr "Petik buku ini"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Cite this article"
+msgstr "Petik artikel ini"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation style"
+msgstr "Gaya petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Copy"
+msgstr "Salin"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Download"
+msgstr "Muat turun"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Show or hide the citation"
+msgstr "Tunjukkan atau sembunyikan petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "References"
+msgstr "Rujukan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Back to citation %d in the text"
+msgstr "Kembali ke petikan %d dalam teks"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation copied."
+msgstr "Petikan disalin."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Copying failed. Select the citation and copy it by hand."
+msgstr "Penyalinan gagal. Pilih petikan dan salin secara manual."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Download started."
+msgstr "Muat turun bermula."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "If you use this work, please cite it as below."
+msgstr "Jika anda menggunakan karya ini, sila petik seperti di bawah."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation"
+msgstr "Petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "When you view, copy or download a citation, the site may count it: which article or book, which citation style or file format, and when. No name, email or account is stored with it."
+msgstr "Apabila anda melihat, menyalin atau memuat turun petikan, laman ini mungkin mengiranya: artikel atau buku yang mana, gaya petikan atau format fail yang mana, dan bila. Tiada nama, e-mel atau akaun disimpan bersamanya."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "To avoid counting the same visitor twice, a one-way hash of your IP address is kept for up to a minute."
+msgstr "Untuk mengelakkan pelawat yang sama dikira dua kali, cincangan sehala alamat IP anda disimpan sehingga seminit."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Nothing is counted unless you accept statistics cookies."
+msgstr "Tiada apa yang dikira melainkan anda menerima kuki statistik."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are deleted after %d days."
+msgstr "Kiraan dipadam selepas %d hari."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are kept until an administrator deletes them."
+msgstr "Kiraan disimpan sehingga pentadbir memadamnya."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation analytics"
+msgstr "Analitik petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Post"
+msgstr "Kiriman"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Style or format"
+msgstr "Gaya atau format"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Action"
+msgstr "Tindakan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Time"
+msgstr "Masa"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation analytics store no personal data."
+msgstr "Analitik petikan tidak menyimpan data peribadi."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "You are not allowed to do that."
+msgstr "Anda tidak dibenarkan berbuat demikian."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "All citation counts were deleted."
+msgstr "Semua kiraan petikan telah dipadam."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counting is off, so nothing new is recorded. Switch it on in %s."
+msgstr "Pengiraan dimatikan, jadi tiada apa yang baharu direkodkan. Hidupkannya di %s."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Theme Options > Citations"
+msgstr "Pilihan Tema > Petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citations shown"
+msgstr "Petikan dipaparkan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citations copied"
+msgstr "Petikan disalin"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Files downloaded"
+msgstr "Fail dimuat turun"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Most cited"
+msgstr "Paling banyak dipetik"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Article or book"
+msgstr "Artikel atau buku"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Shown"
+msgstr "Dipaparkan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Copied"
+msgstr "Disalin"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Downloaded"
+msgstr "Dimuat turun"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "No citations counted yet."
+msgstr "Belum ada petikan dikira."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Styles readers choose"
+msgstr "Gaya pilihan pembaca"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "No styles counted yet."
+msgstr "Belum ada gaya dikira."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Downloads by format"
+msgstr "Muat turun mengikut format"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "No downloads yet."
+msgstr "Belum ada muat turun."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Your data"
+msgstr "Data anda"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are kept on this site only and deleted automatically after %d days. No names, emails or accounts are stored."
+msgstr "Kiraan disimpan di laman ini sahaja dan dipadam secara automatik selepas %d hari. Tiada nama, e-mel atau akaun disimpan."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Counts are kept on this site only, until you delete them. No names, emails or accounts are stored."
+msgstr "Kiraan disimpan di laman ini sahaja, sehingga anda memadamnya. Tiada nama, e-mel atau akaun disimpan."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Change the settings"
+msgstr "Ubah tetapan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Delete every citation count? This cannot be undone."
+msgstr "Padam setiap kiraan petikan? Tindakan ini tidak boleh dibatalkan."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Delete all counts"
+msgstr "Padam semua kiraan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "First style in Theme Options"
+msgstr "Gaya pertama dalam Pilihan Tema"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "A \"Cite this\" box, an in-text citation or a reference list entry for this post, or for another post or book."
+msgstr "Kotak \"Petik ini\", petikan dalam teks atau entri senarai rujukan bagi kiriman ini, atau bagi kiriman atau buku lain."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "cite"
+msgstr "petik"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "citation"
+msgstr "petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "reference"
+msgstr "rujukan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "bibliography"
+msgstr "bibliografi"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Show as"
+msgstr "Papar sebagai"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Citation box"
+msgstr "Kotak petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "In-text citation"
+msgstr "Petikan dalam teks"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Reference only"
+msgstr "Rujukan sahaja"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Style shown first"
+msgstr "Gaya dipaparkan dahulu"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Cite another post or book (ID)"
+msgstr "Petik kiriman atau buku lain (ID)"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Leave empty to cite this post."
+msgstr "Biarkan kosong untuk memetik kiriman ini."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Collapse"
+msgstr "Lipat"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Link"
+msgstr "Pautan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Link the citation"
+msgstr "Pautkan petikan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Advanced"
+msgstr "Lanjutan"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Only these styles"
+msgstr "Gaya ini sahaja"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Comma-separated, for example apa,mla,chicago. Empty uses Theme Options."
+msgstr "Dipisahkan dengan koma, contohnya apa,mla,chicago. Kosong menggunakan Pilihan Tema."
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Leave out these styles"
+msgstr "Kecualikan gaya ini"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Author shown instead"
+msgstr "Pengarang yang dipaparkan sebagai ganti"
+
+#: inc/citations.php, inc/citations-analytics.php, inc/options-schema.php, assets/js/citations-block.js
+msgid "Save the post to preview its citation, or choose a post or book to cite."
+msgstr "Simpan kiriman untuk pratonton petikannya, atau pilih kiriman atau buku untuk dipetik."
+
 #~ msgid "Back to Homepage"
 #~ msgstr "Kembali ke Laman Utama"
 
@@ -3089,3 +3817,63 @@ msgstr "Grid"
 
 #~ msgid "Featured Publications"
 #~ msgstr "Terbitan Pilihan"
+
+#: inc/plugin-takeover.php
+#, php-format
+msgid "%d post was updated to use the theme's own block and shortcode names."
+msgid_plural "%d posts were updated to use the theme's own block and shortcode names."
+msgstr[0] "%d kiriman telah dikemas kini untuk menggunakan nama blok dan kod pendek tema sendiri."
+
+#: inc/login-address.php
+msgid "This has been disabled."
+msgstr "Ciri ini telah dilumpuhkan."
+
+#: inc/login-address.php
+msgid "This feature is not enabled."
+msgstr "Ciri ini tidak didayakan."
+
+#: inc/login-address.php
+#, php-format
+msgid "Your login address is %s. Bookmark it: wp-login.php and wp-admin no longer show the login form to visitors."
+msgstr "Alamat log masuk anda ialah %s. Tandakan sebagai penanda buku: wp-login.php dan wp-admin tidak lagi menunjukkan borang log masuk kepada pelawat."
+
+#: inc/login-address.php
+msgid "Theme Options > Login Page > Login Address"
+msgstr "Pilihan Tema > Halaman Log Masuk > Alamat Log Masuk"
+
+#: inc/login-address.php
+#, php-format
+msgid "Your login address stays %s."
+msgstr "Alamat log masuk anda kekal %s."
+
+#: inc/login-address.php
+msgid "Login Address"
+msgstr "Alamat Log Masuk"
+
+#: inc/login-address.php
+msgid "Move the log in screen to an address only you know, so password-guessing bots cannot find it. Visitors who are not logged in and open wp-login.php or wp-admin are sent to the redirect address instead. Bookmark the new address before you log out. Locked out? Rename the theme's folder by FTP or in your host's file manager to bring back wp-login.php."
+msgstr "Pindahkan skrin log masuk ke alamat yang hanya anda ketahui, supaya bot peneka kata laluan tidak dapat menemuinya. Pelawat yang belum log masuk dan membuka wp-login.php atau wp-admin akan dihantar ke alamat ubah hala. Tandakan alamat baharu sebelum anda log keluar. Terkunci di luar? Namakan semula folder tema melalui FTP atau pengurus fail hos anda untuk mengembalikan wp-login.php."
+
+#: inc/login-address.php
+msgid "Use a private login address"
+msgstr "Guna alamat log masuk peribadi"
+
+#: inc/login-address.php
+msgid "If comments require logging in, the comment form's \"log in\" link shows this address."
+msgstr "Jika ulasan memerlukan log masuk, pautan \"log masuk\" pada borang ulasan menunjukkan alamat ini."
+
+#: inc/login-address.php
+msgid "Login address"
+msgstr "Alamat log masuk"
+
+#: inc/login-address.php
+msgid "Lower-case letters, numbers and dashes. Names WordPress already uses (such as wp-admin) are not accepted."
+msgstr "Huruf kecil, nombor dan sengkang. Nama yang sudah digunakan WordPress (seperti wp-admin) tidak diterima."
+
+#: inc/login-address.php
+msgid "Redirect address"
+msgstr "Alamat ubah hala"
+
+#: inc/login-address.php
+msgid "Where wp-login.php and wp-admin send visitors who are not logged in. The default, 404, shows the Page Not Found page."
+msgstr "Ke mana wp-login.php dan wp-admin menghantar pelawat yang belum log masuk. Lalai, 404, menunjukkan halaman Tidak Ditemui."

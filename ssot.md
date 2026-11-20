@@ -268,7 +268,33 @@ Each status maps to a `schema.org/Offer.availability` value in the Book JSON-LD.
 1. `_hrefmaster_html_lang` post meta (when HrefMaster active and meta set)
 2. `hrefmaster_get_self_lang()` (when HrefMaster active, no per-post override)
 3. `_book_language` post meta (book CPT only, plugin-independent)
-4. `get_locale()` (final fallback)
+4. `get_locale()` (final fallback; `en-US` if WordPress reports none)
+
+**Default language is en_US.** The site runs in English (Settings > General > Site Language: English (United States)), so `<html lang>`, `og:locale` and Schema.org `inLanguage` are `en-US` unless a book's Language field or HrefMaster says otherwise. The Malay translation (`ms_MY`) is optional and applies only when the site language is switched to Bahasa Melayu.
+
+### 7.1b Plugin detection (2.15.0)
+
+Text justification (`inc/justify.php`), citations (`inc/citations.php`, `inc/citations-analytics.php`) and the private login address (`inc/login-address.php`) are theme features with no reference to any plugin. Only `inc/plugin-takeover.php` knows the plugins they replace, listed in `langgam_fikir_absorbed_plugins()`. Each entry gives the plugin's name, where its settings now live, the feature key, a `running` check, an `import` callback and optional `content` rules.
+
+While this theme is active such a plugin is:
+1. imported once into `langgam_fikir_options`;
+2. deactivated, with a notice;
+3. once off, its block and shortcode names in post content and widgets are converted to the theme's own (once; flag `langgam_fikir_migrated_content`);
+4. blocked from re-activation on the Plugins screen.
+
+While its code is still loaded, `langgam_fikir_feature_conflict( $feature )` is true and the matching feature registers nothing. The plugin's files and options are left untouched.
+
+| Plugin | Feature | Settings | Imported | Content converted |
+|---|---|---|---|---|
+| Auto Justify Content 2.0.0 | `justify` | Theme Options > Design > Text Justification | `ajc_enabled`, `ajc_scope`, `ajc_hyphen`, `ajc_mobile`, `ajc_fallback`, `ajc_exclude` | none |
+| CitePress 3.0.1 | `citations` | Theme Options > Citations; Appearance > Citation Analytics | `citepress_setting` (all keys); rows of `{prefix}citepress_analytics` → `{prefix}lf_citation_analytics` | `citepress/block` → `langgam-fikir/citation`; `[citepress_cite]` → `[cite]`; `[citepress_cite_bibliography]` → `[cite_bibliography]` |
+| WPS Hide Login 1.9.20 | `login_address` | Theme Options > Login Page > Login Address | `whl_page` → `login_slug`, `whl_redirect_admin` → `login_redirect`, and `login_hide` on (site option fallback on multisite) | none |
+
+The citation style and download-format catalogues live in `inc/options-schema.php` (Theme Options needs them before `inc/citations.php` loads).
+
+The private login address recognises the request at `after_setup_theme` priority 1 (a theme cannot run at `plugins_loaded`, where the plugin did) and serves it at `wp_loaded`, before WordPress picks a screen. It reads its settings straight from `langgam_fikir_options`, without building the options schema, so no translations load before `init`. Recovery from a lock-out: rename the theme folder.
+
+To absorb another plugin: build its feature as an `inc/` module with settings in the options schema and no mention of the plugin, then add an entry to the list in `inc/plugin-takeover.php` with its import callback (also in that file) and any content rules. WordPress.org themes may not deactivate plugins; this is a site-specific choice.
 
 ### 7.2 WooCommerce (light support only)
 
@@ -325,7 +351,7 @@ The `.pot` and `.po` `Project-Id-Version` headers should also track major/minor 
 
 ### 8.3 Source language
 
-All theme source strings are in **en_US**. Translations live in `/languages/` as `.po`/`.mo` files. Brand identifiers ("Langgam Fikir", "Langgam Fikir Enterprise", the tagline) are intentionally untranslated as proper nouns.
+All theme source strings are in **en_US**, and en_US is the default site language. Translations live in `/languages/` as `.po`/`.mo` files. Brand identifiers ("Langgam Fikir", "Langgam Fikir Enterprise", the tagline) are intentionally untranslated as proper nouns.
 
 ---
 
@@ -355,7 +381,7 @@ When in doubt, defer to MENJ. Brand decisions, scope decisions, and "is this in 
 
 | Field | Value |
 |---|---|
-| Latest released version | **2.12.0** |
+| Latest released version | **2.15.0** |
 | Active development phase | Phase 4 (Admin Power Features) — next |
 | In-progress phase | Phase 5 (Frontend Polish) — 3 of 8 items delivered |
 | SEO/AEO audit score | **92/100** (last assessed at v2.6.0) |

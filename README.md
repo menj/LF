@@ -6,7 +6,7 @@ A child theme of WordPress Twenty Twenty-Five (2025 default theme) with custom b
 
 - **Theme Name:** Langgam Fikir
 - **Parent Theme:** Twenty Twenty-Five
-- **Version:** 2.12.0
+- **Version:** 2.15.0
 - **Author:** MENJ
 - **License:** GPL v2 or later
 - **Requires WordPress:** 6.7+
@@ -289,6 +289,25 @@ Edit `/assets/css/main.css`:
 ```
 
 ## Version History / Changelog
+
+### Version 2.15.0 (November 2026) — Built-in plugins
+
+- **NEW:** Text justification (Theme Options > Design > Text Justification)
+- **NEW:** Citations (Theme Options > Citations, Appearance > Citation Analytics): 20 styles, six downloads, in-text citations, reference lists, the Citation block, Google Scholar tags; books cited as books
+- **NEW:** Private login address (Theme Options > Login Page > Login Address): the log in screen moves to an address you choose; wp-login.php and wp-admin show visitors a 404 page
+- **NEW:** Plugin detection: a plugin these features replace is deactivated after its settings are imported, its block and shortcode names in posts are converted to the theme's own, and it shows "Built into the Langgam Fikir theme" on the Plugins screen
+
+### Version 2.14.0 (November 2026) — SEO and Schema.org
+
+- **NEW:** One connected JSON-LD graph with stable `@id`s, shared with Rank Math and Yoast, so the site describes one publisher and one website
+- **NEW:** SEO plugin awareness (Theme Options > Social & SEO > Search Engines): the theme defers meta and site-wide schema to the plugin and merges Book, ItemList and FAQ into its graph
+- **NEW:** HTML Sitemap page template; descriptive cover alt text
+- **FIX:** Homepage description, canonical/og:url, book dates and prices, duplicate microdata
+
+### Version 2.13.0 (November 2026) — Branded Login
+
+- **NEW:** The WordPress login, lost password and reset password screens follow the theme: palette, custom colours, corners, fonts and logo
+- **NEW:** Split, Photo and Minimal login layouts with a photo choice and editable welcome text (Theme Options > Login Page)
 
 ### Version 2.12.0 (November 2026) — Folio Design
 

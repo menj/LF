@@ -5,6 +5,75 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.15.0] - 2026-11-19
+
+Built-in features that used to need plugins: they work as soon as the theme is active.
+
+### Added
+- **Text justification** (`inc/justify.php`, `assets/css/justify.css`), in **Theme Options > Design > Text Justification**: on/off; articles only or the whole site (articles, pages, book synopses, the About text); hyphenation; wide screens only (768px and up); an "any article text" fallback; selectors to leave alone. Paragraphs centred or right-aligned in the editor, pull quotes, buttons, captions and citations keep their own alignment. The last line of each paragraph aligns to the start, so it also suits right-to-left text. Rules are a static stylesheet switched on by body classes; only the exclusions are inline, one rule per selector so a typo in one does not cancel the rest.
+- **Citations** (`inc/citations.php`, `inc/citations-analytics.php`, `assets/css/citations.css`, `assets/js/citations.js`, `assets/js/citations-block.js`), in **Theme Options > Citations**, with **Appearance > Citation Analytics** for the counts:
+  - A "Cite this" box with 20 citation styles (APA, MLA, Chicago, Harvard, Vancouver, IEEE, AMA, ASA, Turabian, Wikipedia, ACS, AIP, NLM, AAA, APSA, OSCOLA, Nature, ACM, Bluebook, ISO 690), copy, and six downloads (BibTeX, RIS, EndNote, CSL-JSON, CFF, Dublin Core).
+  - In-text citations and a numbered reference list: `[cite]`, `[cite_bibliography]` and the **Citation** block (`langgam-fikir/citation`), whose editor preview is the real server output. `[cite id="123"]` and the block's "Cite another post or book" field cite a different post or book.
+  - **Book pages are cited as books** (author, year, title, edition, publisher, ISBN; for example APA: *Author. (2024). Title (Edition). Publisher.*), with book types in every download (`@book`, `TY - BOOK`, `%0 Book`, CSL `book`, CFF `preferred-citation: book`, `urn:isbn`). Articles are cited as web articles (`@online`, `TY - BLOG`, `post-weblog`).
+  - Co-authors are separate people in every format; BibTeX special characters are escaped; the CFF file is valid; files are named after the title.
+  - **Rendered on the server**, so the citation shows without JavaScript, in print and to search engines; the script only switches styles, copies and builds downloads. Server and script output are identical (checked for all 20 styles).
+  - **One schema graph:** articles become `["BlogPosting","ScholarlyArticle"]` in the theme's node (new `langgam_fikir_schema_article_node` filter). Google Scholar tags are printed, including with Rank Math.
+  - **Follows the theme:** palette, fonts and corner style from Theme Options > Design, with Classic, Academic and Minimal box styles. No jQuery. Labelled buttons, keyboard support for tabs and the download menu, 44px tap targets on touch screens.
+  - **Optional analytics** in the theme's own table (`{prefix}lf_citation_analytics`): off by default, consent cookies from CookieYes, Complianz, Cookiebot, GDPR Cookie Compliance and Borlabs, a per-visitor cooldown, retention purge, and privacy-policy text, exporter and eraser. Only published posts can be counted.
+- **Private login address** (`inc/login-address.php`), in **Theme Options > Login Page > Login Address**: the log in screen moves to an address you choose (for example `/masuk/`). Visitors who are not logged in and open `wp-login.php`, `wp-register.php` or `wp-admin` are sent to a redirect address (default `/404/`, the Page Not Found page), so password-guessing bots cannot find the form. Every login link and email WordPress produces uses the new address; password-protected posts, privacy request confirmations, the Customizer and Site Health are handled. Slugs that WordPress already uses are refused. Saving shows the address to bookmark. Locked out? Rename the theme folder to fall back to `wp-login.php`.
+- **Theme Options field types:** `checklist` (a group of tick boxes stored as a comma list), a proper `number` input, and `slug` (the editable part of an address, shown inside the full URL).
+- **Plugin detection** (`inc/plugin-takeover.php`, the only file that names the plugins these features replace: Auto Justify Content, CitePress and WPS Hide Login). When one is active, the theme:
+  - copies its settings into Theme Options once, keeping every other setting as it is (for CitePress also its analytics rows; for WPS Hide Login the same login and redirect addresses, so the login does not move);
+  - deactivates it and shows a dismissible notice naming the plugin and where its settings went;
+  - once the plugin is off, converts its block and shortcode names in posts, revisions, reusable blocks, templates and widgets to the theme's own (`citepress/block` → `langgam-fikir/citation`, `[citepress_cite]` → `[cite]`, `[citepress_cite_bibliography]` → `[cite_bibliography]`), once, without creating revisions;
+  - shows "Built into the Langgam Fikir theme" and a Settings link instead of Activate on the Plugins screen; activating it anyway is reversed straight away.
+
+  While a detected plugin's code is still loaded, the matching theme feature registers nothing, so the two never clash. Network-activated plugins on multisite are only switched off by a network administrator. The plugin's own files and options are not touched.
+
+## [2.14.0] - 2026-11-19
+
+SEO and Schema.org rebuild, following a review of the live homepage and Google's SEO Starter Guide.
+
+### Added
+- **One JSON-LD graph per page** (`inc/schema.php`): Organization (`/#organization`), WebSite (`/#website`), a typed WebPage (`CollectionPage`, `ItemPage`, `AboutPage`, `ContactPage`, `ProfilePage`), BreadcrumbList, BlogPosting with its author Person, Book, ItemList and FAQPage, all linked by `@id` (`publisher`, `isPartOf`, `mainEntity`, `breadcrumb`, `primaryImageOfPage`). The ids follow the Rank Math and Yoast convention.
+- **SEO plugin awareness**: Rank Math, Yoast, AIOSEO, SEOPress and The SEO Framework are detected. The theme then leaves titles, meta description, canonical, Open Graph, Twitter and WebSite/Organization/WebPage to the plugin. For Rank Math (`rank_math/json_ld`) and Yoast (`wpseo_schema_graph`) the theme's Book, ItemList, FAQPage and, where the plugin prints none, BreadcrumbList go into the plugin's own graph; the plugin's Organization gains sameAs, SSM registration number, slogan and contact point only where it has none. New setting: Theme Options > Social & SEO > Search Engines (Automatic, Always the theme, Never the theme).
+- **Homepage ItemList** of the books shown (Showcase, then Latest Publications), each item a short Book (name, url, author, isbn, cover).
+- **Organization** now carries legalName, alternateName, slogan, description, logo with size, ContactPoint (Malay and English), the SSM registration number as an identifier, and every social profile as sameAs.
+- **Open Graph and Twitter**: og:image width, height, alt and type; book:release_date and book:tag; article:section and article:tag; twitter:image:alt and twitter:site (from the X profile URL); a summary card for square logos and a large card for wide images.
+- **Canonical** link on the front page, blog and archives (core prints it on singular views only).
+- **Sitemap page template** (`page-sitemap.php`): pages, every publication grouped by category, the latest 50 articles and article categories, for visitors (the Google starter guide recommends both an HTML and an XML sitemap).
+- **Cover alt text**: a book cover whose alt text is empty, a file name, or the title retyped in lower case is described as "Cover of {Title}".
+
+### Changed
+- Meta descriptions are unique per view and cut on a word boundary at 155 characters; page 2+ of a listing adds "Page N.". The front page uses Default meta description, then the hero text.
+- The Book node moved from `single-book.php` into the graph. `datePublished` is the year itself (it was an invented 1 January), prices are numeric ("RM 35" becomes "35.00") with `seller` and `itemCondition`, "A & B" authors become two people, and the publisher is the site's own Organization when it matches.
+- Articles are `BlogPosting` with a headline of at most 110 characters, keywords, all categories and a linked author.
+- Schema breadcrumbs use "Publications", the same word as the visible trail, and include the book's category.
+
+### Fixed
+- The homepage meta description was the blog description ("Resources, articles, and insights…") when the homepage shows the latest posts.
+- og:url was built from the raw request and kept query strings.
+- Footer contact microdata and review microdata created extra, disconnected Organization and Review entities (the reviews had no `itemReviewed`). Both are removed; the JSON-LD carries the same facts.
+- Review follow-ups (PR review): the canonical keeps `?paged=N` on plain permalinks; the share image falls back to the bundled hero photo; the post breadcrumb schema matches the visible trail; `wordCount` counts Unicode words; the book list's `itemListOrder` follows `?sort=`.
+- Login screen: the language menu stays readable on the Photo layout; the site name is no longer squeezed into the 64px logo box on phones when there is no logo; "Same as the homepage hero" follows a homepage set to No photo; switching the branded screen off also restores the default logo link and text.
+- Responsive pass (phones 360–430px, tablets 768–1194px, desktops to 1920px): the Photo login card no longer widens the page on phones; touch devices get a scrolling instead of fixed photo background (iOS Safari draws fixed ones zoomed and blurry); on short screens such as a phone held sideways the Split banner shrinks and the logo and intro tighten so the form starts on screen. The Sitemap page uses one column on phones, Publications across the top with Pages and Articles side by side on tablets, and three columns on desktop, with 44px tap rows on touch screens.
+- Login screen polish: the logo is shown at 120px (96px on phones) so a detailed crest stays legible; the tagline on the photo panel is larger (about 28px on phones to 44px on wide screens) so the Ferments script balances the site name; the language switcher's Change button uses the theme's colours instead of WordPress blue.
+- Header: the tagline is larger (about 22px on phones, 25px on tablets and 29px on desktop, from 17–19px), and the footer tagline matches (22–24px). Tablets held upright (769–1023px) now use the menu button, and 1024–1279px tightens the menu: before, the menu and header button ran off the right edge and the page scrolled sideways from 834 to about 1180px. The header button sits beside the menu button on tablets and moves into the opened menu on phones, so the sticky phone header is 117px instead of 193px.
+- Language: English (en_US) is documented as the default site language; page language, `og:locale` and Schema.org `inLanguage` fall back to `en-US` if WordPress reports no locale, and the contact point lists English before Malay.
+
+## [2.13.0] - 2026-11-19
+
+Branded login screen. `wp-login.php` no longer looks like stock WordPress.
+
+### Added
+- **Branded login screen** (`inc/login.php`, `assets/css/login.css`): log in, lost password, reset password and register screens use the active palette, any individually picked colours, the corner style and the font roles from Theme Options > Design, so they change with the site. The logo is the Custom Logo, then the Site Icon, then the site name set in Kagnue. The logo links to the site and the browser tab reads "Log In ‹ Site name".
+- **Three layouts**: Split (default; a tinted photo panel with the site name, tagline, caption and legal entity beside the form), Photo (the form on a card over a full-screen tinted photo) and Minimal (the form alone on the page colour). On phones the Split panel becomes a banner above the form.
+- **Theme Options > Login Page** tab: on/off switch, layout, photo (same as the homepage hero, a bundled photo, a random one or none), welcome heading, line under it and photo panel caption. Each screen gets its own heading (for example "Forgot your password?").
+- Themed fields, focus rings, autofill colour, show-password button, Remember Me checkbox, primary button, error and notice boxes and the language switcher. Respects reduced motion. Malay translations for all new text.
+
+### Fixed
+- Theme Options tabs from the options schema that are not in the built-in order are now added at the end instead of being silently dropped.
+
 ## [2.12.0] - 2026-11-18
 
 Design release. A new default palette and homepage: a split hero, a highlights strip, a swipeable publications carousel and a cover-first Publications archive, with optional announcement, call-to-action and header-button elements. All of it is editable in Theme Options.

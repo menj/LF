@@ -1,0 +1,816 @@
+/*
+ * Branded Login Screen
+ * Langgam Fikir WordPress Theme
+ *
+ * Restyles wp-login.php (inc/login.php). Loaded after WordPress's own login.css, and followed
+ * by assets/css/design.css, so the palette, corner and font-role classes from Theme Options >
+ * Design apply here exactly as on the front end. Components read custom properties only.
+ *
+ * Layouts (body class):
+ *   .lf-login--split    photo panel beside the form (default)
+ *   .lf-login--photo    form card over a full-screen photo
+ *   .lf-login--minimal  form alone on the page colour
+ */
+
+/*--------------------------------------------------------------
+# Base tokens (Earth). Keep in sync with :root in main.css;
+  palettes in design.css override them through body classes.
+--------------------------------------------------------------*/
+:root {
+    --color-primary: #6B5B4A;
+    --color-secondary: #B8985F;
+    --color-accent: #C9A961;
+    --color-accent-dark: #A8893D;
+    --color-text: #333333;
+    --color-text-light: #6B6057;
+    --color-text-muted: #8C7F72;
+    --color-bg-primary: #FFFFFF;
+    --color-bg-secondary: #F5F5F0;
+    --color-bg-muted: #EDEAE4;
+    --color-bg-hero: #6B5B4A;
+    --color-border: #D9D0C7;
+    --color-bg-tint: #F5F0EB;
+    --color-on-accent: #FFFFFF;
+    --color-on-hero: #FFFFFF;
+    --color-error: #A33A2B;
+    --color-success: #4D6A52;
+
+    --font-primary: 'Crimson Text', 'Georgia', serif;
+    --font-secondary: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-btn: 12px;
+
+    --lf-login-panel: 46%;
+    --lf-login-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/*--------------------------------------------------------------
+# Page
+--------------------------------------------------------------*/
+body.lf-login {
+    background: var(--color-bg-primary);
+    color: var(--color-text);
+    font-family: var(--font-secondary);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+body.lf-login a {
+    color: var(--color-primary);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color .2s ease;
+}
+
+body.lf-login a:hover {
+    color: var(--color-accent-dark);
+}
+
+body.lf-login a:focus,
+body.lf-login a:focus-visible {
+    color: var(--color-primary);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+
+body.lf-login #login {
+    width: min(400px, calc(100% - 32px));
+    padding: clamp(40px, 10vh, 112px) 0 48px;
+    margin: 0 auto;
+    animation: lf-login-in .6s var(--lf-login-ease) both;
+}
+
+@keyframes lf-login-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/*--------------------------------------------------------------
+# Logo
+--------------------------------------------------------------*/
+/* Large enough that a detailed crest (lettering, portrait) stays legible. */
+body.lf-login #login h1 a {
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 0 0 28px;
+    background-image: var(--lf-login-logo, none);
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+    outline-offset: 4px;
+}
+
+/* No Custom Logo or Site Icon: the site name, set in the display face. */
+body.lf-login-no-logo #login h1 a {
+    width: auto;
+    height: auto;
+    text-indent: 0;
+    overflow: visible;
+    font-family: var(--font-display, var(--font-primary));
+    font-size: 1.75rem;
+    line-height: 1.1;
+    color: var(--color-primary);
+    text-align: left;
+}
+
+/*--------------------------------------------------------------
+# Intro (heading and line above the form)
+--------------------------------------------------------------*/
+.lf-login-intro {
+    margin: 0 0 28px;
+}
+
+.lf-login-intro__heading {
+    margin: 0 0 8px;
+    font-family: var(--font-primary);
+    font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    color: var(--color-primary);
+}
+
+.lf-login-intro__text {
+    margin: 0;
+    font-size: .9375rem;
+    color: var(--color-text-light);
+}
+
+/*--------------------------------------------------------------
+# Form
+--------------------------------------------------------------*/
+body.lf-login form {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    overflow: visible;
+}
+
+body.lf-login #login form p,
+body.lf-login #login form .user-pass-wrap {
+    margin: 0 0 18px;
+}
+
+body.lf-login label {
+    display: inline-block;
+    margin: 0 0 7px;
+    font-size: .8125rem;
+    font-weight: 500;
+    letter-spacing: .01em;
+    color: var(--color-text);
+}
+
+body.lf-login form .input,
+body.lf-login input[type="text"],
+body.lf-login input[type="email"],
+body.lf-login input[type="password"] {
+    width: 100%;
+    min-height: 50px;
+    margin: 0;
+    padding: 0 16px;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--color-text);
+    background: color-mix(in srgb, var(--color-bg-primary) 35%, #FFFFFF);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-btn);
+    box-shadow: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+body.lf-login form .input:hover {
+    border-color: color-mix(in srgb, var(--color-border) 60%, var(--color-text));
+}
+
+body.lf-login form .input:focus,
+body.lf-login input[type="text"]:focus,
+body.lf-login input[type="email"]:focus,
+body.lf-login input[type="password"]:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 28%, transparent);
+    outline: 2px solid transparent;
+}
+
+/* Chrome's autofill blue becomes the field colour. */
+body.lf-login input:-webkit-autofill,
+body.lf-login input:-webkit-autofill:hover,
+body.lf-login input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-text);
+    -webkit-box-shadow: 0 0 0 1000px color-mix(in srgb, var(--color-bg-primary) 35%, #FFFFFF) inset;
+    caret-color: var(--color-text);
+}
+
+/* Password field and show/hide button */
+body.lf-login .wp-pwd {
+    position: relative;
+}
+
+body.lf-login .wp-pwd .input.password-input {
+    padding-right: 52px;
+}
+
+body.lf-login .button.wp-hide-pw {
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    color: var(--color-text-light);
+    border-radius: calc(var(--radius-btn) - 4px);
+}
+
+body.lf-login .button.wp-hide-pw:hover {
+    color: var(--color-primary);
+    background: var(--color-bg-secondary);
+}
+
+body.lf-login .button.wp-hide-pw:focus {
+    color: var(--color-primary);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+body.lf-login .button.wp-hide-pw .dashicons {
+    top: 0;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
+/* Remember me */
+body.lf-login #login form .forgetmenot {
+    float: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 24px;
+}
+
+body.lf-login .forgetmenot label {
+    margin: 0;
+    font-weight: 400;
+    font-size: .875rem;
+    color: var(--color-text-light);
+}
+
+body.lf-login input[type="checkbox"] {
+    -webkit-appearance: auto;
+    appearance: auto;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--color-primary);
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+body.lf-login input[type="checkbox"]::before {
+    content: none;
+}
+
+body.lf-login input[type="checkbox"]:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Submit */
+body.lf-login #login form p.submit,
+body.lf-login #loginform p.submit {
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+
+body.lf-login.wp-core-ui .button-primary,
+body.lf-login.wp-core-ui .button-primary.button-large {
+    float: none;
+    width: 100%;
+    min-height: 52px;
+    padding: 0 24px;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+    line-height: 1;
+    color: var(--color-on-hero);
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-btn);
+    box-shadow: none;
+    text-shadow: none;
+    cursor: pointer;
+    transition: background-color .2s ease, transform .2s var(--lf-login-ease), box-shadow .2s ease;
+}
+
+body.lf-login.wp-core-ui .button-primary:hover {
+    color: var(--color-on-hero);
+    background: color-mix(in srgb, var(--color-primary) 86%, #000);
+    border-color: color-mix(in srgb, var(--color-primary) 86%, #000);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--color-primary) 70%, transparent);
+}
+
+body.lf-login.wp-core-ui .button-primary:focus {
+    color: var(--color-on-hero);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-bg-primary), 0 0 0 5px var(--color-accent);
+    outline: 2px solid transparent;
+}
+
+body.lf-login.wp-core-ui .button-primary:active {
+    transform: none;
+}
+
+/* Secondary buttons (e.g. "Generate Password" on the reset screen) */
+body.lf-login.wp-core-ui .button-secondary:not(.wp-hide-pw) {
+    color: var(--color-primary);
+    border-color: var(--color-border);
+    background: transparent;
+    border-radius: var(--radius-btn);
+    min-height: 40px;
+}
+
+body.lf-login.wp-core-ui .button-secondary:not(.wp-hide-pw):hover {
+    border-color: var(--color-primary);
+    background: var(--color-bg-secondary);
+}
+
+/* Reset-password strength meter and hint */
+body.lf-login #pass-strength-result {
+    border-radius: var(--radius-sm);
+}
+
+body.lf-login .description,
+body.lf-login .indicator-hint {
+    color: var(--color-text-light);
+    font-size: .8125rem;
+}
+
+/*--------------------------------------------------------------
+# Messages and errors
+--------------------------------------------------------------*/
+body.lf-login .message,
+body.lf-login .notice,
+body.lf-login .success,
+body.lf-login #login_error {
+    margin: 0 0 24px;
+    padding: 12px 16px;
+    font-size: .875rem;
+    color: var(--color-text);
+    background: var(--color-bg-secondary);
+    border: 0;
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+}
+
+body.lf-login #login_error,
+body.lf-login .notice-error {
+    border-left-color: var(--color-error);
+    background: color-mix(in srgb, var(--color-error) 8%, var(--color-bg-primary));
+}
+
+body.lf-login .notice-success,
+body.lf-login .success {
+    border-left-color: var(--color-success);
+}
+
+body.lf-login .notice p,
+body.lf-login .message p {
+    margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Links under the form
+--------------------------------------------------------------*/
+body.lf-login #nav,
+body.lf-login #backtoblog {
+    margin: 0;
+    padding: 0;
+    font-size: .875rem;
+}
+
+body.lf-login #nav {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+body.lf-login #backtoblog {
+    margin-top: 10px;
+}
+
+body.lf-login #nav a,
+body.lf-login #backtoblog a {
+    color: var(--color-text-light);
+}
+
+body.lf-login #nav a:hover,
+body.lf-login #backtoblog a:hover {
+    color: var(--color-primary);
+}
+
+body.lf-login .privacy-policy-page-link {
+    margin: 40px 0 0;
+    text-align: left;
+    font-size: .8125rem;
+}
+
+body.lf-login .privacy-policy-page-link a {
+    color: var(--color-text-muted);
+}
+
+/* Language switcher */
+body.lf-login .language-switcher {
+    width: min(400px, calc(100% - 32px));
+    margin: 0 auto 40px;
+    padding: 0;
+}
+
+body.lf-login #language-switcher {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+body.lf-login #language-switcher select {
+    min-height: 38px;
+    border-color: var(--color-border);
+    border-radius: var(--radius-btn);
+    color: var(--color-text);
+}
+
+body.lf-login #language-switcher .dashicons {
+    color: var(--color-text-muted);
+}
+
+body.lf-login.wp-core-ui #language-switcher .button {
+    min-height: 38px;
+    padding: 0 14px;
+    color: var(--color-primary);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-btn);
+    box-shadow: none;
+}
+
+body.lf-login.wp-core-ui #language-switcher .button:hover,
+body.lf-login.wp-core-ui #language-switcher .button:focus {
+    color: var(--color-primary);
+    background: var(--color-bg-secondary);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+/* On the Photo layout the switcher sits on the photo: a solid button reads better there. */
+body.lf-login--photo.wp-core-ui #language-switcher .button {
+    background: var(--color-bg-primary);
+}
+
+/*--------------------------------------------------------------
+# Brand panel (Split and Photo layouts)
+--------------------------------------------------------------*/
+.lf-login-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 40px;
+    box-sizing: border-box;
+    color: var(--color-on-hero);
+}
+
+.lf-login-brand__inner {
+    max-width: 30rem;
+}
+
+.lf-login-brand__rule {
+    display: block;
+    width: 48px;
+    height: 2px;
+    margin: 0 0 24px;
+    background: var(--color-accent);
+}
+
+.lf-login-brand__name {
+    margin: 0;
+    font-family: var(--font-display, var(--font-primary));
+    font-size: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -.01em;
+    color: var(--color-on-hero);
+}
+
+.lf-login-brand__tagline {
+    margin: 18px 0 0;
+    font-family: var(--font-script, var(--font-primary));
+    /* Ferments is a fine script: it needs about half the site name's size to hold its own. */
+    font-size: clamp(1.75rem, 1.25rem + 1.4vw, 2.75rem);
+    line-height: 1.15;
+    /* Lifted towards white so cooler accents (Slate, Sage) still read on the dark panel. */
+    color: color-mix(in srgb, var(--color-accent) 72%, #FFFFFF);
+}
+
+.lf-login-brand__caption {
+    margin: 22px 0 0;
+    max-width: 34ch;
+    font-family: var(--font-reading, var(--font-primary));
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: color-mix(in srgb, var(--color-on-hero) 82%, transparent);
+}
+
+.lf-login-brand__foot {
+    margin: 0;
+    font-size: .6875rem;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-on-hero) 62%, transparent);
+}
+
+/*--------------------------------------------------------------
+# Split layout
+--------------------------------------------------------------*/
+body.lf-login--split .lf-login-brand {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: var(--lf-login-panel);
+    padding: clamp(40px, 6vw, 80px);
+    background-color: var(--color-primary);
+    background-image:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--color-primary) 35%, transparent) 0%,
+            color-mix(in srgb, var(--color-primary) 70%, transparent) 45%,
+            color-mix(in srgb, var(--color-primary) 96%, transparent) 100%),
+        var(--lf-login-photo, radial-gradient(circle at 20% 15%, color-mix(in srgb, var(--color-accent) 30%, transparent), transparent 55%));
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* A thin accent line along the panel's inner edge. */
+body.lf-login--split .lf-login-brand::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent, var(--color-accent) 30%, var(--color-accent) 70%, transparent);
+    opacity: .7;
+}
+
+body.lf-login--split:not(.interim-login) {
+    padding-left: var(--lf-login-panel);
+}
+
+body.lf-login--split:not(.interim-login) #login {
+    padding-top: clamp(48px, 14vh, 160px);
+}
+
+/*--------------------------------------------------------------
+# Photo layout
+--------------------------------------------------------------*/
+body.lf-login--photo:not(.interim-login) {
+    background-color: var(--color-primary);
+    background-image:
+        linear-gradient(120deg,
+            color-mix(in srgb, var(--color-primary) 92%, transparent) 0%,
+            color-mix(in srgb, var(--color-primary) 55%, transparent) 60%,
+            color-mix(in srgb, var(--color-primary) 30%, transparent) 100%),
+        var(--lf-login-photo, none);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body.lf-login--photo:not(.interim-login) #login {
+    box-sizing: border-box;
+    width: min(440px, calc(100% - 32px));
+    margin-top: clamp(24px, 8vh, 96px);
+    padding: 40px 40px 32px;
+    background: var(--color-bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 40px 80px -24px rgba(0, 0, 0, .45), 0 0 0 1px color-mix(in srgb, var(--color-border) 60%, transparent);
+}
+
+body.lf-login--photo .lf-login-brand {
+    display: none;
+}
+
+/* Wide screens: the site name sits on the photo at the left, the card moves to the right. */
+@media (min-width: 1100px) {
+    body.lf-login--photo .lf-login-brand {
+        display: flex;
+        position: fixed;
+        left: clamp(40px, 6vw, 96px);
+        bottom: clamp(40px, 8vh, 80px);
+        max-width: calc(100% - 440px - 20vw);
+        pointer-events: none;
+    }
+
+    body.lf-login--photo:not(.interim-login) #login,
+    body.lf-login--photo:not(.interim-login) .language-switcher {
+        margin-right: clamp(40px, 8vw, 140px);
+        margin-left: auto;
+    }
+}
+
+body.lf-login--photo .privacy-policy-page-link {
+    margin-top: 28px;
+}
+
+/* The switcher sits on the photo, outside the card: the select keeps its own light field and
+   dark text (WordPress draws it white), only the globe icon turns light. */
+body.lf-login--photo .language-switcher #language-switcher select {
+    color: var(--color-text);
+    background-color: var(--color-bg-primary);
+}
+
+body.lf-login--photo #language-switcher .dashicons {
+    color: var(--color-on-hero);
+}
+
+/*--------------------------------------------------------------
+# Minimal layout and centred logo (Photo, Minimal)
+--------------------------------------------------------------*/
+body.lf-login--minimal #login {
+    padding-top: clamp(48px, 14vh, 160px);
+}
+
+body.lf-login--photo #login h1 a,
+body.lf-login--minimal #login h1 a {
+    margin-left: auto;
+    margin-right: auto;
+    background-position: center;
+}
+
+body.lf-login--photo.lf-login-no-logo #login h1 a,
+body.lf-login--minimal.lf-login-no-logo #login h1 a,
+body.lf-login--photo .lf-login-intro,
+body.lf-login--minimal .lf-login-intro,
+body.lf-login--photo .privacy-policy-page-link,
+body.lf-login--minimal .privacy-policy-page-link {
+    text-align: center;
+}
+
+/*--------------------------------------------------------------
+# Small screens
+--------------------------------------------------------------*/
+@media (max-width: 960px) {
+    body.lf-login--split:not(.interim-login) {
+        padding-left: 0;
+    }
+
+    body.lf-login--split .lf-login-brand {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        min-height: 220px;
+        padding: 40px 24px 28px;
+        gap: 0;
+    }
+
+    body.lf-login--split .lf-login-brand::after {
+        top: auto;
+        left: 0;
+        width: auto;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--color-accent) 30%, var(--color-accent) 70%, transparent);
+    }
+
+    body.lf-login--split .lf-login-brand__rule {
+        margin-bottom: 16px;
+    }
+
+    body.lf-login--split .lf-login-brand__name {
+        font-size: 2.5rem;
+    }
+
+    body.lf-login--split .lf-login-brand__caption,
+    body.lf-login--split .lf-login-brand__foot {
+        display: none;
+    }
+
+    body.lf-login--split:not(.interim-login) #login {
+        padding-top: 36px;
+    }
+
+    body.lf-login--split.lf-login-has-logo #login h1 a {
+        width: 96px;
+        height: 96px;
+    }
+
+    body.lf-login--split #login h1 a {
+        margin-bottom: 24px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    body.lf-login--photo:not(.interim-login) #login {
+        padding: 32px 22px 24px;
+        margin-top: 16px;
+    }
+}
+
+/* Touch screens (phones, tablets): iOS Safari draws fixed backgrounds zoomed in and blurry. */
+@media (hover: none), (max-width: 1024px) {
+    body.lf-login--photo:not(.interim-login) {
+        background-attachment: scroll;
+    }
+}
+
+/* Phones held sideways: keep the Split banner short so the form starts on screen. */
+@media (max-width: 960px) and (max-height: 540px) {
+    body.lf-login--split .lf-login-brand {
+        min-height: 0;
+        padding: 20px 24px 18px;
+    }
+
+    body.lf-login--split .lf-login-brand__rule {
+        display: none;
+    }
+
+    body.lf-login--split .lf-login-brand__name {
+        font-size: 1.75rem;
+    }
+
+    body.lf-login--split .lf-login-brand__tagline {
+        margin-top: 6px;
+        font-size: 1.4rem;
+    }
+
+    body.lf-login--split:not(.interim-login) #login {
+        padding-top: 24px;
+    }
+}
+
+/* Any short screen (phones sideways, small laptop windows): less above the form. */
+@media (max-height: 540px) {
+    /* The Split banner already shows the site name, so the logo would repeat it. */
+    body.lf-login--split #login h1 {
+        display: none;
+    }
+
+    body.lf-login #login h1 a {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 16px;
+    }
+
+    .lf-login-intro {
+        margin-bottom: 18px;
+    }
+
+    .lf-login-intro__heading {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .lf-login-intro__text {
+        display: none;
+    }
+
+    body.lf-login--photo:not(.interim-login) #login {
+        margin-top: 16px;
+        padding-top: 24px;
+    }
+}
+
+/*--------------------------------------------------------------
+# Reduced motion
+--------------------------------------------------------------*/
+@media (prefers-reduced-motion: reduce) {
+    body.lf-login #login {
+        animation: none;
+    }
+
+    body.lf-login.wp-core-ui .button-primary,
+    body.lf-login.wp-core-ui .button-primary:hover {
+        transition: none;
+        transform: none;
+    }
+
+    body.lf-login--photo:not(.interim-login) {
+        background-attachment: scroll;
+    }
+}

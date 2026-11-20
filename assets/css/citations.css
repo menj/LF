@@ -1,0 +1,496 @@
+/*
+ * Citations
+ * Langgam Fikir WordPress Theme
+ *
+ * The "Cite this" box, in-text citations and the reference list (inc/citations.php).
+ * Reads the theme's colour, font and corner tokens, so it follows Theme Options > Design;
+ * the fallbacks keep the block editor preview right where those tokens are not loaded.
+ *
+ * Box styles (data-box): classic (accent bar, tinted header), academic (ruled), minimal.
+ */
+
+.lf-cite {
+    --lf-cite-ink: var(--color-text, #2A2118);
+    --lf-cite-muted: var(--color-text-light, #5E5246);
+    --lf-cite-head: var(--color-primary, #5A1F2A);
+    --lf-cite-accent: var(--color-accent, #C79A3B);
+    --lf-cite-surface: var(--color-bg-secondary, #E8E6D8);
+    --lf-cite-page: var(--color-bg-primary, #F4EDE0);
+    --lf-cite-line: var(--color-border, #DDD2BE);
+    --lf-cite-radius: var(--radius-md, 14px);
+    --lf-cite-btn-radius: var(--radius-btn, 12px);
+
+    position: relative;
+    margin: 2.5rem 0;
+    color: var(--lf-cite-ink);
+    background: color-mix(in srgb, var(--lf-cite-page) 55%, #fff);
+    border: 1px solid var(--lf-cite-line);
+    border-radius: var(--lf-cite-radius);
+    font-family: var(--font-secondary, 'Inter', 'Helvetica Neue', Arial, sans-serif);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+/* ---------------------------------------------------------------- header */
+
+.lf-cite__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    padding: 0.875rem 1.125rem;
+    background: color-mix(in srgb, var(--lf-cite-surface) 70%, transparent);
+    border-bottom: 1px solid var(--lf-cite-line);
+}
+
+.lf-cite__title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-family: var(--font-primary, 'Crimson Text', Georgia, serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--lf-cite-head);
+}
+
+.lf-cite__icon {
+    flex: none;
+    color: var(--lf-cite-accent);
+}
+
+.lf-cite__single {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--lf-cite-muted);
+}
+
+/* Style picker: drop-down */
+.lf-cite__select {
+    min-height: 40px;
+    padding: 0 2.25rem 0 0.875rem;
+    font: inherit;
+    font-weight: 500;
+    color: var(--lf-cite-ink);
+    background-color: var(--lf-cite-page);
+    border: 1px solid var(--lf-cite-line);
+    border-radius: var(--lf-cite-btn-radius);
+    cursor: pointer;
+}
+
+.lf-cite__select:focus-visible {
+    outline: 2px solid var(--lf-cite-accent);
+    outline-offset: 2px;
+}
+
+/* Style picker: tabs and buttons */
+.lf-cite__styles {
+    display: flex;
+    gap: 0.375rem;
+    min-width: 0;
+}
+
+.lf-cite__styles--buttons {
+    flex-wrap: wrap;
+}
+
+.lf-cite__styles--tabs {
+    flex: 1 1 100%;
+    order: 3;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    margin: 0 -1.125rem -0.875rem;
+    padding: 0 1.125rem;
+    border-top: 1px solid var(--lf-cite-line);
+}
+
+.lf-cite__style {
+    flex: none;
+    min-height: 36px;
+    padding: 0 0.875rem;
+    font: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--lf-cite-muted);
+    background: transparent;
+    border: 1px solid var(--lf-cite-line);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color .15s ease, background-color .15s ease, border-color .15s ease;
+}
+
+.lf-cite__style:hover {
+    color: var(--lf-cite-head);
+    border-color: var(--lf-cite-head);
+}
+
+.lf-cite__style.is-active {
+    color: var(--color-on-hero, #fff);
+    background: var(--lf-cite-head);
+    border-color: var(--lf-cite-head);
+}
+
+.lf-cite__styles--tabs .lf-cite__style {
+    min-height: 44px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+}
+
+.lf-cite__styles--tabs .lf-cite__style.is-active {
+    color: var(--lf-cite-head);
+    background: transparent;
+    border-bottom-color: var(--lf-cite-accent);
+}
+
+.lf-cite__style:focus-visible {
+    outline: 2px solid var(--lf-cite-accent);
+    outline-offset: 2px;
+}
+
+/* Actions */
+.lf-cite__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-left: auto;
+}
+
+.lf-cite__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 40px;
+    min-width: 40px;
+    padding: 0 0.875rem;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--lf-cite-head);
+    background: transparent;
+    border: 1px solid var(--lf-cite-line);
+    border-radius: var(--lf-cite-btn-radius);
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.lf-cite__btn:hover {
+    background: color-mix(in srgb, var(--lf-cite-surface) 80%, transparent);
+    border-color: var(--lf-cite-head);
+}
+
+.lf-cite__btn:focus-visible {
+    outline: 2px solid var(--lf-cite-accent);
+    outline-offset: 2px;
+}
+
+.lf-cite__copy {
+    color: var(--color-on-hero, #fff);
+    background: var(--lf-cite-head);
+    border-color: var(--lf-cite-head);
+}
+
+.lf-cite__copy:hover {
+    background: color-mix(in srgb, var(--lf-cite-head) 86%, #000);
+    border-color: color-mix(in srgb, var(--lf-cite-head) 86%, #000);
+}
+
+.lf-cite__toggle {
+    padding: 0;
+}
+
+.lf-cite__toggle svg {
+    transition: transform .2s ease;
+}
+
+.lf-cite.is-collapsed .lf-cite__toggle svg {
+    transform: rotate(-90deg);
+}
+
+.lf-cite.is-collapsed .lf-cite__head {
+    border-bottom: 0;
+}
+
+/* Download menu */
+.lf-cite__export {
+    position: relative;
+}
+
+.lf-cite__menu {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 13rem;
+    margin: 0;
+    padding: 0.375rem;
+    list-style: none;
+    background: var(--lf-cite-page);
+    border: 1px solid var(--lf-cite-line);
+    border-radius: var(--radius-sm, 8px);
+    box-shadow: 0 16px 32px -16px rgba(0, 0, 0, .3);
+}
+
+.lf-cite__menu-item {
+    display: block;
+    width: 100%;
+    min-height: 40px;
+    padding: 0 0.75rem;
+    font: inherit;
+    font-size: 0.875rem;
+    text-align: left;
+    color: var(--lf-cite-ink);
+    background: transparent;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.lf-cite__menu-item:hover,
+.lf-cite__menu-item:focus-visible {
+    color: var(--lf-cite-head);
+    background: var(--lf-cite-surface);
+    outline: none;
+}
+
+/* ---------------------------------------------------------------- body */
+
+.lf-cite__body {
+    padding: 1.125rem 1.25rem 1.25rem;
+}
+
+.lf-cite__output {
+    margin: 0;
+    font-family: var(--font-reading, 'Sabon Next LT', 'Crimson Text', Georgia, serif);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--lf-cite-ink);
+    overflow-wrap: anywhere;
+    /* Hanging indent, as reference lists are set */
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+    text-align: start;
+    -webkit-hyphens: manual;
+    hyphens: manual;
+}
+
+.lf-cite__output a {
+    color: var(--lf-cite-head);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.lf-cite__output.is-markup {
+    padding: 0.75rem 0.875rem;
+    text-indent: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8125rem;
+    white-space: pre-wrap;
+    background: var(--lf-cite-surface);
+    border-radius: var(--radius-sm, 8px);
+}
+
+.lf-cite__status {
+    display: none;
+    margin: -0.5rem 1.25rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--lf-cite-head);
+}
+
+.lf-cite__status:not(:empty) {
+    display: block;
+}
+
+.lf-cite__status:not(:empty)::before {
+    content: "\2713\00a0";
+    color: var(--lf-cite-accent);
+}
+
+.lf-cite[data-box="academic"] .lf-cite__status,
+.lf-cite[data-box="minimal"] .lf-cite__status {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* ---------------------------------------------------------------- box styles */
+
+.lf-cite[data-box="classic"] {
+    border-left: 4px solid var(--lf-cite-accent);
+}
+
+.lf-cite[data-box="academic"] {
+    background: transparent;
+    border: 0;
+    border-top: 2px solid var(--lf-cite-head);
+    border-bottom: 1px solid var(--lf-cite-line);
+    border-radius: 0;
+}
+
+.lf-cite[data-box="academic"] .lf-cite__head {
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.lf-cite[data-box="academic"] .lf-cite__body {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.lf-cite[data-box="academic"] .lf-cite__styles--tabs {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+.lf-cite[data-box="minimal"] {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.lf-cite[data-box="minimal"] .lf-cite__head {
+    padding: 0 0 0.75rem;
+    background: transparent;
+}
+
+.lf-cite[data-box="minimal"] .lf-cite__body {
+    padding: 1rem 0 0;
+}
+
+.lf-cite[data-box="minimal"] .lf-cite__styles--tabs {
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------------------------------------------------------- in-text and references */
+
+.lf-cite-inline a,
+.lf-cite-marker a {
+    color: var(--color-primary, #5A1F2A);
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+}
+
+.lf-cite-marker {
+    font-size: 0.75em;
+    line-height: 0;
+}
+
+.lf-cite-references {
+    margin: 2.5rem 0;
+    padding-top: 1.25rem;
+    border-top: 2px solid var(--color-accent, #C79A3B);
+}
+
+.lf-cite-references__heading {
+    margin: 0 0 1rem;
+    font-family: var(--font-primary, 'Crimson Text', Georgia, serif);
+    color: var(--color-primary, #5A1F2A);
+}
+
+.lf-cite-references__list {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.lf-cite-references__list li {
+    margin: 0 0 0.75rem;
+    padding-left: 0.25rem;
+    line-height: 1.55;
+    text-align: start;
+    -webkit-hyphens: manual;
+    hyphens: manual;
+    overflow-wrap: anywhere;
+}
+
+.lf-cite-references__list li:target {
+    background: color-mix(in srgb, var(--color-accent, #C79A3B) 18%, transparent);
+    border-radius: 4px;
+}
+
+.lf-cite-references__back {
+    margin-left: 0.25rem;
+    text-decoration: none;
+}
+
+/* ---------------------------------------------------------------- small and touch screens */
+
+@media (max-width: 600px) {
+    .lf-cite__head {
+        padding: 0.875rem 1rem;
+    }
+
+    .lf-cite__select {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .lf-cite__actions {
+        flex: 1 1 100%;
+        margin-left: 0;
+    }
+
+    .lf-cite__copy {
+        flex: 1 1 auto;
+    }
+
+    .lf-cite__styles--tabs {
+        margin: 0 -1rem -0.875rem;
+        padding: 0 1rem;
+    }
+
+    .lf-cite__body {
+        padding: 1rem;
+    }
+
+    .lf-cite__output {
+        font-size: 1rem;
+    }
+
+    .lf-cite__menu {
+        right: auto;
+        left: 0;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .lf-cite__btn,
+    .lf-cite__select,
+    .lf-cite__menu-item,
+    .lf-cite__style {
+        min-height: 44px;
+    }
+}
+
+/* ---------------------------------------------------------------- print and motion */
+
+@media print {
+    .lf-cite {
+        border: 1px solid #999;
+        background: none;
+        break-inside: avoid;
+    }
+
+    .lf-cite__styles,
+    .lf-cite__select,
+    .lf-cite__actions,
+    .lf-cite__status {
+        display: none !important;
+    }
+
+    .lf-cite__body[hidden] {
+        display: block !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lf-cite *,
+    .lf-cite *::before {
+        transition: none !important;
+    }
+}

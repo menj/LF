@@ -5,7 +5,7 @@
  *
  * @package Langgam_Fikir
  * @since 1.0.0
- * @version 2.12.0
+ * @version 2.15.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Theme Constants
  */
-define( 'LANGGAM_FIKIR_VERSION', '2.12.0' );
+define( 'LANGGAM_FIKIR_VERSION', '2.15.0' );
 define( 'LANGGAM_FIKIR_DIR', get_stylesheet_directory() );
 define( 'LANGGAM_FIKIR_URI', get_stylesheet_directory_uri() );
 
@@ -37,6 +37,12 @@ require_once LANGGAM_FIKIR_DIR . '/inc/breadcrumbs.php';      // Visible breadcr
 require_once LANGGAM_FIKIR_DIR . '/inc/toc.php';              // Auto-TOC for long posts (Phase D)
 require_once LANGGAM_FIKIR_DIR . '/inc/hrefmaster-integration.php'; // HrefMaster plugin integration (v2.7.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/webmcp.php';              // WebMCP agent tools + public catalogue REST (v2.10.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/login.php';               // Branded login screen (v2.13.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/login-address.php';       // Private login address (v2.15.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/justify.php';             // Text justification (v2.15.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/citations.php';           // Citation box, styles, downloads, block (v2.15.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/citations-analytics.php'; // Citation analytics table, counting, privacy tools, admin page (v2.15.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/plugin-takeover.php';     // Detects plugins the theme replaces: import, migrate, deactivate (v2.15.0)
 
 /**
  * Load Admin-Specific Files

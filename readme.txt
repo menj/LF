@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.12.0
+Stable tag: 2.15.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,26 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.15.0 (November 2026) =
+* NEW: Text justification: justified paragraphs and lists, hyphenation, wide-screens-only, an any-article fallback and exclusions, in Theme Options > Design
+* NEW: Citations: a "Cite this" box with 20 styles, copy and six downloads, in-text citations and reference lists, the Citation block, Google Scholar tags and optional analytics, in Theme Options > Citations. Book pages are cited as books (publisher, edition, ISBN); [cite id="123"] cites another post or book
+* NEW: Private login address: move the log in screen to an address you choose; wp-login.php and wp-admin send visitors who are not logged in to a 404 page (Theme Options > Login Page)
+* NEW: Plugin detection: when a plugin these features replace is active, the theme copies its settings into Theme Options once, deactivates it, converts its block and shortcode names in posts to the theme's own, shows a notice, and replaces Activate on the Plugins screen with "Built into the Langgam Fikir theme"
+
+= 2.14.0 (November 2026) =
+* NEW: One connected Schema.org graph (Organization, WebSite, WebPage, BreadcrumbList, BlogPosting, Person, Book, ItemList, FAQPage) with stable @ids shared with Rank Math and Yoast
+* NEW: SEO plugin awareness: with Rank Math, Yoast, AIOSEO, SEOPress or The SEO Framework active, the theme stops printing its own meta description, Open Graph, Twitter and site-wide schema, and merges its Book, publications list and FAQ data into the plugin's graph
+* NEW: Homepage ItemList of the books shown; Organization gains legal name, SSM registration number, slogan, contact point and sameAs
+* NEW: Sitemap page template (HTML sitemap for visitors) and "Cover of {title}" alt text for covers with missing or file-name alt text
+* FIX: Homepage meta description was the blog description when the homepage shows latest posts; og:url no longer carries query strings; canonical on the front page and archives
+* FIX: Book datePublished is the year instead of an invented 1 January; prices are numeric; multiple authors are separate people
+* FIX: Footer and review microdata removed (they created extra, disconnected Organization and Review entities)
+
+= 2.13.0 (November 2026) =
+* NEW: Branded login screen: the log in, lost password and reset password screens use your palette, custom colours, corners, fonts and logo instead of the stock WordPress look
+* NEW: Three login layouts (Split photo panel, Photo card, Minimal), a choice of photo, and editable welcome text, in Theme Options > Login Page
+* FIX: Theme Options tabs not listed in the built-in order are now shown instead of being dropped
 
 = 2.12.0 (November 2026) =
 * NEW: Folio palette (cream, oxblood, sage, brass) as the new default; Earth, Slate, Sage and Clay remain
@@ -456,6 +476,15 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 * Typography and color system implementation
 
 == Upgrade Notice ==
+
+= 2.15.0 =
+Text justification, citations and a private login address are now theme features (your current login address is kept). If the plugins that used to provide them are active, the first admin page load after updating copies their settings into Theme Options, deactivates them and converts their blocks and shortcodes in posts to the theme's own (back up the database first). You can delete those plugins afterwards.
+
+= 2.14.0 =
+Schema.org and meta tags rebuilt as one graph. If an SEO plugin is active the theme now defers to it; set that plugin's schema for the Books post type to None so there is one Book node. Re-test pages in Google's Rich Results Test.
+
+= 2.13.0 =
+The WordPress login screen now matches the site. It is on by default; switch it off or change the layout in Theme Options > Login Page.
 
 = 2.12.0 =
 New default palette (Folio) and a redesigned homepage with a split hero, carousel and highlights strip. Hard-refresh after updating. A site that already saved the Earth palette keeps it; choose Folio, or a hero layout, in Theme Options > Design and Homepage. The previous look is available as the Banner hero.

@@ -1,0 +1,103 @@
+/*
+ * Citation Analytics admin page
+ * Langgam Fikir WordPress Theme
+ *
+ * Builds on theme-options.css (.lf-card, .lf-card-title, .lf-card-desc).
+ */
+.lf-cite-admin__totals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 0 0 16px;
+}
+
+.lf-cite-admin__total {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+}
+
+.lf-cite-admin__number {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #1d2327;
+}
+
+.lf-cite-admin__label {
+    color: #50575e;
+}
+
+.lf-cite-admin__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 16px;
+}
+
+.lf-cite-admin__grid > .lf-card {
+    margin: 0 0 16px;
+}
+
+.lf-cite-admin__table td.num,
+.lf-cite-admin__table th.num {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.lf-cite-admin__type {
+    color: #646970;
+    font-size: 12px;
+}
+
+.lf-cite-admin__sub {
+    margin-top: 24px;
+}
+
+.lf-cite-admin__bars,
+.lf-cite-admin__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lf-cite-admin__bars li {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr) 3.5rem;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+}
+
+.lf-cite-admin__bar {
+    display: block;
+    height: 8px;
+    border-radius: 999px;
+    background: #f0f0f1;
+    overflow: hidden;
+}
+
+.lf-cite-admin__bar > span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: #2271b1;
+}
+
+.lf-cite-admin__bar-value {
+    text-align: right;
+}
+
+.lf-cite-admin__list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+@media (max-width: 960px) {
+    .lf-cite-admin__grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

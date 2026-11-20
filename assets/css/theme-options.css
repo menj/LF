@@ -372,6 +372,29 @@
     color: var(--color-text-light, #6B6057);
 }
 
+.lf-slug {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    max-width: 100%;
+}
+
+.lf-slug code {
+    padding: 7px 8px;
+    background: #F7F3EE;
+    border-radius: 4px;
+    font-size: 12.5px;
+    color: #5E544B;
+    overflow-wrap: anywhere;
+}
+
+.lf-field .lf-slug input[type="text"] {
+    flex: 1 1 160px;
+    width: auto;
+    min-width: 0;
+}
+
 .lf-color {
     display: inline-flex;
     align-items: center;
@@ -398,4 +421,18 @@
     align-items: center;
     gap: 0.5rem;
     font-weight: 500;
+}
+
+/* Checklist fields: a wrapping grid of tick boxes (e.g. citation styles). */
+.lf-checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 0.5rem 1rem;
+    margin: 0.25rem 0 0;
+    padding: 0;
+    border: 0;
+}
+
+.lf-checklist .lf-check {
+    font-weight: 400;
 }

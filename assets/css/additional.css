@@ -359,3 +359,110 @@
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
+/*--------------------------------------------------------------
+# HTML Sitemap (page-sitemap.php)
+  Phones: one column. Tablets: Publications across the top, Pages and
+  Articles side by side. Desktop: three columns, Publications widest.
+--------------------------------------------------------------*/
+.lf-sitemap-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "books" "pages" "articles";
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.lf-sitemap-grid > :nth-child(1) { grid-area: pages; }
+.lf-sitemap-grid > :nth-child(2) { grid-area: books; }
+.lf-sitemap-grid > :nth-child(3) { grid-area: articles; }
+
+@media (min-width: 600px) {
+    .lf-sitemap-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas: "books books" "pages articles";
+        gap: var(--spacing-md) var(--spacing-lg);
+    }
+
+    /* The long publications list runs in two columns once there is room. */
+    .lf-sitemap-section--wide > ul {
+        columns: 2;
+        column-gap: var(--spacing-lg);
+    }
+
+    .lf-sitemap-section--wide li {
+        break-inside: avoid;
+    }
+}
+
+@media (min-width: 1024px) {
+    .lf-sitemap-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+        grid-template-areas: "pages books articles";
+    }
+}
+
+.lf-sitemap-section h2 {
+    margin: 0 0 var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 2px solid var(--color-accent);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.lf-sitemap-section h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.lf-sitemap-section h3 {
+    margin: var(--spacing-sm) 0 0.5rem;
+    font-family: var(--font-secondary);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+}
+
+.lf-sitemap-section h3 a {
+    color: inherit;
+}
+
+.lf-sitemap-section ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lf-sitemap-section ul ul {
+    padding-left: 1rem;
+}
+
+.lf-sitemap-section li {
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.9375rem;
+    line-height: 1.4;
+}
+
+/* The whole row is the link, at least 44px tall on touch screens. */
+.lf-sitemap-section li a {
+    display: block;
+    padding: 0.45rem 0;
+    color: var(--color-text);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .lf-sitemap-section li a {
+        padding: 0.75rem 0;
+    }
+}
+
+.lf-sitemap-section li a:hover,
+.lf-sitemap-section li a:focus-visible {
+    color: var(--color-primary);
+    text-decoration: underline;
+}

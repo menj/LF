@@ -118,7 +118,36 @@ For manual server access:
 
 ## Version-Specific Upgrade Notes
 
-### Upgrading to 2.12.0 (Latest) ✅
+### Upgrading to 2.15.0 (Latest) ✅
+
+**Status:** RELEASED — built-in plugins.
+
+- **Text justification**, **citations** and a **private login address** are theme features now (Theme Options > Design > Text Justification, Theme Options > Citations, Appearance > Citation Analytics, Theme Options > Login Page > Login Address).
+- **WPS Hide Login:** if it is active, its login and redirect addresses are copied to Login Address and switched on, then the plugin is deactivated, so you log in at the same address as before. **Write the address down before updating.** If you are ever locked out, rename the theme's folder (`wp-content/themes/langgam-fikir`) by FTP or in your host's file manager; WordPress falls back to its default theme and the normal `wp-login.php`.
+- If the plugins that used to provide them (Auto Justify Content, CitePress, WPS Hide Login) are active, open any admin page once after updating. The theme copies their settings (and the citation counts) into Theme Options, deactivates them and shows a notice. Then it converts their block and shortcode names in posts, revisions, reusable blocks, templates and widgets to the theme's own: the Citation block becomes `langgam-fikir/citation`, `[citepress_cite]` becomes `[cite]` and `[citepress_cite_bibliography]` becomes `[cite_bibliography]`. This runs once and creates no revisions. **Back up the database first**: the converted posts no longer use the plugin's names.
+- Book pages now get book citations; if "On book pages" is not wanted, untick it. The citation box follows the theme palette (Theme Options > Design).
+- Deleting the plugins afterwards is safe: the counts are already copied into the theme's own table.
+- The plugins' files and options are left in place, so if you ever switch to another theme you can re-activate them and they work as before. Otherwise delete them from the Plugins screen.
+- While this theme is active the plugin cannot be re-activated: the Plugins screen shows "Built into the Langgam Fikir theme" instead of Activate, and an activation by other means is reversed on the next admin page load.
+
+### Upgrading to 2.14.0 ✅
+
+**Status:** RELEASED — SEO and Schema.org rebuild.
+
+- **With Rank Math (or Yoast, AIOSEO, SEOPress, The SEO Framework):** the theme no longer prints a second meta description, Open Graph and Twitter set, or its own WebSite/Organization. In Rank Math, set **Titles & Meta > Books > Schema Type** to **None** (the theme supplies a richer Book node inside Rank Math's graph), and check **Titles & Meta > Local SEO**: use *Organization* rather than *BookStore* unless there is a walk-in shop with opening hours, set the legal name to "Langgam Fikir Enterprise", and use the country code "MY".
+- **Without an SEO plugin:** nothing to do; the theme prints everything.
+- Optional: create a page called "Sitemap" with the **Sitemap** template and add it to the footer menu.
+- Re-test the homepage, a book and an article in Google's Rich Results Test and the Schema Markup Validator.
+
+### Upgrading to 2.13.0 ✅
+
+**Status:** RELEASED — branded login screen.
+
+- Nothing to migrate. The branded login screen is on by default and uses the Custom Logo (or Site Icon) and the active palette.
+- To change it, go to **Appearance > Theme Options > Login Page** (layout, photo, welcome text), or untick *Use the branded login screen* to restore the stock WordPress screen.
+- Hard-refresh `wp-login.php` once after updating.
+
+### Upgrading to 2.12.0 ✅
 
 **Status:** RELEASED — design release.
 
@@ -131,7 +160,7 @@ For manual server access:
 - Optional and off by default: announcement bar, call-to-action band, header button (Theme Options → Homepage). Fill them in to show them.
 - Check the highlights strip wording (defaults: "Independent Malaysian publisher", "Translations and original works", "Publishing since 2015") and the hero eyebrow and heading; edit them to suit.
 - Publications archive: the book search and cover-first grid are automatic.
-- The Malay translation (ms_MY) now covers the front end and admin; set the site language to Bahasa Melayu to use it.
+- The Malay translation (ms_MY) now covers the front end and admin. English (en_US) stays the default; the translation applies only if the site language is set to Bahasa Melayu.
 
 **Rollback:** safe for the site; 2.11.0 ignores the new options. Saving Theme Options while on 2.11.0 drops the 2.12 settings (hero layout, highlights, announcement bar, call-to-action band, header button and so on), so note them first if you want to reapply them after upgrading again.
 

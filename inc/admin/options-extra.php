@@ -42,6 +42,12 @@ function langgam_fikir_extend_option_tabs( $tabs ) {
             $ordered['labels'] = $new['labels'];
         }
     }
+    // Any other new tab (for example Login Page) goes at the end instead of being dropped.
+    foreach ( $new as $slug => $tab ) {
+        if ( ! isset( $ordered[ $slug ] ) ) {
+            $ordered[ $slug ] = $tab;
+        }
+    }
     return $ordered;
 }
 
@@ -102,6 +108,22 @@ function langgam_fikir_render_extra_field( $key, $field, $value ) {
             echo '</select>';
             break;
 
+        case 'checklist':
+            // A group of tick boxes; stored as a comma-separated list of the ticked keys.
+            $ticked = array_filter( array_map( 'trim', explode( ',', (string) $value ) ) );
+            printf( '<fieldset class="lf-checklist" aria-label="%s">', esc_attr( $field['label'] ) );
+            foreach ( $field['choices'] as $choice => $label ) {
+                printf(
+                    '<label class="lf-check"><input type="checkbox" name="%1$s[]" value="%2$s" %3$s> <span>%4$s</span></label>',
+                    esc_attr( $name ),
+                    esc_attr( $choice ),
+                    checked( in_array( (string) $choice, $ticked, true ), true, false ),
+                    esc_html( $label )
+                );
+            }
+            echo '</fieldset>';
+            break;
+
         case 'textarea':
             printf(
                 '<textarea id="%s" name="%s" rows="%d" class="large-text">%s</textarea>',
@@ -109,6 +131,30 @@ function langgam_fikir_render_extra_field( $key, $field, $value ) {
                 esc_attr( $name ),
                 isset( $field['rows'] ) ? (int) $field['rows'] : 3,
                 esc_textarea( $value )
+            );
+            break;
+
+        case 'number':
+            printf(
+                '<input type="number" id="%s" name="%s" value="%s" min="%d" max="%d" step="1" class="small-text">',
+                esc_attr( $id ),
+                esc_attr( $name ),
+                esc_attr( $value ),
+                isset( $field['min'] ) ? (int) $field['min'] : 0,
+                isset( $field['max'] ) ? (int) $field['max'] : 9999
+            );
+            break;
+
+        case 'slug':
+            // The full address around the editable part, e.g. https://example.com/[login]/
+            $pretty = (bool) get_option( 'permalink_structure' );
+            printf(
+                '<span class="lf-slug"><code>%s</code><input type="text" id="%s" name="%s" value="%s" class="regular-text code" spellcheck="false" autocapitalize="none">%s</span>',
+                esc_html( trailingslashit( home_url() ) . ( $pretty ? '' : '?' ) ),
+                esc_attr( $id ),
+                esc_attr( $name ),
+                esc_attr( $value ),
+                $pretty && '/' === substr( (string) get_option( 'permalink_structure' ), -1 ) ? '<code>/</code>' : ''
             );
             break;
 
@@ -151,7 +197,7 @@ function langgam_fikir_render_extra_cards( $slug, $opts ) {
             echo '<div class="lf-field">';
             if ( 'checkbox' === $field['type'] ) {
                 // The label is printed with the control.
-            } elseif ( 'scheme' !== $field['type'] ) {
+            } elseif ( ! in_array( $field['type'], array( 'scheme', 'checklist' ), true ) ) {
                 printf( '<label for="lf_%s">%s</label>', esc_attr( $key ), esc_html( $field['label'] ) );
             } else {
                 echo '<span class="lf-label">' . esc_html( $field['label'] ) . '</span>';

@@ -35,6 +35,48 @@ function langgam_fikir_hero_photos() {
 }
 
 /**
+ * Citation styles: key => short name (also the Theme Options choices; used by inc/citations.php).
+ */
+function langgam_fikir_cite_format_names() {
+    return array(
+        'apa'       => 'APA',
+        'mla'       => 'MLA',
+        'chicago'   => 'Chicago',
+        'harvard'   => 'Harvard',
+        'vancouver' => 'Vancouver',
+        'ieee'      => 'IEEE',
+        'ama'       => 'AMA',
+        'asa'       => 'ASA',
+        'turabian'  => 'Turabian',
+        'wikipedia' => 'Wikipedia',
+        'acs'       => 'ACS',
+        'aip'       => 'AIP',
+        'nlm'       => 'NLM',
+        'aaa'       => 'AAA',
+        'apsa'      => 'APSA',
+        'oscola'    => 'OSCOLA',
+        'nature'    => 'Nature',
+        'acm'       => 'ACM',
+        'bluebook'  => 'Bluebook',
+        'iso690'    => 'ISO 690',
+    );
+}
+
+/**
+ * Download formats: key => label.
+ */
+function langgam_fikir_cite_export_names() {
+    return array(
+        'bibtex'      => 'BibTeX (.bib)',
+        'ris'         => 'RIS (.ris)',
+        'endnote'     => 'EndNote (.enw)',
+        'csl-json'    => 'CSL-JSON (.json)',
+        'cff'         => 'CFF (.cff)',
+        'dublin-core' => 'Dublin Core (.xml)',
+    );
+}
+
+/**
  * Light colour palettes. Dark mode is out of scope (ssot.md 9.2); every palette has a light page.
  * The values here drive the swatches and preview in Theme Options; the same palettes live in
  * assets/css/design.css as body.lf-scheme-* rules, so keep the two in sync.
@@ -144,6 +186,21 @@ function langgam_fikir_extra_options_schema() {
                     ),
                 ),
                 array(
+                    'title'  => __( 'Text Justification', 'langgam-fikir' ),
+                    'desc'   => __( 'Justify paragraphs and lists so both edges line up, as in a printed book. The last line of each paragraph stays aligned to the start.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'justify_enabled'  => $f( 'checkbox', __( 'Justify text', 'langgam-fikir' ), 1 ),
+                        'justify_scope'    => $f( 'select', __( 'Where', 'langgam-fikir' ), 'blog_only', '', array( 'choices' => array(
+                            'blog_only'   => __( 'Articles only', 'langgam-fikir' ),
+                            'entire_site' => __( 'Articles, pages, book synopses and the About text', 'langgam-fikir' ),
+                        ) ) ),
+                        'justify_hyphens'  => $f( 'checkbox', __( 'Hyphenate long words', 'langgam-fikir' ), 1, __( 'Avoids wide gaps between words in narrow columns. The browser uses the page language (English unless a book sets another).', 'langgam-fikir' ) ),
+                        'justify_desktop'  => $f( 'checkbox', __( 'Wide screens only', 'langgam-fikir' ), 0, __( 'Keep text aligned to the start on screens narrower than 768px, where justified lines can leave gaps.', 'langgam-fikir' ) ),
+                        'justify_fallback' => $f( 'checkbox', __( 'Also justify any article text', 'langgam-fikir' ), 0, __( 'Includes paragraphs inside any article element, for content added by plugins or page builders.', 'langgam-fikir' ) ),
+                        'justify_exclude'  => $f( 'text', __( 'Leave these alone', 'langgam-fikir' ), '.elementor-testimonial', __( 'CSS selectors, separated by commas, for example .wp-block-quote, .no-justify', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                    ),
+                ),
+                array(
                     'title'  => __( 'Corners and Motion', 'langgam-fikir' ),
                     'desc'   => __( 'How rounded cards, images, buttons and fields are, and whether parts of the page drift while scrolling.', 'langgam-fikir' ),
                     'fields' => array(
@@ -156,6 +213,123 @@ function langgam_fikir_extra_options_schema() {
                             'desktop' => __( 'On for wide screens (default)', 'langgam-fikir' ),
                             'all'     => __( 'On for all screens', 'langgam-fikir' ),
                             'off'     => __( 'Off', 'langgam-fikir' ),
+                        ) ) ),
+                    ),
+                ),
+            ),
+        ),
+
+        /* ------------------------------------------------------ Login page */
+        'login'    => array(
+            'label' => __( 'Login Page', 'langgam-fikir' ),
+            'icon'  => 'dashicons-lock',
+            'cards' => array(
+                array(
+                    'title'  => __( 'Branded Login Screen', 'langgam-fikir' ),
+                    'desc'   => __( 'The WordPress log in, lost password and reset password screens, styled with your palette, fonts, corners and logo (Appearance > Editor > Site Identity, or the Site Icon). Colours follow the Design tab.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'login_custom' => $f( 'checkbox', __( 'Use the branded login screen', 'langgam-fikir' ), 1, __( 'Untick to go back to the standard WordPress screen.', 'langgam-fikir' ) ),
+                        'login_layout' => $f( 'select', __( 'Layout', 'langgam-fikir' ), 'split', __( 'Split puts a photo panel with the site name and tagline beside the form. Photo puts the form on a card over a full-screen photo. Minimal is the form alone on the page colour.', 'langgam-fikir' ), array( 'choices' => array(
+                            'split'   => __( 'Split (photo panel beside the form)', 'langgam-fikir' ),
+                            'photo'   => __( 'Photo (form card over a full-screen photo)', 'langgam-fikir' ),
+                            'minimal' => __( 'Minimal (form only)', 'langgam-fikir' ),
+                        ) ) ),
+                        'login_photo'  => $f( 'select', __( 'Photo', 'langgam-fikir' ), 'hero', __( 'Tinted with the heading colour. Not used by the Minimal layout.', 'langgam-fikir' ), array( 'choices' => array_merge(
+                            array( 'hero' => __( 'Same as the homepage hero', 'langgam-fikir' ) ),
+                            langgam_fikir_hero_photos(),
+                            array(
+                                'random' => __( 'A different bundled photo each visit', 'langgam-fikir' ),
+                                'none'   => __( 'No photo (solid colour)', 'langgam-fikir' ),
+                            )
+                        ) ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Login Text', 'langgam-fikir' ),
+                    'desc'   => __( 'The welcome above the form and the line under the site name and tagline on the photo panel. The other screens (lost password, new password) have their own fixed headings.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'login_heading' => $f( 'text', __( 'Heading', 'langgam-fikir' ), __( 'Welcome back', 'langgam-fikir' ), __( 'Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                        'login_text'    => $f( 'text', __( 'Line under the heading', 'langgam-fikir' ), __( 'Sign in to manage books, articles and the catalogue.', 'langgam-fikir' ), __( 'Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                        'login_caption' => $f( 'textarea', __( 'Photo panel caption', 'langgam-fikir' ), __( 'Books, articles and ideas, from manuscript to bookshelf.', 'langgam-fikir' ), __( 'Shown on the Split and Photo layouts. Empty hides it.', 'langgam-fikir' ), array( 'rows' => 2, 'allow_empty' => true ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Login Address', 'langgam-fikir' ),
+                    'desc'   => __( 'Move the log in screen to an address only you know, so password-guessing bots cannot find it. Visitors who are not logged in and open wp-login.php or wp-admin are sent to the redirect address instead. Bookmark the new address before you log out. Locked out? Rename the theme\'s folder by FTP or in your host\'s file manager to bring back wp-login.php.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'login_hide'     => $f( 'checkbox', __( 'Use a private login address', 'langgam-fikir' ), 0, __( 'If comments require logging in, the comment form\'s "log in" link shows this address.', 'langgam-fikir' ) ),
+                        'login_slug'     => $f( 'slug', __( 'Login address', 'langgam-fikir' ), 'login', __( 'Lower-case letters, numbers and dashes. Names WordPress already uses (such as wp-admin) are not accepted.', 'langgam-fikir' ) ),
+                        'login_redirect' => $f( 'slug', __( 'Redirect address', 'langgam-fikir' ), '404', __( 'Where wp-login.php and wp-admin send visitors who are not logged in. The default, 404, shows the Page Not Found page.', 'langgam-fikir' ) ),
+                    ),
+                ),
+            ),
+        ),
+
+        /* ------------------------------------------------------- Citations */
+        'citations' => array(
+            'label' => __( 'Citations', 'langgam-fikir' ),
+            'icon'  => 'dashicons-format-quote',
+            'cards' => array(
+                array(
+                    'title'  => __( 'Citation Box', 'langgam-fikir' ),
+                    'desc'   => __( 'A "Cite this" box readers use to copy a reference in their style or download it for Zotero, Mendeley or EndNote. Books are cited as books (author, year, title, publisher, ISBN). You can also place a box anywhere with the Citation block or the [cite] shortcode.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'cite_auto'      => $f( 'checkbox', __( 'Add the citation box automatically', 'langgam-fikir' ), 0 ),
+                        'cite_on_posts'  => $f( 'checkbox', __( 'On articles', 'langgam-fikir' ), 1 ),
+                        'cite_on_books'  => $f( 'checkbox', __( 'On book pages', 'langgam-fikir' ), 1 ),
+                        'cite_on_pages'  => $f( 'checkbox', __( 'On pages', 'langgam-fikir' ), 0 ),
+                        'cite_position'  => $f( 'select', __( 'Position on articles and pages', 'langgam-fikir' ), 'bottom', __( 'On book pages the box sits under the synopsis.', 'langgam-fikir' ), array( 'choices' => array(
+                            'bottom' => __( 'After the text', 'langgam-fikir' ),
+                            'top'    => __( 'Before the text', 'langgam-fikir' ),
+                        ) ) ),
+                        'cite_exclude'   => $f( 'text', __( 'Never on these posts', 'langgam-fikir' ), '', __( 'Post IDs separated by commas.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Styles and Exports', 'langgam-fikir' ),
+                    'desc'   => __( 'The citation styles readers can pick from (the first ticked is shown first) and the files they can download.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'cite_formats' => $f( 'checklist', __( 'Citation styles', 'langgam-fikir' ), implode( ',', array_keys( langgam_fikir_cite_format_names() ) ), '', array( 'choices' => langgam_fikir_cite_format_names(), 'min_one' => 'apa' ) ),
+                        'cite_exports' => $f( 'checklist', __( 'Download formats', 'langgam-fikir' ), 'bibtex,ris,endnote,csl-json,cff,dublin-core', __( 'Untick them all to hide the download menu.', 'langgam-fikir' ), array( 'choices' => langgam_fikir_cite_export_names() ) ),
+                        'cite_picker'  => $f( 'select', __( 'Style picker', 'langgam-fikir' ), 'dropdown', '', array( 'choices' => array(
+                            'dropdown' => __( 'Drop-down menu', 'langgam-fikir' ),
+                            'tabs'     => __( 'Tabs', 'langgam-fikir' ),
+                            'buttons'  => __( 'Buttons', 'langgam-fikir' ),
+                        ) ) ),
+                        'cite_box'     => $f( 'select', __( 'Box style', 'langgam-fikir' ), 'classic', __( 'Colours, fonts and corners follow the Design tab.', 'langgam-fikir' ), array( 'choices' => array(
+                            'classic'  => __( 'Classic (accent bar, tinted header)', 'langgam-fikir' ),
+                            'academic' => __( 'Academic (ruled, bookish)', 'langgam-fikir' ),
+                            'minimal'  => __( 'Minimal (no frame)', 'langgam-fikir' ),
+                        ) ) ),
+                        'cite_toggle'  => $f( 'checkbox', __( 'Show the collapse button', 'langgam-fikir' ), 1 ),
+                        'cite_et_al'   => $f( 'number', __( 'Use "et al." after this many authors', 'langgam-fikir' ), 3, '', array( 'min' => 1, 'max' => 999 ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Scholarly Metadata', 'langgam-fikir' ),
+                    'desc'   => __( 'Helps Google Scholar and reference managers recognise articles and books.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'cite_scholar' => $f( 'checkbox', __( 'Google Scholar tags (citation_title, citation_author and so on)', 'langgam-fikir' ), 1 ),
+                        'cite_schema'  => $f( 'checkbox', __( 'Mark articles as ScholarlyArticle in Schema.org', 'langgam-fikir' ), 1, __( 'Added to the theme\'s existing article data, not as a second copy.', 'langgam-fikir' ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Citation Analytics', 'langgam-fikir' ),
+                    'desc'   => __( 'Counts how often citations are shown, copied and downloaded. Stored on this site only; see Appearance > Citation Analytics.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'cite_analytics' => $f( 'checkbox', __( 'Count citation views, copies and downloads', 'langgam-fikir' ), 0 ),
+                        'cite_consent'   => $f( 'checkbox', __( 'Only count visitors who accepted statistics cookies', 'langgam-fikir' ), 1, __( 'Reads the consent cookie of CookieYes, Complianz, Cookiebot, GDPR Cookie Compliance or Borlabs. Without a consent plugin, counting is allowed.', 'langgam-fikir' ) ),
+                        'cite_cooldown'  => $f( 'select', __( 'Count repeat actions', 'langgam-fikir' ), 'session', '', array( 'choices' => array(
+                            'session' => __( 'Once a minute per visitor (no personal data stored)', 'langgam-fikir' ),
+                            'ip_hash' => __( 'Once a minute per IP address (a one-way hash, kept briefly)', 'langgam-fikir' ),
+                            'none'    => __( 'Every time', 'langgam-fikir' ),
+                        ) ) ),
+                        'cite_retention' => $f( 'select', __( 'Keep records for', 'langgam-fikir' ), '90', '', array( 'choices' => array(
+                            '30'  => __( '30 days', 'langgam-fikir' ),
+                            '90'  => __( '90 days', 'langgam-fikir' ),
+                            '180' => __( '180 days', 'langgam-fikir' ),
+                            '365' => __( 'One year', 'langgam-fikir' ),
+                            '0'   => __( 'Forever', 'langgam-fikir' ),
                         ) ) ),
                     ),
                 ),
@@ -324,6 +498,17 @@ function langgam_fikir_extra_options_schema() {
             'existing' => true,
             'cards'    => array(
                 array(
+                    'title'  => __( 'Search Engines', 'langgam-fikir' ),
+                    'desc'   => __( 'Who prints the meta description, social sharing tags and the site-wide Schema.org data. With an SEO plugin (Rank Math, Yoast, All in One SEO, SEOPress, The SEO Framework) the theme steps back and only adds Book, the publications list and FAQ data to the plugin\'s own graph, so nothing is printed twice.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'seo_mode' => $f( 'select', __( 'SEO output', 'langgam-fikir' ), 'auto', __( 'Automatic is right for almost every site.', 'langgam-fikir' ), array( 'choices' => array(
+                            'auto'   => __( 'Automatic: the SEO plugin if one is active, otherwise the theme', 'langgam-fikir' ),
+                            'theme'  => __( 'Always the theme (switch the plugin\'s meta and schema off)', 'langgam-fikir' ),
+                            'plugin' => __( 'Never the theme for meta and site-wide schema', 'langgam-fikir' ),
+                        ) ) ),
+                    ),
+                ),
+                array(
                     'title'  => __( 'More Social Profiles', 'langgam-fikir' ),
                     'desc'   => __( 'Further profiles shown as icons beside the four above (in the footer and on the Contact page) and listed in Schema.org sameAs. Leave a field empty to hide that icon.', 'langgam-fikir' ),
                     'fields' => array(
@@ -474,6 +659,18 @@ function langgam_fikir_sanitize_extra_options( $input ) {
     $schemes = langgam_fikir_color_schemes();
 
     foreach ( langgam_fikir_extra_fields() as $key => $field ) {
+        if ( 'checklist' === $field['type'] ) {
+            // Submitted as an array of ticked keys (or already stored as a comma list).
+            $picked = isset( $input[ $key ] ) ? $input[ $key ] : array();
+            $picked = is_array( $picked ) ? $picked : explode( ',', (string) $picked );
+            $picked = array_values( array_intersect( array_keys( $field['choices'] ), array_map( 'trim', array_map( 'strval', wp_unslash( $picked ) ) ) ) );
+            if ( ! $picked && ! empty( $field['min_one'] ) ) {
+                $picked = array( $field['min_one'] );
+            }
+            $clean[ $key ] = implode( ',', $picked );
+            continue;
+        }
+
         $raw = isset( $input[ $key ] ) && is_scalar( $input[ $key ] ) ? wp_unslash( (string) $input[ $key ] ) : '';
 
         switch ( $field['type'] ) {
@@ -492,6 +689,11 @@ function langgam_fikir_sanitize_extra_options( $input ) {
             case 'number':
                 $clean[ $key ] = '' === $raw ? $field['default'] : max( $field['min'], min( $field['max'], absint( $raw ) ) );
                 break;
+            case 'slug':
+                $clean[ $key ] = function_exists( 'langgam_fikir_login_address_clean_slug' )
+                    ? langgam_fikir_login_address_clean_slug( $raw, $field['default'] )
+                    : ( sanitize_title_with_dashes( $raw ) ? sanitize_title_with_dashes( $raw ) : $field['default'] );
+                break;
             case 'image':
                 $id            = absint( $raw );
                 $clean[ $key ] = ( $id && wp_attachment_is_image( $id ) ) ? $id : 0;
@@ -508,6 +710,11 @@ function langgam_fikir_sanitize_extra_options( $input ) {
             default:
                 $clean[ $key ] = sanitize_text_field( $raw );
         }
+    }
+
+    // The redirect must never be the login itself.
+    if ( isset( $clean['login_slug'], $clean['login_redirect'] ) && $clean['login_slug'] === $clean['login_redirect'] ) {
+        $clean['login_redirect'] = '404' === $clean['login_slug'] ? 'not-found' : '404';
     }
 
     return $clean;
