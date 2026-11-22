@@ -114,6 +114,61 @@ function langgam_fikir_color_schemes() {
 }
 
 /**
+ * Every profile network the theme has an icon for (assets/icons/), in display order:
+ * icon slug => array( name, option key, group ). Groups: social, work, audio, identity.
+ * Facebook, Instagram, X and WhatsApp keep their original option keys (set on the hand-written
+ * part of the Social & SEO tab). Lives here because Theme Options builds its fields from it.
+ */
+function langgam_fikir_social_catalog() {
+    return array(
+        'facebook'          => array( 'Facebook', 'social_facebook', 'social' ),
+        'instagram'         => array( 'Instagram', 'social_instagram', 'social' ),
+        'x'                 => array( 'X', 'social_twitter', 'social' ),
+        'whatsapp'          => array( 'WhatsApp', 'social_whatsapp', 'social' ),
+        'linkedin'          => array( 'LinkedIn', 'social_linkedin', 'social' ),
+        'threads'           => array( 'Threads', 'social_threads', 'social' ),
+        'tiktok'            => array( 'TikTok', 'social_tiktok', 'social' ),
+        'youtube'           => array( 'YouTube', 'social_youtube', 'social' ),
+        'telegram'          => array( 'Telegram', 'social_telegram', 'social' ),
+        'bluesky'           => array( 'Bluesky', 'social_bluesky', 'social' ),
+        'mastodon'          => array( 'Mastodon', 'social_mastodon', 'social' ),
+        'pinterest'         => array( 'Pinterest', 'social_pinterest', 'social' ),
+        'gtribe'            => array( 'GTribe', 'social_gtribe', 'social' ),
+        'reddit'            => array( 'Reddit', 'social_reddit', 'social' ),
+        'discord'           => array( 'Discord', 'social_discord', 'social' ),
+        'tumblr'            => array( 'Tumblr', 'social_tumblr', 'social' ),
+        'snapchat'          => array( 'Snapchat', 'social_snapchat', 'social' ),
+        'line'              => array( 'LINE', 'social_line', 'social' ),
+        'signal'            => array( 'Signal', 'social_signal', 'social' ),
+        'wechat'            => array( 'WeChat', 'social_wechat', 'social' ),
+        'quora'             => array( 'Quora', 'social_quora', 'social' ),
+        'vimeo'             => array( 'Vimeo', 'social_vimeo', 'social' ),
+        'twitch'            => array( 'Twitch', 'social_twitch', 'social' ),
+        'flickr'            => array( 'Flickr', 'social_flickr', 'social' ),
+        'goodreads'         => array( 'Goodreads', 'social_goodreads', 'work' ),
+        'medium'            => array( 'Medium', 'social_medium', 'work' ),
+        'substack'          => array( 'Substack', 'social_substack', 'work' ),
+        'issuu'             => array( 'Issuu', 'social_issuu', 'work' ),
+        'academia'          => array( 'Academia.edu', 'social_academia', 'work' ),
+        'wordpress'         => array( 'WordPress', 'social_wordpress', 'work' ),
+        'wordpress-profile' => array( 'WordPress.org', 'social_wordpress_profile', 'work' ),
+        'github'            => array( 'GitHub', 'social_github', 'work' ),
+        'behance'           => array( 'Behance', 'social_behance', 'work' ),
+        'dribbble'          => array( 'Dribbble', 'social_dribbble', 'work' ),
+        'fiverr'            => array( 'Fiverr', 'social_fiverr', 'work' ),
+        'spotify'           => array( 'Spotify', 'social_spotify', 'audio' ),
+        'soundcloud'        => array( 'SoundCloud', 'social_soundcloud', 'audio' ),
+        'suno'              => array( 'Suno', 'social_suno', 'audio' ),
+        'orcid'             => array( 'ORCID', 'social_orcid', 'identity' ),
+        'isni'              => array( 'ISNI', 'social_isni', 'identity' ),
+        'viaf'              => array( 'VIAF', 'social_viaf', 'identity' ),
+        'oclc'              => array( 'OCLC WorldCat', 'social_oclc', 'identity' ),
+        'wikidata'          => array( 'Wikidata', 'social_wikidata', 'identity' ),
+        'wikipedia'         => array( 'Wikipedia', 'social_wikipedia', 'identity' ),
+    );
+}
+
+/**
  * The extra Theme Options tabs and cards.
  *
  * Each tab: label, icon, optional 'existing' => true (adds cards to a hand-written tab),
@@ -136,6 +191,33 @@ function langgam_fikir_extra_options_schema() {
         return array_merge( array( 'type' => $type, 'label' => $label, 'default' => $default, 'desc' => $desc ), $extra );
     };
     $para = __( 'Separate paragraphs with a blank line.', 'langgam-fikir' );
+
+    // Profile cards, one per group, built from the icon catalogue. The first four social
+    // networks are on the hand-written part of the tab.
+    $groups = array(
+        'social'   => array( __( 'More Social Profiles', 'langgam-fikir' ), __( 'Shown as icons beside the four above (in the footer and on the Contact page) and listed in Schema.org sameAs, which tells search engines these accounts are yours. Leave a field empty to hide that icon.', 'langgam-fikir' ) ),
+        'work'     => array( __( 'Writing, Reading and Portfolio', 'langgam-fikir' ), __( 'Book, writing and portfolio profiles, shown and listed the same way.', 'langgam-fikir' ) ),
+        'audio'    => array( __( 'Music and Audio', 'langgam-fikir' ), __( 'Podcasts, audiobooks and music, shown and listed the same way.', 'langgam-fikir' ) ),
+        'identity' => array( __( 'Identity and Library Records', 'langgam-fikir' ), __( 'Authority records that identify the publisher or its authors in library catalogues and knowledge bases, for example https://orcid.org/0000-0002-1825-0097, https://isni.org/isni/0000000121032683, https://viaf.org/viaf/123456789, https://www.wikidata.org/wiki/Q42. They are the strongest sameAs links for search engines.', 'langgam-fikir' ) ),
+    );
+    $social_cards = array();
+    foreach ( $groups as $group => $text ) {
+        $fields = array();
+        foreach ( langgam_fikir_social_catalog() as $slug => $network ) {
+            if ( $group !== $network[2] || in_array( $slug, array( 'facebook', 'instagram', 'x', 'whatsapp' ), true ) ) {
+                continue;
+            }
+            /* translators: %s: network name */
+            $fields[ $network[1] ] = $f( 'url', sprintf( __( '%s URL', 'langgam-fikir' ), $network[0] ), '', '', array( 'allow_empty' => true ) );
+        }
+        if ( 'social' === $group ) {
+            $fields['footer_social'] = $f( 'checkbox', __( 'Show the profile icons in the footer', 'langgam-fikir' ), 1 );
+        }
+        if ( 'identity' === $group ) {
+            $fields['social_identity_icons'] = $f( 'checkbox', __( 'Show these as icons too', 'langgam-fikir' ), 1, __( 'Untick to list them in sameAs only, without icons.', 'langgam-fikir' ) );
+        }
+        $social_cards[] = array( 'title' => $text[0], 'desc' => $text[1], 'fields' => $fields );
+    }
 
     $schema = array(
 
@@ -260,6 +342,63 @@ function langgam_fikir_extra_options_schema() {
                         'login_hide'     => $f( 'checkbox', __( 'Use a private login address', 'langgam-fikir' ), 0, __( 'If comments require logging in, the comment form\'s "log in" link shows this address.', 'langgam-fikir' ) ),
                         'login_slug'     => $f( 'slug', __( 'Login address', 'langgam-fikir' ), 'login', __( 'Lower-case letters, numbers and dashes. Names WordPress already uses (such as wp-admin) are not accepted.', 'langgam-fikir' ) ),
                         'login_redirect' => $f( 'slug', __( 'Redirect address', 'langgam-fikir' ), '404', __( 'Where wp-login.php and wp-admin send visitors who are not logged in. The default, 404, shows the Page Not Found page.', 'langgam-fikir' ) ),
+                    ),
+                ),
+            ),
+        ),
+
+        /* --------------------------------------------------- Print and PDF */
+        'print'    => array(
+            'label' => __( 'Print & PDF', 'langgam-fikir' ),
+            'icon'  => 'dashicons-printer',
+            'cards' => array(
+                array(
+                    'title'  => __( 'Print and PDF Buttons', 'langgam-fikir' ),
+                    'desc'   => __( 'A Print button beside the share buttons. Readers print, or choose Save as PDF in the print dialog. With Chrome on the server (below), a Download PDF button gives them a ready-made file instead.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'print_on_posts' => $f( 'checkbox', __( 'On articles', 'langgam-fikir' ), 1 ),
+                        'print_on_books' => $f( 'checkbox', __( 'On book pages', 'langgam-fikir' ), 1 ),
+                        'print_on_pages' => $f( 'checkbox', __( 'On pages', 'langgam-fikir' ), 0, __( 'Printing always works from the browser menu; these only add the buttons.', 'langgam-fikir' ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'Printed Page', 'langgam-fikir' ),
+                    'desc'   => __( 'How every page looks on paper and in a PDF: the menu, footer, buttons and forms are left out, the text is set in the body font in black on white, and headings, images and tables are kept off page breaks.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'print_paper'   => $f( 'select', __( 'Paper size', 'langgam-fikir' ), 'A4', '', array( 'choices' => array(
+                            'A4'     => __( 'A4 (210 × 297 mm)', 'langgam-fikir' ),
+                            'A5'     => __( 'A5 (148 × 210 mm, book size)', 'langgam-fikir' ),
+                            'letter' => __( 'US Letter (8.5 × 11 in)', 'langgam-fikir' ),
+                        ) ) ),
+                        'print_margins' => $f( 'select', __( 'Margins', 'langgam-fikir' ), 'normal', '', array( 'choices' => array(
+                            'narrow' => __( 'Narrow (12 mm)', 'langgam-fikir' ),
+                            'normal' => __( 'Normal (18 mm)', 'langgam-fikir' ),
+                            'wide'   => __( 'Wide (25 mm)', 'langgam-fikir' ),
+                        ) ) ),
+                        'print_size'    => $f( 'select', __( 'Text size', 'langgam-fikir' ), '11', '', array( 'choices' => array(
+                            '10' => __( 'Small (10 pt)', 'langgam-fikir' ),
+                            '11' => __( 'Normal (11 pt)', 'langgam-fikir' ),
+                            '12' => __( 'Large (12 pt)', 'langgam-fikir' ),
+                            '13' => __( 'Extra large (13 pt)', 'langgam-fikir' ),
+                        ) ) ),
+                        'print_header'   => $f( 'checkbox', __( 'Site name and logo at the top', 'langgam-fikir' ), 1 ),
+                        'print_footer'   => $f( 'checkbox', __( 'Web address and print date at the end', 'langgam-fikir' ), 1 ),
+                        'print_citation' => $f( 'checkbox', __( 'A ready-made citation at the end', 'langgam-fikir' ), 1, __( 'In the first style ticked under Citations. Pages that already show a citation box print that instead.', 'langgam-fikir' ) ),
+                        'print_links'    => $f( 'checkbox', __( 'Print the web address after each link', 'langgam-fikir' ), 1, __( 'Only links to other websites, so a reader of the paper copy can still follow them.', 'langgam-fikir' ) ),
+                        'print_images'   => $f( 'checkbox', __( 'Print images', 'langgam-fikir' ), 1, __( 'Untick to save ink: book covers are still printed.', 'langgam-fikir' ) ),
+                    ),
+                ),
+                array(
+                    'title'  => __( 'PDF Files on the Server', 'langgam-fikir' ),
+                    'desc'   => __( 'Google Chrome or Chromium installed on the web server can turn a page into a PDF file, using the printed-page settings above. Each file is made once and kept until the page or these settings change. Most shared hosting has no Chrome: the status below says whether this server can do it. Without it the button opens the print dialog, where readers can save a PDF themselves.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'pdf_engine'     => $f( 'select', __( 'Make PDFs with', 'langgam-fikir' ), 'browser', '', array( 'choices' => array(
+                            'browser' => __( "The reader's browser (Save as PDF in the print dialog)", 'langgam-fikir' ),
+                            'chrome'  => __( 'Chrome on this server (a Download PDF button)', 'langgam-fikir' ),
+                        ) ) ),
+                        'pdf_chrome_path' => $f( 'text', __( 'Chrome program', 'langgam-fikir' ), '', __( 'Full path, for example /usr/bin/google-chrome. Leave empty to look in the usual places.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                        'pdf_no_sandbox'  => $f( 'checkbox', __( 'Run Chrome without its sandbox', 'langgam-fikir' ), 0, __( 'Only if the status says Chrome fails to start: some servers and containers need it.', 'langgam-fikir' ) ),
+                        'pdf_status'      => $f( 'status', __( 'Status', 'langgam-fikir' ), '', '', array( 'callback' => 'langgam_fikir_pdf_status_html' ) ),
                     ),
                 ),
             ),
@@ -509,25 +648,6 @@ function langgam_fikir_extra_options_schema() {
                     ),
                 ),
                 array(
-                    'title'  => __( 'More Social Profiles', 'langgam-fikir' ),
-                    'desc'   => __( 'Further profiles shown as icons beside the four above (in the footer and on the Contact page) and listed in Schema.org sameAs. Leave a field empty to hide that icon.', 'langgam-fikir' ),
-                    'fields' => array(
-                        'social_linkedin' => $f( 'url', __( 'LinkedIn URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_threads' => $f( 'url', __( 'Threads URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_tiktok' => $f( 'url', __( 'TikTok URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_youtube' => $f( 'url', __( 'YouTube URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_telegram' => $f( 'url', __( 'Telegram URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_bluesky' => $f( 'url', __( 'Bluesky URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_mastodon' => $f( 'url', __( 'Mastodon URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_goodreads' => $f( 'url', __( 'Goodreads URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_medium' => $f( 'url', __( 'Medium URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_substack' => $f( 'url', __( 'Substack URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_spotify' => $f( 'url', __( 'Spotify URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'social_pinterest' => $f( 'url', __( 'Pinterest URL', 'langgam-fikir' ), '', '', array( 'allow_empty' => true ) ),
-                        'footer_social' => $f( 'checkbox', __( 'Show the profile icons in the footer', 'langgam-fikir' ), 1 ),
-                    ),
-                ),
-                array(
                     'title'  => __( 'Share Buttons', 'langgam-fikir' ),
                     'desc'   => __( 'The buttons visitors use to share a book, article or page, and where they appear.', 'langgam-fikir' ),
                     'fields' => array(
@@ -539,6 +659,9 @@ function langgam_fikir_extra_options_schema() {
                         'share_threads' => $f( 'checkbox', __( 'Threads', 'langgam-fikir' ), 0 ),
                         'share_bluesky' => $f( 'checkbox', __( 'Bluesky', 'langgam-fikir' ), 0 ),
                         'share_reddit' => $f( 'checkbox', __( 'Reddit', 'langgam-fikir' ), 0 ),
+                        'share_pinterest' => $f( 'checkbox', __( 'Pinterest', 'langgam-fikir' ), 0 ),
+                        'share_tumblr' => $f( 'checkbox', __( 'Tumblr', 'langgam-fikir' ), 0 ),
+                        'share_line' => $f( 'checkbox', __( 'LINE', 'langgam-fikir' ), 0 ),
                         'share_copy' => $f( 'checkbox', __( 'Copy link button', 'langgam-fikir' ), 1 ),
                         'share_on_books' => $f( 'checkbox', __( 'Show on book pages', 'langgam-fikir' ), 1 ),
                         'share_on_posts' => $f( 'checkbox', __( 'Show on articles', 'langgam-fikir' ), 1 ),
@@ -616,6 +739,9 @@ function langgam_fikir_extra_options_schema() {
         ),
     );
 
+    // The profile cards go after Search Engines, before Share Buttons.
+    array_splice( $schema['social']['cards'], 1, 0, $social_cards );
+
     return $schema;
 }
 
@@ -672,6 +798,10 @@ function langgam_fikir_sanitize_extra_options( $input ) {
         }
 
         $raw = isset( $input[ $key ] ) && is_scalar( $input[ $key ] ) ? wp_unslash( (string) $input[ $key ] ) : '';
+
+        if ( 'status' === $field['type'] ) {
+            continue;
+        }
 
         switch ( $field['type'] ) {
             case 'scheme':

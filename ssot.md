@@ -131,7 +131,9 @@ LF/
 │   ├── meta-boxes.php                 Book details, contact, about (registration + save)
 │   ├── options-schema.php             Schema for the Design, About & Contact Pages and Labels tabs and extra cards; defaults, sanitising, langgam_fikir_text()
 │   ├── book-fields.php                Book field schema (editor box, saving, page rows, Schema.org extras), archive sort, admin columns
-│   ├── social.php                     Profile icons, share bar and networks; inlines assets/icons/*.svg
+│   ├── social.php                     Profile icons, share bar and networks (from langgam_fikir_social_catalog() in options-schema.php); inlines assets/icons/*.svg
+│   ├── print.php                      Print stylesheet set-up (@page), Print button, paper-only header and footer
+│   ├── pdf.php                        Server PDFs with headless Chrome: detection, making, caching, download, admin status
 │   ├── design.php                     Body classes for palette/corners/fonts/parallax, custom-colour CSS, hero photo
 │   ├── template-functions.php         Shared helpers, language helpers
 │   ├── template-hooks.php             Action/filter hooks
@@ -158,8 +160,8 @@ LF/
 │       ├── showcase.php               Interactive homepage Showcase (books here are excluded from Latest Publications)
 │       └── reviews-section.php        Reviews list with star widget
 ├── assets/
-│   ├── css/                           main.css, design.css, additional.css, admin.css, theme-options.css, fonts.css, fonts-premium.css, showcase.css
-│   ├── js/                            main.js, admin.js, theme-options.js, showcase.js, webmcp.js
+│   ├── css/                           main.css, design.css, additional.css, admin.css, theme-options.css, fonts.css, fonts-premium.css, showcase.css, print.css, login.css, justify.css, citations.css, citations-admin.css
+│   ├── js/                            main.js, admin.js, theme-options.js, showcase.js, webmcp.js, print.js, citations.js, citations-block.js, citations-admin.js
 │   ├── icons/                         Monochrome social SVGs (GPL icon pack; LinkedIn drawn for the theme, no Scribd; see its README.txt)
 │   ├── images/hero/                   Bundled hero photographs (Pexels), 1920 and 960 px
 │   └── fonts/                         Self-hosted WOFF2
@@ -321,6 +323,19 @@ Not a plugin: a browser API (W3C Web Machine Learning CG draft) that the theme t
 - **Options:** `webmcp_enabled`, `webmcp_contact_form`, `webmcp_origin_trial_token` under the Social & SEO tab. The token is emitted as `<meta http-equiv="origin-trial">` at `wp_head` priority 1.
 - **Spec status:** draft; the declarative API's schema synthesis and response delivery are open upstream. Re-check the spec before extending declarative use.
 
+### 7.5 Print and server PDFs (2.16.0)
+
+Not a plugin: the print stylesheet (`assets/css/print.css`) loads on every page with `@page` rules from **Theme Options > Print & PDF** added inline (`langgam_fikir_print_page_css()`). Print colours come from turning the colour tokens to ink inside `@media print`, so new components print correctly as long as they use the tokens.
+
+Server PDFs (`inc/pdf.php`) run headless Chrome on the site's own permalink with `?lf-print=pdf`. Rules:
+- **No shell:** `proc_open()` with an argument array, a 90-second limit, and a throw-away profile; background networking is off.
+- **Program check:** the program must be an executable whose name looks like Chrome, Chromium or Edge (`langgam_fikir_pdf_path_ok()`).
+- **Page check:** the page is fetched first and must return 200 with the `lf-print-pdf` body class, so error pages and cached foreign copies are never printed.
+- **What gets a PDF:** published, public, non-password-protected articles, books and pages whose Print button is on.
+- **One PDF at a time:** transient `lf_pdf_lock`; anyone else, and every failure, goes to `?lf-print=1`, which opens the print dialog.
+- **Storage:** files go in `uploads/langgam-fikir-pdf/{ID}-{fingerprint}.pdf`. The fingerprint covers `post_modified_gmt`, the theme version and the print, palette and citation settings. Files are removed on `save_post`, on post deletion and when the print settings change.
+- **Status:** the admin status (`langgam_fikir_pdf_status_html()`) is the place to check what the server can do.
+
 ---
 
 ## 8. Documentation Conventions
@@ -381,7 +396,7 @@ When in doubt, defer to MENJ. Brand decisions, scope decisions, and "is this in 
 
 | Field | Value |
 |---|---|
-| Latest released version | **2.15.0** |
+| Latest released version | **2.16.0** |
 | Active development phase | Phase 4 (Admin Power Features) — next |
 | In-progress phase | Phase 5 (Frontend Polish) — 3 of 8 items delivered |
 | SEO/AEO audit score | **92/100** (last assessed at v2.6.0) |

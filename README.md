@@ -290,6 +290,12 @@ Edit `/assets/css/main.css`:
 
 ## Version History / Changelog
 
+### Version 2.16.0 (November 2026) — Print & PDF
+
+- **NEW:** Print stylesheet for every page and a Print button on articles and books (Theme Options > Print & PDF): paper size, margins, text size, header, footer, citation, link addresses
+- **NEW:** Download PDF made on the server with headless Chrome when available; otherwise the browser's Save as PDF
+- **NEW:** All 44 profile icons usable, in four groups, including identity and library records (ORCID, ISNI, VIAF, OCLC, Wikidata) for Schema.org sameAs; Pinterest, Tumblr and LINE share buttons
+
 ### Version 2.15.0 (November 2026) — Built-in plugins
 
 - **NEW:** Text justification (Theme Options > Design > Text Justification)

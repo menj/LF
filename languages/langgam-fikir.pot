@@ -3699,3 +3699,270 @@ msgstr ""
 #: inc/login-address.php
 msgid "Where wp-login.php and wp-admin send visitors who are not logged in. The default, 404, shows the Page Not Found page."
 msgstr ""
+
+#: inc/print.php
+msgid "Print this page"
+msgstr ""
+
+#: inc/print.php
+msgid "Print this page or save it as a PDF"
+msgstr ""
+
+#: inc/print.php
+msgid "Print"
+msgstr ""
+
+#: inc/print.php
+msgid "Print / PDF"
+msgstr ""
+
+#: inc/print.php
+msgid "Download this page as a PDF file"
+msgstr ""
+
+#: inc/print.php
+msgid "Download PDF"
+msgstr ""
+
+#: inc/print.php
+msgid "Cite this:"
+msgstr ""
+
+#: inc/print.php
+#, php-format
+msgid "From %1$s, printed on %2$s."
+msgstr ""
+
+#: inc/print.php
+msgid "Chrome found:"
+msgstr ""
+
+#: inc/print.php
+msgid "Download PDF buttons are on."
+msgstr ""
+
+#: inc/print.php
+msgid "Choose \"Chrome on this server\" above to offer Download PDF buttons."
+msgstr ""
+
+#: inc/print.php
+msgid "This server does not let PHP start programs (proc_open is disabled), so PDFs are made in the reader's browser."
+msgstr ""
+
+#: inc/print.php
+msgid "The Chrome program above was not found, is not executable, or did not answer. Check the path, or leave it empty to search."
+msgstr ""
+
+#: inc/print.php
+msgid "Chrome or Chromium is not installed on this server, so PDFs are made in the reader's browser. Your host can install it, or enter its path above."
+msgstr ""
+
+#: inc/print.php
+#, php-format
+msgid "The last PDF failed (%1$s). Chrome said: %2$s"
+msgstr ""
+
+#: inc/print.php
+msgid "no answer within 90 seconds"
+msgstr ""
+
+#: inc/print.php
+msgid "Readers get the print dialog meanwhile. If Chrome cannot start, try \"Run Chrome without its sandbox\"."
+msgstr ""
+
+#: inc/print.php
+msgid "Shown as icons beside the four above (in the footer and on the Contact page) and listed in Schema.org sameAs, which tells search engines these accounts are yours. Leave a field empty to hide that icon."
+msgstr ""
+
+#: inc/print.php
+msgid "Writing, Reading and Portfolio"
+msgstr ""
+
+#: inc/print.php
+msgid "Book, writing and portfolio profiles, shown and listed the same way."
+msgstr ""
+
+#: inc/print.php
+msgid "Music and Audio"
+msgstr ""
+
+#: inc/print.php
+msgid "Podcasts, audiobooks and music, shown and listed the same way."
+msgstr ""
+
+#: inc/print.php
+msgid "Identity and Library Records"
+msgstr ""
+
+#: inc/print.php
+msgid "Authority records that identify the publisher or its authors in library catalogues and knowledge bases, for example https://orcid.org/0000-0002-1825-0097, https://isni.org/isni/0000000121032683, https://viaf.org/viaf/123456789, https://www.wikidata.org/wiki/Q42. They are the strongest sameAs links for search engines."
+msgstr ""
+
+#: inc/print.php
+#, php-format
+msgid "%s URL"
+msgstr ""
+
+#: inc/print.php
+msgid "Show these as icons too"
+msgstr ""
+
+#: inc/print.php
+msgid "Untick to list them in sameAs only, without icons."
+msgstr ""
+
+#: inc/print.php
+msgid "Print & PDF"
+msgstr ""
+
+#: inc/print.php
+msgid "Print and PDF Buttons"
+msgstr ""
+
+#: inc/print.php
+msgid "A Print button beside the share buttons. Readers print, or choose Save as PDF in the print dialog. With Chrome on the server (below), a Download PDF button gives them a ready-made file instead."
+msgstr ""
+
+#: inc/print.php
+msgid "Printing always works from the browser menu; these only add the buttons."
+msgstr ""
+
+#: inc/print.php
+msgid "Printed Page"
+msgstr ""
+
+#: inc/print.php
+msgid "How every page looks on paper and in a PDF: the menu, footer, buttons and forms are left out, the text is set in the body font in black on white, and headings, images and tables are kept off page breaks."
+msgstr ""
+
+#: inc/print.php
+msgid "Paper size"
+msgstr ""
+
+#: inc/print.php
+msgid "A4 (210 × 297 mm)"
+msgstr ""
+
+#: inc/print.php
+msgid "A5 (148 × 210 mm, book size)"
+msgstr ""
+
+#: inc/print.php
+msgid "US Letter (8.5 × 11 in)"
+msgstr ""
+
+#: inc/print.php
+msgid "Margins"
+msgstr ""
+
+#: inc/print.php
+msgid "Narrow (12 mm)"
+msgstr ""
+
+#: inc/print.php
+msgid "Normal (18 mm)"
+msgstr ""
+
+#: inc/print.php
+msgid "Wide (25 mm)"
+msgstr ""
+
+#: inc/print.php
+msgid "Text size"
+msgstr ""
+
+#: inc/print.php
+msgid "Small (10 pt)"
+msgstr ""
+
+#: inc/print.php
+msgid "Normal (11 pt)"
+msgstr ""
+
+#: inc/print.php
+msgid "Large (12 pt)"
+msgstr ""
+
+#: inc/print.php
+msgid "Extra large (13 pt)"
+msgstr ""
+
+#: inc/print.php
+msgid "Site name and logo at the top"
+msgstr ""
+
+#: inc/print.php
+msgid "Web address and print date at the end"
+msgstr ""
+
+#: inc/print.php
+msgid "A ready-made citation at the end"
+msgstr ""
+
+#: inc/print.php
+msgid "In the first style ticked under Citations. Pages that already show a citation box print that instead."
+msgstr ""
+
+#: inc/print.php
+msgid "Print the web address after each link"
+msgstr ""
+
+#: inc/print.php
+msgid "Only links to other websites, so a reader of the paper copy can still follow them."
+msgstr ""
+
+#: inc/print.php
+msgid "Print images"
+msgstr ""
+
+#: inc/print.php
+msgid "Untick to save ink: book covers are still printed."
+msgstr ""
+
+#: inc/print.php
+msgid "PDF Files on the Server"
+msgstr ""
+
+#: inc/print.php
+msgid "Google Chrome or Chromium installed on the web server can turn a page into a PDF file, using the printed-page settings above. Each file is made once and kept until the page or these settings change. Most shared hosting has no Chrome: the status below says whether this server can do it. Without it the button opens the print dialog, where readers can save a PDF themselves."
+msgstr ""
+
+#: inc/print.php
+msgid "Make PDFs with"
+msgstr ""
+
+#: inc/print.php
+msgid "The reader's browser (Save as PDF in the print dialog)"
+msgstr ""
+
+#: inc/print.php
+msgid "Chrome on this server (a Download PDF button)"
+msgstr ""
+
+#: inc/print.php
+msgid "Chrome program"
+msgstr ""
+
+#: inc/print.php
+msgid "Full path, for example /usr/bin/google-chrome. Leave empty to look in the usual places."
+msgstr ""
+
+#: inc/print.php
+msgid "Run Chrome without its sandbox"
+msgstr ""
+
+#: inc/print.php
+msgid "Only if the status says Chrome fails to start: some servers and containers need it."
+msgstr ""
+
+#: inc/print.php
+msgid "Pinterest"
+msgstr ""
+
+#: inc/print.php
+msgid "Tumblr"
+msgstr ""
+
+#: inc/print.php
+msgid "LINE"
+msgstr ""

@@ -235,6 +235,9 @@ get_header();
                         if ( langgam_fikir_share_enabled_for( 'book' ) ) {
                             langgam_fikir_render_share_bar();
                         }
+                        if ( function_exists( 'langgam_fikir_render_print_actions' ) ) {
+                            langgam_fikir_render_print_actions();
+                        }
                         ?>
 
                     </div>

@@ -118,7 +118,16 @@ For manual server access:
 
 ## Version-Specific Upgrade Notes
 
-### Upgrading to 2.15.0 (Latest) ✅
+### Upgrading to 2.16.0 (Latest) ✅
+
+**Status:** RELEASED — Print & PDF, more social profiles.
+
+- Nothing to do. Print buttons appear on articles and book pages; turn them off, or on for pages, in **Theme Options > Print & PDF**.
+- **Server PDFs** are off until you choose **Make PDFs with: Chrome on this server**. The Status line says whether the server has Chrome. Most shared hosting does not; ask your host, or keep the browser option.
+- PDFs are kept in `wp-content/uploads/langgam-fikir-pdf/`. Saving a page or the print settings replaces them; deleting the folder is safe.
+- New profile fields on **Social & SEO**: add your ORCID, ISNI, VIAF, OCLC and Wikidata records under Identity and Library Records. They help search engines connect the publisher and its authors to library catalogues.
+
+### Upgrading to 2.15.0 ✅
 
 **Status:** RELEASED — built-in plugins.
 

@@ -5,6 +5,33 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.16.0] - 2026-11-22
+
+Print and PDF, and every icon in the social icon pack usable as a profile.
+
+### Added
+- **Print stylesheet for every page** (`assets/css/print.css`, `inc/print.php`), set up in the new **Theme Options > Print & PDF** tab. It follows long-standing print practice:
+  - the menu, footer, breadcrumbs, contents box, buttons, forms, embeds and related lists are left out;
+  - black text on white: the colour tokens turn to ink, so the theme's own rules print black;
+  - headings stay with what follows; images, tables, quotes and FAQ answers are kept whole; three-line orphans and widows; table headers repeat on each page;
+  - the address after links to other websites (not after links within the site, in-page links or images);
+  - book pages print the cover beside the details;
+  - every FAQ answer prints open.
+- **Page set-up:** paper size (A4, A5, US Letter), margins (12, 18 or 25 mm) and text size (10–13 pt) as `@page` rules. Optional: the site name and logo at the top, the web address and print date at the end, a ready-made citation at the end (in the first citation style; skipped where a citation box already prints), link addresses, and images (book covers always print).
+- **Print button** beside the share buttons on articles and book pages (pages optional), or on its own row when the share bar is off. It opens the print dialog, where readers can also choose Save as PDF.
+- **Server PDFs with headless Chrome** (`inc/pdf.php`): with Chrome or Chromium on the server and **Make PDFs with: Chrome on this server**, a **Download PDF** button gives a ready-made file:
+  - made from the page's own address with the print stylesheet, so it matches the printout;
+  - kept in `uploads/langgam-fikir-pdf/` (not browsable) and reused until the page, the theme version or the print settings change;
+  - Chrome is run without a shell, with a time limit, background networking off and a throw-away profile; one PDF is made at a time;
+  - the page is loaded first, so an error page is never turned into a PDF;
+  - only published, public, non-password-protected articles, books and pages with the button;
+  - whenever the server cannot make the file, the reader gets the print dialog instead.
+
+  The settings show whether this server can do it: the Chrome found and its version, or why not (PHP may not start programs, Chrome missing, wrong path), and the last error. Chrome is found automatically, or set its path. A "without its sandbox" switch is there for servers that need it.
+- **All 44 profile icons** from the icon pack in `assets/icons/` are now usable, in four cards on **Social & SEO**: More Social Profiles (GTribe, Reddit, Discord, Tumblr, Snapchat, LINE, Signal, WeChat, Quora, Vimeo, Twitch, Flickr added), Writing, Reading and Portfolio (Issuu, Academia.edu, WordPress, WordPress.org, GitHub, Behance, Dribbble, Fiverr added), Music and Audio (SoundCloud, Suno added), and **Identity and Library Records**: ORCID, ISNI, VIAF, OCLC WorldCat, Wikidata, Wikipedia. Every profile goes into Schema.org `sameAs`; identity records can be listed there without showing icons. One catalogue (`langgam_fikir_social_catalog()`) drives the settings, the icons and `sameAs`. Scribd stays out: its icon needs a visible Font Awesome credit.
+- **Share buttons:** Pinterest, Tumblr and LINE.
+- **Theme Options field type:** `status`, a read-only report.
+
 ## [2.15.0] - 2026-11-19
 
 Built-in features that used to need plugins: they work as soon as the theme is active.

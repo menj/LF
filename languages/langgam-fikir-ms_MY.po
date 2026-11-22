@@ -3877,3 +3877,270 @@ msgstr "Alamat ubah hala"
 #: inc/login-address.php
 msgid "Where wp-login.php and wp-admin send visitors who are not logged in. The default, 404, shows the Page Not Found page."
 msgstr "Ke mana wp-login.php dan wp-admin menghantar pelawat yang belum log masuk. Lalai, 404, menunjukkan halaman Tidak Ditemui."
+
+#: inc/print.php
+msgid "Print this page"
+msgstr "Cetak halaman ini"
+
+#: inc/print.php
+msgid "Print this page or save it as a PDF"
+msgstr "Cetak halaman ini atau simpan sebagai PDF"
+
+#: inc/print.php
+msgid "Print"
+msgstr "Cetak"
+
+#: inc/print.php
+msgid "Print / PDF"
+msgstr "Cetak / PDF"
+
+#: inc/print.php
+msgid "Download this page as a PDF file"
+msgstr "Muat turun halaman ini sebagai fail PDF"
+
+#: inc/print.php
+msgid "Download PDF"
+msgstr "Muat turun PDF"
+
+#: inc/print.php
+msgid "Cite this:"
+msgstr "Petik ini:"
+
+#: inc/print.php
+#, php-format
+msgid "From %1$s, printed on %2$s."
+msgstr "Dari %1$s, dicetak pada %2$s."
+
+#: inc/print.php
+msgid "Chrome found:"
+msgstr "Chrome ditemui:"
+
+#: inc/print.php
+msgid "Download PDF buttons are on."
+msgstr "Butang Muat turun PDF dihidupkan."
+
+#: inc/print.php
+msgid "Choose \"Chrome on this server\" above to offer Download PDF buttons."
+msgstr "Pilih \"Chrome pada pelayan ini\" di atas untuk menawarkan butang Muat turun PDF."
+
+#: inc/print.php
+msgid "This server does not let PHP start programs (proc_open is disabled), so PDFs are made in the reader's browser."
+msgstr "Pelayan ini tidak membenarkan PHP memulakan program (proc_open dilumpuhkan), jadi PDF dibuat dalam pelayar pembaca."
+
+#: inc/print.php
+msgid "The Chrome program above was not found, is not executable, or did not answer. Check the path, or leave it empty to search."
+msgstr "Program Chrome di atas tidak ditemui, tidak boleh dilaksanakan atau tidak menjawab. Semak laluannya, atau biarkan kosong untuk mencari."
+
+#: inc/print.php
+msgid "Chrome or Chromium is not installed on this server, so PDFs are made in the reader's browser. Your host can install it, or enter its path above."
+msgstr "Chrome atau Chromium tidak dipasang pada pelayan ini, jadi PDF dibuat dalam pelayar pembaca. Hos anda boleh memasangnya, atau masukkan laluannya di atas."
+
+#: inc/print.php
+#, php-format
+msgid "The last PDF failed (%1$s). Chrome said: %2$s"
+msgstr "PDF terakhir gagal (%1$s). Chrome melaporkan: %2$s"
+
+#: inc/print.php
+msgid "no answer within 90 seconds"
+msgstr "tiada jawapan dalam masa 90 saat"
+
+#: inc/print.php
+msgid "Readers get the print dialog meanwhile. If Chrome cannot start, try \"Run Chrome without its sandbox\"."
+msgstr "Sementara itu pembaca mendapat dialog cetak. Jika Chrome tidak dapat dimulakan, cuba \"Jalankan Chrome tanpa kotak pasirnya\"."
+
+#: inc/print.php
+msgid "Shown as icons beside the four above (in the footer and on the Contact page) and listed in Schema.org sameAs, which tells search engines these accounts are yours. Leave a field empty to hide that icon."
+msgstr "Dipaparkan sebagai ikon di sebelah empat di atas (di kaki halaman dan pada halaman Hubungi) dan disenaraikan dalam sameAs Schema.org, yang memberitahu enjin carian bahawa akaun ini milik anda. Biarkan medan kosong untuk menyembunyikan ikon itu."
+
+#: inc/print.php
+msgid "Writing, Reading and Portfolio"
+msgstr "Penulisan, Pembacaan dan Portfolio"
+
+#: inc/print.php
+msgid "Book, writing and portfolio profiles, shown and listed the same way."
+msgstr "Profil buku, penulisan dan portfolio, dipaparkan dan disenaraikan dengan cara yang sama."
+
+#: inc/print.php
+msgid "Music and Audio"
+msgstr "Muzik dan Audio"
+
+#: inc/print.php
+msgid "Podcasts, audiobooks and music, shown and listed the same way."
+msgstr "Podcast, buku audio dan muzik, dipaparkan dan disenaraikan dengan cara yang sama."
+
+#: inc/print.php
+msgid "Identity and Library Records"
+msgstr "Rekod Identiti dan Perpustakaan"
+
+#: inc/print.php
+msgid "Authority records that identify the publisher or its authors in library catalogues and knowledge bases, for example https://orcid.org/0000-0002-1825-0097, https://isni.org/isni/0000000121032683, https://viaf.org/viaf/123456789, https://www.wikidata.org/wiki/Q42. They are the strongest sameAs links for search engines."
+msgstr "Rekod autoriti yang mengenal pasti penerbit atau pengarangnya dalam katalog perpustakaan dan pangkalan pengetahuan, contohnya https://orcid.org/0000-0002-1825-0097, https://isni.org/isni/0000000121032683, https://viaf.org/viaf/123456789, https://www.wikidata.org/wiki/Q42. Ia pautan sameAs paling kukuh untuk enjin carian."
+
+#: inc/print.php
+#, php-format
+msgid "%s URL"
+msgstr "URL %s"
+
+#: inc/print.php
+msgid "Show these as icons too"
+msgstr "Paparkan juga sebagai ikon"
+
+#: inc/print.php
+msgid "Untick to list them in sameAs only, without icons."
+msgstr "Nyahtanda untuk menyenaraikannya dalam sameAs sahaja, tanpa ikon."
+
+#: inc/print.php
+msgid "Print & PDF"
+msgstr "Cetak & PDF"
+
+#: inc/print.php
+msgid "Print and PDF Buttons"
+msgstr "Butang Cetak dan PDF"
+
+#: inc/print.php
+msgid "A Print button beside the share buttons. Readers print, or choose Save as PDF in the print dialog. With Chrome on the server (below), a Download PDF button gives them a ready-made file instead."
+msgstr "Butang Cetak di sebelah butang kongsi. Pembaca mencetak, atau memilih Simpan sebagai PDF dalam dialog cetak. Dengan Chrome pada pelayan (di bawah), butang Muat turun PDF memberi mereka fail siap."
+
+#: inc/print.php
+msgid "Printing always works from the browser menu; these only add the buttons."
+msgstr "Mencetak sentiasa boleh dari menu pelayar; tetapan ini hanya menambah butang."
+
+#: inc/print.php
+msgid "Printed Page"
+msgstr "Halaman Bercetak"
+
+#: inc/print.php
+msgid "How every page looks on paper and in a PDF: the menu, footer, buttons and forms are left out, the text is set in the body font in black on white, and headings, images and tables are kept off page breaks."
+msgstr "Rupa setiap halaman di atas kertas dan dalam PDF: menu, kaki halaman, butang dan borang ditinggalkan, teks diset dalam fon badan berwarna hitam di atas putih, dan tajuk, imej serta jadual dijauhkan daripada pemisah halaman."
+
+#: inc/print.php
+msgid "Paper size"
+msgstr "Saiz kertas"
+
+#: inc/print.php
+msgid "A4 (210 × 297 mm)"
+msgstr "A4 (210 × 297 mm)"
+
+#: inc/print.php
+msgid "A5 (148 × 210 mm, book size)"
+msgstr "A5 (148 × 210 mm, saiz buku)"
+
+#: inc/print.php
+msgid "US Letter (8.5 × 11 in)"
+msgstr "US Letter (8.5 × 11 inci)"
+
+#: inc/print.php
+msgid "Margins"
+msgstr "Jidar"
+
+#: inc/print.php
+msgid "Narrow (12 mm)"
+msgstr "Sempit (12 mm)"
+
+#: inc/print.php
+msgid "Normal (18 mm)"
+msgstr "Biasa (18 mm)"
+
+#: inc/print.php
+msgid "Wide (25 mm)"
+msgstr "Lebar (25 mm)"
+
+#: inc/print.php
+msgid "Text size"
+msgstr "Saiz teks"
+
+#: inc/print.php
+msgid "Small (10 pt)"
+msgstr "Kecil (10 pt)"
+
+#: inc/print.php
+msgid "Normal (11 pt)"
+msgstr "Biasa (11 pt)"
+
+#: inc/print.php
+msgid "Large (12 pt)"
+msgstr "Besar (12 pt)"
+
+#: inc/print.php
+msgid "Extra large (13 pt)"
+msgstr "Sangat besar (13 pt)"
+
+#: inc/print.php
+msgid "Site name and logo at the top"
+msgstr "Nama tapak dan logo di bahagian atas"
+
+#: inc/print.php
+msgid "Web address and print date at the end"
+msgstr "Alamat web dan tarikh cetak di bahagian akhir"
+
+#: inc/print.php
+msgid "A ready-made citation at the end"
+msgstr "Petikan siap di bahagian akhir"
+
+#: inc/print.php
+msgid "In the first style ticked under Citations. Pages that already show a citation box print that instead."
+msgstr "Dalam gaya pertama yang ditanda di bawah Petikan. Halaman yang sudah menunjukkan kotak petikan akan mencetak kotak itu."
+
+#: inc/print.php
+msgid "Print the web address after each link"
+msgstr "Cetak alamat web selepas setiap pautan"
+
+#: inc/print.php
+msgid "Only links to other websites, so a reader of the paper copy can still follow them."
+msgstr "Hanya pautan ke laman web lain, supaya pembaca salinan kertas masih boleh mengikutinya."
+
+#: inc/print.php
+msgid "Print images"
+msgstr "Cetak imej"
+
+#: inc/print.php
+msgid "Untick to save ink: book covers are still printed."
+msgstr "Nyahtanda untuk menjimatkan dakwat: kulit buku tetap dicetak."
+
+#: inc/print.php
+msgid "PDF Files on the Server"
+msgstr "Fail PDF pada Pelayan"
+
+#: inc/print.php
+msgid "Google Chrome or Chromium installed on the web server can turn a page into a PDF file, using the printed-page settings above. Each file is made once and kept until the page or these settings change. Most shared hosting has no Chrome: the status below says whether this server can do it. Without it the button opens the print dialog, where readers can save a PDF themselves."
+msgstr "Google Chrome atau Chromium yang dipasang pada pelayan web boleh menukar halaman menjadi fail PDF, menggunakan tetapan halaman bercetak di atas. Setiap fail dibuat sekali dan disimpan sehingga halaman atau tetapan ini berubah. Kebanyakan hos kongsi tiada Chrome: status di bawah menyatakan sama ada pelayan ini boleh melakukannya. Tanpanya butang membuka dialog cetak, tempat pembaca boleh menyimpan PDF sendiri."
+
+#: inc/print.php
+msgid "Make PDFs with"
+msgstr "Buat PDF dengan"
+
+#: inc/print.php
+msgid "The reader's browser (Save as PDF in the print dialog)"
+msgstr "Pelayar pembaca (Simpan sebagai PDF dalam dialog cetak)"
+
+#: inc/print.php
+msgid "Chrome on this server (a Download PDF button)"
+msgstr "Chrome pada pelayan ini (butang Muat turun PDF)"
+
+#: inc/print.php
+msgid "Chrome program"
+msgstr "Program Chrome"
+
+#: inc/print.php
+msgid "Full path, for example /usr/bin/google-chrome. Leave empty to look in the usual places."
+msgstr "Laluan penuh, contohnya /usr/bin/google-chrome. Biarkan kosong untuk mencari di tempat biasa."
+
+#: inc/print.php
+msgid "Run Chrome without its sandbox"
+msgstr "Jalankan Chrome tanpa kotak pasirnya"
+
+#: inc/print.php
+msgid "Only if the status says Chrome fails to start: some servers and containers need it."
+msgstr "Hanya jika status menyatakan Chrome gagal dimulakan: sesetengah pelayan dan bekas memerlukannya."
+
+#: inc/print.php
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: inc/print.php
+msgid "Tumblr"
+msgstr "Tumblr"
+
+#: inc/print.php
+msgid "LINE"
+msgstr "LINE"

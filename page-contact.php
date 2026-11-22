@@ -181,7 +181,7 @@ get_header();
                         <?php endif; ?>
                         
                         <?php
-                        $has_social = (bool) langgam_fikir_social_profiles( array( 'instagram' => $social_instagram ) );
+                        $has_social = (bool) langgam_fikir_social_profiles( array( 'instagram' => $social_instagram ), true );
                         if ( $has_social ) : ?>
                             <div class="contact-social">
                                 <p class="social-label"><?php echo esc_html( langgam_fikir_text( 'contact_follow_label' ) ); ?></p>
