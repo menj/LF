@@ -19,6 +19,9 @@
                 if ( langgam_fikir_get_option( 'footer_social' ) ) {
                     langgam_fikir_render_social_links( 'footer' );
                 }
+                if ( function_exists( 'langgam_fikir_render_preferred_source_footer' ) ) {
+                    langgam_fikir_render_preferred_source_footer();
+                }
                 ?>
             </div>
             

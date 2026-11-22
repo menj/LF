@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.16.0] - 2026-11-22
 
-Print and PDF, and every icon in the social icon pack usable as a profile.
+Print and PDF, Google preferred sources, and every icon in the social icon pack usable as a profile.
 
 ### Added
 - **Print stylesheet for every page** (`assets/css/print.css`, `inc/print.php`), set up in the new **Theme Options > Print & PDF** tab. It follows long-standing print practice:
@@ -29,6 +29,12 @@ Print and PDF, and every icon in the social icon pack usable as a profile.
 
   The settings show whether this server can do it: the Chrome found and its version, or why not (PHP may not start programs, Chrome missing, wrong path), and the last error. Chrome is found automatically, or set its path. A "without its sandbox" switch is there for servers that need it.
 - **All 44 profile icons** from the icon pack in `assets/icons/` are now usable, in four cards on **Social & SEO**: More Social Profiles (GTribe, Reddit, Discord, Tumblr, Snapchat, LINE, Signal, WeChat, Quora, Vimeo, Twitch, Flickr added), Writing, Reading and Portfolio (Issuu, Academia.edu, WordPress, WordPress.org, GitHub, Behance, Dribbble, Fiverr added), Music and Audio (SoundCloud, Suno added), and **Identity and Library Records**: ORCID, ISNI, VIAF, OCLC WorldCat, Wikidata, Wikipedia. Every profile goes into Schema.org `sameAs`; identity records can be listed there without showing icons. One catalogue (`langgam_fikir_social_catalog()`) drives the settings, the icons and `sameAs`. Scribd stays out: its icon needs a visible Font Awesome credit.
+- **Google preferred sources** (`inc/preferred-sources.php`, `assets/css/preferred-source.css`, `assets/js/preferred-source.js`), following Google's "Help your readers find your site through preferred sources" guide. Readers who add the site as a preferred source see its new articles first in Top Stories (marked "Preferred") and highlighted in AI Mode and AI Overviews. Settings: **Theme Options > Social & SEO > Google Preferred Sources** (off by default).
+  - An "Add as a preferred source on Google" button in the theme's own look: a card after articles (optional on book pages), a small button in the footer, and `[preferred_source]` / `[preferred_source style="button"]`. Every colour, font and corner comes from the design tokens, so it follows the palette, custom colours and corner style. Contrast is at least 4.5:1 at rest and on hover in every palette.
+  - Google's advanced implementation with custom design: `publisher.js` is loaded with `preferred-sources-control="manual"` and the button calls `addPreferredSource()`, so readers add the site without leaving the page. The page language is passed to Google.
+  - Every button is also the deeplink to Google's source preferences page (`https://www.google.com/preferences/source?q=<domain>`), so it works before the script loads, when it is blocked, and without JavaScript.
+  - Google's script loads only on pages with a button, and only when the reader scrolls near it (or focuses or points at it). A link-only mode never loads it. Suggested privacy-policy text is added to Settings > Privacy.
+  - The settings check eligibility (domain or subdomain sites only, not subfolders) and link to Google's page for the site, to confirm Google lists it. They also note the Search Console setting needed for AI features.
 - **Share buttons:** Pinterest, Tumblr and LINE.
 - **Theme Options field type:** `status`, a read-only report.
 

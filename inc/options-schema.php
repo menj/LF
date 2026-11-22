@@ -648,6 +648,24 @@ function langgam_fikir_extra_options_schema() {
                     ),
                 ),
                 array(
+                    'title'  => __( 'Google Preferred Sources', 'langgam-fikir' ),
+                    'desc'   => __( 'Readers who add this site as a preferred source in Google Search see its new articles first in Top Stories, marked "Preferred", and highlighted in AI Mode and AI Overviews. This shows an "Add as a preferred source on Google" button in the theme\'s colours. A click adds the site without leaving the page, or opens Google\'s page if its script is blocked.', 'langgam-fikir' ),
+                    'fields' => array(
+                        'gps_enabled'   => $f( 'checkbox', __( 'Show the preferred source button', 'langgam-fikir' ), 0, __( 'Check the status below first: Google must already list the site.', 'langgam-fikir' ) ),
+                        'gps_on_posts'  => $f( 'checkbox', __( 'As a card after articles', 'langgam-fikir' ), 1 ),
+                        'gps_on_books'  => $f( 'checkbox', __( 'As a card on book pages', 'langgam-fikir' ), 0 ),
+                        'gps_on_footer' => $f( 'checkbox', __( 'As a small button in the footer', 'langgam-fikir' ), 1, __( 'Elsewhere, use the [preferred_source] shortcode, or [preferred_source style="button"] for the button alone.', 'langgam-fikir' ) ),
+                        'gps_heading'   => $f( 'text', __( 'Card heading', 'langgam-fikir' ), __( 'See {site} first on Google', 'langgam-fikir' ), __( '{site} is replaced by the site name. Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                        'gps_text'      => $f( 'text', __( 'Card text', 'langgam-fikir' ), __( 'Add us as a preferred source and our new articles show up first in Google\'s Top Stories and AI answers.', 'langgam-fikir' ), __( 'Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
+                        'gps_label'     => $f( 'text', __( 'Button text', 'langgam-fikir' ), __( 'Add as a preferred source on Google', 'langgam-fikir' ) ),
+                        'gps_script'    => $f( 'select', __( 'Google\'s button script', 'langgam-fikir' ), 'near', '', array( 'choices' => array(
+                            'near' => __( 'Load it when a reader scrolls near the button (adds without leaving the page)', 'langgam-fikir' ),
+                            'link' => __( 'Never load it: the button opens Google\'s page (no request to Google until clicked)', 'langgam-fikir' ),
+                        ) ) ),
+                        'gps_status'    => $f( 'status', __( 'Status', 'langgam-fikir' ), '', '', array( 'callback' => 'langgam_fikir_gps_status_html' ) ),
+                    ),
+                ),
+                array(
                     'title'  => __( 'Share Buttons', 'langgam-fikir' ),
                     'desc'   => __( 'The buttons visitors use to share a book, article or page, and where they appear.', 'langgam-fikir' ),
                     'fields' => array(
@@ -739,8 +757,8 @@ function langgam_fikir_extra_options_schema() {
         ),
     );
 
-    // The profile cards go after Search Engines, before Share Buttons.
-    array_splice( $schema['social']['cards'], 1, 0, $social_cards );
+    // The profile cards go after Search Engines and Google Preferred Sources, before Share Buttons.
+    array_splice( $schema['social']['cards'], 2, 0, $social_cards );
 
     return $schema;
 }

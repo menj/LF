@@ -146,6 +146,7 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 = 2.16.0 (November 2026) =
 * NEW: Print & PDF: a print stylesheet for every page (paper size, margins, text size, site name and logo, web address, date and citation at the end, link addresses), and a Print button on articles and books
 * NEW: Download PDF made on the server with headless Chrome when it is installed; otherwise the print dialog's Save as PDF
+* NEW: Google preferred sources: an "Add as a preferred source on Google" button in the theme's colours (a card after articles and a footer button), using Google's in-page flow with a plain-link fallback (Theme Options > Social & SEO)
 * NEW: All 44 profile icons usable, including ORCID, ISNI, VIAF, OCLC WorldCat, Wikidata and Wikipedia records for Schema.org sameAs; Pinterest, Tumblr and LINE share buttons
 
 = 2.15.0 (November 2026) =

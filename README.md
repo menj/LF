@@ -294,6 +294,7 @@ Edit `/assets/css/main.css`:
 
 - **NEW:** Print stylesheet for every page and a Print button on articles and books (Theme Options > Print & PDF): paper size, margins, text size, header, footer, citation, link addresses
 - **NEW:** Download PDF made on the server with headless Chrome when available; otherwise the browser's Save as PDF
+- **NEW:** Google preferred sources: an "Add as a preferred source on Google" card and footer button in the theme's colours (Theme Options > Social & SEO)
 - **NEW:** All 44 profile icons usable, in four groups, including identity and library records (ORCID, ISNI, VIAF, OCLC, Wikidata) for Schema.org sameAs; Pinterest, Tumblr and LINE share buttons
 
 ### Version 2.15.0 (November 2026) — Built-in plugins

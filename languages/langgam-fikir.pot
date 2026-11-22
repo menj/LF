@@ -3966,3 +3966,109 @@ msgstr ""
 #: inc/print.php
 msgid "LINE"
 msgstr ""
+
+#: inc/preferred-sources.php
+msgid "(opens Google)"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Google preferred source"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Langgam Fikir theme: Google preferred sources"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Some pages show an \"Add as a preferred source on Google\" button. When you scroll near it, your browser loads a script from news.google.com so the button can add this site to your Google Search preferences without leaving the page. Google receives your IP address and browser details as with any request to Google, and, if you use the button, records your choice in your Google account. Nothing is stored on this site."
+msgstr ""
+
+#: inc/preferred-sources.php
+#, php-format
+msgid "This site lives in a subfolder (%s). Google accepts only domain and subdomain sites as preferred sources, so the button stays hidden."
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Eligible:"
+msgstr ""
+
+#: inc/preferred-sources.php
+#, php-format
+msgid "Check that Google lists the site: open %s. If it is not found, the button would lead nowhere, so leave it off for now."
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "the source preferences page for this site"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "To be highlighted in AI Mode and AI Overviews too, the site must be included in Search generative AI features in Google Search Console."
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Google Preferred Sources"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Readers who add this site as a preferred source in Google Search see its new articles first in Top Stories, marked \"Preferred\", and highlighted in AI Mode and AI Overviews. This shows an \"Add as a preferred source on Google\" button in the theme's colours. A click adds the site without leaving the page, or opens Google's page if its script is blocked."
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Show the preferred source button"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Check the status below first: Google must already list the site."
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "As a card after articles"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "As a card on book pages"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "As a small button in the footer"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Elsewhere, use the [preferred_source] shortcode, or [preferred_source style=\"button\"] for the button alone."
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Card heading"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "See {site} first on Google"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "{site} is replaced by the site name. Empty hides it."
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Card text"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Add us as a preferred source and our new articles show up first in Google's Top Stories and AI answers."
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Add as a preferred source on Google"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Google's button script"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Load it when a reader scrolls near the button (adds without leaving the page)"
+msgstr ""
+
+#: inc/preferred-sources.php
+msgid "Never load it: the button opens Google's page (no request to Google until clicked)"
+msgstr ""

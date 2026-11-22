@@ -119,6 +119,9 @@ get_header();
                         if ( function_exists( 'langgam_fikir_render_print_actions' ) ) {
                             langgam_fikir_render_print_actions();
                         }
+                        if ( function_exists( 'langgam_fikir_render_preferred_source' ) ) {
+                            langgam_fikir_render_preferred_source( 'post' );
+                        }
                         ?>
 
                         <?php get_template_part( 'template-parts/content/author-bio' ); ?>

@@ -134,6 +134,7 @@ LF/
 │   ├── social.php                     Profile icons, share bar and networks (from langgam_fikir_social_catalog() in options-schema.php); inlines assets/icons/*.svg
 │   ├── print.php                      Print stylesheet set-up (@page), Print button, paper-only header and footer
 │   ├── pdf.php                        Server PDFs with headless Chrome: detection, making, caching, download, admin status
+│   ├── preferred-sources.php          Google preferred sources button (card, footer, shortcode), eligibility, privacy text
 │   ├── design.php                     Body classes for palette/corners/fonts/parallax, custom-colour CSS, hero photo
 │   ├── template-functions.php         Shared helpers, language helpers
 │   ├── template-hooks.php             Action/filter hooks
@@ -160,8 +161,8 @@ LF/
 │       ├── showcase.php               Interactive homepage Showcase (books here are excluded from Latest Publications)
 │       └── reviews-section.php        Reviews list with star widget
 ├── assets/
-│   ├── css/                           main.css, design.css, additional.css, admin.css, theme-options.css, fonts.css, fonts-premium.css, showcase.css, print.css, login.css, justify.css, citations.css, citations-admin.css
-│   ├── js/                            main.js, admin.js, theme-options.js, showcase.js, webmcp.js, print.js, citations.js, citations-block.js, citations-admin.js
+│   ├── css/                           main.css, design.css, additional.css, admin.css, theme-options.css, fonts.css, fonts-premium.css, showcase.css, print.css, preferred-source.css, login.css, justify.css, citations.css, citations-admin.css
+│   ├── js/                            main.js, admin.js, theme-options.js, showcase.js, webmcp.js, print.js, preferred-source.js, citations.js, citations-block.js, citations-admin.js
 │   ├── icons/                         Monochrome social SVGs (GPL icon pack; LinkedIn drawn for the theme, no Scribd; see its README.txt)
 │   ├── images/hero/                   Bundled hero photographs (Pexels), 1920 and 960 px
 │   └── fonts/                         Self-hosted WOFF2
@@ -335,6 +336,16 @@ Server PDFs (`inc/pdf.php`) run headless Chrome on the site's own permalink with
 - **One PDF at a time:** transient `lf_pdf_lock`; anyone else, and every failure, goes to `?lf-print=1`, which opens the print dialog.
 - **Storage:** files go in `uploads/langgam-fikir-pdf/{ID}-{fingerprint}.pdf`. The fingerprint covers `post_modified_gmt`, the theme version and the print, palette and citation settings. Files are removed on `save_post`, on post deletion and when the print settings change.
 - **Status:** the admin status (`langgam_fikir_pdf_status_html()`) is the place to check what the server can do.
+
+### 7.6 Google preferred sources (2.16.0)
+
+Not a plugin: Google's preferred-sources library, used the "advanced, custom design" way. Rules:
+- **Script:** `https://news.google.com/swg/js/v1/publisher.js`, always with `preferred-sources-control="manual"` so Google never draws its own button. It is initialised through the `self.PREFERRED_SOURCE` queue with `{ theme: 'light', lang }`.
+- **When it loads:** only on pages that print a button (`data-lf-preferred-source`), and only when the reader nears it. Never in link-only mode.
+- **The link:** every button is the deeplink first (`langgam_fikir_gps_deeplink()`). The script only upgrades a click once Google's API is ready, so a blocked script never breaks the button.
+- **Eligibility:** domain and subdomain sites only (`langgam_fikir_gps_eligible()`); a site in a subfolder shows no button.
+- **Look:** design tokens only (`--color-primary`, `--color-accent`, `--color-bg-*`, `--font-*`, `--radius-*`), no fixed colours. Hover keeps the text colour so contrast stays at least 4.5:1 in every palette.
+- **Options:** `gps_enabled` (off by default), `gps_on_posts`, `gps_on_books`, `gps_on_footer`, `gps_heading` (`{site}` placeholder), `gps_text`, `gps_label`, `gps_script` (`near` | `link`).
 
 ---
 
