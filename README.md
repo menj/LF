@@ -6,7 +6,7 @@ A child theme of WordPress Twenty Twenty-Five (2025 default theme) with custom b
 
 - **Theme Name:** Langgam Fikir
 - **Parent Theme:** Twenty Twenty-Five
-- **Version:** 2.15.0
+- **Version:** 2.16.0
 - **Author:** MENJ
 - **License:** GPL v2 or later
 - **Requires WordPress:** 6.7+
@@ -80,70 +80,71 @@ From Twenty Twenty-Five you get:
 
 ## Custom Features (Child Theme)
 
-Your custom design adds:
+Everything is set in **Appearance > Theme Options**, a tabbed settings page. No plugins are needed for these.
 
-✅ **Theme Options Page:** Tabbed settings interface (Homepage, Contact & Footer, Legal Entity)
-✅ **Custom Post Type:** Books with metadata
-✅ **Custom Templates:** Homepage, About, Contact, Privacy, Resources
-✅ **Custom Styling:** Minimalist book publisher design
-✅ **Contact Form:** Functional contact page with email notifications
-✅ **Book System:** Complete book showcase and single pages
-✅ **WooCommerce Support:** Optional e-commerce integration
-✅ **Responsive Design:** Mobile-first approach
-✅ **Agent Tools (WebMCP):** Read-only catalogue tools and an agent-fillable contact form for in-browser AI agents, backed by a public REST endpoint
+**Publishing**
+- **Books:** a Books post type with metadata (author, translator, editor, publisher, ISBN, price, ten lifecycle statuses), category and topic filters, sorting, FAQ and reviews.
+- **Templates:** Homepage (with the Showcase), About, Contact (working form), Privacy Policy, Sitemap, Resources (blog) and Book pages.
+- **Citations:** a "Cite this" box with 20 styles, copy and six downloads (BibTeX, RIS, EndNote, CSL-JSON, CFF, Dublin Core), `[cite]`, `[cite_bibliography]` and a Citation block. Books are cited as books. Optional analytics.
+- **Print & PDF:** a print stylesheet for every page, a Print button, and Download PDF made on the server with headless Chrome when it is installed.
+
+**Look**
+- **Design:** four palettes plus custom colours, font roles, corner styles and parallax, all as CSS custom properties, so every part of the theme follows them.
+- **Text justification:** justified, hyphenated article text, with exclusions.
+- **Branded login screen:** three layouts in the site's colours and fonts.
+- Responsive and accessible: phone, tablet and desktop, 44px tap targets, keyboard support, reduced motion.
+
+**Search, social and security**
+- **SEO and Schema.org:** one connected JSON-LD graph per page. It works alongside Rank Math, Yoast and other SEO plugins, and links Google Scholar tags and ScholarlyArticle data to citations.
+- **Social:** 44 profile icons, including ORCID, ISNI, VIAF, OCLC and Wikidata records for Schema.org `sameAs`, plus share buttons.
+- **Google preferred sources:** an "Add as preferred source" card and footer button in the theme's colours.
+- **Private login address:** moves the login to a slug you choose, and wp-login.php and wp-admin show visitors a 404 page.
+- **Agent tools (WebMCP):** read-only catalogue tools and an agent-fillable contact form.
+
+**Housekeeping**
+- **Plugin detection:** if Auto Justify Content, CitePress or WPS Hide Login is still active, the theme imports its settings, converts its content and switches it off.
+- **Optional WooCommerce support** and **translations** (English default, Malay included).
 
 ## File Structure
 
 ```
 LF/
 ├── assets/
-│   ├── css/
-│   │   ├── admin.css            # Admin meta box styles
-│   │   ├── main.css             # Main theme styles
-│   │   ├── additional.css       # Forms & extra pages
-│   │   ├── showcase.css         # Showcase (front page only)
-│   │   └── theme-options.css    # Theme Options page styles
-│   └── js/
-│       ├── admin.js             # Admin media uploader
-│       ├── main.js              # Frontend JavaScript
-│       ├── showcase.js          # Showcase (front page only)
-│       ├── webmcp.js            # WebMCP tool registration (feature-detected)
-│       └── theme-options.js     # Theme Options tab navigation
+│   ├── css/      main, design (palettes, fonts, corners), additional, showcase, login, justify,
+│   │             citations, citations-admin, print, preferred-source, theme-options, admin, fonts
+│   ├── js/       main, showcase, webmcp, citations, citations-block, citations-admin, print,
+│   │             preferred-source, theme-options, admin
+│   ├── icons/    Monochrome social SVGs (inlined, recoloured with currentColor)
+│   ├── images/   Bundled hero photographs
+│   └── fonts/    Self-hosted WOFF2
 ├── inc/
-│   ├── admin/
-│   │   ├── meta-boxes.php       # Admin meta box callbacks
-│   │   └── theme-options.php    # Theme Options page (tabbed)
-│   ├── customizer.php           # Customizer (core WP controls only)
-│   ├── enqueue.php              # Asset enqueuing
-│   ├── meta-boxes.php           # Meta box registration
-│   ├── post-types.php           # Custom post types & taxonomies
-│   ├── setup.php                # Theme setup & configuration
-│   ├── template-functions.php   # Helper functions & option accessors
-│   ├── template-hooks.php       # Hooks and filters
-│   └── woocommerce.php          # WooCommerce support (conditional)
-├── template-parts/              # Reusable template components
-├── languages/                   # Translation files
-├── archive.php                  # Category/tag/date archives
-├── archive-book.php             # Books archive
-├── comments.php                 # Comments override
-├── footer.php                   # Footer (3-column + bottom bar)
-├── front-page.php               # Homepage
-├── functions.php                # Theme bootstrap (~30 lines)
-├── header.php                   # Header with navigation
-├── home.php                     # Blog/resources archive
-├── index.php                    # Default fallback
-├── page.php                     # Page template
-├── page-about.php               # About template
-├── page-contact.php             # Contact template
-├── page-privacy.php             # Privacy template
-├── screenshot.png               # Theme screenshot
-├── single.php                   # Single post
-├── single-book.php              # Single book
-├── style.css                    # Child theme header
-├── readme.txt                   # WordPress.org readme
-├── README.md                    # Developer documentation
-├── CHANGELOG.md                 # Version history
-└── UPGRADING.md                 # Upgrade guide
+│   ├── setup.php, enqueue.php, post-types.php, meta-boxes.php, book-fields.php
+│   ├── options-schema.php     Theme Options schema: fields, defaults, sanitising, catalogues
+│   ├── design.php             Palettes, font roles, corners, hero photo
+│   ├── template-functions.php, template-hooks.php, breadcrumbs.php, toc.php
+│   ├── schema.php             Schema.org graph and social meta
+│   ├── social.php             Profile icons and share buttons
+│   ├── login.php              Branded login screen
+│   ├── login-address.php      Private login address
+│   ├── justify.php            Text justification
+│   ├── citations.php          Citation box, styles, downloads, block, Scholar tags
+│   ├── citations-analytics.php  Citation counts, privacy tools, admin page
+│   ├── print.php              Print stylesheet set-up, Print button, paper header/footer
+│   ├── pdf.php                Server PDFs with headless Chrome
+│   ├── preferred-sources.php  Google preferred sources button
+│   ├── plugin-takeover.php    Detects replaced plugins: import, convert, deactivate
+│   ├── webmcp.php, hrefmaster-integration.php, woocommerce.php
+│   └── admin/                 Theme Options page and renderers, meta boxes (book, FAQ, reviews, robots)
+├── template-parts/content/    book-card, book-filters, resource-card, author-bio, faq-section,
+│                              reviews-section, showcase
+├── languages/                 .pot, ms_MY .po/.mo, block editor JSON
+├── *.php                      Templates: front-page, home, archive, archive-book, taxonomy-book-*,
+│                              single, single-book, page, page-about, page-contact, page-privacy,
+│                              page-sitemap, search, 404, header, footer, comments, index
+├── functions.php              Loader
+├── style.css                  Theme header
+├── readme.txt, README.md, CHANGELOG.md, UPGRADING.md
+└── ssot.md                    Single source of truth for conventions and contracts
 ```
 
 ## Server & Performance
@@ -266,25 +267,17 @@ Browser support in September 2026: Chrome and Edge Origin Trials, Brave Leo (exp
 
 ## Customization
 
-### Changing Colors
+### Colours, fonts and corners
 
-Edit `/assets/css/main.css`:
+Use **Appearance > Theme Options > Design**: pick a palette (Folio, Earth, Slate, Sage, Clay), override single colours, choose a font for each role, and set the corner style. These set CSS custom properties (`--color-primary`, `--color-accent`, `--font-primary`, `--radius-md`…), and every component, the login screen, citation box, print stylesheet and preferred source button included, is built from them.
+
+For code-level changes, override the same properties in a child stylesheet rather than editing `assets/css/main.css`:
 
 ```css
-:root {
+body {
     --color-primary: #6B5B4A;
     --color-accent: #C9A961;
-}
-```
-
-### Changing Fonts
-
-Edit `/assets/css/main.css`:
-
-```css
-:root {
     --font-primary: 'Crimson Text', serif;
-    --font-secondary: 'Inter', sans-serif;
 }
 ```
 
