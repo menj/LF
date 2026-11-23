@@ -3877,3 +3877,380 @@ msgstr "Alamat ubah hala"
 #: inc/login-address.php
 msgid "Where wp-login.php and wp-admin send visitors who are not logged in. The default, 404, shows the Page Not Found page."
 msgstr "Ke mana wp-login.php dan wp-admin menghantar pelawat yang belum log masuk. Lalai, 404, menunjukkan halaman Tidak Ditemui."
+
+#: inc/print.php
+msgid "Print this page"
+msgstr "Cetak halaman ini"
+
+#: inc/print.php
+msgid "Print this page or save it as a PDF"
+msgstr "Cetak halaman ini atau simpan sebagai PDF"
+
+#: inc/print.php
+msgid "Print"
+msgstr "Cetak"
+
+#: inc/print.php
+msgid "Print / PDF"
+msgstr "Cetak / PDF"
+
+#: inc/print.php
+msgid "Download this page as a PDF file"
+msgstr "Muat turun halaman ini sebagai fail PDF"
+
+#: inc/print.php
+msgid "Download PDF"
+msgstr "Muat turun PDF"
+
+#: inc/print.php
+msgid "Cite this:"
+msgstr "Petik ini:"
+
+#: inc/print.php
+#, php-format
+msgid "From %1$s, printed on %2$s."
+msgstr "Dari %1$s, dicetak pada %2$s."
+
+#: inc/print.php
+msgid "Chrome found:"
+msgstr "Chrome ditemui:"
+
+#: inc/print.php
+msgid "Download PDF buttons are on."
+msgstr "Butang Muat turun PDF dihidupkan."
+
+#: inc/print.php
+msgid "Choose \"Chrome on this server\" above to offer Download PDF buttons."
+msgstr "Pilih \"Chrome pada pelayan ini\" di atas untuk menawarkan butang Muat turun PDF."
+
+#: inc/print.php
+msgid "This server does not let PHP start programs (proc_open is disabled), so PDFs are made in the reader's browser."
+msgstr "Pelayan ini tidak membenarkan PHP memulakan program (proc_open dilumpuhkan), jadi PDF dibuat dalam pelayar pembaca."
+
+#: inc/print.php
+msgid "The Chrome program above was not found, is not executable, or did not answer. Check the path, or leave it empty to search."
+msgstr "Program Chrome di atas tidak ditemui, tidak boleh dilaksanakan atau tidak menjawab. Semak laluannya, atau biarkan kosong untuk mencari."
+
+#: inc/print.php
+msgid "Chrome or Chromium is not installed on this server, so PDFs are made in the reader's browser. Your host can install it, or enter its path above."
+msgstr "Chrome atau Chromium tidak dipasang pada pelayan ini, jadi PDF dibuat dalam pelayar pembaca. Hos anda boleh memasangnya, atau masukkan laluannya di atas."
+
+#: inc/print.php
+#, php-format
+msgid "The last PDF failed (%1$s). Chrome said: %2$s"
+msgstr "PDF terakhir gagal (%1$s). Chrome melaporkan: %2$s"
+
+#: inc/print.php
+msgid "no answer within 90 seconds"
+msgstr "tiada jawapan dalam masa 90 saat"
+
+#: inc/print.php
+msgid "Readers get the print dialog meanwhile. If Chrome cannot start, try \"Run Chrome without its sandbox\"."
+msgstr "Sementara itu pembaca mendapat dialog cetak. Jika Chrome tidak dapat dimulakan, cuba \"Jalankan Chrome tanpa kotak pasirnya\"."
+
+#: inc/print.php
+msgid "Shown as icons beside the four above (in the footer and on the Contact page) and listed in Schema.org sameAs, which tells search engines these accounts are yours. Leave a field empty to hide that icon."
+msgstr "Dipaparkan sebagai ikon di sebelah empat di atas (di kaki halaman dan pada halaman Hubungi) dan disenaraikan dalam sameAs Schema.org, yang memberitahu enjin carian bahawa akaun ini milik anda. Biarkan medan kosong untuk menyembunyikan ikon itu."
+
+#: inc/print.php
+msgid "Writing, Reading and Portfolio"
+msgstr "Penulisan, Pembacaan dan Portfolio"
+
+#: inc/print.php
+msgid "Book, writing and portfolio profiles, shown and listed the same way."
+msgstr "Profil buku, penulisan dan portfolio, dipaparkan dan disenaraikan dengan cara yang sama."
+
+#: inc/print.php
+msgid "Music and Audio"
+msgstr "Muzik dan Audio"
+
+#: inc/print.php
+msgid "Podcasts, audiobooks and music, shown and listed the same way."
+msgstr "Podcast, buku audio dan muzik, dipaparkan dan disenaraikan dengan cara yang sama."
+
+#: inc/print.php
+msgid "Identity and Library Records"
+msgstr "Rekod Identiti dan Perpustakaan"
+
+#: inc/print.php
+msgid "Authority records that identify the publisher or its authors in library catalogues and knowledge bases, for example https://orcid.org/0000-0002-1825-0097, https://isni.org/isni/0000000121032683, https://viaf.org/viaf/123456789, https://www.wikidata.org/wiki/Q42. They are the strongest sameAs links for search engines."
+msgstr "Rekod autoriti yang mengenal pasti penerbit atau pengarangnya dalam katalog perpustakaan dan pangkalan pengetahuan, contohnya https://orcid.org/0000-0002-1825-0097, https://isni.org/isni/0000000121032683, https://viaf.org/viaf/123456789, https://www.wikidata.org/wiki/Q42. Ia pautan sameAs paling kukuh untuk enjin carian."
+
+#: inc/print.php
+#, php-format
+msgid "%s URL"
+msgstr "URL %s"
+
+#: inc/print.php
+msgid "Show these as icons too"
+msgstr "Paparkan juga sebagai ikon"
+
+#: inc/print.php
+msgid "Untick to list them in sameAs only, without icons."
+msgstr "Nyahtanda untuk menyenaraikannya dalam sameAs sahaja, tanpa ikon."
+
+#: inc/print.php
+msgid "Print & PDF"
+msgstr "Cetak & PDF"
+
+#: inc/print.php
+msgid "Print and PDF Buttons"
+msgstr "Butang Cetak dan PDF"
+
+#: inc/print.php
+msgid "A Print button beside the share buttons. Readers print, or choose Save as PDF in the print dialog. With Chrome on the server (below), a Download PDF button gives them a ready-made file instead."
+msgstr "Butang Cetak di sebelah butang kongsi. Pembaca mencetak, atau memilih Simpan sebagai PDF dalam dialog cetak. Dengan Chrome pada pelayan (di bawah), butang Muat turun PDF memberi mereka fail siap."
+
+#: inc/print.php
+msgid "Printing always works from the browser menu; these only add the buttons."
+msgstr "Mencetak sentiasa boleh dari menu pelayar; tetapan ini hanya menambah butang."
+
+#: inc/print.php
+msgid "Printed Page"
+msgstr "Halaman Bercetak"
+
+#: inc/print.php
+msgid "How every page looks on paper and in a PDF: the menu, footer, buttons and forms are left out, the text is set in the body font in black on white, and headings, images and tables are kept off page breaks."
+msgstr "Rupa setiap halaman di atas kertas dan dalam PDF: menu, kaki halaman, butang dan borang ditinggalkan, teks diset dalam fon badan berwarna hitam di atas putih, dan tajuk, imej serta jadual dijauhkan daripada pemisah halaman."
+
+#: inc/print.php
+msgid "Paper size"
+msgstr "Saiz kertas"
+
+#: inc/print.php
+msgid "A4 (210 × 297 mm)"
+msgstr "A4 (210 × 297 mm)"
+
+#: inc/print.php
+msgid "A5 (148 × 210 mm, book size)"
+msgstr "A5 (148 × 210 mm, saiz buku)"
+
+#: inc/print.php
+msgid "US Letter (8.5 × 11 in)"
+msgstr "US Letter (8.5 × 11 inci)"
+
+#: inc/print.php
+msgid "Margins"
+msgstr "Jidar"
+
+#: inc/print.php
+msgid "Narrow (12 mm)"
+msgstr "Sempit (12 mm)"
+
+#: inc/print.php
+msgid "Normal (18 mm)"
+msgstr "Biasa (18 mm)"
+
+#: inc/print.php
+msgid "Wide (25 mm)"
+msgstr "Lebar (25 mm)"
+
+#: inc/print.php
+msgid "Text size"
+msgstr "Saiz teks"
+
+#: inc/print.php
+msgid "Small (10 pt)"
+msgstr "Kecil (10 pt)"
+
+#: inc/print.php
+msgid "Normal (11 pt)"
+msgstr "Biasa (11 pt)"
+
+#: inc/print.php
+msgid "Large (12 pt)"
+msgstr "Besar (12 pt)"
+
+#: inc/print.php
+msgid "Extra large (13 pt)"
+msgstr "Sangat besar (13 pt)"
+
+#: inc/print.php
+msgid "Site name and logo at the top"
+msgstr "Nama tapak dan logo di bahagian atas"
+
+#: inc/print.php
+msgid "Web address and print date at the end"
+msgstr "Alamat web dan tarikh cetak di bahagian akhir"
+
+#: inc/print.php
+msgid "A ready-made citation at the end"
+msgstr "Petikan siap di bahagian akhir"
+
+#: inc/print.php
+msgid "In the first style ticked under Citations. Pages that already show a citation box print that instead."
+msgstr "Dalam gaya pertama yang ditanda di bawah Petikan. Halaman yang sudah menunjukkan kotak petikan akan mencetak kotak itu."
+
+#: inc/print.php
+msgid "Print the web address after each link"
+msgstr "Cetak alamat web selepas setiap pautan"
+
+#: inc/print.php
+msgid "Only links to other websites, so a reader of the paper copy can still follow them."
+msgstr "Hanya pautan ke laman web lain, supaya pembaca salinan kertas masih boleh mengikutinya."
+
+#: inc/print.php
+msgid "Print images"
+msgstr "Cetak imej"
+
+#: inc/print.php
+msgid "Untick to save ink: book covers are still printed."
+msgstr "Nyahtanda untuk menjimatkan dakwat: kulit buku tetap dicetak."
+
+#: inc/print.php
+msgid "PDF Files on the Server"
+msgstr "Fail PDF pada Pelayan"
+
+#: inc/print.php
+msgid "Google Chrome or Chromium installed on the web server can turn a page into a PDF file, using the printed-page settings above. Each file is made once and kept until the page or these settings change. Most shared hosting has no Chrome: the status below says whether this server can do it. Without it the button opens the print dialog, where readers can save a PDF themselves."
+msgstr "Google Chrome atau Chromium yang dipasang pada pelayan web boleh menukar halaman menjadi fail PDF, menggunakan tetapan halaman bercetak di atas. Setiap fail dibuat sekali dan disimpan sehingga halaman atau tetapan ini berubah. Kebanyakan hos kongsi tiada Chrome: status di bawah menyatakan sama ada pelayan ini boleh melakukannya. Tanpanya butang membuka dialog cetak, tempat pembaca boleh menyimpan PDF sendiri."
+
+#: inc/print.php
+msgid "Make PDFs with"
+msgstr "Buat PDF dengan"
+
+#: inc/print.php
+msgid "The reader's browser (Save as PDF in the print dialog)"
+msgstr "Pelayar pembaca (Simpan sebagai PDF dalam dialog cetak)"
+
+#: inc/print.php
+msgid "Chrome on this server (a Download PDF button)"
+msgstr "Chrome pada pelayan ini (butang Muat turun PDF)"
+
+#: inc/print.php
+msgid "Chrome program"
+msgstr "Program Chrome"
+
+#: inc/print.php
+msgid "Full path, for example /usr/bin/google-chrome. Leave empty to look in the usual places."
+msgstr "Laluan penuh, contohnya /usr/bin/google-chrome. Biarkan kosong untuk mencari di tempat biasa."
+
+#: inc/print.php
+msgid "Run Chrome without its sandbox"
+msgstr "Jalankan Chrome tanpa kotak pasirnya"
+
+#: inc/print.php
+msgid "Only if the status says Chrome fails to start: some servers and containers need it."
+msgstr "Hanya jika status menyatakan Chrome gagal dimulakan: sesetengah pelayan dan bekas memerlukannya."
+
+#: inc/print.php
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: inc/print.php
+msgid "Tumblr"
+msgstr "Tumblr"
+
+#: inc/print.php
+msgid "LINE"
+msgstr "LINE"
+
+#: inc/preferred-sources.php
+msgid "(opens Google)"
+msgstr "(membuka Google)"
+
+#: inc/preferred-sources.php
+msgid "Google preferred source"
+msgstr "Sumber pilihan Google"
+
+#: inc/preferred-sources.php
+msgid "Langgam Fikir theme: Google preferred sources"
+msgstr "Tema Langgam Fikir: sumber pilihan Google"
+
+#: inc/preferred-sources.php
+msgid "Some pages show an \"Add as a preferred source on Google\" button. When you scroll near it, your browser loads a script from news.google.com so the button can add this site to your Google Search preferences without leaving the page. Google receives your IP address and browser details as with any request to Google, and, if you use the button, records your choice in your Google account. Nothing is stored on this site."
+msgstr "Sesetengah halaman menunjukkan butang \"Tambah sebagai sumber pilihan di Google\". Apabila anda menatal berhampirannya, pelayar anda memuatkan skrip daripada news.google.com supaya butang itu boleh menambah tapak ini ke pilihan Carian Google anda tanpa meninggalkan halaman. Google menerima alamat IP dan butiran pelayar anda seperti mana-mana permintaan kepada Google, dan, jika anda menggunakan butang itu, merekodkan pilihan anda dalam akaun Google anda. Tiada apa-apa disimpan di tapak ini."
+
+#: inc/preferred-sources.php
+#, php-format
+msgid "This site lives in a subfolder (%s). Google accepts only domain and subdomain sites as preferred sources, so the button stays hidden."
+msgstr "Tapak ini berada dalam subfolder (%s). Google hanya menerima tapak domain dan subdomain sebagai sumber pilihan, jadi butang kekal tersembunyi."
+
+#: inc/preferred-sources.php
+msgid "Eligible:"
+msgstr "Layak:"
+
+#: inc/preferred-sources.php
+#, php-format
+msgid "Check that Google lists the site: open %s. If it is not found, the button would lead nowhere, so leave it off for now."
+msgstr "Semak bahawa Google menyenaraikan tapak ini: buka %s. Jika tidak ditemui, butang tidak akan membawa ke mana-mana, jadi biarkan dimatikan buat masa ini."
+
+#: inc/preferred-sources.php
+msgid "the source preferences page for this site"
+msgstr "halaman pilihan sumber untuk tapak ini"
+
+#: inc/preferred-sources.php
+msgid "To be highlighted in AI Mode and AI Overviews too, the site must be included in Search generative AI features in Google Search Console."
+msgstr "Untuk turut diserlahkan dalam Mod AI dan Gambaran Keseluruhan AI, tapak mesti disertakan dalam ciri AI generatif Carian di Google Search Console."
+
+#: inc/preferred-sources.php
+msgid "Google Preferred Sources"
+msgstr "Sumber Pilihan Google"
+
+#: inc/preferred-sources.php
+msgid "Readers who add this site as a preferred source in Google Search see its new articles first in Top Stories, marked \"Preferred\", and highlighted in AI Mode and AI Overviews. This shows an \"Add as a preferred source on Google\" button in the theme's colours. A click adds the site without leaving the page, or opens Google's page if its script is blocked."
+msgstr "Pembaca yang menambah tapak ini sebagai sumber pilihan dalam Carian Google melihat artikel baharunya dahulu dalam Berita Utama, bertanda \"Pilihan\", dan diserlahkan dalam Mod AI dan Gambaran Keseluruhan AI. Ini memaparkan butang \"Tambah sebagai sumber pilihan di Google\" dalam warna tema. Satu klik menambah tapak tanpa meninggalkan halaman, atau membuka halaman Google jika skripnya disekat."
+
+#: inc/preferred-sources.php
+msgid "Show the preferred source button"
+msgstr "Paparkan butang sumber pilihan"
+
+#: inc/preferred-sources.php
+msgid "Check the status below first: Google must already list the site."
+msgstr "Semak status di bawah dahulu: Google mesti sudah menyenaraikan tapak ini."
+
+#: inc/preferred-sources.php
+msgid "As a card after articles"
+msgstr "Sebagai kad selepas artikel"
+
+#: inc/preferred-sources.php
+msgid "As a card on book pages"
+msgstr "Sebagai kad pada halaman buku"
+
+#: inc/preferred-sources.php
+msgid "As a small button in the footer"
+msgstr "Sebagai butang kecil di kaki halaman"
+
+#: inc/preferred-sources.php
+msgid "Elsewhere, use the [preferred_source] shortcode, or [preferred_source style=\"button\"] for the button alone."
+msgstr "Di tempat lain, gunakan kod pendek [preferred_source], atau [preferred_source style=\"button\"] untuk butang sahaja."
+
+#: inc/preferred-sources.php
+msgid "Card heading"
+msgstr "Tajuk kad"
+
+#: inc/preferred-sources.php
+msgid "See {site} first on Google"
+msgstr "Lihat {site} dahulu di Google"
+
+#: inc/preferred-sources.php
+msgid "{site} is replaced by the site name. Empty hides it."
+msgstr "{site} digantikan dengan nama tapak. Kosong menyembunyikannya."
+
+#: inc/preferred-sources.php
+msgid "Card text"
+msgstr "Teks kad"
+
+#: inc/preferred-sources.php
+msgid "Add us as a preferred source and our new articles show up first in Google's Top Stories and AI answers."
+msgstr "Tambah kami sebagai sumber pilihan dan artikel baharu kami muncul dahulu dalam Berita Utama dan jawapan AI Google."
+
+#: inc/preferred-sources.php
+msgid "Add as a preferred source on Google"
+msgstr "Tambah sebagai sumber pilihan di Google"
+
+#: inc/preferred-sources.php
+msgid "Google's button script"
+msgstr "Skrip butang Google"
+
+#: inc/preferred-sources.php
+msgid "Load it when a reader scrolls near the button (adds without leaving the page)"
+msgstr "Muatkan apabila pembaca menatal berhampiran butang (menambah tanpa meninggalkan halaman)"
+
+#: inc/preferred-sources.php
+msgid "Never load it: the button opens Google's page (no request to Google until clicked)"
+msgstr "Jangan muatkan: butang membuka halaman Google (tiada permintaan kepada Google sehingga diklik)"
+
+#: inc/options-schema.php
+msgid "Add as preferred source"
+msgstr "Tambah sebagai sumber pilihan"

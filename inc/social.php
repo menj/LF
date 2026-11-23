@@ -40,38 +40,30 @@ function langgam_fikir_icon( $slug ) {
 }
 
 /**
- * Profile networks: icon slug => array( label, option key ).
- * Facebook, Instagram, X and WhatsApp keep their original option keys.
+ * Profile networks: icon slug => array( label, option key ). The full list, with groups, is
+ * langgam_fikir_social_catalog() in inc/options-schema.php.
  */
 function langgam_fikir_social_networks() {
-    return array(
-        'facebook'  => array( 'Facebook', 'social_facebook' ),
-        'instagram' => array( 'Instagram', 'social_instagram' ),
-        'x'         => array( 'X', 'social_twitter' ),
-        'linkedin'  => array( 'LinkedIn', 'social_linkedin' ),
-        'whatsapp'  => array( 'WhatsApp', 'social_whatsapp' ),
-        'threads'   => array( 'Threads', 'social_threads' ),
-        'tiktok'    => array( 'TikTok', 'social_tiktok' ),
-        'youtube'   => array( 'YouTube', 'social_youtube' ),
-        'telegram'  => array( 'Telegram', 'social_telegram' ),
-        'bluesky'   => array( 'Bluesky', 'social_bluesky' ),
-        'mastodon'  => array( 'Mastodon', 'social_mastodon' ),
-        'goodreads' => array( 'Goodreads', 'social_goodreads' ),
-        'medium'    => array( 'Medium', 'social_medium' ),
-        'substack'  => array( 'Substack', 'social_substack' ),
-        'spotify'   => array( 'Spotify', 'social_spotify' ),
-        'pinterest' => array( 'Pinterest', 'social_pinterest' ),
-    );
+    $networks = array();
+    foreach ( langgam_fikir_social_catalog() as $slug => $network ) {
+        $networks[ $slug ] = array( $network[0], $network[1] );
+    }
+    return $networks;
 }
 
 /**
  * The profile URLs that are set, in display order: icon slug => URL.
  *
  * @param array $overrides Optional per-slug URLs that win over Theme Options (the Contact page's own Instagram).
+ * @param bool  $for_icons Leave out the identity and library records when they are set to sameAs only.
  */
-function langgam_fikir_social_profiles( $overrides = array() ) {
-    $profiles = array();
-    foreach ( langgam_fikir_social_networks() as $slug => $network ) {
+function langgam_fikir_social_profiles( $overrides = array(), $for_icons = false ) {
+    $hide_identity = $for_icons && ! langgam_fikir_get_option( 'social_identity_icons', 1 );
+    $profiles      = array();
+    foreach ( langgam_fikir_social_catalog() as $slug => $network ) {
+        if ( $hide_identity && 'identity' === $network[2] ) {
+            continue;
+        }
         $url = ! empty( $overrides[ $slug ] ) ? $overrides[ $slug ] : langgam_fikir_get_option( $network[1] );
         if ( $url ) {
             $profiles[ $slug ] = $url;
@@ -87,7 +79,7 @@ function langgam_fikir_social_profiles( $overrides = array() ) {
  * @param array  $overrides Per-slug URL overrides.
  */
 function langgam_fikir_render_social_links( $context = 'footer', $overrides = array() ) {
-    $profiles = langgam_fikir_social_profiles( $overrides );
+    $profiles = langgam_fikir_social_profiles( $overrides, true );
     if ( ! $profiles ) {
         return;
     }
@@ -119,6 +111,9 @@ function langgam_fikir_share_networks() {
         'threads'  => array( 'Threads', 'https://www.threads.net/intent/post?text={text}%20{url}' ),
         'bluesky'  => array( 'Bluesky', 'https://bsky.app/intent/compose?text={text}%20{url}' ),
         'reddit'   => array( 'Reddit', 'https://www.reddit.com/submit?url={url}&title={text}' ),
+        'pinterest' => array( 'Pinterest', 'https://www.pinterest.com/pin/create/button/?url={url}&description={text}' ),
+        'tumblr'   => array( 'Tumblr', 'https://www.tumblr.com/widgets/share/tool?canonicalUrl={url}&title={text}' ),
+        'line'     => array( 'LINE', 'https://social-plugins.line.me/lineit/share?url={url}' ),
     );
 }
 
@@ -166,6 +161,12 @@ function langgam_fikir_render_share_bar() {
                     <span class="share-copy-text"><?php esc_html_e( 'Copy Link', 'langgam-fikir' ); ?></span>
                 </button>
             <?php endif; ?>
+            <?php
+            /**
+             * Fires at the end of the share buttons (the Print and Download PDF buttons go here).
+             */
+            do_action( 'langgam_fikir_share_bar_end' );
+            ?>
         </div>
     </div>
     <?php

@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.15.0
+Stable tag: 2.16.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,12 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.16.0 (November 2026) =
+* NEW: Print & PDF: a print stylesheet for every page (paper size, margins, text size, site name and logo, web address, date and citation at the end, link addresses), and a Print button on articles and books
+* NEW: Download PDF made on the server with headless Chrome when it is installed; otherwise the print dialog's Save as PDF
+* NEW: Google preferred sources: an "Add as preferred source" button in the theme's colours (a card after articles and a footer button), using Google's in-page flow with a plain-link fallback (Theme Options > Social & SEO)
+* NEW: All 44 profile icons usable, including ORCID, ISNI, VIAF, OCLC WorldCat, Wikidata and Wikipedia records for Schema.org sameAs; Pinterest, Tumblr and LINE share buttons
 
 = 2.15.0 (November 2026) =
 * NEW: Text justification: justified paragraphs and lists, hyphenation, wide-screens-only, an any-article fallback and exclusions, in Theme Options > Design
@@ -476,6 +482,9 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 * Typography and color system implementation
 
 == Upgrade Notice ==
+
+= 2.16.0 =
+Adds Print & PDF (Theme Options > Print & PDF) and more social profiles, including library authority records. Nothing changes until you add profiles; Print buttons appear on articles and books.
 
 = 2.15.0 =
 Text justification, citations and a private login address are now theme features (your current login address is kept). If the plugins that used to provide them are active, the first admin page load after updating copies their settings into Theme Options, deactivates them and converts their blocks and shortcodes in posts to the theme's own (back up the database first). You can delete those plugins afterwards.

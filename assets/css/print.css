@@ -1,0 +1,479 @@
+/*
+ * Print and PDF
+ * Langgam Fikir WordPress Theme
+ *
+ * The buttons (screen), then how every page prints (inc/print.php). Paper size, margins and
+ * text size are added inline from Theme Options > Print & PDF as @page rules and
+ * --lf-print-size. The same rules shape the server PDFs made by headless Chrome (inc/pdf.php).
+ *
+ * Print rules follow long-standing print-stylesheet practice: black text on white in the body
+ * font, no screen furniture, headings kept with what follows, images, tables, quotes and
+ * figures kept whole, three-line orphans and widows, table headers repeated on each page, and
+ * the address printed after links to other websites.
+ */
+
+/* ---------------------------------------------------------------- screen */
+
+.lf-print-header,
+.lf-print-footer {
+    display: none;
+}
+
+.lf-print-btn,
+.lf-pdf-btn {
+    font-family: var(--font-secondary);
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+.lf-print-btn:hover,
+.lf-print-btn:focus-visible,
+.lf-pdf-btn:hover,
+.lf-pdf-btn:focus-visible {
+    color: var(--color-text);
+    border-color: var(--color-text-light);
+}
+
+.lf-print-btn:focus-visible,
+.lf-pdf-btn:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+    .lf-print-btn,
+    .lf-pdf-btn {
+        min-height: 44px;
+    }
+}
+
+/* ---------------------------------------------------------------- print */
+
+@media print {
+    :root {
+        --lf-print-size: 11pt;
+    }
+
+    /* Ink only: every colour token turns black, grey or white, so the theme's own rules
+       (even the !important ones) print in ink without restating each of them. */
+    html,
+    body,
+    body[class] {
+        --color-primary: #000 !important;
+        --color-secondary: #000 !important;
+        --color-accent: #000 !important;
+        --color-accent-dark: #000 !important;
+        --color-text: #000 !important;
+        --color-text-light: #222 !important;
+        --color-text-muted: #444 !important;
+        --color-border: #999 !important;
+        --color-on-accent: #fff !important;
+        --color-on-hero: #000 !important;
+        --color-bg-primary: #fff !important;
+        --color-bg-secondary: #fff !important;
+        --color-bg-muted: #fff !important;
+        --color-bg-tint: #fff !important;
+        --color-bg-hero: #fff !important;
+        --color-bg-soft: #fff !important;
+    }
+
+    html,
+    body {
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+    }
+
+    body {
+        font-family: var(--font-primary), Georgia, "Times New Roman", serif;
+        font-size: var(--lf-print-size);
+        line-height: 1.5;
+        color: #000;
+    }
+
+    *,
+    *::before,
+    *::after {
+        background-image: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    /* Everything faded or slid in on screen is simply there on paper. */
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .stagger-children > *,
+    .site-footer,
+    [class*="fade"] {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+
+    /* Screen furniture */
+    #wpadminbar,
+    .skip-link,
+    .site-header,
+    .site-footer,
+    .main-navigation,
+    .menu-toggle,
+    .header-cta,
+    .breadcrumbs,
+    .book-share-bar,
+    .lf-print-actions,
+    .lf-toc,
+    .single-post-navigation,
+    .related-books-section,
+    .related-posts-section,
+    .single-post-comments,
+    .comment-respond,
+    .book-filter-bar,
+    .book-filters,
+    .book-sort,
+    .quantity-selector,
+    .add-to-cart-btn,
+    .order-book-btn,
+    .about-contact-cta,
+    .author-bio-links,
+    .faq-question-icon,
+    .lf-showcase-backgrounds,
+    .page-links,
+    .wp-block-buttons,
+    .wp-block-search,
+    .wp-block-embed,
+    iframe,
+    video,
+    audio,
+    form,
+    button,
+    nav {
+        display: none !important;
+    }
+
+    .site,
+    .site-content,
+    .site-main,
+    .container,
+    .single-post-layout,
+    .single-post-content,
+    .single-book-content,
+    .entry-content {
+        width: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        float: none !important;
+        display: block !important;
+        columns: auto !important;
+    }
+
+    /* Colour: ink only */
+    h1, h2, h3, h4, h5, h6,
+    p, li, dt, dd, td, th, blockquote, figcaption, caption,
+    .page-title, .book-title, .book-subtitle, .meta-label, .meta-value {
+        color: #000 !important;
+        background: transparent !important;
+    }
+
+    /* Headings stay with what follows */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-primary), Georgia, serif;
+        line-height: 1.25;
+        break-after: avoid;
+        page-break-after: avoid;
+        break-inside: avoid;
+    }
+
+    h1 { font-size: 1.9em; margin: 0 0 0.4em; }
+    h2 { font-size: 1.45em; margin: 1.2em 0 0.4em; }
+    h3 { font-size: 1.2em; margin: 1em 0 0.3em; }
+    h4, h5, h6 { font-size: 1em; margin: 1em 0 0.3em; }
+
+    p, li, blockquote {
+        orphans: 3;
+        widows: 3;
+    }
+
+    p {
+        margin: 0 0 0.75em;
+    }
+
+    /* The chosen text size wins over the screen sizes of the reading areas. */
+    .entry-content,
+    .single-post-content .entry-content,
+    .book-synopsis,
+    .book-synopsis-text,
+    .about-text {
+        font-size: var(--lf-print-size) !important;
+    }
+
+    blockquote,
+    .wp-block-quote,
+    .wp-block-pullquote {
+        margin: 1em 0;
+        padding: 0 0 0 1em !important;
+        border-left: 2pt solid #888 !important;
+        font-size: 0.95em;
+        break-inside: avoid;
+    }
+
+    pre,
+    code {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.9em;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        border: 1px solid #bbb;
+        padding: 0.5em;
+        break-inside: avoid;
+    }
+
+    hr {
+        border: 0;
+        border-top: 1px solid #bbb;
+    }
+
+    /* Images and figures: whole, never wider than the page */
+    img,
+    svg,
+    figure,
+    .wp-block-image,
+    .book-image,
+    .book-cover {
+        max-width: 100% !important;
+        height: auto;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    figure {
+        margin: 1em 0;
+    }
+
+    figcaption {
+        font-size: 0.85em;
+        font-style: italic;
+    }
+
+    body.lf-print-no-images .entry-content img,
+    body.lf-print-no-images .entry-content figure,
+    body.lf-print-no-images .single-post-thumbnail,
+    body.lf-print-no-images .post-thumbnail {
+        display: none !important;
+    }
+
+    /* Tables: ruled, header on every page, rows whole */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1em 0;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    th,
+    td {
+        border-bottom: 1px solid #555;
+        padding: 3pt 8pt 3pt 0;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        font-weight: 700;
+    }
+
+    caption {
+        text-align: left;
+        margin-bottom: 0.5em;
+    }
+
+    /* Links: underlined, and the address after links to other websites */
+    a,
+    a:visited {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+
+    body.lf-print-links .entry-content a[href^="http"]::after,
+    body.lf-print-links .book-synopsis a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.85em;
+        font-weight: 400;
+        word-break: break-all;
+    }
+
+    /* No address after images, in-page links or links that show their own address */
+    .entry-content a[href^="#"]::after,
+    .entry-content a[href^="javascript:"]::after,
+    .entry-content a:has(> img)::after,
+    .lf-cite a::after,
+    .lf-cite-references a::after {
+        content: none !important;
+    }
+
+    abbr[title]::after {
+        content: " (" attr(title) ")";
+    }
+
+    /* Article */
+    .single-post-header,
+    .entry-header {
+        margin-bottom: 1em;
+        padding-bottom: 0.5em;
+        border-bottom: 1px solid #000;
+    }
+
+    .single-post-meta,
+    .reading-time {
+        font-family: var(--font-secondary);
+        font-size: 0.8em;
+        color: #333 !important;
+    }
+
+    .single-post-thumbnail,
+    .post-thumbnail {
+        margin: 0 0 1em;
+    }
+
+    .author-bio {
+        margin: 1.5em 0 0 !important;
+        padding: 0.75em 0 0 !important;
+        border: 0 !important;
+        border-top: 1px solid #999 !important;
+        border-radius: 0 !important;
+        background: none !important;
+        break-inside: avoid;
+    }
+
+    .author-bio-avatar-wrap {
+        display: none !important;
+    }
+
+    /* Book: cover beside the details */
+    .single-book-content {
+        display: block !important;
+    }
+
+    .book-image {
+        float: left;
+        width: 45mm;
+        margin: 0 6mm 4mm 0 !important;
+    }
+
+    .book-image-frame,
+    .book-cover {
+        border: 0 !important;
+        transform: none !important;
+    }
+
+    .book-details {
+        overflow: hidden;
+    }
+
+    .book-meta-grid,
+    .book-meta-card {
+        display: block !important;
+        border: 0 !important;
+        padding: 0 !important;
+    }
+
+    .book-meta-item {
+        display: block !important;
+        padding: 1pt 0 !important;
+        border: 0 !important;
+        font-size: 0.9em;
+    }
+
+    .book-synopsis {
+        clear: both;
+        padding-top: 0.5em;
+    }
+
+    .book-status-badge,
+    .book-status-message {
+        border: 1px solid #000 !important;
+        background: none !important;
+        color: #000 !important;
+    }
+
+    /* FAQ: every answer open */
+    .faq-answer,
+    .faq-answer[hidden] {
+        display: block !important;
+        max-height: none !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .faq-item {
+        break-inside: avoid;
+    }
+
+    /* Paper-only header and footer */
+    .lf-print-header {
+        display: flex !important;
+        align-items: center;
+        gap: 4mm;
+        margin: 0 0 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1.5pt solid #000;
+    }
+
+    .lf-print-logo {
+        width: auto;
+        max-height: 14mm;
+    }
+
+    .lf-print-site {
+        margin: 0;
+        font-family: var(--font-display, var(--font-primary)), Georgia, serif;
+        font-size: 1.35em;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .lf-print-tagline {
+        margin: 1mm 0 0;
+        font-size: 0.8em;
+        font-style: italic;
+    }
+
+    .lf-print-footer {
+        display: block !important;
+        clear: both;
+        margin-top: 8mm;
+        padding-top: 3mm;
+        border-top: 1px solid #000;
+        font-size: 0.8em;
+        break-inside: avoid;
+    }
+
+    .lf-print-footer p {
+        margin: 0 0 2mm;
+    }
+
+    .lf-print-url {
+        word-break: break-all;
+    }
+
+    /* A server PDF: no browser chrome, nothing interactive */
+    body.lf-print-pdf .lf-print-header {
+        margin-top: 0;
+    }
+}

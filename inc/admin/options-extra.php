@@ -145,6 +145,12 @@ function langgam_fikir_render_extra_field( $key, $field, $value ) {
             );
             break;
 
+        case 'status':
+            // Read-only report from a callback that returns escaped HTML.
+            $html = ! empty( $field['callback'] ) && is_callable( $field['callback'] ) ? (string) call_user_func( $field['callback'] ) : '';
+            echo '<div class="lf-status" id="' . esc_attr( $id ) . '" role="status">' . wp_kses_post( $html ) . '</div>';
+            break;
+
         case 'slug':
             // The full address around the editable part, e.g. https://example.com/[login]/
             $pretty = (bool) get_option( 'permalink_structure' );
@@ -197,7 +203,7 @@ function langgam_fikir_render_extra_cards( $slug, $opts ) {
             echo '<div class="lf-field">';
             if ( 'checkbox' === $field['type'] ) {
                 // The label is printed with the control.
-            } elseif ( ! in_array( $field['type'], array( 'scheme', 'checklist' ), true ) ) {
+            } elseif ( ! in_array( $field['type'], array( 'scheme', 'checklist', 'status' ), true ) ) {
                 printf( '<label for="lf_%s">%s</label>', esc_attr( $key ), esc_html( $field['label'] ) );
             } else {
                 echo '<span class="lf-label">' . esc_html( $field['label'] ) . '</span>';

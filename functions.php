@@ -5,7 +5,7 @@
  *
  * @package Langgam_Fikir
  * @since 1.0.0
- * @version 2.15.0
+ * @version 2.16.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Theme Constants
  */
-define( 'LANGGAM_FIKIR_VERSION', '2.15.0' );
+define( 'LANGGAM_FIKIR_VERSION', '2.16.0' );
 define( 'LANGGAM_FIKIR_DIR', get_stylesheet_directory() );
 define( 'LANGGAM_FIKIR_URI', get_stylesheet_directory_uri() );
 
@@ -42,6 +42,9 @@ require_once LANGGAM_FIKIR_DIR . '/inc/login-address.php';       // Private logi
 require_once LANGGAM_FIKIR_DIR . '/inc/justify.php';             // Text justification (v2.15.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/citations.php';           // Citation box, styles, downloads, block (v2.15.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/citations-analytics.php'; // Citation analytics table, counting, privacy tools, admin page (v2.15.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/print.php';                // Print stylesheet, Print button, paper header and footer (v2.16.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/preferred-sources.php';    // Google preferred sources button (v2.16.0)
+require_once LANGGAM_FIKIR_DIR . '/inc/pdf.php';                  // Server PDFs with headless Chrome (v2.16.0)
 require_once LANGGAM_FIKIR_DIR . '/inc/plugin-takeover.php';     // Detects plugins the theme replaces: import, migrate, deactivate (v2.15.0)
 
 /**

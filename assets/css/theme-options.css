@@ -372,6 +372,49 @@
     color: var(--color-text-light, #6B6057);
 }
 
+.lf-field select {
+    max-width: 100%;
+}
+
+.lf-field .lf-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.lf-status {
+    padding: 10px 12px;
+    background: #F7F3EE;
+    border-radius: 4px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #5E544B;
+}
+
+.lf-status p {
+    margin: 0 0 4px;
+}
+
+.lf-status p:last-child {
+    margin-bottom: 0;
+}
+
+.lf-status code {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.lf-status-ok {
+    color: #2E6B3A;
+    font-weight: 600;
+}
+
+.lf-status-off {
+    color: #8A4B12;
+}
+
 .lf-slug {
     display: flex;
     align-items: center;
