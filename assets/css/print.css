@@ -203,6 +203,15 @@
         margin: 0 0 0.75em;
     }
 
+    /* The chosen text size wins over the screen sizes of the reading areas. */
+    .entry-content,
+    .single-post-content .entry-content,
+    .book-synopsis,
+    .book-synopsis-text,
+    .about-text {
+        font-size: var(--lf-print-size) !important;
+    }
+
     blockquote,
     .wp-block-quote,
     .wp-block-pullquote {

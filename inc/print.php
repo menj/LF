@@ -33,6 +33,10 @@ function langgam_fikir_print_kind( $post = null ) {
  */
 function langgam_fikir_print_allowed( $post = null ) {
     $kind = langgam_fikir_print_kind( $post );
+    // These page templates have no Print button (and so no PDF either).
+    if ( 'page' === $kind && in_array( get_page_template_slug( $post ), array( 'page-contact.php', 'page-privacy.php', 'page-sitemap.php' ), true ) ) {
+        return false;
+    }
     return '' !== $kind && (bool) langgam_fikir_get_option( 'print_on_' . $kind . 's', 'page' === $kind ? 0 : 1 );
 }
 
@@ -205,7 +209,8 @@ function langgam_fikir_print_footer() {
 
     if ( $post instanceof WP_Post && langgam_fikir_get_option( 'print_citation', 1 )
         && function_exists( 'langgam_fikir_cite_work' ) && in_array( $post->post_type, array( 'post', 'book' ), true )
-        && ! ( function_exists( 'langgam_fikir_cite_auto_applies' ) && langgam_fikir_cite_auto_applies( $post ) ) ) {
+        && ! ( function_exists( 'langgam_fikir_cite_auto_applies' ) && langgam_fikir_cite_auto_applies( $post ) )
+        && ! has_shortcode( $post->post_content, 'cite' ) && ! has_block( 'langgam-fikir/citation', $post ) ) {
         $styles   = array_filter( explode( ',', (string) langgam_fikir_get_option( 'cite_formats', 'apa' ) ) );
         $style    = $styles ? reset( $styles ) : 'apa';
         $citation = langgam_fikir_cite_render( langgam_fikir_cite_work( $post ), $style );

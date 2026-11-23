@@ -200,11 +200,14 @@ function langgam_fikir_pdf_dir() {
  * Everything a PDF depends on, so a change to any of them makes a fresh file.
  */
 function langgam_fikir_pdf_fingerprint( WP_Post $post ) {
-    $keys = array( 'print_paper', 'print_margins', 'print_size', 'print_header', 'print_footer', 'print_citation', 'print_links', 'print_images', 'color_scheme', 'cite_formats' );
+    $keys = array( 'print_paper', 'print_margins', 'print_size', 'print_header', 'print_footer', 'print_citation', 'print_links', 'print_images', 'color_scheme', 'cite_formats', 'cite_auto', 'cite_on_posts', 'cite_on_books', 'cite_on_pages', 'cite_exclude', 'cite_box' );
     $opts = array();
     foreach ( $keys as $key ) {
         $opts[ $key ] = langgam_fikir_get_option( $key );
     }
+    // What the printed header shows.
+    $opts['logo'] = (int) get_theme_mod( 'custom_logo' );
+    $opts['name'] = get_bloginfo( 'name' ) . '|' . get_bloginfo( 'description' );
     return substr( md5( $post->post_modified_gmt . '|' . LANGGAM_FIKIR_VERSION . '|' . wp_json_encode( $opts ) ), 0, 12 );
 }
 
@@ -319,9 +322,27 @@ function langgam_fikir_pdf_make( WP_Post $post ) {
     }
 
     langgam_fikir_pdf_forget( $post->ID );
-    rename( $tmp, $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.rename_rename
+    if ( ! @rename( $tmp, $file ) ) { // phpcs:ignore WordPress.WP.AlternativeFunctions.rename_rename,WordPress.PHP.NoSilencedErrors
+        wp_delete_file( $tmp );
+        return new WP_Error( 'lf_pdf_store', 'The PDF could not be saved.' );
+    }
     delete_transient( 'lf_pdf_last_error' );
     return $file;
+}
+
+/**
+ * Take the one-at-a-time lock. add_option() is a single INSERT on a unique key, so two
+ * simultaneous requests cannot both get it. A lock older than two minutes is stale.
+ */
+function langgam_fikir_pdf_lock() {
+    if ( add_option( 'lf_pdf_lock', time(), '', 'no' ) ) {
+        return true;
+    }
+    if ( time() - (int) get_option( 'lf_pdf_lock' ) > 2 * MINUTE_IN_SECONDS ) {
+        delete_option( 'lf_pdf_lock' );
+        return add_option( 'lf_pdf_lock', time(), '', 'no' );
+    }
+    return false;
 }
 
 /* =========================================================================
@@ -349,16 +370,15 @@ function langgam_fikir_pdf_download() {
     $file = langgam_fikir_pdf_file( $post );
     if ( ! is_file( $file ) ) {
         // One at a time: Chrome is heavy.
-        if ( get_transient( 'lf_pdf_lock' ) ) {
+        if ( ! langgam_fikir_pdf_lock() ) {
             wp_safe_redirect( $fallback );
             exit;
         }
-        set_transient( 'lf_pdf_lock', 1, 2 * MINUTE_IN_SECONDS );
         if ( function_exists( 'set_time_limit' ) ) {
             @set_time_limit( 120 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors
         }
         $made = langgam_fikir_pdf_make( $post );
-        delete_transient( 'lf_pdf_lock' );
+        delete_option( 'lf_pdf_lock' );
         if ( is_wp_error( $made ) ) {
             wp_safe_redirect( $fallback );
             exit;

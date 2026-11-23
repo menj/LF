@@ -4250,3 +4250,7 @@ msgstr "Muatkan apabila pembaca menatal berhampiran butang (menambah tanpa menin
 #: inc/preferred-sources.php
 msgid "Never load it: the button opens Google's page (no request to Google until clicked)"
 msgstr "Jangan muatkan: butang membuka halaman Google (tiada permintaan kepada Google sehingga diklik)"
+
+#: inc/options-schema.php
+msgid "Add as preferred source"
+msgstr "Tambah sebagai sumber pilihan"

@@ -4072,3 +4072,7 @@ msgstr ""
 #: inc/preferred-sources.php
 msgid "Never load it: the button opens Google's page (no request to Google until clicked)"
 msgstr ""
+
+#: inc/options-schema.php
+msgid "Add as preferred source"
+msgstr ""

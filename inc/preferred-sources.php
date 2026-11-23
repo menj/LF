@@ -197,7 +197,8 @@ function langgam_fikir_gps_enqueue() {
 function langgam_fikir_gps_head_assets() {
     if ( ( is_singular( 'post' ) && langgam_fikir_gps_enabled_for( 'post' ) )
         || ( is_singular( 'book' ) && langgam_fikir_gps_enabled_for( 'book' ) )
-        || langgam_fikir_gps_enabled_for( 'footer' ) ) {
+        || langgam_fikir_gps_enabled_for( 'footer' )
+        || ( is_singular() && langgam_fikir_get_option( 'gps_enabled', 0 ) && has_shortcode( (string) get_post_field( 'post_content', get_queried_object_id() ), 'preferred_source' ) ) ) {
         langgam_fikir_gps_enqueue();
     }
 }

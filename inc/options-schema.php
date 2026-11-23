@@ -657,7 +657,7 @@ function langgam_fikir_extra_options_schema() {
                         'gps_on_footer' => $f( 'checkbox', __( 'As a small button in the footer', 'langgam-fikir' ), 1, __( 'Elsewhere, use the [preferred_source] shortcode, or [preferred_source style="button"] for the button alone.', 'langgam-fikir' ) ),
                         'gps_heading'   => $f( 'text', __( 'Card heading', 'langgam-fikir' ), __( 'See {site} first on Google', 'langgam-fikir' ), __( '{site} is replaced by the site name. Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
                         'gps_text'      => $f( 'text', __( 'Card text', 'langgam-fikir' ), __( 'Add us as a preferred source and our new articles show up first in Google\'s Top Stories and AI answers.', 'langgam-fikir' ), __( 'Empty hides it.', 'langgam-fikir' ), array( 'allow_empty' => true ) ),
-                        'gps_label'     => $f( 'text', __( 'Button text', 'langgam-fikir' ), __( 'Add as a preferred source on Google', 'langgam-fikir' ) ),
+                        'gps_label'     => $f( 'text', __( 'Button text', 'langgam-fikir' ), __( 'Add as preferred source', 'langgam-fikir' ) ),
                         'gps_script'    => $f( 'select', __( 'Google\'s button script', 'langgam-fikir' ), 'near', '', array( 'choices' => array(
                             'near' => __( 'Load it when a reader scrolls near the button (adds without leaving the page)', 'langgam-fikir' ),
                             'link' => __( 'Never load it: the button opens Google\'s page (no request to Google until clicked)', 'langgam-fikir' ),
