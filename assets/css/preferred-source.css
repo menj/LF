@@ -43,8 +43,45 @@
     outline-offset: 3px;
 }
 
-.lf-gps__icon {
+/* Google's "G" keeps Google's colours: on the filled button it sits on a white disc. */
+.lf-gps__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    margin-left: -0.35rem;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.lf-gps__icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.lf-gps__btn--footer .lf-gps__mark,
+.lf-gps__btn--inline .lf-gps__mark {
+    width: 18px;
+    height: 18px;
+    margin-left: 0;
+    background: none;
+}
+
+.lf-gps__btn--footer .lf-gps__icon,
+.lf-gps__btn--inline .lf-gps__icon {
+    width: 17px;
+    height: 17px;
+}
+
+/* Windows high contrast: the system draws the button; keep the G visible on its own. */
+@media (forced-colors: active) {
+    .lf-gps__mark {
+        background: none;
+        forced-color-adjust: none;
+    }
 }
 
 /* ---------------------------------------------------------------- card (after articles) */

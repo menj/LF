@@ -344,7 +344,7 @@ Not a plugin: Google's preferred-sources library, used the "advanced, custom des
 - **When it loads:** only on pages that print a button (`data-lf-preferred-source`), and only when the reader nears it. Never in link-only mode.
 - **The link:** every button is the deeplink first (`langgam_fikir_gps_deeplink()`). The script only upgrades a click once Google's API is ready, so a blocked script never breaks the button.
 - **Eligibility:** domain and subdomain sites only (`langgam_fikir_gps_eligible()`); a site in a subfolder shows no button.
-- **Look:** design tokens only (`--color-primary`, `--color-accent`, `--color-bg-*`, `--font-*`, `--radius-*`), no fixed colours. Hover keeps the text colour so contrast stays at least 4.5:1 in every palette.
+- **Look:** design tokens only (`--color-primary`, `--color-accent`, `--color-bg-*`, `--font-*`, `--radius-*`). The one exception is Google's "G" mark: an inline SVG in Google's own colours, on a white disc (`.lf-gps__mark`) on the filled button. Don't recolour it. Hover keeps the text colour so contrast stays at least 4.5:1 in every palette.
 - **Options:** `gps_enabled` (off by default), `gps_on_posts`, `gps_on_books`, `gps_on_footer`, `gps_heading` (`{site}` placeholder), `gps_text`, `gps_label`, `gps_script` (`near` | `link`).
 
 ---
