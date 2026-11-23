@@ -16,18 +16,22 @@ Langgam Fikir is a professionally designed child theme of WordPress Twenty Twent
 
 = Key Features =
 
-* **Custom Book Post Type** - Manage books with comprehensive metadata including author, translator, editor, publisher, ISBN, price, and availability status
-* **Ten Book Statuses** - Announced, Coming Soon, Pre-Order, New Release, Published, Limited Edition, Digital Only, Sold Out, Reprinting, Out of Print
-* **Custom Templates** - Homepage, About, Contact, Privacy Policy, Blog Archive, Book Archive, and Single Book pages
-* **Contact Form** - Built-in functional contact form with email notifications
-* **Schema.org Markup** - Complete JSON-LD structured data for books and organization for enhanced SEO
-* **WooCommerce Ready** - Optional e-commerce integration support
-* **Responsive Design** - Mobile-first approach with optimized layouts for all devices
-* **Theme Options Page** - Tabbed settings interface under Appearance > Theme Options for full control over homepage, contact, footer, and legal entity settings
-* **Showcase** - Interactive homepage section: hover a book title and the full-width background crossfades to its cover. Showcased books never repeat in the Latest Publications grid
-* **Agent Tools (WebMCP)** - In-browser AI agents can search the catalogue and look up books through read-only tools, and fill in (never send) the contact form; a public read-only REST endpoint backs it
-* **Professional Typography** - Crimson Text for headings, Inter for body text
-* **Configurable Colors** - CSS custom properties system for easy theming
+* **Books** - A Books post type with author, translator, editor, publisher, ISBN, price and ten lifecycle statuses (Announced to Out of Print), category and topic filters, sorting, FAQ and reviews
+* **Templates** - Homepage with an interactive Showcase, About, Contact (working form), Privacy Policy, Sitemap, Resources, Book archive and Book pages
+* **Theme Options** - Tabbed settings under Appearance > Theme Options: Homepage, Design, pages, Login Page, Citations, Print & PDF, Social & SEO, Labels and more
+* **Design** - Four palettes plus custom colours, font roles, corner styles and parallax, built on CSS custom properties
+* **Citations** - "Cite this" box with 20 styles, copy and six download formats, in-text citations, reference lists, a Citation block and Google Scholar tags; books are cited as books
+* **Print & PDF** - Print stylesheet for every page, a Print button, and server-made PDFs with headless Chrome when available
+* **SEO and Schema.org** - One connected JSON-LD graph that cooperates with Rank Math and Yoast; Book, ItemList, FAQ and breadcrumb data
+* **Social** - 44 profile icons including ORCID, ISNI, VIAF, OCLC and Wikidata records for sameAs; share buttons
+* **Google Preferred Sources** - An "Add as preferred source" button in the theme's colours
+* **Branded Login and Private Login Address** - Login screen in the site's look; optional private login slug that hides wp-login.php and wp-admin
+* **Text Justification** - Justified, hyphenated article text with exclusions
+* **Agent Tools (WebMCP)** - Read-only catalogue tools for in-browser AI agents and an agent-fillable contact form
+* **Plugin Detection** - Imports settings from Auto Justify Content, CitePress and WPS Hide Login and switches them off
+* **Typography** - Kagnue for titles, Crimson Text for headings, Sabon Next LT for reading, Inter for the interface (each role changeable)
+* **WooCommerce Ready** - Optional e-commerce support
+* **Responsive and Accessible** - Phone, tablet and desktop layouts, keyboard support, 44px tap targets, reduced motion
 
 = Perfect For =
 
@@ -42,7 +46,7 @@ Langgam Fikir is a professionally designed child theme of WordPress Twenty Twent
 
 Langgam Fikir embraces modernist, minimalist design principles with:
 * Clean, uncluttered layouts
-* Warm, earthy color palette (browns, golds, cream)
+* Configurable palettes (Folio, Earth, Slate, Sage, Clay) and custom colours
 * Generous whitespace
 * Refined typography with restrained font weights
 * Subtle transitions and hover states
@@ -51,7 +55,7 @@ Langgam Fikir embraces modernist, minimalist design principles with:
 = Technical Highlights =
 
 * Child theme architecture (safe parent theme updates)
-* Proper asset separation (CSS in /css/, JS in /js/)
+* Proper asset separation (CSS in assets/css/, JS in assets/js/)
 * WordPress Coding Standards compliant
 * Accessibility-ready with ARIA attributes
 * Performance optimized with lazy loading
@@ -108,7 +112,7 @@ Absolutely! WooCommerce support is optional. The theme has built-in book managem
 
 = How do I change the color scheme? =
 
-Edit /css/main.css and modify the CSS custom properties in the :root section. All colors are defined as variables for easy customization.
+Go to Appearance > Theme Options > Design. Pick a palette, override individual colours, and choose fonts and corner styles. Everything in the theme follows these settings.
 
 = PageSpeed says my CSS is render-blocking and nothing is cached. Is that the theme? =
 
@@ -124,7 +128,19 @@ Yes, the theme is fully compatible with the block editor (Gutenberg) and include
 
 = Is the theme translation ready? =
 
-Yes! The theme uses proper internationalization functions and the 'langgam-fikir' text domain. POT file can be generated for translations.
+Yes. English (en_US) is the default and a Malay (ms_MY) translation is included. The POT file is in languages/ for other languages.
+
+= I turned on the private login address and now I cannot log in. =
+
+Use the address you chose (Theme Options > Login Page > Login Address shows it after saving). If you have lost it, rename the theme's folder (wp-content/themes/langgam-fikir) by FTP or in your host's file manager: WordPress falls back to its default theme and the normal wp-login.php. Rename it back after logging in.
+
+= Why is there a Print button but no Download PDF button? =
+
+Download PDF needs Google Chrome or Chromium on the web server, and Make PDFs with set to "Chrome on this server" in Theme Options > Print & PDF. The Status line there says whether the server can do it. Without it, the Print button's dialog offers Save as PDF.
+
+= The preferred source button does nothing useful. =
+
+Google must already list the site. Open the link in the status under Theme Options > Social & SEO > Google Preferred Sources; if Google does not find the site, leave the button off for now. Sites in a subfolder are not eligible.
 
 = How do I customize the homepage featured books count? =
 

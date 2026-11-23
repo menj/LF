@@ -56,6 +56,24 @@ Without `pre_wp_mail` the handler takes the failure branch and redirects with `c
   `_book_isbn`, `_book_price`, `_book_status` (`published`/`pre-order`), `_book_publisher`,
   `_book_year`. Create with `wp post create --post_type=book ... && wp post meta set ...`.
 
+## Newer features (2.13.0–2.16.0)
+
+- **Theme Options** live in one array option, `langgam_fikir_options`; set values with
+  `wp option patch update langgam_fikir_options <key> <value>`.
+- **Private login address:** `login_hide=1`, `login_slug=masuk`. Then `/wp-login.php` and
+  logged-out `/wp-admin/` must show the 404 page, and `/masuk/` the login form. If you lock
+  yourself out, `wp option patch update langgam_fikir_options login_hide 0`.
+- **Print:** use Chrome's print preview, or Playwright `page.emulateMedia({ media: 'print' })`.
+  A Print button shows on single posts and books.
+- **Server PDF:** Chromium is at `/opt/pw-browsers/chromium` in cloud sessions. Set
+  `pdf_engine=chrome` and `pdf_no_sandbox=1` (needed as root), open a post with `?lf-pdf=1`,
+  and check `pdfinfo` on the download. Files land in `wp-content/uploads/langgam-fikir-pdf/`.
+- **Citations:** `[cite]` in a post, or the Citation block (`langgam-fikir/citation`).
+- **Plugin detection:** activating Auto Justify Content, CitePress or WPS Hide Login is
+  reversed on the next admin page load, with a notice.
+- **Preferred sources:** `gps_enabled=1`. Google's script only loads near the button, and
+  `gps_script=link` keeps it from loading at all.
+
 ## Gotchas worth knowing
 
 - Chrome's omnibox autocompletes to previously visited URLs; type the URL then press `Delete`
