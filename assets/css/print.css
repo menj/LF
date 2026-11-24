@@ -172,6 +172,11 @@
         columns: auto !important;
     }
 
+    /* The subtitle's gold rule is decoration */
+    .book-subtitle::before, .book-subtitle-single::before {
+        display: none !important;
+    }
+
     /* Colour: ink only */
     h1, h2, h3, h4, h5, h6,
     p, li, dt, dd, td, th, blockquote, figcaption, caption,

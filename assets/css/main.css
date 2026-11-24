@@ -735,7 +735,7 @@ p {
 
 .book-subtitle {
     font-family: var(--font-secondary);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 600;
     font-style: normal;
     text-transform: uppercase;

@@ -518,7 +518,7 @@ ok( 'the patterns refuse hidden files, tools, tests, bin, docs, server and spare
 
 echo "\nPermissions\n";
 $perm = "$base/perm";
-if ( 0 === posix_getuid() && trim( (string) shell_exec( 'command -v setpriv' ) ) ) {
+if ( function_exists( 'posix_getuid' ) && 0 === posix_getuid() && trim( (string) shell_exec( 'command -v setpriv' ) ) ) {
     lf_rm( $perm );
     mkdir( $perm, 0777, true );
     chmod( $perm, 0777 );

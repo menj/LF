@@ -169,6 +169,7 @@ LF/
 │   └── fonts/                         Self-hosted WOFF2
 ├── languages/                         .pot / .po / .mo
 ├── .htaccess                          Refuses hidden files and tools, tests, bin, docs, server until the clean-up has run
+├── server/                            Server-level rule snippets to copy by hand (not theme code)
 ├── tools/                             Development only (self-tests); deleted from live sites by inc/dev-files.php
 ├── readme.txt
 ├── README.md
