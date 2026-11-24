@@ -122,11 +122,11 @@ For manual server access:
 
 **Status:** RELEASED — development files are removed from live sites.
 
-- **What happens:** on the first request after the update, the theme deletes the hidden files and folders at the top of its folder (`.git`, `.gitignore`, `.github`, `.DS_Store` and the like; not `.htaccess`, `.user.ini` or `.well-known`) and the `tools/` and `tests/` folders. `data/`, the code and everything else stay. Nothing in `bin/` or `docs/` is deleted (the new `.htaccess` only refuses web access to them).
+- **What happens:** on the first request after the update, the theme deletes the hidden files and folders at the top of its folder (`.git`, `.gitignore`, `.github`, `.DS_Store` and the like; not `.htaccess`, `.user.ini` or `.well-known`) and the `tools/` and `tests/` folders. `data/`, the code and everything else stay. Nothing in `bin/`, `docs/` or `server/` is deleted (the new `.htaccess` only refuses web access to them).
 - **Local and development sites keep everything.** Set `WP_ENVIRONMENT_TYPE` to `local` or `development` (in `wp-config.php` or the server environment), or add `define( 'LANGGAM_FIKIR_KEEP_DOTFILES', true );` to `wp-config.php`. **A working copy on a site that is neither will lose its `.git` on the first request**: set one of these first.
 - **The hourly run needs WP-Cron.** The theme checks every hour, because an upload can put `.git` back. A host that sets `DISABLE_WP_CRON` must call `wp-cron.php` from a server cron at least hourly (for example `curl -s https://example.com/wp-cron.php > /dev/null`). Without it, only a theme version change triggers the clean-up.
 - **If something cannot be removed** (file permissions, an unreadable folder), the theme tries again every five minutes and writes one line a day to the PHP error log saying how many files are left. Delete them by FTP; the theme then records the version on its next try.
-- **`.htaccess`** is new in the theme folder (Apache and LiteSpeed). If you already have one there, merge it by hand: add the `RedirectMatch 403` and `RewriteRule` blocks. nginx ignores `.htaccess`, so deny hidden files and `tools`, `tests`, `bin` and `docs` in the server configuration.
+- **`.htaccess`** is new in the theme folder (Apache and LiteSpeed). If you already have one there, merge it by hand: add the `RedirectMatch 403` and `RewriteRule` blocks. nginx ignores `.htaccess`, so deny hidden files and `tools`, `tests`, `bin`, `docs` and `server` in the server configuration.
 - **Self-test** (development copy only): `php tools/test-dev-files.php`.
 
 ### Upgrading to 2.16.0 ✅

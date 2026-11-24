@@ -33,7 +33,7 @@
  * defines LANGGAM_FIKIR_KEEP_DOTFILES as true.
  *
  * Until the first clean-up has run, the theme's .htaccess refuses the hidden files and the
- * tools, tests, bin and docs folders.
+ * tools, tests, bin, docs and server folders.
  *
  * @package Langgam_Fikir
  * @since 2.17.0

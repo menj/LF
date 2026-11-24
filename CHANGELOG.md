@@ -15,7 +15,7 @@ Development files uploaded by FTP are removed from live sites.
   - **Recorded only when nothing is left** (`lf_devfiles_version`). If something cannot be removed (permissions, an unreadable folder), the version stays unrecorded and the lease is kept, so the retry comes every five minutes, not on every request; one line a day goes to the PHP error log with the number of files left and the advice to delete them by FTP.
   - **Hourly check** through WP-Cron (`langgam_fikir_devfiles_hourly`), because an upload can put `.git` back at any time. It does nothing when the folder has no development entries; otherwise it forgets the recorded version and runs the same clean-up under the same lease. Scheduled on `init`, cleared on `switch_theme`, never scheduled on a site that keeps its files.
   - **Kept as they are:** local and development sites (`wp_get_environment_type()`), and any site that defines `LANGGAM_FIKIR_KEEP_DOTFILES` as `true`.
-- **`.htaccess` in the theme folder**, in force until the first clean-up has run: refuses the hidden files and the `tools`, `tests`, `bin` and `docs` folders (`mod_alias` `RedirectMatch 403`, with a `mod_rewrite` fallback). `.well-known` stays reachable. It is kept by the clean-up.
+- **`.htaccess` in the theme folder**, in force until the first clean-up has run: refuses the hidden files and the `tools`, `tests`, `bin`, `docs` and `server` folders (`mod_alias` `RedirectMatch 403`, with a `mod_rewrite` fallback). `.well-known` stays reachable. It is kept by the clean-up.
 - **`tools/test-dev-files.php`**: a self-test for the clean-up (`php tools/test-dev-files.php`). The clean-up removes `tools/` from live sites.
 
 ## [2.16.0] - 2026-11-22

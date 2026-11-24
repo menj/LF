@@ -493,7 +493,7 @@ $htaccess = file_get_contents( $theme_root . '/.htaccess' );
 ok( 'has mod_alias RedirectMatch 403 rules', substr_count( $htaccess, 'RedirectMatch 403' ) >= 2 );
 ok( 'has a mod_rewrite fallback', false !== strpos( $htaccess, '<IfModule !mod_alias.c>' ) && false !== strpos( $htaccess, 'RewriteRule' ) );
 preg_match_all( '/^RedirectMatch 403 (.+)$/m', $htaccess, $pats );
-$blocked  = array( '/wp-content/themes/LF/.git/config', '/wp-content/themes/LF/.gitignore', '/wp-content/themes/LF/.github/x.yml', '/wp-content/themes/LF/tools/test.php', '/wp-content/themes/LF/tests/a.php', '/wp-content/themes/LF/bin/x.sh', '/wp-content/themes/LF/docs/a.md', '/blog/wp-content/themes/LF/.git/HEAD', '/wp-content/themes/LF/Tools/a.php' );
+$blocked  = array( '/wp-content/themes/LF/.git/config', '/wp-content/themes/LF/.gitignore', '/wp-content/themes/LF/.github/x.yml', '/wp-content/themes/LF/tools/test.php', '/wp-content/themes/LF/tests/a.php', '/wp-content/themes/LF/bin/x.sh', '/wp-content/themes/LF/docs/a.md', '/wp-content/themes/LF/server/htaccess-hardening.conf', '/blog/wp-content/themes/LF/.git/HEAD', '/wp-content/themes/LF/Tools/a.php' );
 $allowed  = array( '/wp-content/themes/LF/style.css', '/wp-content/themes/LF/.well-known/acme-challenge/x', '/wp-content/themes/LF/.htaccess', '/wp-content/themes/LF/assets/css/tools.css', '/wp-content/themes/LF/inc/docs.php', '/wp-content/themes/LF/assets/tools/x.js' );
 $test_url = function ( $url ) use ( $pats ) {
     foreach ( $pats[1] as $p ) {
@@ -514,7 +514,7 @@ foreach ( $allowed as $u ) {
         $bad[] = "wrongly refused: $u";
     }
 }
-ok( 'the patterns refuse hidden files, tools, tests, bin, docs and spare .well-known, style.css and deeper folders of the same name', ! $bad, implode( '; ', $bad ) );
+ok( 'the patterns refuse hidden files, tools, tests, bin, docs, server and spare .well-known, style.css and deeper folders of the same name', ! $bad, implode( '; ', $bad ) );
 
 echo "\nPermissions\n";
 $perm = "$base/perm";

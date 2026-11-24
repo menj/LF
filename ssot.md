@@ -168,7 +168,7 @@ LF/
 │   ├── images/hero/                   Bundled hero photographs (Pexels), 1920 and 960 px
 │   └── fonts/                         Self-hosted WOFF2
 ├── languages/                         .pot / .po / .mo
-├── .htaccess                          Refuses hidden files and tools, tests, bin, docs until the clean-up has run
+├── .htaccess                          Refuses hidden files and tools, tests, bin, docs, server until the clean-up has run
 ├── tools/                             Development only (self-tests); deleted from live sites by inc/dev-files.php
 ├── readme.txt
 ├── README.md
