@@ -735,12 +735,24 @@ p {
 
 .book-subtitle {
     font-family: var(--font-primary);
-    font-size: 0.9rem;
+    font-size: 1.02rem;
     font-style: italic;
+    letter-spacing: 0.01em;
     color: var(--color-text-light);
     margin-bottom: var(--spacing-sm);
-    line-height: 1.4;
-    opacity: 0.85;
+    line-height: 1.45;
+    text-wrap: balance;
+}
+
+/* A short accent rule above the subtitle, like the one above the section headings. */
+.book-subtitle::before {
+    content: "";
+    display: block;
+    width: 1.75rem;
+    height: 2px;
+    margin-bottom: 0.55rem;
+    border-radius: 1px;
+    background-color: var(--color-accent);
 }
 
 .book-meta {
@@ -1397,11 +1409,23 @@ p {
 
 .book-subtitle-single {
     font-family: var(--font-primary);
-    font-size: 1.15rem;
+    font-size: 1.3rem;
     font-style: italic;
+    letter-spacing: 0.01em;
     color: var(--color-text-light);
     margin-bottom: var(--spacing-lg);
-    line-height: 1.5;
+    line-height: 1.45;
+    text-wrap: balance;
+}
+
+.book-subtitle-single::before {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    margin-bottom: 0.7rem;
+    border-radius: 1px;
+    background-color: var(--color-accent);
 }
 
 .book-meta-card {
