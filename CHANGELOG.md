@@ -5,6 +5,19 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.17.0] - 2026-11-24
+
+Development files uploaded by FTP are removed from live sites.
+
+### Added
+- **Development files clean-up** (`inc/dev-files.php`). Uploading the theme from a working copy puts the repository (`.git`, `.gitignore`, other hidden files) and `tools/` on the server, where the web server may serve or run them. On the first request of any kind after the theme version changes, the theme deletes every hidden file and folder at the top of its folder (except `.htaccess`, `.user.ini` and `.well-known`) and the `tools/` and `tests/` folders. Read-only files are made writable first; a symlink is removed itself and never followed. `data/`, the code and the rest of the theme stay.
+  - **One request at a time:** a lease in the option `lf_devfiles_lease`, taken with `add_option()`, renewed at most once a minute by the running clean-up, taken over (one compare-and-set `UPDATE`) when unrenewed for five minutes, and released with one `DELETE` that matches only its own value. After taking the lease the recorded version is re-read from the database, so a request that waited does nothing if another already finished.
+  - **Recorded only when nothing is left** (`lf_devfiles_version`). If something cannot be removed (permissions, an unreadable folder), the version stays unrecorded and the lease is kept, so the retry comes every five minutes, not on every request; one line a day goes to the PHP error log with the number of files left and the advice to delete them by FTP.
+  - **Hourly check** through WP-Cron (`langgam_fikir_devfiles_hourly`), because an upload can put `.git` back at any time. It does nothing when the folder has no development entries; otherwise it forgets the recorded version and runs the same clean-up under the same lease. Scheduled on `init`, cleared on `switch_theme`, never scheduled on a site that keeps its files.
+  - **Kept as they are:** local and development sites (`wp_get_environment_type()`), and any site that defines `LANGGAM_FIKIR_KEEP_DOTFILES` as `true`.
+- **`.htaccess` in the theme folder**, in force until the first clean-up has run: refuses the hidden files and the `tools`, `tests`, `bin` and `docs` folders (`mod_alias` `RedirectMatch 403`, with a `mod_rewrite` fallback). `.well-known` stays reachable. It is kept by the clean-up.
+- **`tools/test-dev-files.php`**: a self-test for the clean-up (`php tools/test-dev-files.php`). The clean-up removes `tools/` from live sites.
+
 ## [2.16.0] - 2026-11-22
 
 Print and PDF, Google preferred sources, and every icon in the social icon pack usable as a profile.

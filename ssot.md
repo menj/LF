@@ -133,6 +133,7 @@ LF/
 │   ├── book-fields.php                Book field schema (editor box, saving, page rows, Schema.org extras), archive sort, admin columns
 │   ├── social.php                     Profile icons, share bar and networks (from langgam_fikir_social_catalog() in options-schema.php); inlines assets/icons/*.svg
 │   ├── print.php                      Print stylesheet set-up (@page), Print button, paper-only header and footer
+│   ├── dev-files.php                  Removes development files uploaded by FTP (.git, hidden files, tools/, tests/): lease, version record, hourly cron
 │   ├── pdf.php                        Server PDFs with headless Chrome: detection, making, caching, download, admin status
 │   ├── preferred-sources.php          Google preferred sources button (card, footer, shortcode), eligibility, privacy text
 │   ├── design.php                     Body classes for palette/corners/fonts/parallax, custom-colour CSS, hero photo
@@ -167,6 +168,8 @@ LF/
 │   ├── images/hero/                   Bundled hero photographs (Pexels), 1920 and 960 px
 │   └── fonts/                         Self-hosted WOFF2
 ├── languages/                         .pot / .po / .mo
+├── .htaccess                          Refuses hidden files and tools, tests, bin, docs until the clean-up has run
+├── tools/                             Development only (self-tests); deleted from live sites by inc/dev-files.php
 ├── readme.txt
 ├── README.md
 ├── UPGRADING.md
@@ -347,6 +350,16 @@ Not a plugin: Google's preferred-sources library, used the "advanced, custom des
 - **Look:** design tokens only (`--color-primary`, `--color-accent`, `--color-bg-*`, `--font-*`, `--radius-*`). The one exception is Google's "G" mark: an inline SVG in Google's own colours, on a white disc (`.lf-gps__mark`) on the filled button. Don't recolour it. Hover keeps the text colour so contrast stays at least 4.5:1 in every palette.
 - **Options:** `gps_enabled` (off by default), `gps_on_posts`, `gps_on_books`, `gps_on_footer`, `gps_heading` (`{site}` placeholder), `gps_text`, `gps_label`, `gps_script` (`near` | `link`).
 
+### 7.7 Development files clean-up (2.17.0)
+
+`inc/dev-files.php` deletes what an FTP upload from a working copy leaves in the theme folder: hidden entries at the top (not `.htaccess`, `.user.ini`, `.well-known`) and `tools/` and `tests/`. Rules:
+- **When:** on `init` for the first request after `LANGGAM_FIKIR_VERSION` differs from the option `lf_devfiles_version`, and hourly through the WP-Cron event `langgam_fikir_devfiles_hourly` (a host with `DISABLE_WP_CRON` needs a server cron on `wp-cron.php`). The hourly callback does nothing when `langgam_fikir_devfiles_list()` is empty; otherwise it deletes the recorded version and runs the same clean-up.
+- **Kept:** `wp_get_environment_type()` of `local` or `development`, or the constant `LANGGAM_FIKIR_KEEP_DOTFILES` set to true. The event is not scheduled there.
+- **One request at a time:** the lease is the option `lf_devfiles_lease` (`token|time`, autoload off). `add_option()` takes a free one; the running clean-up renews it at most once a minute; one older than five minutes is taken over with a single compare-and-set `UPDATE`; it is released with a single `DELETE ... AND option_value = <own value>`. Direct SQL is always followed by dropping the cached copy. A request that loses its lease stops.
+- **Recording:** the version is recorded only after the clean-up returns and `langgam_fikir_devfiles_list()` is empty. On failure the version stays unrecorded, the lease is renewed and kept (retry in five minutes), and `lf_devfiles_logged` limits the log line to one a day.
+- **Removal:** a symlink is removed itself (never followed); read-only files and folders are made writable first.
+- **Test:** `php tools/test-dev-files.php`. Add a development folder name to `langgam_fikir_devfiles_list()` and to the `.htaccess` together.
+
 ---
 
 ## 8. Documentation Conventions
@@ -407,7 +420,7 @@ When in doubt, defer to MENJ. Brand decisions, scope decisions, and "is this in 
 
 | Field | Value |
 |---|---|
-| Latest released version | **2.16.0** |
+| Latest released version | **2.17.0** |
 | Active development phase | Phase 4 (Admin Power Features) — next |
 | In-progress phase | Phase 5 (Frontend Polish) — 3 of 8 items delivered |
 | SEO/AEO audit score | **92/100** (last assessed at v2.6.0) |
