@@ -33,7 +33,7 @@
  * defines LANGGAM_FIKIR_KEEP_DOTFILES as true.
  *
  * Until the first clean-up has run, the theme's .htaccess refuses the hidden files and the
- * tools, tests, bin and docs folders.
+ * tools, tests, bin, docs and server folders.
  *
  * @package Langgam_Fikir
  * @since 2.17.0
@@ -162,7 +162,7 @@ function langgam_fikir_devfiles_lease_value( $now ) {
  */
 function langgam_fikir_devfiles_lease_age( $value, $now ) {
     $parts = explode( '|', (string) $value );
-    if ( 2 !== count( $parts ) || ! ctype_digit( $parts[1] ) ) {
+    if ( 2 !== count( $parts ) || ! preg_match( '/^\d+$/', $parts[1] ) ) {
         return PHP_INT_MAX;
     }
     return $now - (int) $parts[1];
@@ -292,7 +292,7 @@ function langgam_fikir_devfiles_remove( $path, array &$ctx ) {
     }
 
     if ( is_dir( $path ) ) {
-        if ( ! is_readable( $path ) || ! is_writable( $path ) ) {
+        if ( ! is_readable( $path ) || ! is_writable( $path ) || ! is_executable( $path ) ) {
             @chmod( $path, 0755 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors, WordPress.WP.AlternativeFunctions
         }
         $names = @scandir( $path ); // phpcs:ignore WordPress.PHP.NoSilencedErrors

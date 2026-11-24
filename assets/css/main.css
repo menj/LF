@@ -734,13 +734,27 @@ p {
 }
 
 .book-subtitle {
-    font-family: var(--font-primary);
-    font-size: 0.9rem;
-    font-style: italic;
-    color: var(--color-text-light);
+    font-family: var(--font-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
-    line-height: 1.4;
-    opacity: 0.85;
+    line-height: 1.6;
+    text-wrap: balance;
+}
+
+/* A bold accent rule above the subtitle, like the one above the section headings. */
+.book-subtitle::before {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 3px;
+    margin-bottom: 0.6rem;
+    border-radius: 2px;
+    background-color: var(--color-accent);
 }
 
 .book-meta {
@@ -1396,12 +1410,26 @@ p {
 }
 
 .book-subtitle-single {
-    font-family: var(--font-primary);
-    font-size: 1.15rem;
-    font-style: italic;
-    color: var(--color-text-light);
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
     margin-bottom: var(--spacing-lg);
-    line-height: 1.5;
+    line-height: 1.6;
+    text-wrap: balance;
+}
+
+.book-subtitle-single::before {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 3px;
+    margin-bottom: 0.8rem;
+    border-radius: 2px;
+    background-color: var(--color-accent);
 }
 
 .book-meta-card {

@@ -5,6 +5,15 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.17.1] - 2026-11-24
+
+### Changed
+- **Subtitles restyled** on book cards and book pages: a bold gold rule above, then the subtitle as a small semi-bold uppercase label in the theme's primary colour (Inter, letter-spaced, balanced line breaks). It follows the palette; the old 85% opacity is gone.
+
+### Fixed
+- **Book and article cards no longer get justified, hyphenated text.** In the narrow cards it left wide gaps between words and broke words ("ce-bisan", "dari-pada"). Card excerpts, subtitles and meta lines (`.book-card`, `.resource-card`, reviews and the Showcase) now always keep their start alignment, whatever the Text Justification settings (notably "Also justify any article text", which matched every card because cards are `<article>` elements).
+- **Publications carousel:** covers are smaller (60% of the card width, centred) instead of filling the card; the grey scrollbar under the row is hidden while the arrow buttons are showing. Touch, wheel and keyboard scrolling still work; without JavaScript the buttons stay hidden and the scrollbar stays.
+
 ## [2.17.0] - 2026-11-24
 
 Development files uploaded by FTP are removed from live sites.
@@ -15,7 +24,7 @@ Development files uploaded by FTP are removed from live sites.
   - **Recorded only when nothing is left** (`lf_devfiles_version`). If something cannot be removed (permissions, an unreadable folder), the version stays unrecorded and the lease is kept, so the retry comes every five minutes, not on every request; one line a day goes to the PHP error log with the number of files left and the advice to delete them by FTP.
   - **Hourly check** through WP-Cron (`langgam_fikir_devfiles_hourly`), because an upload can put `.git` back at any time. It does nothing when the folder has no development entries; otherwise it forgets the recorded version and runs the same clean-up under the same lease. Scheduled on `init`, cleared on `switch_theme`, never scheduled on a site that keeps its files.
   - **Kept as they are:** local and development sites (`wp_get_environment_type()`), and any site that defines `LANGGAM_FIKIR_KEEP_DOTFILES` as `true`.
-- **`.htaccess` in the theme folder**, in force until the first clean-up has run: refuses the hidden files and the `tools`, `tests`, `bin` and `docs` folders (`mod_alias` `RedirectMatch 403`, with a `mod_rewrite` fallback). `.well-known` stays reachable. It is kept by the clean-up.
+- **`.htaccess` in the theme folder**, in force until the first clean-up has run: refuses the hidden files and the `tools`, `tests`, `bin`, `docs` and `server` folders (`mod_alias` `RedirectMatch 403`, with a `mod_rewrite` fallback). `.well-known` stays reachable. It is kept by the clean-up.
 - **`tools/test-dev-files.php`**: a self-test for the clean-up (`php tools/test-dev-files.php`). The clean-up removes `tools/` from live sites.
 
 ## [2.16.0] - 2026-11-22

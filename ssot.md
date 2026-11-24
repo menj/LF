@@ -168,7 +168,8 @@ LF/
 │   ├── images/hero/                   Bundled hero photographs (Pexels), 1920 and 960 px
 │   └── fonts/                         Self-hosted WOFF2
 ├── languages/                         .pot / .po / .mo
-├── .htaccess                          Refuses hidden files and tools, tests, bin, docs until the clean-up has run
+├── .htaccess                          Refuses hidden files and tools, tests, bin, docs, server until the clean-up has run
+├── server/                            Server-level rule snippets to copy by hand (not theme code)
 ├── tools/                             Development only (self-tests); deleted from live sites by inc/dev-files.php
 ├── readme.txt
 ├── README.md
@@ -420,7 +421,7 @@ When in doubt, defer to MENJ. Brand decisions, scope decisions, and "is this in 
 
 | Field | Value |
 |---|---|
-| Latest released version | **2.17.0** |
+| Latest released version | **2.17.1** |
 | Active development phase | Phase 4 (Admin Power Features) — next |
 | In-progress phase | Phase 5 (Frontend Polish) — 3 of 8 items delivered |
 | SEO/AEO audit score | **92/100** (last assessed at v2.6.0) |

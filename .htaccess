@@ -1,13 +1,14 @@
 # Langgam Fikir: keep development files off the web.
 #
-# Until the theme's clean-up (inc/dev-files.php) has removed them, refuse the hidden files and
-# folders (.git, .gitignore ...; .well-known stays reachable) and the tools, tests, bin and docs
-# folders at the top of the theme. The patterns need the theme to sit in a "themes" folder, as
+# Refuse the hidden files and folders (.git, .gitignore ...; .well-known stays reachable) and the
+# tools, tests, bin, docs and server folders at the top of the theme. This covers the time before
+# the theme's clean-up (inc/dev-files.php) has removed them; the rules stay as a second line of
+# defence afterwards (the clean-up leaves bin, docs and server alone). The patterns need the theme to sit in a "themes" folder, as
 # WordPress themes do. Needs Apache or LiteSpeed; nginx ignores .htaccess, so deny these there.
 
 <IfModule mod_alias.c>
 RedirectMatch 403 (?i)^/(?:[^/]+/)*themes/[^/]+/(?:[^/]+/)*\.(?!well-known(?:/|$)|htaccess$|user\.ini$)
-RedirectMatch 403 (?i)^/(?:[^/]+/)*themes/[^/]+/(?:tools|tests|bin|docs)(?:/|$)
+RedirectMatch 403 (?i)^/(?:[^/]+/)*themes/[^/]+/(?:tools|tests|bin|docs|server)(?:/|$)
 </IfModule>
 
 # Without mod_alias, the same with mod_rewrite (matched from the theme folder).
@@ -15,6 +16,6 @@ RedirectMatch 403 (?i)^/(?:[^/]+/)*themes/[^/]+/(?:tools|tests|bin|docs)(?:/|$)
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule (?i)(^|/)\.(?!well-known(/|$)|htaccess$|user\.ini$) - [F,L]
-RewriteRule (?i)^(tools|tests|bin|docs)(/|$) - [F,L]
+RewriteRule (?i)^(tools|tests|bin|docs|server)(/|$) - [F,L]
 </IfModule>
 </IfModule>
