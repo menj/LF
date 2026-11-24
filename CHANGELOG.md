@@ -5,6 +5,12 @@ All notable changes to the Langgam Fikir WordPress theme will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.17.1] - 2026-11-24
+
+### Fixed
+- **Book and article cards no longer get justified, hyphenated text.** In the narrow cards it left wide gaps between words and broke words ("ce-bisan", "dari-pada"). Card excerpts, subtitles and meta lines (`.book-card`, `.resource-card`, reviews and the Showcase) now always keep their start alignment, whatever the Text Justification settings (notably "Also justify any article text", which matched every card because cards are `<article>` elements).
+- **Publications carousel:** covers are smaller (60% of the card width, centred) instead of filling the card; the grey scrollbar under the row is hidden while the arrow buttons are showing. Touch, wheel and keyboard scrolling still work; without JavaScript the buttons stay hidden and the scrollbar stays.
+
 ## [2.17.0] - 2026-11-24
 
 Development files uploaded by FTP are removed from live sites.

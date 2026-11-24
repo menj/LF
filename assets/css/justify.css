@@ -47,3 +47,14 @@ body.lf-justify-hyphens.lf-justify-fallback article :is(p, li):not(.has-text-ali
         hyphens: manual;
     }
 }
+
+/* Cards are narrow: justified, hyphenated text leaves wide gaps and breaks words ("ce-bisan").
+   Card excerpts, subtitles and meta lines always keep their start alignment, whichever
+   "Where" and "Also justify any article text" are chosen. */
+body :is(.book-card, .resource-card, .review-item, .lf-showcase) :is(p, li) {
+    text-align: start !important;
+    text-align-last: auto !important;
+    text-justify: auto !important;
+    -webkit-hyphens: manual !important;
+    hyphens: manual !important;
+}

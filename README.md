@@ -6,7 +6,7 @@ A child theme of WordPress Twenty Twenty-Five (2025 default theme) with custom b
 
 - **Theme Name:** Langgam Fikir
 - **Parent Theme:** Twenty Twenty-Five
-- **Version:** 2.17.0
+- **Version:** 2.17.1
 - **Author:** MENJ
 - **License:** GPL v2 or later
 - **Requires WordPress:** 6.7+
@@ -282,6 +282,11 @@ body {
 ```
 
 ## Version History / Changelog
+
+### Version 2.17.1 (November 2026) — Card text and carousel fixes
+
+- **FIXED:** Book and article cards keep left-aligned, unhyphenated text whatever the Text Justification settings
+- **FIXED:** Smaller covers in the Latest Publications carousel, and its scrollbar is hidden while the arrow buttons show
 
 ### Version 2.17.0 (November 2026) — Development files clean-up
 

@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.17.0
+Stable tag: 2.17.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -158,6 +158,10 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.17.1 (November 2026) =
+* FIXED: Book and article cards no longer get justified, hyphenated text (wide gaps and broken words in narrow cards), whatever the Text Justification settings
+* FIXED: Smaller book covers in the Latest Publications carousel, and its grey scrollbar is hidden while the arrow buttons show
 
 = 2.17.0 (November 2026) =
 * NEW: Development files clean-up: after an update the theme deletes the hidden files and folders (.git, .gitignore and the like) and the tools and tests folders that an FTP upload from a working copy leaves in its folder, one request at a time, and checks again every hour (needs WP-Cron). Local and development sites keep them; so does any site that defines LANGGAM_FIKIR_KEEP_DOTFILES as true

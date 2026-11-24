@@ -468,6 +468,39 @@ body.lf-tagline-heading .tagline {
     scroll-snap-align: start;
 }
 
+/* Smaller covers in the carousel: a book-sized thumbnail, centred, not a card-wide poster. */
+.books-grid--carousel .book-cover {
+    width: 60%;
+    margin-inline: auto;
+}
+
+/* On a small cover the badge is compact and sits at the bottom edge, and a placeholder shows only
+   its icon (the title is right below it). */
+.books-grid--carousel .book-cover .book-status {
+    top: auto;
+    right: auto;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.62rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.books-grid--carousel .book-cover .placeholder-title {
+    display: none;
+}
+
+/* With the arrow buttons showing, the grey scrollbar is redundant: hide it. Touch, wheel and
+   keyboard scrolling still work. Without JavaScript the buttons stay hidden and the bar stays. */
+.lf-carousel-controls:not([hidden]) ~ .books-grid--carousel {
+    scrollbar-width: none;
+}
+
+.lf-carousel-controls:not([hidden]) ~ .books-grid--carousel::-webkit-scrollbar {
+    display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .books-grid--carousel { scroll-behavior: auto; }
 }

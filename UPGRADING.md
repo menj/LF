@@ -118,7 +118,13 @@ For manual server access:
 
 ## Version-Specific Upgrade Notes
 
-### Upgrading to 2.17.0 (Latest) ✅
+### Upgrading to 2.17.1 (Latest) ✅
+
+**Status:** RELEASED — card text and carousel fixes.
+
+- Nothing to do. Cards keep left-aligned text whatever the Text Justification settings; carousel covers are smaller and the scrollbar is hidden while its arrow buttons show. Clear any page or CSS cache after updating.
+
+### Upgrading to 2.17.0 ✅
 
 **Status:** RELEASED — development files are removed from live sites.
 
