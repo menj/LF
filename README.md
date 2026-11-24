@@ -285,7 +285,7 @@ body {
 
 ### Version 2.17.1 (November 2026) — Card text and carousel fixes
 
-- **CHANGED:** Book subtitles restyled: accent rule, larger italic, balanced lines
+- **CHANGED:** Book subtitles restyled: bold accent rule, semi-bold uppercase label in the primary colour
 - **FIXED:** Book and article cards keep left-aligned, unhyphenated text whatever the Text Justification settings
 - **FIXED:** Smaller covers in the Latest Publications carousel, and its scrollbar is hidden while the arrow buttons show
 

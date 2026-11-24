@@ -160,7 +160,7 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 == Changelog ==
 
 = 2.17.1 (November 2026) =
-* NEW: Book subtitles restyled (accent rule, larger italic, balanced lines) on cards and book pages
+* NEW: Book subtitles restyled (bold accent rule, semi-bold uppercase label in the primary colour) on cards and book pages
 * FIXED: Book and article cards no longer get justified, hyphenated text (wide gaps and broken words in narrow cards), whatever the Text Justification settings
 * FIXED: Smaller book covers in the Latest Publications carousel, and its grey scrollbar is hidden while the arrow buttons show
 

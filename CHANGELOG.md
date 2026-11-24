@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.17.1] - 2026-11-24
 
 ### Changed
-- **Subtitles restyled** on book cards and book pages: a short accent rule above, a slightly larger italic with balanced line breaks, and full-strength text colour (the 85% opacity is gone, for better contrast).
+- **Subtitles restyled** on book cards and book pages: a bold gold rule above, then the subtitle as a small semi-bold uppercase label in the theme's primary colour (Inter, letter-spaced, balanced line breaks). It follows the palette; the old 85% opacity is gone.
 
 ### Fixed
 - **Book and article cards no longer get justified, hyphenated text.** In the narrow cards it left wide gaps between words and broke words ("ce-bisan", "dari-pada"). Card excerpts, subtitles and meta lines (`.book-card`, `.resource-card`, reviews and the Showcase) now always keep their start alignment, whatever the Text Justification settings (notably "Also justify any article text", which matched every card because cards are `<article>` elements).
