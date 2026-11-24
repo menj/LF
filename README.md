@@ -6,7 +6,7 @@ A child theme of WordPress Twenty Twenty-Five (2025 default theme) with custom b
 
 - **Theme Name:** Langgam Fikir
 - **Parent Theme:** Twenty Twenty-Five
-- **Version:** 2.16.0
+- **Version:** 2.17.0
 - **Author:** MENJ
 - **License:** GPL v2 or later
 - **Requires WordPress:** 6.7+
@@ -282,6 +282,12 @@ body {
 ```
 
 ## Version History / Changelog
+
+### Version 2.17.0 (November 2026) — Development files clean-up
+
+- **NEW:** Hidden files and folders (`.git`, `.gitignore`, ...) and the `tools/` and `tests/` folders that an FTP upload from a working copy leaves in the theme folder are deleted after an update, one request at a time, and checked again every hour through WP-Cron. Local and development sites, and sites that define `LANGGAM_FIKIR_KEEP_DOTFILES`, keep them
+- **NEW:** `.htaccess` in the theme folder refuses web access to hidden files and the `tools`, `tests`, `bin` and `docs` folders until the clean-up has run
+- **NEW:** `tools/test-dev-files.php`, a self-test for the clean-up
 
 ### Version 2.16.0 (November 2026) — Print & PDF
 

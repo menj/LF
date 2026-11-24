@@ -4,7 +4,7 @@ Tags: books, publishing, minimalist, clean, custom-colors, custom-menu, featured
 Requires at least: 6.7
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.16.0
+Stable tag: 2.17.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -158,6 +158,10 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 8. Admin - Book edit screen with metadata fields
 
 == Changelog ==
+
+= 2.17.0 (November 2026) =
+* NEW: Development files clean-up: after an update the theme deletes the hidden files and folders (.git, .gitignore and the like) and the tools and tests folders that an FTP upload from a working copy leaves in its folder, one request at a time, and checks again every hour (needs WP-Cron). Local and development sites keep them; so does any site that defines LANGGAM_FIKIR_KEEP_DOTFILES as true
+* NEW: A .htaccess in the theme folder refuses web access to hidden files and the tools, tests, bin and docs folders until the clean-up has run
 
 = 2.16.0 (November 2026) =
 * NEW: Print & PDF: a print stylesheet for every page (paper size, margins, text size, site name and logo, web address, date and citation at the end, link addresses), and a Print button on articles and books
@@ -498,6 +502,9 @@ Go to Appearance > Theme Options > Homepage. You can set the number of featured 
 * Typography and color system implementation
 
 == Upgrade Notice ==
+
+= 2.17.0 =
+The theme now deletes development files (.git, .gitignore, other hidden files, and the tools and tests folders) from its folder on the first request after updating, and checks hourly. Local and development sites (WP_ENVIRONMENT_TYPE) keep them; so does any site that defines LANGGAM_FIKIR_KEEP_DOTFILES as true. If WP-Cron is disabled, call wp-cron.php from a server cron at least hourly.
 
 = 2.16.0 =
 Adds Print & PDF (Theme Options > Print & PDF) and more social profiles, including library authority records. Nothing changes until you add profiles; Print buttons appear on articles and books.
